@@ -1,0 +1,2935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<title>Image Format Converter - Convert JPG, PNG, WebP, PDF, DOCX & Excel Online</title>
+
+<meta name="description"
+content="Free browser-based image format converter. Convert JPG, JPEG, PNG and WebP images to other image formats, PDF, DOCX and Excel. No signup, no upload to server and no installation required.">
+
+<meta name="keywords"
+content="image format converter, image converter, JPG converter, PNG converter, WebP converter, JPG to PNG, PNG to JPG, image to PDF, image to DOCX, image to Excel, online image converter, free image converter">
+
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<link rel="canonical"
+      href="https://YOUR-DOMAIN.netlify.app/image-format-converter.html">
+
+<meta property="og:type" content="website">
+<meta property="og:title"
+      content="Free Image Format Converter - JPG, PNG, WebP, PDF, DOCX & Excel">
+<meta property="og:description"
+      content="Convert images directly in your browser. No signup and no server upload.">
+<meta property="og:url"
+      content="https://YOUR-DOMAIN.netlify.app/image-format-converter.html">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title"
+      content="Free Image Format Converter">
+<meta name="twitter:description"
+      content="Convert JPG, PNG and WebP images to multiple formats directly in your browser.">
+
+<meta name="theme-color" content="#2563eb">
+
+<!-- Libraries -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/docx/8.5.0/docx.umd.min.js"></script>
+
+<script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+
+<style>
+
+:root{
+    --blue:#2563eb;
+    --blue-dark:#1d4ed8;
+    --green:#10b981;
+    --red:#ef4444;
+    --orange:#f59e0b;
+    --text:#111827;
+    --muted:#6b7280;
+    --border:#e5e7eb;
+    --bg:#f8fafc;
+    --card:#ffffff;
+    --radius:18px;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+    line-height:1.6;
+}
+
+button,
+input,
+select{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+.container{
+    width:min(1100px,calc(100% - 28px));
+    margin:auto;
+}
+
+/* HEADER */
+
+.header{
+    background:#fff;
+    border-bottom:1px solid var(--border);
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.header-inner{
+    min-height:64px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+}
+
+.logo{
+    text-decoration:none;
+    color:var(--text);
+    font-weight:800;
+    font-size:20px;
+}
+
+.logo span{
+    color:var(--blue);
+}
+
+.header-badge{
+    font-size:12px;
+    color:#047857;
+    background:#ecfdf5;
+    padding:6px 10px;
+    border-radius:999px;
+    font-weight:700;
+}
+
+/* HERO */
+
+.hero{
+    padding:42px 0 22px;
+    text-align:center;
+}
+
+.hero h1{
+    margin:0 auto 12px;
+    max-width:850px;
+    font-size:clamp(30px,5vw,50px);
+    line-height:1.12;
+    letter-spacing:-1.5px;
+}
+
+.hero h1 span{
+    color:var(--blue);
+}
+
+.hero p{
+    max-width:760px;
+    margin:auto;
+    color:var(--muted);
+    font-size:17px;
+}
+
+/* TOOL */
+
+.tool-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:24px;
+    padding:22px;
+    box-shadow:
+        0 10px 35px rgba(15,23,42,.06);
+}
+
+.upload-zone{
+    min-height:390px;
+    border:3px dashed #9ca3af;
+    border-radius:24px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:#f8fafc;
+    transition:.2s;
+    padding:25px;
+}
+
+.upload-zone.dragover{
+    border-color:var(--blue);
+    background:#eff6ff;
+    transform:scale(1.01);
+}
+
+.upload-icon{
+    width:115px;
+    height:115px;
+    margin:0 auto 20px;
+}
+
+.upload-icon svg{
+    width:100%;
+    height:100%;
+}
+
+.upload-title{
+    font-size:22px;
+    font-weight:700;
+    margin-bottom:6px;
+}
+
+.upload-subtitle{
+    color:var(--muted);
+    margin-bottom:20px;
+}
+
+.browse-btn{
+    border:0;
+    background:var(--blue);
+    color:#fff;
+    padding:13px 30px;
+    border-radius:999px;
+    font-weight:700;
+    box-shadow:0 6px 16px rgba(37,99,235,.25);
+}
+
+.browse-btn:hover{
+    background:var(--blue-dark);
+}
+
+.small-note{
+    margin-top:14px;
+    font-size:12px;
+    color:var(--muted);
+}
+
+/* SETTINGS */
+
+.settings{
+    display:none;
+    margin-top:20px;
+}
+
+.settings.active{
+    display:block;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:
+        repeat(2,minmax(0,1fr));
+    gap:15px;
+}
+
+.setting-box{
+    border:1px solid var(--border);
+    border-radius:15px;
+    padding:16px;
+    background:#fff;
+}
+
+.setting-box label{
+    display:block;
+    font-weight:700;
+    font-size:14px;
+    margin-bottom:8px;
+}
+
+select,
+input[type="number"],
+input[type="color"]{
+    width:100%;
+    border:1px solid #d1d5db;
+    border-radius:10px;
+    padding:11px;
+    background:#fff;
+}
+
+input[type="range"]{
+    width:100%;
+}
+
+/* FILE LIST */
+
+.file-list{
+    margin-top:20px;
+    display:grid;
+    gap:12px;
+}
+
+.file-item{
+    display:grid;
+    grid-template-columns:70px 1fr auto;
+    gap:14px;
+    align-items:center;
+    border:1px solid var(--border);
+    border-radius:15px;
+    padding:12px;
+    background:#fff;
+}
+
+.thumb{
+    width:70px;
+    height:70px;
+    border-radius:10px;
+    overflow:hidden;
+    background:#f3f4f6;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.thumb img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.file-name{
+    font-weight:700;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+
+.file-meta{
+    font-size:12px;
+    color:var(--muted);
+}
+
+.remove-btn{
+    width:38px;
+    height:38px;
+    border:0;
+    border-radius:10px;
+    background:#fef2f2;
+    color:#dc2626;
+    font-size:20px;
+}
+
+.convert-btn{
+    width:100%;
+    margin-top:18px;
+    border:0;
+    border-radius:13px;
+    padding:15px;
+    background:var(--blue);
+    color:white;
+    font-weight:800;
+    font-size:16px;
+}
+
+.convert-btn:disabled{
+    opacity:.5;
+    cursor:not-allowed;
+}
+
+/* RESULTS */
+
+.results{
+    display:none;
+    margin-top:22px;
+}
+
+.results.active{
+    display:block;
+}
+
+.results-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    margin-bottom:14px;
+}
+
+.results-header h2{
+    margin:0;
+    font-size:22px;
+}
+
+.download-all{
+    border:0;
+    background:#111827;
+    color:#fff;
+    padding:10px 14px;
+    border-radius:10px;
+    font-weight:700;
+}
+
+.result-card{
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:15px;
+    margin-bottom:12px;
+    background:#fff;
+}
+
+.result-top{
+    display:flex;
+    gap:14px;
+    align-items:center;
+}
+
+.result-preview{
+    width:90px;
+    height:90px;
+    border-radius:12px;
+    overflow:hidden;
+    background:#f3f4f6;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.result-preview img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.result-info{
+    flex:1;
+}
+
+.result-name{
+    font-weight:800;
+    word-break:break-word;
+}
+
+.result-meta{
+    color:var(--muted);
+    font-size:13px;
+}
+
+.result-download{
+    border:0;
+    background:var(--green);
+    color:#fff;
+    border-radius:10px;
+    padding:9px 14px;
+    font-weight:700;
+}
+
+/* SEO CONTENT */
+
+.content-section{
+    margin-top:45px;
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:22px;
+    padding:28px;
+}
+
+.content-section h2{
+    font-size:28px;
+    line-height:1.25;
+    margin-top:0;
+}
+
+.content-section h3{
+    margin-top:28px;
+    font-size:21px;
+}
+
+.content-section p{
+    color:#374151;
+}
+
+.content-section li{
+    margin:7px 0;
+}
+
+/* FAQ */
+
+.faq{
+    border-top:1px solid var(--border);
+}
+
+.faq details{
+    border-bottom:1px solid var(--border);
+    padding:16px 0;
+}
+
+.faq summary{
+    cursor:pointer;
+    font-weight:800;
+}
+
+/* FOOTER */
+
+footer{
+    margin-top:50px;
+    padding:30px 0;
+    text-align:center;
+    color:var(--muted);
+    font-size:14px;
+}
+
+/* STATUS */
+
+.status{
+    display:none;
+    margin-top:15px;
+    padding:12px;
+    border-radius:10px;
+    font-size:14px;
+}
+
+.status.show{
+    display:block;
+}
+
+.status.info{
+    background:#eff6ff;
+    color:#1d4ed8;
+}
+
+.status.error{
+    background:#fef2f2;
+    color:#b91c1c;
+}
+
+.status.success{
+    background:#ecfdf5;
+    color:#047857;
+}
+
+/* MOBILE */
+
+@media(max-width:650px){
+
+    .container{
+        width:min(100% - 18px,1100px);
+    }
+
+    .header-inner{
+        min-height:58px;
+    }
+
+    .hero{
+        padding:28px 0 15px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .tool-card{
+        padding:12px;
+        border-radius:18px;
+    }
+
+    .upload-zone{
+        min-height:390px;
+        border-radius:20px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .file-item{
+        grid-template-columns:58px 1fr auto;
+    }
+
+    .thumb{
+        width:58px;
+        height:58px;
+    }
+
+    .result-top{
+        flex-wrap:wrap;
+    }
+
+    .result-download{
+        width:100%;
+    }
+
+    .content-section{
+        padding:20px;
+        border-radius:18px;
+    }
+
+}
+
+</style>
+
+<!-- STRUCTURED DATA -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Image Format Converter",
+  "url":"https://YOUR-DOMAIN.netlify.app/image-format-converter.html",
+  "applicationCategory":"UtilitiesApplication",
+  "operatingSystem":"Any",
+  "browserRequirements":"Requires JavaScript and a modern web browser",
+  "description":"Browser-based image format converter for converting JPG, PNG and WebP images to multiple formats including PDF, DOCX and XLSX.",
+  "offers":{
+    "@type":"Offer",
+    "price":"0",
+    "priceCurrency":"USD"
+  },
+  "featureList":[
+    "JPG conversion",
+    "PNG conversion",
+    "WebP conversion",
+    "Image to PDF",
+    "Image to DOCX",
+    "Image to Excel",
+    "Multiple image conversion",
+    "Browser-based processing"
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"FAQPage",
+ "mainEntity":[
+  {
+   "@type":"Question",
+   "name":"Is this image converter free?",
+   "acceptedAnswer":{
+    "@type":"Answer",
+    "text":"Yes. The converter is designed to work directly in the browser without requiring a paid account."
+   }
+  },
+  {
+   "@type":"Question",
+   "name":"Are images uploaded to a server?",
+   "acceptedAnswer":{
+    "@type":"Answer",
+    "text":"Image processing is performed in the browser. The page does not require an image-processing server or user account."
+   }
+  },
+  {
+   "@type":"Question",
+   "name":"Can I convert JPG to PNG?",
+   "acceptedAnswer":{
+    "@type":"Answer",
+    "text":"Yes. JPG and JPEG images can be converted to PNG directly in the browser."
+   }
+  },
+  {
+   "@type":"Question",
+   "name":"Can I convert PNG to JPG?",
+   "acceptedAnswer":{
+    "@type":"Answer",
+    "text":"Yes. PNG images can be converted to JPG. A background color can be selected because JPG does not support transparency."
+   }
+  },
+  {
+   "@type":"Question",
+   "name":"Can I convert an image to PDF?",
+   "acceptedAnswer":{
+    "@type":"Answer",
+    "text":"Yes. The converter can create a PDF from one or multiple images."
+   }
+  },
+  {
+   "@type":"Question",
+   "name":"Can I convert an image to DOCX?",
+   "acceptedAnswer":{
+    "@type":"Answer",
+    "text":"Yes. The browser can generate a DOCX document containing the selected image."
+   }
+  }
+ ]
+}
+</script>
+
+</head>
+
+<body>
+
+<header class="header">
+<div class="container header-inner">
+
+<a class="logo" href="index.html">
+    Insta<span>Pic</span>
+</a>
+
+<div class="header-badge">
+    100% Browser Based
+</div>
+
+</div>
+</header>
+
+
+<main>
+
+<section class="hero">
+
+<div class="container">
+
+<h1>
+    Free <span>Image Format Converter</span>
+</h1>
+
+<p>
+    Convert JPG, JPEG, PNG and WebP images into other image formats,
+    PDF, DOCX and Excel directly in your browser.
+    No signup, no login and no image-processing server required.
+</p>
+
+</div>
+
+</section>
+
+
+<section class="container">
+
+<div class="tool-card">
+
+<!-- UPLOAD -->
+
+<div
+    class="upload-zone"
+    id="uploadZone"
+>
+
+<div>
+
+<div class="upload-icon">
+
+<svg viewBox="0 0 120 120"
+     xmlns="http://www.w3.org/2000/svg">
+
+<defs>
+
+<linearGradient
+    id="cloudGradient"
+    x1="0%"
+    y1="0%"
+    x2="100%"
+    y2="100%">
+
+<stop offset="0%" stop-color="#4ade80"/>
+<stop offset="100%" stop-color="#93c5fd"/>
+
+</linearGradient>
+
+</defs>
+
+<path
+d="M36 86h51c15 0 27-11 27-25
+0-13-10-24-23-25
+-5-18-21-30-39-30
+-20 0-36 15-39 34
+C7 42 0 51 0 63
+0 76 11 86 24 86z"
+fill="url(#cloudGradient)"
+stroke="#374151"
+stroke-width="2"/>
+
+<path
+d="M60 75V42"
+stroke="#374151"
+stroke-width="3"
+stroke-linecap="round"/>
+
+<path
+d="M47 53l13-13 13 13"
+fill="none"
+stroke="#374151"
+stroke-width="3"
+stroke-linecap="round"
+stroke-linejoin="round"/>
+
+</svg>
+
+</div>
+
+<div class="upload-title">
+    Add Images
+</div>
+
+<div class="upload-subtitle">
+    Select one or multiple images
+</div>
+
+<button
+    type="button"
+    class="browse-btn"
+    id="browseBtn">
+    Browse
+</button>
+
+<div class="small-note">
+    or drag a photo here
+</div>
+
+<input
+    id="fileInput"
+    type="file"
+    accept="image/jpeg,image/png,image/webp,image/*"
+    multiple
+    hidden>
+
+</div>
+
+</div>
+
+
+<!-- SETTINGS -->
+
+<div
+    class="settings"
+    id="settings">
+
+<div class="grid">
+
+<div class="setting-box">
+
+<label for="outputFormat">
+    Convert To
+</label>
+
+<select id="outputFormat">
+
+<option value="jpg">JPG / JPEG</option>
+<option value="png">PNG</option>
+<option value="webp">WebP</option>
+<option value="pdf">PDF</option>
+<option value="docx">DOCX</option>
+<option value="xlsx">Excel XLSX</option>
+
+</select>
+
+</div>
+
+
+<div
+    class="setting-box"
+    id="qualityBox">
+
+<label>
+    Quality:
+    <strong id="qualityValue">90%</strong>
+</label>
+
+<input
+    type="range"
+    id="quality"
+    min="10"
+    max="100"
+    value="90">
+
+</div>
+
+
+<div
+    class="setting-box"
+    id="backgroundBox">
+
+<label for="backgroundColor">
+    JPG Background
+</label>
+
+<input
+    id="backgroundColor"
+    type="color"
+    value="#ffffff">
+
+</div>
+
+
+<div
+    class="setting-box"
+    id="pdfBox">
+
+<label for="pdfSize">
+    PDF Page Size
+</label>
+
+<select id="pdfSize">
+
+<option value="a4">A4</option>
+<option value="letter">Letter</option>
+<option value="original">Original Image Size</option>
+
+</select>
+
+</div>
+
+
+<div
+    class="setting-box"
+    id="orientationBox">
+
+<label for="orientation">
+    PDF Orientation
+</label>
+
+<select id="orientation">
+
+<option value="auto">Auto</option>
+<option value="portrait">Portrait</option>
+<option value="landscape">Landscape</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<button
+    class="convert-btn"
+    id="convertBtn">
+
+    Convert Images
+
+</button>
+
+</div>
+
+
+<div
+    class="status"
+    id="status">
+</div>
+
+
+<!-- FILE LIST -->
+
+<div
+    class="file-list"
+    id="fileList">
+</div>
+
+
+<!-- RESULTS -->
+
+<div
+    class="results"
+    id="results">
+
+<div class="results-header">
+
+<h2>
+    Conversion Results
+</h2>
+
+<button
+    class="download-all"
+    id="downloadAll">
+
+    Download All
+
+</button>
+
+</div>
+
+<div id="resultList"></div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SEO CONTENT -->
+
+<section class="container">
+
+<article class="content-section">
+
+<h2>
+    Free Online Image Format Converter
+</h2>
+
+<p>
+    An image format converter is a tool that changes an image from one
+    file format into another. Different image formats are useful for
+    different situations. JPG is commonly used for photographs and
+    smaller file sizes, PNG is useful when transparency and lossless
+    image quality are important, while WebP can provide efficient
+    image compression for websites and modern browsers.
+</p>
+
+<p>
+    This image converter is designed to make common image conversion
+    tasks easier. You can select one image or multiple images,
+    choose the required output format and generate the converted file
+    directly in your browser.
+</p>
+
+
+<h3>
+    JPG, JPEG, PNG and WebP Conversion
+</h3>
+
+<p>
+    The converter supports common web image formats including JPG,
+    JPEG, PNG and WebP. You can convert a JPG image to PNG, convert
+    PNG to JPG, convert WebP to JPG, or convert an image to WebP
+    depending on your requirements.
+</p>
+
+<p>
+    When converting an image with transparency to JPG, the transparent
+    area must be replaced with a solid background because JPEG does
+    not support transparency. You can select the background color
+    before conversion.
+</p>
+
+
+<h3>
+    Convert Image to PDF
+</h3>
+
+<p>
+    Images can also be converted into PDF documents. Select one or
+    multiple images, choose PDF as the output format and generate a
+    PDF file. The converter supports common paper sizes such as A4
+    and Letter, along with automatic orientation.
+</p>
+
+<p>
+    Image to PDF conversion can be useful for scanned documents,
+    photographs, assignments, receipts, forms and other images that
+    need to be collected into a portable document.
+</p>
+
+
+<h3>
+    Convert Image to DOCX
+</h3>
+
+<p>
+    DOCX is the standard Microsoft Word document format used by many
+    modern word-processing applications. This tool can create a DOCX
+    document containing your selected image.
+</p>
+
+<p>
+    This is useful when you need to place an image inside a Word
+    document without manually creating the document first.
+</p>
+
+
+<h3>
+    Image to Excel Converter
+</h3>
+
+<p>
+    Excel workbooks are primarily designed for structured tabular
+    data rather than image-format conversion. For this reason,
+    image-to-Excel conversion has an important limitation: an image
+    cannot automatically become meaningful spreadsheet cells unless
+    optical character recognition or another data-extraction process
+    is used.
+</p>
+
+<p>
+    The Excel option in this browser tool therefore creates an XLSX
+    workbook containing information about the selected image rather
+    than pretending that a photograph has been converted into
+    spreadsheet values. This keeps the conversion technically
+    accurate.
+</p>
+
+
+<h3>
+    Why Use a Browser-Based Image Converter?
+</h3>
+
+<ul>
+
+<li>
+    No desktop software installation is required.
+</li>
+
+<li>
+    Works on modern smartphones, tablets and computers.
+</li>
+
+<li>
+    Supports common image formats.
+</li>
+
+<li>
+    Multiple images can be selected at once.
+</li>
+
+<li>
+    Image processing can happen locally in the browser.
+</li>
+
+<li>
+    JPG quality can be adjusted before conversion.
+</li>
+
+<li>
+    PNG and WebP output can be generated from compatible browsers.
+</li>
+
+<li>
+    PDF documents can be generated directly from images.
+</li>
+
+</ul>
+
+
+<h3>
+    JPG vs PNG vs WebP
+</h3>
+
+<p>
+    JPG is generally suitable for photographs because it uses lossy
+    compression and can produce relatively small files. PNG uses
+    lossless compression and supports transparency, making it useful
+    for logos, screenshots and graphics. WebP is a modern image
+    format designed to provide efficient compression while supporting
+    features such as transparency.
+</p>
+
+<p>
+    The best format depends on what you are trying to do. For a
+    photographic image where file size matters, JPG or WebP can be
+    useful. For an image requiring transparency, PNG or WebP may be
+    more appropriate.
+</p>
+
+
+<h3>
+    How to Convert an Image
+</h3>
+
+<ol>
+
+<li>
+    Click the <strong>Browse</strong> button.
+</li>
+
+<li>
+    Select one or more image files.
+</li>
+
+<li>
+    Check the original file name, format, size and dimensions.
+</li>
+
+<li>
+    Select the required output format.
+</li>
+
+<li>
+    Adjust image quality if the selected format supports it.
+</li>
+
+<li>
+    Click <strong>Convert Images</strong>.
+</li>
+
+<li>
+    Download the generated file.
+</li>
+
+</ol>
+
+
+<h3>
+    Is This Image Converter Private?
+</h3>
+
+<p>
+    The image processing implemented by this page takes place in the
+    browser using JavaScript and browser APIs. The page does not
+    require an account for conversion. However, users should always
+    understand that the privacy of a web application also depends on
+    the hosting environment and the external libraries it loads.
+</p>
+
+<p>
+    For particularly sensitive files, using an entirely offline
+    version of a browser application is the safest approach.
+</p>
+
+
+<h3>
+    Supported Image Conversion Examples
+</h3>
+
+<ul>
+
+<li>JPG to PNG</li>
+<li>JPEG to PNG</li>
+<li>PNG to JPG</li>
+<li>PNG to WebP</li>
+<li>JPG to WebP</li>
+<li>WebP to JPG</li>
+<li>WebP to PNG</li>
+<li>Image to PDF</li>
+<li>Image to DOCX</li>
+<li>Image information to XLSX</li>
+
+</ul>
+
+
+<h3>
+    Frequently Asked Questions
+</h3>
+
+<div class="faq">
+
+<details>
+<summary>
+    Is this image format converter free?
+</summary>
+
+<p>
+Yes. The converter interface is designed to be used without
+creating a paid account.
+</p>
+
+</details>
+
+
+<details>
+<summary>
+    Does the converter require an account?
+</summary>
+
+<p>
+No. The tool does not require a user login or signup for conversion.
+</p>
+
+</details>
+
+
+<details>
+<summary>
+    Can I convert JPG to PNG?
+</summary>
+
+<p>
+Yes. JPG and JPEG images can be converted to PNG.
+</p>
+
+</details>
+
+
+<details>
+<summary>
+    Can I convert PNG to JPG?
+</summary>
+
+<p>
+Yes. PNG images can be converted to JPG. Because JPG does not
+support transparency, transparent areas use the selected background
+color.
+</p>
+
+</details>
+
+
+<details>
+<summary>
+    Can I convert an image to PDF?
+</summary>
+
+<p>
+Yes. You can create a PDF document from one or multiple selected
+images.
+</p>
+
+</details>
+
+
+<details>
+<summary>
+    Can I convert an image to Word DOCX?
+</summary>
+
+<p>
+Yes. The tool can generate a DOCX document containing the selected
+image.
+</p>
+
+</details>
+
+
+<details>
+<summary>
+    Can I convert an image directly into Excel data?
+</summary>
+
+<p>
+A normal image-to-Excel conversion cannot automatically turn
+photographs into meaningful spreadsheet cells. The Excel function
+therefore creates a workbook containing image information. True
+image-to-table conversion requires OCR or computer-vision processing.
+</p>
+
+</details>
+
+
+<details>
+<summary>
+    Does JPG support transparency?
+</summary>
+
+<p>
+No. JPEG does not support transparency. Transparent pixels must be
+replaced by a background color when creating a JPG.
+</p>
+
+</details>
+
+
+<details>
+<summary>
+    Which image format is best?
+</summary>
+
+<p>
+There is no single best format for every situation. JPG is useful
+for photographs, PNG is useful for lossless graphics and
+transparency, and WebP is useful for efficient modern web images.
+</p>
+
+</details>
+
+</div>
+
+</article>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div class="container">
+
+© <span id="year"></span> InstaPic —
+Free browser-based image conversion tools.
+
+</div>
+
+</footer>
+
+
+<script>
+
+"use strict";
+
+
+/* =========================================================
+   STATE
+========================================================= */
+
+const state = {
+    files: [],
+    results: []
+};
+
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const uploadZone =
+    document.getElementById("uploadZone");
+
+const browseBtn =
+    document.getElementById("browseBtn");
+
+const fileInput =
+    document.getElementById("fileInput");
+
+const fileList =
+    document.getElementById("fileList");
+
+const settings =
+    document.getElementById("settings");
+
+const outputFormat =
+    document.getElementById("outputFormat");
+
+const quality =
+    document.getElementById("quality");
+
+const qualityValue =
+    document.getElementById("qualityValue");
+
+const backgroundColor =
+    document.getElementById("backgroundColor");
+
+const pdfSize =
+    document.getElementById("pdfSize");
+
+const orientation =
+    document.getElementById("orientation");
+
+const qualityBox =
+    document.getElementById("qualityBox");
+
+const backgroundBox =
+    document.getElementById("backgroundBox");
+
+const pdfBox =
+    document.getElementById("pdfBox");
+
+const orientationBox =
+    document.getElementById("orientationBox");
+
+const convertBtn =
+    document.getElementById("convertBtn");
+
+const results =
+    document.getElementById("results");
+
+const resultList =
+    document.getElementById("resultList");
+
+const downloadAll =
+    document.getElementById("downloadAll");
+
+const statusBox =
+    document.getElementById("status");
+
+
+/* =========================================================
+   UTILITIES
+========================================================= */
+
+function formatBytes(bytes){
+
+    if(bytes === 0) return "0 Bytes";
+
+    const units = [
+        "Bytes",
+        "KB",
+        "MB",
+        "GB"
+    ];
+
+    const i =
+        Math.floor(
+            Math.log(bytes) /
+            Math.log(1024)
+        );
+
+    return (
+        bytes /
+        Math.pow(1024,i)
+    ).toFixed(i === 0 ? 0 : 2)
+    + " "
+    + units[i];
+
+}
+
+
+function extension(name){
+
+    const parts =
+        name.split(".");
+
+    return parts.length > 1
+        ? parts.pop().toUpperCase()
+        : "UNKNOWN";
+
+}
+
+
+function outputMime(format){
+
+    switch(format){
+
+        case "jpg":
+            return "image/jpeg";
+
+        case "png":
+            return "image/png";
+
+        case "webp":
+            return "image/webp";
+
+        default:
+            return "";
+    }
+
+}
+
+
+function setStatus(message,type="info"){
+
+    statusBox.textContent = message;
+
+    statusBox.className =
+        "status show " + type;
+
+}
+
+
+function sleep(ms){
+
+    return new Promise(
+        resolve => setTimeout(resolve,ms)
+    );
+
+}
+
+
+/* =========================================================
+   FILE READING
+========================================================= */
+
+function loadImage(file){
+
+    return new Promise(
+        (resolve,reject)=>{
+
+            const url =
+                URL.createObjectURL(file);
+
+            const img =
+                new Image();
+
+            img.onload = ()=>{
+
+                URL.revokeObjectURL(url);
+
+                resolve(img);
+
+            };
+
+            img.onerror = ()=>{
+
+                URL.revokeObjectURL(url);
+
+                reject(
+                    new Error(
+                        "Unable to read image."
+                    )
+                );
+
+            };
+
+            img.src = url;
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   ADD FILES
+========================================================= */
+
+function addFiles(files){
+
+    const incoming =
+        Array.from(files);
+
+    const valid =
+        incoming.filter(
+            file =>
+                file.type.startsWith("image/")
+        );
+
+    if(!valid.length){
+
+        setStatus(
+            "Please select a valid image file.",
+            "error"
+        );
+
+        return;
+    }
+
+    valid.forEach(file=>{
+
+        const duplicate =
+            state.files.some(
+                existing =>
+                    existing.name === file.name &&
+                    existing.size === file.size &&
+                    existing.lastModified === file.lastModified
+            );
+
+        if(!duplicate){
+
+            state.files.push(file);
+
+        }
+
+    });
+
+    renderFiles();
+
+    settings.classList.add("active");
+
+    updateSettingsVisibility();
+
+    setStatus(
+        `${state.files.length} image(s) ready.`,
+        "success"
+    );
+
+}
+
+
+function renderFiles(){
+
+    fileList.innerHTML = "";
+
+    state.files.forEach(
+        (file,index)=>{
+
+            const item =
+                document.createElement("div");
+
+            item.className =
+                "file-item";
+
+            const thumb =
+                document.createElement("div");
+
+            thumb.className =
+                "thumb";
+
+            const img =
+                document.createElement("img");
+
+            img.src =
+                URL.createObjectURL(file);
+
+            img.onload = ()=>{
+                URL.revokeObjectURL(img.src);
+            };
+
+            thumb.appendChild(img);
+
+
+            const info =
+                document.createElement("div");
+
+            info.innerHTML = `
+
+                <div class="file-name">
+                    ${escapeHTML(file.name)}
+                </div>
+
+                <div class="file-meta">
+                    ${formatBytes(file.size)}
+                    •
+                    ${extension(file.name)}
+                </div>
+
+            `;
+
+
+            const remove =
+                document.createElement("button");
+
+            remove.className =
+                "remove-btn";
+
+            remove.type =
+                "button";
+
+            remove.innerHTML =
+                "×";
+
+            remove.title =
+                "Remove image";
+
+            remove.onclick = ()=>{
+
+                state.files.splice(index,1);
+
+                renderFiles();
+
+                if(!state.files.length){
+
+                    settings.classList.remove("active");
+
+                }
+
+            };
+
+
+            item.appendChild(thumb);
+            item.appendChild(info);
+            item.appendChild(remove);
+
+            fileList.appendChild(item);
+
+        }
+    );
+
+}
+
+
+function escapeHTML(value){
+
+    return String(value)
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+
+}
+
+
+/* =========================================================
+   SETTINGS UI
+========================================================= */
+
+function updateSettingsVisibility(){
+
+    const format =
+        outputFormat.value;
+
+    const imageFormat =
+        ["jpg","png","webp"].includes(format);
+
+    qualityBox.style.display =
+        imageFormat
+        ? "block"
+        : "none";
+
+    backgroundBox.style.display =
+        format === "jpg"
+        ? "block"
+        : "none";
+
+    pdfBox.style.display =
+        format === "pdf"
+        ? "block"
+        : "none";
+
+    orientationBox.style.display =
+        format === "pdf"
+        ? "block"
+        : "none";
+
+}
+
+
+quality.addEventListener(
+    "input",
+    ()=>{
+        qualityValue.textContent =
+            quality.value + "%";
+    }
+);
+
+
+outputFormat.addEventListener(
+    "change",
+    updateSettingsVisibility
+);
+
+
+/* =========================================================
+   IMAGE -> CANVAS
+========================================================= */
+
+async function imageToCanvas(file){
+
+    const img =
+        await loadImage(file);
+
+    const canvas =
+        document.createElement("canvas");
+
+    canvas.width =
+        img.naturalWidth;
+
+    canvas.height =
+        img.naturalHeight;
+
+    const ctx =
+        canvas.getContext("2d");
+
+    ctx.drawImage(
+        img,
+        0,
+        0
+    );
+
+    return {
+        canvas,
+        width:img.naturalWidth,
+        height:img.naturalHeight
+    };
+
+}
+
+
+/* =========================================================
+   IMAGE CONVERSION
+========================================================= */
+
+async function convertImage(file,format){
+
+    const {
+        canvas,
+        width,
+        height
+    } = await imageToCanvas(file);
+
+
+    if(format === "jpg"){
+
+        const jpgCanvas =
+            document.createElement("canvas");
+
+        jpgCanvas.width =
+            width;
+
+        jpgCanvas.height =
+            height;
+
+        const ctx =
+            jpgCanvas.getContext("2d");
+
+        ctx.fillStyle =
+            backgroundColor.value;
+
+        ctx.fillRect(
+            0,
+            0,
+            width,
+            height
+        );
+
+        ctx.drawImage(
+            canvas,
+            0,
+            0
+        );
+
+        return canvasToBlob(
+            jpgCanvas,
+            "image/jpeg",
+            Number(quality.value)/100
+        );
+
+    }
+
+
+    if(format === "png"){
+
+        return canvasToBlob(
+            canvas,
+            "image/png"
+        );
+
+    }
+
+
+    if(format === "webp"){
+
+        return canvasToBlob(
+            canvas,
+            "image/webp",
+            Number(quality.value)/100
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   CANVAS BLOB
+========================================================= */
+
+function canvasToBlob(
+    canvas,
+    type,
+    qualityValue
+){
+
+    return new Promise(
+        (resolve,reject)=>{
+
+            canvas.toBlob(
+                blob=>{
+
+                    if(!blob){
+
+                        reject(
+                            new Error(
+                                "Browser could not create output."
+                            )
+                        );
+
+                        return;
+                    }
+
+                    resolve(blob);
+
+                },
+                type,
+                qualityValue
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   IMAGE -> PDF
+========================================================= */
+
+async function imagesToPDF(files){
+
+    if(!window.jspdf){
+
+        throw new Error(
+            "PDF library could not be loaded."
+        );
+
+    }
+
+    const {
+        jsPDF
+    } = window.jspdf;
+
+    let pdf;
+
+
+    for(let i=0;i<files.length;i++){
+
+        const file =
+            files[i];
+
+        const {
+            canvas,
+            width,
+            height
+        } =
+            await imageToCanvas(file);
+
+
+        let pageWidth;
+        let pageHeight;
+
+
+        if(pdfSize.value === "a4"){
+
+            pageWidth = 210;
+            pageHeight = 297;
+
+        }
+        else if(pdfSize.value === "letter"){
+
+            pageWidth = 215.9;
+            pageHeight = 279.4;
+
+        }
+        else{
+
+            pageWidth =
+                width * 0.264583;
+
+            pageHeight =
+                height * 0.264583;
+
+        }
+
+
+        let orientationValue =
+            orientation.value;
+
+        if(
+            orientationValue === "auto"
+        ){
+
+            orientationValue =
+                width >= height
+                ? "landscape"
+                : "portrait";
+
+        }
+
+
+        if(
+            orientationValue === "landscape" &&
+            pageWidth < pageHeight
+        ){
+
+            [
+                pageWidth,
+                pageHeight
+            ] =
+            [
+                pageHeight,
+                pageWidth
+            ];
+
+        }
+
+
+        if(
+            orientationValue === "portrait" &&
+            pageWidth > pageHeight
+        ){
+
+            [
+                pageWidth,
+                pageHeight
+            ] =
+            [
+                pageHeight,
+                pageWidth
+            ];
+
+        }
+
+
+        if(!pdf){
+
+            pdf =
+                new jsPDF({
+                    orientation:
+                        orientationValue,
+                    unit:"mm",
+                    format:
+                        pdfSize.value === "original"
+                        ? [
+                            pageWidth,
+                            pageHeight
+                          ]
+                        : [
+                            pageWidth,
+                            pageHeight
+                          ]
+                });
+
+        }
+        else{
+
+            pdf.addPage(
+                [
+                    pageWidth,
+                    pageHeight
+                ],
+                orientationValue
+            );
+
+        }
+
+
+        const margin =
+            pdfSize.value === "original"
+            ? 0
+            : 8;
+
+
+        const usableWidth =
+            pageWidth - margin*2;
+
+        const usableHeight =
+            pageHeight - margin*2;
+
+
+        const ratio =
+            Math.min(
+                usableWidth / width,
+                usableHeight / height
+            );
+
+
+        const renderWidth =
+            width * ratio;
+
+        const renderHeight =
+            height * ratio;
+
+
+        const x =
+            (pageWidth-renderWidth)/2;
+
+        const y =
+            (pageHeight-renderHeight)/2;
+
+
+        let imageType =
+            "JPEG";
+
+        let imageData;
+
+
+        if(file.type === "image/png"){
+
+            imageType =
+                "PNG";
+
+        }
+
+
+        imageData =
+            await blobToDataURL(
+                await canvasToBlob(
+                    canvas,
+                    imageType === "PNG"
+                    ? "image/png"
+                    : "image/jpeg",
+                    .95
+                )
+            );
+
+
+        pdf.addImage(
+            imageData,
+            imageType,
+            x,
+            y,
+            renderWidth,
+            renderHeight
+        );
+
+    }
+
+
+    return pdf.output(
+        "blob"
+    );
+
+}
+
+
+/* =========================================================
+   IMAGE -> DOCX
+========================================================= */
+
+async function imageToDOCX(file){
+
+    if(!window.docx){
+
+        throw new Error(
+            "DOCX library could not be loaded."
+        );
+
+    }
+
+    const {
+        Document,
+        Packer,
+        Paragraph,
+        ImageRun
+    } = window.docx;
+
+
+    const {
+        canvas
+    } =
+        await imageToCanvas(file);
+
+
+    const blob =
+        await canvasToBlob(
+            canvas,
+            "image/png"
+        );
+
+
+    const arrayBuffer =
+        await blob.arrayBuffer();
+
+
+    const imageRun =
+        new ImageRun({
+
+            data:arrayBuffer,
+
+            transformation:{
+                width:600,
+                height:Math.round(
+                    600 *
+                    canvas.height /
+                    canvas.width
+                )
+            }
+
+        });
+
+
+    const document =
+        new Document({
+
+            sections:[{
+
+                properties:{},
+
+                children:[
+
+                    new Paragraph({
+                        children:[
+                            imageRun
+                        ]
+                    })
+
+                ]
+
+            }]
+
+        });
+
+
+    return Packer.toBlob(
+        document
+    );
+
+}
+
+
+/* =========================================================
+   IMAGE -> XLSX
+========================================================= */
+
+async function imageToXLSX(file){
+
+    if(!window.XLSX){
+
+        throw new Error(
+            "Excel library could not be loaded."
+        );
+
+    }
+
+
+    const {
+        canvas,
+        width,
+        height
+    } =
+        await imageToCanvas(file);
+
+
+    const data = [
+
+        [
+            "Image Information",
+            ""
+        ],
+
+        [
+            "File Name",
+            file.name
+        ],
+
+        [
+            "Original Format",
+            file.type || extension(file.name)
+        ],
+
+        [
+            "Original Size",
+            formatBytes(file.size)
+        ],
+
+        [
+            "Width",
+            width
+        ],
+
+        [
+            "Height",
+            height
+        ],
+
+        [
+            "Dimensions",
+            `${width} × ${height}px`
+        ],
+
+        [
+            "Created By",
+            "InstaPic Image Format Converter"
+        ],
+
+        [
+            "Processing",
+            "Browser based"
+        ]
+
+    ];
+
+
+    const worksheet =
+        XLSX.utils.aoa_to_sheet(data);
+
+
+    worksheet["!cols"] = [
+        {wch:25},
+        {wch:55}
+    ];
+
+
+    const workbook =
+        XLSX.utils.book_new();
+
+
+    XLSX.utils.book_append_sheet(
+        workbook,
+        worksheet,
+        "Image Info"
+    );
+
+
+    return XLSX.write(
+        workbook,
+        {
+            bookType:"xlsx",
+            type:"array"
+        }
+    );
+
+}
+
+
+/* =========================================================
+   BLOB -> DATA URL
+========================================================= */
+
+function blobToDataURL(blob){
+
+    return new Promise(
+        (resolve,reject)=>{
+
+            const reader =
+                new FileReader();
+
+            reader.onload =
+                ()=>resolve(
+                    reader.result
+                );
+
+            reader.onerror =
+                reject;
+
+            reader.readAsDataURL(
+                blob
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   CONVERT
+========================================================= */
+
+async function performConversion(){
+
+    if(!state.files.length){
+
+        setStatus(
+            "Please select at least one image.",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    const format =
+        outputFormat.value;
+
+
+    convertBtn.disabled =
+        true;
+
+    results.classList.remove(
+        "active"
+    );
+
+    resultList.innerHTML = "";
+
+    state.results = [];
+
+
+    try{
+
+        setStatus(
+            "Converting images…",
+            "info"
+        );
+
+
+        if(format === "pdf"){
+
+            const blob =
+                await imagesToPDF(
+                    state.files
+                );
+
+
+            state.results.push({
+
+                blob,
+
+                name:
+                    `converted-images-${Date.now()}.pdf`,
+
+                type:
+                    "application/pdf",
+
+                preview:
+                    null
+
+            });
+
+        }
+
+
+        else if(format === "docx"){
+
+            for(
+                let i=0;
+                i<state.files.length;
+                i++
+            ){
+
+                const file =
+                    state.files[i];
+
+                const blob =
+                    await imageToDOCX(
+                        file
+                    );
+
+
+                state.results.push({
+
+                    blob,
+
+                    name:
+                        removeExtension(
+                            file.name
+                        ) + ".docx",
+
+                    type:
+                        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+
+                    preview:
+                        URL.createObjectURL(
+                            file
+                        )
+
+                });
+
+            }
+
+        }
+
+
+        else if(format === "xlsx"){
+
+            for(
+                let i=0;
+                i<state.files.length;
+                i++
+            ){
+
+                const file =
+                    state.files[i];
+
+                const data =
+                    await imageToXLSX(
+                        file
+                    );
+
+
+                const blob =
+                    new Blob(
+                        [data],
+                        {
+                            type:
+                            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                        }
+                    );
+
+
+                state.results.push({
+
+                    blob,
+
+                    name:
+                        removeExtension(
+                            file.name
+                        ) + ".xlsx",
+
+                    type:
+                        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+
+                    preview:
+                        URL.createObjectURL(
+                            file
+                        )
+
+                });
+
+            }
+
+        }
+
+
+        else{
+
+            for(
+                let i=0;
+                i<state.files.length;
+                i++
+            ){
+
+                const file =
+                    state.files[i];
+
+                const blob =
+                    await convertImage(
+                        file,
+                        format
+                    );
+
+
+                const extensionValue =
+                    format === "jpg"
+                    ? "jpg"
+                    : format;
+
+
+                state.results.push({
+
+                    blob,
+
+                    name:
+                        removeExtension(
+                            file.name
+                        ) +
+                        "." +
+                        extensionValue,
+
+                    type:
+                        outputMime(
+                            format
+                        ),
+
+                    preview:
+                        URL.createObjectURL(
+                            blob
+                        )
+
+                });
+
+            }
+
+        }
+
+
+        renderResults();
+
+
+        results.classList.add(
+            "active"
+        );
+
+
+        setStatus(
+            "Conversion completed successfully.",
+            "success"
+        );
+
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        setStatus(
+            error.message ||
+            "Conversion failed. Please try again.",
+            "error"
+        );
+
+    }
+    finally{
+
+        convertBtn.disabled =
+            false;
+
+    }
+
+}
+
+
+/* =========================================================
+   RESULT UI
+========================================================= */
+
+function renderResults(){
+
+    resultList.innerHTML = "";
+
+
+    state.results.forEach(
+        (result,index)=>{
+
+            const card =
+                document.createElement("div");
+
+            card.className =
+                "result-card";
+
+
+            const top =
+                document.createElement("div");
+
+            top.className =
+                "result-top";
+
+
+            const preview =
+                document.createElement("div");
+
+            preview.className =
+                "result-preview";
+
+
+            if(result.preview){
+
+                const img =
+                    document.createElement("img");
+
+                img.src =
+                    result.preview;
+
+                preview.appendChild(
+                    img
+                );
+
+            }
+            else{
+
+                preview.innerHTML = `
+                    <span style="
+                        font-size:28px;
+                        font-weight:800;
+                        color:#2563eb;">
+                        PDF
+                    </span>
+                `;
+
+            }
+
+
+            const info =
+                document.createElement("div");
+
+            info.className =
+                "result-info";
+
+
+            const size =
+                result.blob instanceof Blob
+                ? result.blob.size
+                : result.blob.byteLength;
+
+
+            info.innerHTML = `
+
+                <div class="result-name">
+                    ${escapeHTML(result.name)}
+                </div>
+
+                <div class="result-meta">
+                    ${formatBytes(size)}
+                </div>
+
+                <div class="result-meta">
+                    ${escapeHTML(result.type || "")}
+                </div>
+
+            `;
+
+
+            const button =
+                document.createElement("button");
+
+            button.className =
+                "result-download";
+
+            button.textContent =
+                "Download";
+
+
+            button.onclick =
+                ()=>{
+                    downloadResult(
+                        result
+                    );
+                };
+
+
+            top.appendChild(
+                preview
+            );
+
+            top.appendChild(
+                info
+            );
+
+            top.appendChild(
+                button
+            );
+
+            card.appendChild(
+                top
+            );
+
+            resultList.appendChild(
+                card
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   DOWNLOAD
+========================================================= */
+
+function downloadResult(result){
+
+    const url =
+        URL.createObjectURL(
+            result.blob instanceof Blob
+            ? result.blob
+            : new Blob([result.blob])
+        );
+
+
+    const link =
+        document.createElement("a");
+
+    link.href =
+        url;
+
+    link.download =
+        result.name;
+
+    link.style.display =
+        "none";
+
+    document.body.appendChild(
+        link
+    );
+
+    link.click();
+
+    link.remove();
+
+
+    setTimeout(
+        ()=>{
+            URL.revokeObjectURL(
+                url
+            );
+        },
+        3000
+    );
+
+}
+
+
+async function downloadAllResults(){
+
+    if(!state.results.length){
+
+        return;
+
+    }
+
+
+    /*
+      Sequential downloads are intentionally used.
+      Browsers may block large batches of automatic downloads.
+    */
+
+    for(
+        const result of state.results
+    ){
+
+        downloadResult(
+            result
+        );
+
+        await sleep(500);
+
+    }
+
+}
+
+
+/* =========================================================
+   HELPERS
+========================================================= */
+
+function removeExtension(name){
+
+    return name.replace(
+        /\.[^/.]+$/,
+        ""
+    );
+
+}
+
+
+/* =========================================================
+   EVENTS
+========================================================= */
+
+browseBtn.addEventListener(
+    "click",
+    ()=>{
+        fileInput.click();
+    }
+);
+
+
+fileInput.addEventListener(
+    "change",
+    ()=>{
+        addFiles(
+            fileInput.files
+        );
+
+        /*
+          Reset input so selecting the
+          same file again still triggers change.
+        */
+
+        fileInput.value = "";
+    }
+);
+
+
+uploadZone.addEventListener(
+    "dragover",
+    event=>{
+
+        event.preventDefault();
+
+        uploadZone.classList.add(
+            "dragover"
+        );
+
+    }
+);
+
+
+uploadZone.addEventListener(
+    "dragleave",
+    ()=>{
+        uploadZone.classList.remove(
+            "dragover"
+        );
+    }
+);
+
+
+uploadZone.addEventListener(
+    "drop",
+    event=>{
+
+        event.preventDefault();
+
+        uploadZone.classList.remove(
+            "dragover"
+        );
+
+        addFiles(
+            event.dataTransfer.files
+        );
+
+    }
+);
+
+
+convertBtn.addEventListener(
+    "click",
+    performConversion
+);
+
+
+downloadAll.addEventListener(
+    "click",
+    downloadAllResults
+);
+
+
+/* =========================================================
+   YEAR
+========================================================= */
+
+document.getElementById(
+    "year"
+).textContent =
+    new Date().getFullYear();
+
+
+/* =========================================================
+   INITIAL STATE
+========================================================= */
+
+updateSettingsVisibility();
+
+</script>
+
+</body>
+</html>
