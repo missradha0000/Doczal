@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RK Tools – All-in-One Utility Suite</title>
+    <!-- Font Awesome 6 (Free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Font: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f4f7fc;
+            color: #1e293b;
+            padding: 0 20px 60px;
+        }
+
+        /* ===== HEADER ===== */
+        .app-header {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 28px 0 18px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(145deg, #2563eb, #1e40af);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 24px;
+            font-weight: 800;
+            box-shadow: 0 6px 14px rgba(37, 99, 235, 0.3);
+        }
+
+        .logo-text {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(145deg, #1e293b, #334155);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo-text span {
+            background: linear-gradient(145deg, #2563eb, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header-tagline {
+            font-size: 14px;
+            font-weight: 500;
+            color: #64748b;
+            background: #e9eef4;
+            padding: 6px 18px;
+            border-radius: 40px;
+            letter-spacing: 0.2px;
+        }
+
+        .header-tagline i {
+            margin-right: 6px;
+            color: #2563eb;
+        }
+
+        /* ===== SEARCH ===== */
+        .search-wrap {
+            max-width: 1400px;
+            margin: 24px auto 20px;
+        }
+
+        .search-box {
+            position: relative;
+            max-width: 520px;
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #94a3b8;
+            font-size: 16px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 14px 20px 14px 48px;
+            border: 2px solid #e2e8f0;
+            border-radius: 60px;
+            font-size: 15px;
+            font-weight: 500;
+            background: #ffffff;
+            transition: 0.25s;
+            outline: none;
+            font-family: 'Inter', sans-serif;
+            color: #0f172a;
+        }
+
+        .search-box input:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+        }
+
+        .search-box input::placeholder {
+            color: #94a3b8;
+            font-weight: 400;
+        }
+
+        .search-stats {
+            margin-top: 12px;
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        .search-stats strong {
+            color: #0f172a;
+            font-weight: 700;
+        }
+
+        /* ===== CATEGORY GRID ===== */
+        .categories-grid {
+            max-width: 1400px;
+            margin: 28px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .category-section {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 28px 30px 34px;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(226, 232, 240, 0.6);
+            transition: 0.2s;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 22px;
+            flex-wrap: wrap;
+        }
+
+        .category-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #fff;
+            flex-shrink: 0;
+        }
+
+        .cat-pdf .category-icon {
+            background: linear-gradient(145deg, #dc2626, #b91c1c);
+        }
+        .cat-image .category-icon {
+            background: linear-gradient(145deg, #7c3aed, #6d28d9);
+        }
+        .cat-qr .category-icon {
+            background: linear-gradient(145deg, #059669, #047857);
+        }
+        .cat-text .category-icon {
+            background: linear-gradient(145deg, #d97706, #b45309);
+        }
+        .cat-web .category-icon {
+            background: linear-gradient(145deg, #0891b2, #0e7490);
+        }
+        .cat-calc .category-icon {
+            background: linear-gradient(145deg, #4f46e5, #4338ca);
+        }
+        .cat-convert .category-icon {
+            background: linear-gradient(145deg, #e11d48, #be123c);
+        }
+
+        .category-title {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            color: #0f172a;
+        }
+
+        .category-count {
+            font-size: 13px;
+            font-weight: 600;
+            color: #64748b;
+            background: #f1f5f9;
+            padding: 2px 14px;
+            border-radius: 30px;
+            margin-left: auto;
+        }
+
+        /* ===== TOOL CARDS ===== */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 14px;
+        }
+
+        .tool-card {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: #f8fafc;
+            padding: 14px 18px;
+            border-radius: 16px;
+            border: 1px solid transparent;
+            transition: 0.2s ease;
+            cursor: default;
+            text-decoration: none;
+            color: #1e293b;
+        }
+
+        .tool-card:hover {
+            background: #ffffff;
+            border-color: #dbeafe;
+            box-shadow: 0 6px 16px rgba(37, 99, 235, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .tool-card .tool-num {
+            font-size: 13px;
+            font-weight: 700;
+            color: #94a3b8;
+            background: #e9eef4;
+            width: 30px;
+            height: 30px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-feature-settings: "tnum";
+        }
+
+        .tool-card .tool-icon {
+            font-size: 18px;
+            color: #2563eb;
+            width: 32px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .tool-card .tool-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .tool-card .tool-name {
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.3;
+            color: #0f172a;
+        }
+
+        .tool-card .tool-desc {
+            font-size: 12px;
+            color: #64748b;
+            line-height: 1.3;
+            margin-top: 2px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .tool-card .tool-arrow {
+            color: #cbd5e1;
+            font-size: 12px;
+            transition: 0.2s;
+            flex-shrink: 0;
+        }
+
+        .tool-card:hover .tool-arrow {
+            color: #2563eb;
+            transform: translateX(3px);
+        }
+
+        /* ===== NO RESULTS ===== */
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 40px 20px;
+            color: #94a3b8;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        .no-results i {
+            font-size: 32px;
+            display: block;
+            margin-bottom: 12px;
+            color: #cbd5e1;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            body {
+                padding: 0 14px 40px;
+            }
+            .app-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+                padding: 20px 0 16px;
+            }
+            .header-tagline {
+                font-size: 12px;
+                padding: 4px 14px;
+            }
+            .logo-text {
+                font-size: 22px;
+            }
+            .logo-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+            .search-box {
+                max-width: 100%;
+            }
+            .category-section {
+                padding: 20px 16px 24px;
+            }
+            .category-title {
+                font-size: 18px;
+            }
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+            .tool-card {
+                padding: 12px 14px;
+            }
+            .tool-card .tool-desc {
+                white-space: normal;
+            }
+            .category-count {
+                margin-left: 0;
+                width: 100%;
+                margin-top: 4px;
+            }
+            .category-header {
+                margin-bottom: 16px;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .tools-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+
+        @media (min-width: 1400px) {
+            .tools-grid {
+                grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="app-header">
+        <div class="logo-area">
+            <div class="logo-icon">RK</div>
+            <div class="logo-text">RK <span>Tools</span></div>
+        </div>
+        <div class="header-tagline">
+            <i class="fas fa-bolt"></i> 34+ utilities · one place
+        </div>
+    </header>
+
+    <!-- ===== SEARCH ===== -->
+    <div class="search-wrap">
+        <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchInput" placeholder="Search tools by name or keyword…" autocomplete="off" />
+        </div>
+        <div class="search-stats">
+            <span id="visibleCount">34</span> tools available
+        </div>
+    </div>
+
+    <!-- ===== CATEGORIES ===== -->
+    <div class="categories-grid" id="categoriesContainer">
+
+        <!-- 1. PDF Tools -->
+        <section class="category-section cat-pdf" data-category="pdf">
+            <div class="category-header">
+                <div class="category-icon"><i class="fas fa-file-pdf"></i></div>
+                <div class="category-title">PDF Tools</div>
+                <span class="category-count">10 tools</span>
+            </div>
+            <div class="tools-grid" data-cat="pdf">
+                <!-- tool cards injected by JS -->
+            </div>
+        </section>
+
+        <!-- 2. Image Tools -->
+        <section class="category-section cat-image" data-category="image">
+            <div class="category-header">
+                <div class="category-icon"><i class="fas fa-image"></i></div>
+                <div class="category-title">Image Tools</div>
+                <span class="category-count">7 tools</span>
+            </div>
+            <div class="tools-grid" data-cat="image"></div>
+        </section>
+
+        <!-- 3. QR & Barcode -->
+        <section class="category-section cat-qr" data-category="qr">
+            <div class="category-header">
+                <div class="category-icon"><i class="fas fa-qrcode"></i></div>
+                <div class="category-title">QR &amp; Barcode</div>
+                <span class="category-count">4 tools</span>
+            </div>
+            <div class="tools-grid" data-cat="qr"></div>
+        </section>
+
+        <!-- 4. Text & String -->
+        <section class="category-section cat-text" data-category="text">
+            <div class="category-header">
+                <div class="category-icon"><i class="fas fa-font"></i></div>
+                <div class="category-title">Text &amp; String</div>
+                <span class="category-count">5 tools</span>
+            </div>
+            <div class="tools-grid" data-cat="text"></div>
+        </section>
+
+        <!-- 5. Web & Security -->
+        <section class="category-section cat-web" data-category="web">
+            <div class="category-header">
+                <div class="category-icon"><i class="fas fa-shield-alt"></i></div>
+                <div class="category-title">Web &amp; Security</div>
+                <span class="category-count">2 tools</span>
+            </div>
+            <div class="tools-grid" data-cat="web"></div>
+        </section>
+
+        <!-- 6. Calculators -->
+        <section class="category-section cat-calc" data-category="calc">
+            <div class="category-header">
+                <div class="category-icon"><i class="fas fa-calculator"></i></div>
+                <div class="category-title">Calculators</div>
+                <span class="category-count">3 tools</span>
+            </div>
+            <div class="tools-grid" data-cat="calc"></div>
+        </section>
+
+        <!-- 7. Converters -->
+        <section class="category-section cat-convert" data-category="convert">
+            <div class="category-header">
+                <div class="category-icon"><i class="fas fa-arrows-left-right"></i></div>
+                <div class="category-title">Converters</div>
+                <span class="category-count">3 tools</span>
+            </div>
+            <div class="tools-grid" data-cat="convert"></div>
+        </section>
+
+    </div>
+
+    <script>
+        // ============================================================
+        //  TOOL DATA  –  exactly as listed in the screenshot
+        // ============================================================
+        const TOOLS = [
+            // ---- PDF Tools (1–10) ----
+            { id: 1, cat: 'pdf', name: 'PDF to Image', icon: 'fa-file-image',
+            desc: 'Convert PDF pages to JPG / PNG' },
+            { id: 2, cat: 'pdf', name: 'PDF Lock', icon: 'fa-lock', desc: 'Password-protect your PDF' },
+            { id: 3, cat: 'pdf', name: 'PDF Unlock', icon: 'fa-unlock', desc: 'Remove PDF password' },
+            { id: 4, cat: 'pdf', name: 'PDF Split', icon: 'fa-cut', desc: 'Split PDF into separate pages' },
+            { id: 5, cat: 'pdf', name: 'PDF Merge', icon: 'fa-object-group', desc: 'Combine multiple PDFs' },
+            { id: 6, cat: 'pdf', name: 'PDF to Image', icon: 'fa-file-pdf', desc: 'Extract images from PDF' },
+            { id: 7, cat: 'pdf', name: 'PDF Watermark', icon: 'fa-watermark', desc: 'Add text / image watermark' },
+            { id: 8, cat: 'pdf', name: 'PDF Watermark Remover', icon: 'fa-eraser', desc: 'Remove watermarks from PDF' },
+            { id: 9, cat: 'pdf', name: 'PDF Page Editor', icon: 'fa-pen-to-square', desc: 'Edit PDF pages' },
+            { id: 10, cat: 'pdf', name: 'PDF Page Rearrange', icon: 'fa-arrows-rotate', desc: 'Reorder PDF pages' },
+
+            // ---- Image Tools (11–17) ----
+            { id: 11, cat: 'image', name: 'Image Compressor', icon: 'fa-compress', desc: 'Reduce image size' },
+            { id: 12, cat: 'image', name: 'Format Converter', icon: 'fa-arrows-rotate', desc: 'PNG, JPG, WEBP, BMP' },
+            { id: 13, cat: 'image', name: 'Image Resizer', icon: 'fa-expand', desc: 'Change width & height' },
+            { id: 14, cat: 'image', name: 'Background Remover', icon: 'fa-eraser', desc: 'Remove background from image' },
+            { id: 15, cat: 'image', name: 'Image to Base64', icon: 'fa-code', desc: 'Convert image to Data URL' },
+            { id: 16, cat: 'image', name: 'Add Watermark', icon: 'fa-stamp', desc: 'Watermark images' },
+            { id: 17, cat: 'image', name: 'Remove Watermark', icon: 'fa-broom', desc: 'Remove watermark from image' },
+
+            // ---- QR & Barcode (18–21) ----
+            { id: 18, cat: 'qr', name: 'All-in-One QR Generator', icon: 'fa-qrcode', desc: 'Text, URL, WiFi, vCard' },
+            { id: 19, cat: 'qr', name: 'QR Code Scanner', icon: 'fa-camera', desc: 'Scan QR codes from image' },
+            { id: 20, cat: 'qr', name: 'Barcode Generator', icon: 'fa-barcode', desc: 'Code 28, EAN, Code39' },
+            { id: 21, cat: 'qr', name: 'Barcode Scanner', icon: 'fa-camera', desc: 'Scan barcodes' },
+
+            // ---- Text & String (22–26) ----
+            { id: 22, cat: 'text', name: 'Word Counter', icon: 'fa-words', desc: 'Count words & characters' },
+            { id: 23, cat: 'text', name: 'Text to Speech', icon: 'fa-volume-high', desc: 'Convert text to audio' },
+            { id: 24, cat: 'text', name: 'Line Counter', icon: 'fa-list-ol', desc: 'Count lines in text' },
+            { id: 25, cat: 'text', name: 'Text Case Changer', icon: 'fa-font', desc: 'UPPER, lower, Title, Sentence' },
+            { id: 26, cat: 'text', name: 'Text Repeater', icon: 'fa-repeat', desc: 'Repeat text 100–1000×' },
+
+            // ---- Web & Security (27–28) ----
+            { id: 27, cat: 'web', name: 'Password Strength Tester', icon: 'fa-key', desc: 'Weak / Strong password check' },
+            { id: 28, cat: 'web', name: 'Speed Tester', icon: 'fa-gauge-high', desc: 'Test your internet speed' },
+
+            // ---- Calculators (29–31) ----
+            { id: 29, cat: 'calc', name: 'Standard Calculator', icon: 'fa-calculator', desc: '+, −, ×, ÷, %' },
+            { id: 30, cat: 'calc', name: 'Age Calculator', icon: 'fa-cake-candles', desc: 'Calculate age from DOB' },
+            { id: 31, cat: 'calc', name: 'Loan / Interest Calculator', icon: 'fa-coins', desc: 'Compound interest & EMI' },
+
+            // ---- Converters (32–34) ----
+            { id: 32, cat: 'convert', name: 'Length Converter', icon: 'fa-ruler', desc: 'Meters, feet, inches, km' },
+            { id: 33, cat: 'convert', name: 'Weight Converter', icon: 'fa-weight-scale', desc: 'kg, lbs, ounces, tons' },
+            { id: 34, cat: 'convert', name: 'Area Converter', icon: 'fa-vector-square', desc: 'Acres, sq ft, hectares' },
+        ];
+
+        // ============================================================
+        //  RENDER
+        // ============================================================
+        function renderTools(filter = '') {
+            const lowerFilter = filter.toLowerCase().trim();
+
+            // Group tools by category
+            const groups = {};
+            TOOLS.forEach(t => {
+                if (!groups[t.cat]) groups[t.cat] = [];
+                groups[t.cat].push(t);
+            });
+
+            // For each category section, find its .tools-grid container
+            document.querySelectorAll('.category-section').forEach(section => {
+                const grid = section.querySelector('.tools-grid');
+                const catKey = grid.dataset.cat;
+                const tools = groups[catKey] || [];
+
+                // Filter
+                const filtered = tools.filter(t =>
+                    t.name.toLowerCase().includes(lowerFilter) ||
+                    t.desc.toLowerCase().includes(lowerFilter) ||
+                    t.cat.includes(lowerFilter)
+                );
+
+                // Build HTML
+                let html = '';
+                if (filtered.length === 0) {
+                    html = `<div class="no-results"><i class="fas fa-search"></i>No tools match your search</div>`;
+                } else {
+                    filtered.forEach(t => {
+                        // determine icon – some have custom mapping
+                        let iconClass = t.icon || 'fa-wrench';
+                        // fix for "PDF to Image" duplicate: use different icon for #6
+                        if (t.id === 6) iconClass = 'fa-images';
+                        if (t.id === 7) iconClass = 'fa-stamp';
+                        if (t.id === 8) iconClass = 'fa-brush';
+                        if (t.id === 10) iconClass = 'fa-arrow-up-arrow-down';
+                        if (t.id === 14) iconClass = 'fa-crop-simple';
+                        if (t.id === 17) iconClass = 'fa-wand-magic-sparkles';
+                        if (t.id === 22) iconClass = 'fa-align-left';
+                        if (t.id === 26) iconClass = 'fa-rotate';
+                        if (t.id === 27) iconClass = 'fa-lock';
+                        if (t.id === 28) iconClass = 'fa-tachometer-alt';
+                        if (t.id === 30) iconClass = 'fa-calendar-days';
+                        if (t.id === 31) iconClass = 'fa-hand-holding-dollar';
+                        if (t.id === 34) iconClass = 'fa-up-down';
+
+                        html += `
+                            <div class="tool-card" data-id="${t.id}">
+                                <span class="tool-num">${t.id}</span>
+                                <span class="tool-icon"><i class="fas ${iconClass}"></i></span>
+                                <span class="tool-info">
+                                    <span class="tool-name">${t.name}</span>
+                                    <span class="tool-desc">${t.desc}</span>
+                                </span>
+                                <span class="tool-arrow"><i class="fas fa-chevron-right"></i></span>
+                            </div>
+                        `;
+                    });
+                }
+
+                grid.innerHTML = html;
+
+                // Update category count badge (visible count after filter)
+                const countBadge = section.querySelector('.category-count');
+                if (countBadge) {
+                    const total = tools.length;
+                    const visible = filtered.length;
+                    countBadge.textContent = visible === total ? `${total} tools` : `${visible} / ${total} tools`;
+                }
+            });
+
+            // Update global stats
+            const totalVisible = document.querySelectorAll('.tool-card:not(.no-results)').length;
+            document.getElementById('visibleCount').textContent = totalVisible;
+        }
+
+        // ============================================================
+        //  SEARCH EVENT
+        // ============================================================
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('input', (e) => {
+            renderTools(e.target.value);
+        });
+
+        // ============================================================
+        //  INIT
+        // ============================================================
+        renderTools('');
+
+        // ============================================================
+        //  (Optional) click on a card → show alert (placeholder action)
+        // ============================================================
+        document.addEventListener('click', (e) => {
+            const card = e.target.closest('.tool-card');
+            if (card) {
+                const name = card.querySelector('.tool-name')?.textContent || 'Tool';
+                // In a real app, you would route to the tool page.
+                // For demo, we show a friendly toast/alert.
+                // Using a non-intrusive alert replacement: a small floating message.
+                showFloatingMessage(`🔧 ${name} – coming soon!`);
+            }
+        });
+
+        // ============================================================
+        //  FLOATING TOAST
+        // ============================================================
+        function showFloatingMessage(msg) {
+            const existing = document.querySelector('.rk-toast');
+            if (existing) existing.remove();
+
+            const toast = document.createElement('div');
+            toast.className = 'rk-toast';
+            toast.innerHTML = msg;
+            Object.assign(toast.style, {
+                position: 'fixed',
+                bottom: '30px',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                background: '#0f172a',
+                color: '#f1f5f9',
+                padding: '14px 28px',
+                borderRadius: '60px',
+                fontSize: '15px',
+                fontWeight: '500',
+                boxShadow: '0 12px 32px rgba(0,0,0,0.25)',
+                zIndex: '9999',
+                fontFamily: 'Inter, sans-serif',
+                letterSpacing: '0.2px',
+                opacity: '0',
+                transition: 'opacity 0.25s ease, transform 0.25s ease',
+                transform: 'translateX(-50%) translateY(12px)',
+                pointerEvents: 'none',
+                maxWidth: '90%',
+                textAlign: 'center',
+            });
+            document.body.appendChild(toast);
+
+            requestAnimationFrame(() => {
+                toast.style.opacity = '1';
+                toast.style.transform = 'translateX(-50%) translateY(0)';
+            });
+
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateX(-50%) translateY(12px)';
+                setTimeout(() => toast.remove(), 350);
+            }, 2200);
+        }
+
+        // small style addition for toast
+        const styleToast = document.createElement('style');
+        styleToast.textContent = `
+            .rk-toast {
+                backdrop-filter: blur(6px);
+                background: rgba(15, 23, 42, 0.92) !important;
+                border: 1px solid rgba(255,255,255,0.08);
+            }
+        `;
+        document.head.appendChild(styleToast);
+    </script>
+
+</body>
+</html>
