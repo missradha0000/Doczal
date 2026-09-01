@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Image to Base64 Converter Online - JPG, PNG, WebP</title>
+<meta name="description" content="Convert images to Base64 online for free directly in your browser. Convert JPG, PNG, WebP, GIF, SVG and other supported images to Base64, Data URI or HTML/CSS code. Copy, download and preview your Base64 image without login or server upload.">
+<meta name="keywords" content="image to base64, image to base64 converter, jpg to base64, png to base64, webp to base64, image base64 encoder, image data uri, image to data uri, base64 image converter, convert image to base64 online, base64 image generator">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="author" content="InstaPic">
+<link rel="canonical" href="https://YOUR-DOMAIN.netlify.app/image-to-base64.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Image to Base64 Converter Online">
+<meta property="og:description" content="Convert images into Base64, Data URI, HTML and CSS code directly in your browser. Free, private and no login required.">
+<meta property="og:url" content="https://YOUR-DOMAIN.netlify.app/image-to-base64.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Image to Base64 Converter Online">
+<meta name="twitter:description" content="Free browser-based image Base64 encoder for JPG, PNG, WebP, GIF and SVG files.">
+
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"WebApplication",
+ "name":"Image to Base64 Converter",
+ "url":"https://YOUR-DOMAIN.netlify.app/image-to-base64.html",
+ "applicationCategory":"UtilitiesApplication",
+ "operatingSystem":"Windows, macOS, Linux, Android, iOS",
+ "browserRequirements":"Requires JavaScript and a modern browser",
+ "description":"Convert image files to Base64 and Data URI representations directly in a web browser.",
+ "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+ "featureList":[
+  "Image to Base64 conversion",
+  "Data URI generation",
+  "HTML image tag generation",
+  "CSS background-image generation",
+  "Copy Base64",
+  "Download Base64 text",
+  "Image preview",
+  "File information",
+  "Client-side processing",
+  "No login required"
+ ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"FAQPage",
+ "mainEntity":[
+  {"@type":"Question","name":"What is an image Base64 converter?","acceptedAnswer":{"@type":"Answer","text":"An image Base64 converter reads an image file and encodes its binary data as Base64 text. The encoded value can also be represented as a Data URI for embedding an image in HTML, CSS or other text-based content."}},
+  {"@type":"Question","name":"How do I convert an image to Base64?","acceptedAnswer":{"@type":"Answer","text":"Select or drag an image into the converter. The browser reads the file locally and generates the Base64 string and Data URI. You can then copy or download the generated text."}},
+  {"@type":"Question","name":"Is this Image to Base64 converter free?","acceptedAnswer":{"@type":"Answer","text":"Yes. The converter is free to use and does not require an account."}},
+  {"@type":"Question","name":"Are my images uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No server upload is required. The conversion is performed locally in the browser using JavaScript and the FileReader API."}},
+  {"@type":"Question","name":"Can I convert JPG, PNG and WebP to Base64?","acceptedAnswer":{"@type":"Answer","text":"Yes. The converter supports common image formats including JPG, JPEG, PNG, WebP, GIF, SVG, BMP and ICO when the browser recognizes them as image files."}},
+  {"@type":"Question","name":"What is a Data URI?","acceptedAnswer":{"@type":"Answer","text":"A Data URI is a text representation that includes the media type and encoded data, allowing an image to be embedded directly into HTML, CSS or another compatible document without a separate image URL."}}
+ ]
+}
+</script>
+
+<style>
+:root{
+ --blue:#2563eb;--blue2:#1d4ed8;--green:#10b981;--red:#ef4444;
+ --text:#111827;--muted:#6b7280;--border:#e5e7eb;--bg:#f8fafc;--white:#fff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:linear-gradient(180deg,#f8fafc,#fff);color:var(--text);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
+.header{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.header-inner{width:min(1100px,calc(100% - 28px));min-height:64px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-size:21px;font-weight:900;text-decoration:none;color:var(--text)}
+.logo span{color:var(--blue)}
+.badge{font-size:11px;font-weight:900;color:#047857;background:#ecfdf5;border:1px solid #a7f3d0;padding:5px 10px;border-radius:999px}
+.container{width:min(1100px,calc(100% - 28px));margin:auto}
+.hero{text-align:center;padding:42px 0 24px}
+.hero h1{font-size:clamp(32px,6vw,54px);line-height:1.08;letter-spacing:-2px;margin:0 auto 14px;max-width:900px}
+.hero h1 span{color:var(--blue)}
+.hero p{max-width:790px;margin:auto;color:var(--muted);font-size:17px}
+.card{background:var(--white);border:1px solid var(--border);border-radius:24px;padding:20px;box-shadow:0 15px 45px rgba(15,23,42,.07)}
+.upload{min-height:360px;border:3px dashed #9ca3af;border-radius:24px;background:#f8fafc;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;transition:.2s}
+.upload.drag{border-color:var(--blue);background:#eff6ff;transform:scale(1.005)}
+.upload-icon{width:115px;height:115px;margin:0 auto 12px}
+.upload-icon svg{width:100%;height:100%}
+.upload h2{font-size:24px;margin:0 0 4px}
+.upload p{margin:0 0 18px;color:var(--muted)}
+.browse,.primary{border:0;color:#fff;background:var(--blue);border-radius:999px;padding:13px 28px;font-weight:900;box-shadow:0 7px 18px rgba(37,99,235,.22)}
+.browse:hover,.primary:hover{background:var(--blue2)}
+.note{font-size:12px;color:var(--muted);margin-top:11px}
+.file-info{display:none;margin-top:16px;padding:13px;border:1px solid var(--border);border-radius:16px;align-items:center;gap:12px}
+.file-info.show{display:flex}
+.thumb{width:76px;height:76px;flex:0 0 76px;border-radius:12px;overflow:hidden;background:#f3f4f6;display:flex;align-items:center;justify-content:center}
+.thumb img{width:100%;height:100%;object-fit:contain}
+.file-text{min-width:0;flex:1}
+.file-name{font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.meta{font-size:13px;color:var(--muted)}
+.icon-btn{border:0;background:#fef2f2;color:#dc2626;width:40px;height:40px;border-radius:10px;font-size:22px}
+.controls{display:none;margin-top:18px}
+.controls.show{display:block}
+.options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.field{border:1px solid var(--border);border-radius:14px;padding:13px;background:#fff}
+.field label{display:block;font-size:12px;font-weight:900;color:var(--muted);margin-bottom:7px}
+.field select{width:100%;height:43px;border:1px solid #d1d5db;border-radius:10px;padding:0 10px;background:#fff}
+.output-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.tab{border:1px solid var(--border);background:#fff;border-radius:999px;padding:9px 13px;font-size:12px;font-weight:900}
+.tab.active{border-color:var(--blue);background:#eff6ff;color:var(--blue)}
+.action{width:100%;border:0;border-radius:13px;padding:15px;background:var(--blue);color:#fff;font-weight:900;font-size:16px;margin-top:16px}
+.action:disabled{opacity:.55;cursor:not-allowed}
+.status{display:none;margin-top:14px;padding:11px 13px;border-radius:11px;font-size:13px}
+.status.show{display:block}
+.status.info{background:#eff6ff;color:#1d4ed8}
+.status.ok{background:#ecfdf5;color:#047857}
+.status.err{background:#fef2f2;color:#b91c1c}
+.result{display:none;margin-top:22px}
+.result.show{display:block}
+.result-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:13px}
+.result-head h2{margin:0;font-size:23px}
+.ready{font-size:11px;font-weight:900;color:#047857;background:#ecfdf5;padding:6px 10px;border-radius:999px}
+.preview-box{border:1px solid var(--border);border-radius:18px;overflow:hidden;background:#fff}
+.preview-title{padding:10px 13px;border-bottom:1px solid var(--border);font-size:13px;font-weight:900}
+.preview{min-height:260px;padding:16px;display:flex;align-items:center;justify-content:center;background:#f8fafc}
+.checker{background-color:#fff;background-image:linear-gradient(45deg,#e5e7eb 25%,transparent 25%),linear-gradient(-45deg,#e5e7eb 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#e5e7eb 75%),linear-gradient(-45deg,transparent 75%,#e5e7eb 75%);background-size:24px 24px;background-position:0 0,0 12px,12px -12px,-12px 0}
+.preview img{max-width:100%;max-height:430px;object-fit:contain;border-radius:8px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px}
+.stat{background:#f8fafc;border-radius:11px;padding:9px;text-align:center}
+.stat small{display:block;color:var(--muted);font-size:10px}
+.stat b{font-size:12px}
+.code-wrap{margin-top:15px;border:1px solid var(--border);border-radius:16px;overflow:hidden;background:#0f172a}
+.code-head{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:9px 11px;background:#1e293b;color:#fff;font-size:12px;font-weight:900}
+.copy{border:0;border-radius:8px;padding:7px 11px;background:#fff;color:#111827;font-weight:900;font-size:11px}
+textarea{display:block;width:100%;min-height:250px;border:0;outline:0;resize:vertical;padding:15px;background:#0f172a;color:#e5e7eb;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;line-height:1.55}
+.download{width:100%;margin-top:12px;border:0;border-radius:12px;padding:14px;background:var(--green);color:#fff;font-weight:900}
+.reset{width:100%;margin-top:9px;border:1px solid var(--border);border-radius:12px;padding:12px;background:#fff;font-weight:800}
+.seo{margin-top:44px;background:#fff;border:1px solid var(--border);border-radius:22px;padding:30px}
+.seo h2{margin-top:0;font-size:30px;line-height:1.2}
+.seo h3{margin-top:29px;font-size:21px}
+.seo p,.seo li{color:#374151}
+.seo li{margin:6px 0}
+.faq{border-top:1px solid var(--border)}
+.faq details{border-bottom:1px solid var(--border);padding:14px 0}
+.faq summary{cursor:pointer;font-weight:800}
+footer{padding:32px 0 45px;text-align:center;color:var(--muted);font-size:13px}
+@media(max-width:700px){
+ .container{width:calc(100% - 18px)}
+ .hero{padding:29px 0 18px}.hero h1{letter-spacing:-1px}.hero p{font-size:15px}
+ .card{padding:12px;border-radius:18px}.upload{min-height:380px;border-radius:20px}
+ .options{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}
+ .seo{padding:20px;border-radius:18px}
+}
+</style>
+</head>
+
+<body>
+<header class="header">
+ <div class="header-inner">
+  <a class="logo" href="index.html">Insta<span>Pic</span></a>
+  <div class="badge">100% Browser-Based • No Login</div>
+ </div>
+</header>
+
+<main>
+<section class="hero">
+ <div class="container">
+  <h1>Image to <span>Base64 Converter</span></h1>
+  <p>Convert JPG, PNG, WebP, GIF, SVG and other supported images to Base64, Data URI, HTML or CSS code directly in your browser.</p>
+ </div>
+</section>
+
+<section class="container">
+<div class="card">
+ <div id="upload" class="upload">
+  <div>
+   <div class="upload-icon">
+    <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+     <defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#4ade80"/><stop offset="100%" stop-color="#93c5fd"/></linearGradient></defs>
+     <path d="M36 86h51c15 0 27-11 27-25 0-13-10-24-23-25-5-18-21-30-39-30-20 0-36 15-39 34C7 42 0 51 0 63c0 13 11 23 24 23z" fill="url(#g)" stroke="#374151" stroke-width="2"/>
+     <path d="M60 75V42" stroke="#374151" stroke-width="3" stroke-linecap="round"/><path d="M47 53l13-13 13 13" fill="none" stroke="#374151" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+   </div>
+   <h2>Add Image</h2>
+   <p>Upload an image to generate Base64 code</p>
+   <button id="browse" class="browse" type="button">Browse</button>
+   <div class="note">or drag an image here</div>
+   <input id="file" type="file" accept="image/*" hidden>
+  </div>
+ </div>
+
+ <div id="fileInfo" class="file-info">
+  <div class="thumb"><img id="thumb" alt="Selected image preview"></div>
+  <div class="file-text">
+   <div id="fileName" class="file-name"></div>
+   <div id="fileMeta" class="meta"></div>
+  </div>
+  <button id="remove" class="icon-btn" type="button" aria-label="Remove image">×</button>
+ </div>
+
+ <div id="controls" class="controls">
+  <div class="options">
+   <div class="field">
+    <label for="mode">OUTPUT TYPE</label>
+    <select id="mode">
+     <option value="datauri">Base64 Data URI</option>
+     <option value="base64">Raw Base64 only</option>
+     <option value="html">HTML &lt;img&gt; tag</option>
+     <option value="css">CSS background-image</option>
+     <option value="markdown">Markdown image</option>
+    </select>
+   </div>
+   <div class="field">
+    <label for="line">LINE FORMAT</label>
+    <select id="line">
+     <option value="single">Single line</option>
+     <option value="wrap">Readable wrapped text</option>
+    </select>
+   </div>
+  </div>
+  <button id="generate" class="action" type="button">Generate Base64</button>
+ </div>
+
+ <div id="status" class="status"></div>
+
+ <div id="result" class="result">
+  <div class="result-head">
+   <h2>Base64 Result</h2><div class="ready">READY</div>
+  </div>
+
+  <div class="preview-box">
+   <div class="preview-title">Image Preview</div>
+   <div class="preview checker"><img id="resultImage" alt="Base64 encoded image preview"></div>
+  </div>
+
+  <div class="stats">
+   <div class="stat"><small>Original Size</small><b id="size">—</b></div>
+   <div class="stat"><small>Dimensions</small><b id="dimensions">—</b></div>
+   <div class="stat"><small>Format</small><b id="format">—</b></div>
+   <div class="stat"><small>Base64 Length</small><b id="length">—</b></div>
+  </div>
+
+  <div class="code-wrap">
+   <div class="code-head">
+    <span id="codeTitle">Generated Code</span>
+    <button id="copy" class="copy" type="button">Copy</button>
+   </div>
+   <textarea id="output" readonly spellcheck="false"></textarea>
+  </div>
+
+  <button id="download" class="download" type="button">Download .txt</button>
+  <button id="reset" class="reset" type="button">Convert Another Image</button>
+ </div>
+</div>
+</section>
+
+<section class="container">
+<article class="seo">
+ <h2>Convert Image to Base64 Online</h2>
+
+ <p>Image to Base64 conversion turns an image file into text that represents its binary data using Base64 encoding. This is useful when an image needs to be embedded inside HTML, CSS, JSON, JavaScript, an API payload or another text-based format instead of being referenced as a separate image file.</p>
+
+ <p>This free Image to Base64 Converter is designed to process images directly in your web browser. Select an image, generate its Base64 representation, copy the result and use it wherever a Base64 image or Data URI is supported. No account is required and the image does not need to be uploaded to an image conversion server.</p>
+
+ <h3>What Is Base64 Encoding for Images?</h3>
+ <p>Base64 is an encoding method that represents binary information as text characters. Because normal source code and text documents cannot directly contain arbitrary binary image bytes, Base64 provides a text representation that can be inserted into compatible HTML, CSS, JSON and other formats.</p>
+
+ <h3>What Is an Image Data URI?</h3>
+ <p>An image Data URI combines the image MIME type with its Base64-encoded data. A typical Data URI starts with a media type such as <code>data:image/png;base64,</code> followed by the encoded image data. This allows supported documents to reference the image directly inside the text.</p>
+
+ <h3>JPG to Base64</h3>
+ <p>Use the converter to turn a JPG or JPEG image into a Base64 string or a complete JPG Data URI. JPEG is commonly used for photographs and can be embedded in HTML or CSS using its corresponding MIME type.</p>
+
+ <h3>PNG to Base64</h3>
+ <p>PNG images can be converted into Base64 without changing the original image data. PNG is particularly useful for graphics and images that require transparency. The generated Data URI uses the PNG MIME type.</p>
+
+ <h3>WebP to Base64</h3>
+ <p>Modern browsers can read WebP images and represent their file bytes as Base64. This can be useful when a WebP asset needs to be included in a text-based document or generated application code.</p>
+
+ <h3>GIF, SVG and Other Image Formats</h3>
+ <p>The browser determines which image MIME types it can read. Common browser-recognized formats such as GIF, SVG, BMP and ICO can also be processed. Support can vary by browser, especially for less common formats.</p>
+
+ <h3>Base64 vs Data URI</h3>
+ <p>A raw Base64 string contains only the encoded data. A Data URI contains the MIME type and encoding declaration before the Base64 data. If you are placing an image directly into an HTML image element or CSS declaration, the Data URI option is usually more convenient.</p>
+
+ <h3>Generate HTML Image Code</h3>
+ <p>The HTML output mode generates an image element using the Data URI as its source. You can copy the generated code into an HTML document where inline Data URI images are supported.</p>
+
+ <h3>Generate CSS Background Image Code</h3>
+ <p>The CSS mode creates a background-image declaration containing the image Data URI. This can be useful for small UI graphics, icons and other assets that need to be embedded directly into a stylesheet or style attribute.</p>
+
+ <h3>How to Convert an Image to Base64</h3>
+ <ol>
+  <li>Click <strong>Browse</strong> and choose your image.</li>
+  <li>Check the image filename, format, file size and dimensions.</li>
+  <li>Select Raw Base64, Data URI, HTML, CSS or Markdown output.</li>
+  <li>Click <strong>Generate Base64</strong>.</li>
+  <li>Review the generated code.</li>
+  <li>Click <strong>Copy</strong> to copy it to your clipboard.</li>
+  <li>Alternatively, download the generated text as a TXT file.</li>
+ </ol>
+
+ <h3>Is This Base64 Converter Private?</h3>
+ <p>The conversion is performed locally in your browser using JavaScript and the FileReader API. The page does not require a dedicated server-side image conversion endpoint. This means the normal conversion workflow does not need to transmit the selected image to a remote image-processing service.</p>
+
+ <h3>Why Is Base64 Output So Long?</h3>
+ <p>Base64 is larger than the original binary data because binary bytes are represented as text characters. For that reason, embedding very large images as Base64 can increase HTML, CSS, JSON or API payload size. Base64 is generally more practical for small assets than for large photographs.</p>
+
+ <h3>When Should You Use Base64 Images?</h3>
+ <ul>
+  <li>Embedding small icons directly in HTML.</li>
+  <li>Embedding small graphics in CSS.</li>
+  <li>Creating self-contained HTML snippets.</li>
+  <li>Testing Data URI image handling.</li>
+  <li>Sending image data inside systems that specifically require Base64 text.</li>
+  <li>Creating prototypes where separate image files are inconvenient.</li>
+ </ul>
+
+ <h3>When Should You Avoid Base64?</h3>
+ <p>For large photographs and many website images, normal image files referenced by URL are often preferable. Large Base64 strings can increase document size, reduce readability and make caching less convenient. Base64 is an encoding technique, not an image compression method.</p>
+
+ <h3>Image to Base64 on Mobile</h3>
+ <p>This tool is responsive and can be used from modern mobile browsers. Very large images produce very large text strings and can require significant browser memory. For large files, processing time and clipboard handling can depend on the device and browser.</p>
+
+ <h3>Frequently Asked Questions</h3>
+ <div class="faq">
+  <details><summary>Is Image to Base64 free?</summary><p>Yes. The converter is free to use and does not require registration.</p></details>
+  <details><summary>Does the converter upload my image?</summary><p>No image-processing server is required. The normal conversion is performed locally in your browser.</p></details>
+  <details><summary>Can I convert JPG to Base64?</summary><p>Yes. JPG and JPEG images can be converted to raw Base64, Data URI, HTML, CSS or Markdown output.</p></details>
+  <details><summary>Can I convert PNG to Base64?</summary><p>Yes. PNG files can be encoded into Base64 and represented as PNG Data URIs.</p></details>
+  <details><summary>What is the difference between Base64 and Data URI?</summary><p>Raw Base64 is only the encoded data. A Data URI also contains the MIME type and Base64 declaration needed to identify the embedded media.</p></details>
+  <details><summary>Can I copy the generated Base64?</summary><p>Yes. Use the Copy button. The page uses the browser clipboard when available and provides a fallback for compatible browsers.</p></details>
+  <details><summary>Can Base64 compress an image?</summary><p>No. Base64 is an encoding method and normally makes the textual representation larger than the original binary data. It does not reduce image quality or file size.</p></details>
+ </div>
+</article>
+</section>
+</main>
+
+<footer>© <span id="year"></span> InstaPic — Free Browser Image Tools</footer>
+
+<script>
+(() => {
+"use strict";
+
+const $ = id => document.getElementById(id);
+const upload = $("upload");
+const browse = $("browse");
+const fileInput = $("file");
+const fileInfo = $("fileInfo");
+const thumb = $("thumb");
+const fileName = $("fileName");
+const fileMeta = $("fileMeta");
+const remove = $("remove");
+const controls = $("controls");
+const mode = $("mode");
+const line = $("line");
+const generate = $("generate");
+const status = $("status");
+const result = $("result");
+const resultImage = $("resultImage");
+const size = $("size");
+const dimensions = $("dimensions");
+const format = $("format");
+const length = $("length");
+const output = $("output");
+const codeTitle = $("codeTitle");
+const copy = $("copy");
+const download = $("download");
+const reset = $("reset");
+
+let sourceFile = null;
+let sourceURL = null;
+let rawBase64 = "";
+let dataURI = "";
+let imageW = 0;
+let imageH = 0;
+
+function bytes(n){
+ if(!n) return "0 B";
+ const u=["B","KB","MB","GB"];
+ const i=Math.min(u.length-1,Math.floor(Math.log(n)/Math.log(1024)));
+ return (n/Math.pow(1024,i)).toFixed(i?2:0)+" "+u[i];
+}
+function statusMsg(text,type="info"){
+ status.textContent=text;
+ status.className="status show "+type;
+}
+function clearStatus(){status.className="status";status.textContent=""}
+function mimeLabel(m){
+ return m ? m.replace("image/","").toUpperCase() : "IMAGE";
+}
+function wrapText(text, width=76){
+ if(line.value==="single") return text;
+ let out="";
+ for(let i=0;i<text.length;i+=width) out+=text.slice(i,i+width)+(i+width<text.length?"\n":"");
+ return out;
+}
+
+function getImageDimensions(file){
+ return new Promise((resolve,reject)=>{
+  const url=URL.createObjectURL(file);
+  const img=new Image();
+  img.onload=()=>{
+   const dims={w:img.naturalWidth,h:img.naturalHeight};
+   URL.revokeObjectURL(url);
+   resolve(dims);
+  };
+  img.onerror=()=>{
+   URL.revokeObjectURL(url);
+   resolve({w:0,h:0});
+  };
+  img.src=url;
+ });
+}
+
+async function selectFile(file){
+ if(!file) return;
+ if(!file.type.startsWith("image/")){
+  statusMsg("Please choose an image file.","err");
+  return;
+ }
+ if(file.size>75*1024*1024){
+  statusMsg("This file is larger than 75 MB. Very large Base64 strings can use a lot of browser memory.","err");
+  return;
+ }
+
+ if(sourceURL) URL.revokeObjectURL(sourceURL);
+ sourceFile=file;
+ sourceURL=URL.createObjectURL(file);
+ thumb.src=sourceURL;
+ fileName.textContent=file.name;
+ const dims=await getImageDimensions(file);
+ imageW=dims.w; imageH=dims.h;
+ fileMeta.textContent=`${bytes(file.size)} • ${mimeLabel(file.type)} • ${imageW&&imageH?imageW+" × "+imageH+"px":"dimensions unavailable"}`;
+ fileInfo.classList.add("show");
+ controls.classList.add("show");
+ result.classList.remove("show");
+ rawBase64="";
+ dataURI="";
+ output.value="";
+ statusMsg("Image ready. Choose an output type and generate the Base64 code.","ok");
+}
+
+browse.addEventListener("click",()=>fileInput.click());
+fileInput.addEventListener("change",()=>{selectFile(fileInput.files[0]);fileInput.value=""});
+
+["dragenter","dragover"].forEach(e=>{
+ upload.addEventListener(e,ev=>{ev.preventDefault();upload.classList.add("drag")});
+});
+["dragleave","drop"].forEach(e=>{
+ upload.addEventListener(e,ev=>{ev.preventDefault();upload.classList.remove("drag")});
+});
+upload.addEventListener("drop",ev=>selectFile(ev.dataTransfer.files[0]));
+
+function makeOutput(){
+ if(!sourceFile) return "";
+ const reader=new FileReader();
+ return new Promise((resolve,reject)=>{
+  reader.onerror=()=>reject(new Error("The browser could not read this file."));
+  reader.onload=()=>{
+   dataURI=String(reader.result);
+   const comma=dataURI.indexOf(",");
+   rawBase64=comma>=0?dataURI.slice(comma+1):dataURI;
+   resolve();
+  };
+  reader.readAsDataURL(sourceFile);
+ });
+}
+
+function buildCode(){
+ let code="";
+ const uri=dataURI;
+ switch(mode.value){
+  case "base64":
+   code=rawBase64;
+   codeTitle.textContent="Raw Base64";
+   break;
+  case "html":
+   code=`<img src="${uri}" alt="${sourceFile.name.replace(/"/g,"&quot;")}">`;
+   codeTitle.textContent="HTML <img> Code";
+   break;
+  case "css":
+   code=`background-image: url("${uri}");`;
+   codeTitle.textContent="CSS Background Image";
+   break;
+  case "markdown":
+   code=`![${sourceFile.name.replace(/[\[\]]/g,"")}](${uri})`;
+   codeTitle.textContent="Markdown Image";
+   break;
+  default:
+   code=uri;
+   codeTitle.textContent="Base64 Data URI";
+ }
+ return wrapText(code);
+}
+
+generate.addEventListener("click",async()=>{
+ if(!sourceFile) return;
+ generate.disabled=true;
+ statusMsg("Encoding image locally in your browser…","info");
+ try{
+  await makeOutput();
+  output.value=buildCode();
+  size.textContent=bytes(sourceFile.size);
+  dimensions.textContent=imageW&&imageH?`${imageW}×${imageH}`:"—";
+  format.textContent=mimeLabel(sourceFile.type);
+  length.textContent=rawBase64.length.toLocaleString();
+  resultImage.src=dataURI;
+  result.classList.add("show");
+  statusMsg("Base64 generated successfully.","ok");
+  setTimeout(()=>result.scrollIntoView({behavior:"smooth",block:"start"}),100);
+ }catch(err){
+  statusMsg(err.message||"Could not encode the image.","err");
+ }finally{
+  generate.disabled=false;
+ }
+});
+
+mode.addEventListener("change",()=>{
+ if(!rawBase64) return;
+ output.value=buildCode();
+});
+line.addEventListener("change",()=>{
+ if(!rawBase64) return;
+ output.value=buildCode();
+});
+
+copy.addEventListener("click",async()=>{
+ if(!output.value) return;
+ try{
+  if(navigator.clipboard && window.isSecureContext){
+   await navigator.clipboard.writeText(output.value);
+  }else{
+   output.focus();
+   output.select();
+   document.execCommand("copy");
+  }
+  const old=copy.textContent;
+  copy.textContent="Copied ✓";
+  setTimeout(()=>copy.textContent=old,1400);
+  statusMsg("Code copied to clipboard.","ok");
+ }catch(e){
+  output.focus();output.select();
+  statusMsg("Clipboard permission was blocked. The result is selected so you can copy it manually.","info");
+ }
+});
+
+download.addEventListener("click",()=>{
+ if(!output.value) return;
+ const blob=new Blob([output.value],{type:"text/plain;charset=utf-8"});
+ const url=URL.createObjectURL(blob);
+ const a=document.createElement("a");
+ a.href=url;
+ a.download=sourceFile ? sourceFile.name.replace(/\.[^/.]+$/,"")+".base64.txt" : "image-base64.txt";
+ a.style.display="none";
+ document.body.appendChild(a);
+ a.click();
+ a.remove();
+ setTimeout(()=>URL.revokeObjectURL(url),2000);
+ statusMsg("Base64 text download started.","ok");
+});
+
+function resetAll(){
+ if(sourceURL){URL.revokeObjectURL(sourceURL);sourceURL=null}
+ sourceFile=null;rawBase64="";dataURI="";imageW=0;imageH=0;
+ fileInfo.classList.remove("show");
+ controls.classList.remove("show");
+ result.classList.remove("show");
+ thumb.removeAttribute("src");
+ resultImage.removeAttribute("src");
+ fileName.textContent="";fileMeta.textContent="";
+ output.value="";
+ clearStatus();
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+remove.addEventListener("click",resetAll);
+reset.addEventListener("click",resetAll);
+$("year").textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
