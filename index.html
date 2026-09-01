@@ -3,7 +3,31 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>InstaPic – RK Tools</title>
+    <title>InstaPic – All Image Tools & PDF Utilities | RK Tools Suite</title>
+    <meta name="description" content="InstaPic offers 34+ free online tools: PDF editor, image compressor, QR generator, text tools, calculators, converters, and more. Optimized for speed and SEO." />
+    <meta name="keywords" content="InstaPic, image tools, PDF tools, QR generator, barcode scanner, text tools, online calculator, file converter, free online utilities" />
+    <link rel="canonical" href="https://instapic.example.com/" />
+    <!-- Open Graph -->
+    <meta property="og:title" content="InstaPic – All Image Tools & PDF Utilities" />
+    <meta property="og:description" content="34+ free online tools: PDF, image, QR, text, security, calculators, converters. One place for all your utility needs." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://instapic.example.com/" />
+    <meta name="robots" content="index, follow" />
+    <!-- Schema.org structured data (WebSite) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "InstaPic",
+      "url": "https://instapic.example.com/",
+      "description": "InstaPic – All Image Tools & PDF Utilities. 34+ free online tools including PDF editor, image compressor, QR generator, text tools, calculators, converters.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://instapic.example.com/?search={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
     <!-- Font Awesome 6 (Free) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <!-- Google Font: Inter -->
@@ -14,7 +38,6 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: 'Inter', sans-serif;
             background: #f0f4fe;
@@ -24,8 +47,7 @@
             padding: 0 20px 50px;
             color: #0f172a;
         }
-
-        /* ===== 3D HEADER with LOGO ===== */
+        /* ===== HEADER ===== */
         .hero-header {
             max-width: 1400px;
             margin: 0 auto;
@@ -36,14 +58,12 @@
             justify-content: space-between;
             gap: 18px 30px;
         }
-
         .logo-block {
             display: flex;
             align-items: center;
             gap: 16px;
             perspective: 800px;
         }
-
         .logo-3d {
             width: 72px;
             height: 72px;
@@ -55,17 +75,13 @@
             font-size: 30px;
             font-weight: 900;
             color: #fff;
-            box-shadow: 
-                0 12px 0 #0b0f1a,
-                0 18px 30px -8px rgba(15, 23, 42, 0.4),
-                inset 0 -4px 0 rgba(255,255,255,0.1);
+            box-shadow: 0 12px 0 #0b0f1a, 0 18px 30px -8px rgba(15, 23, 42, 0.4), inset 0 -4px 0 rgba(255,255,255,0.1);
             transform: rotateY(-6deg) rotateX(4deg) translateZ(10px);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-shadow: 0 2px 0 #00000040;
             letter-spacing: 1px;
             position: relative;
         }
-
         .logo-3d::after {
             content: '';
             position: absolute;
@@ -77,21 +93,15 @@
             filter: blur(2px);
             opacity: 0.5;
         }
-
         .logo-3d:hover {
             transform: rotateY(-2deg) rotateX(2deg) translateZ(18px) scale(1.02);
-            box-shadow: 
-                0 14px 0 #0b0f1a,
-                0 26px 40px -10px rgba(15, 23, 42, 0.5),
-                inset 0 -4px 0 rgba(255,255,255,0.15);
+            box-shadow: 0 14px 0 #0b0f1a, 0 26px 40px -10px rgba(15, 23, 42, 0.5), inset 0 -4px 0 rgba(255,255,255,0.15);
         }
-
         .logo-text-group {
             display: flex;
             flex-direction: column;
             line-height: 1.1;
         }
-
         .logo-main {
             font-size: 34px;
             font-weight: 900;
@@ -102,14 +112,12 @@
             background-clip: text;
             text-shadow: 0 2px 8px rgba(0,0,0,0.04);
         }
-
         .logo-main span {
             background: linear-gradient(145deg, #2563eb, #7c3aed);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-
         .logo-sub {
             font-size: 14px;
             font-weight: 600;
@@ -123,12 +131,7 @@
             display: inline-block;
             margin-top: 2px;
         }
-
-        .logo-sub i {
-            color: #2563eb;
-            margin-right: 6px;
-        }
-
+        .logo-sub i { color: #2563eb; margin-right: 6px; }
         .header-badge {
             background: rgba(255,255,255,0.7);
             backdrop-filter: blur(8px);
@@ -143,12 +146,7 @@
             align-items: center;
             gap: 10px;
         }
-
-        .header-badge i {
-            color: #2563eb;
-            font-size: 16px;
-        }
-
+        .header-badge i { color: #2563eb; font-size: 16px; }
         .header-badge strong {
             background: linear-gradient(145deg, #2563eb, #7c3aed);
             -webkit-background-clip: text;
@@ -156,14 +154,42 @@
             background-clip: text;
             font-weight: 800;
         }
+        /* ===== NAVIGATION PAGES ===== */
+        .page-nav {
+            max-width: 1400px;
+            margin: 0 auto 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 16px;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+            padding-bottom: 14px;
+        }
+        .page-nav a {
+            font-weight: 600;
+            font-size: 15px;
+            color: #475569;
+            text-decoration: none;
+            padding: 6px 14px;
+            border-radius: 40px;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .page-nav a i { font-size: 14px; color: #94a3b8; }
+        .page-nav a:hover, .page-nav a.active {
+            background: #e9eef4;
+            color: #0f172a;
+        }
+        .page-nav a.active { background: #dbeafe; color: #2563eb; font-weight: 700; }
+        .page-nav a.active i { color: #2563eb; }
 
-        /* ===== 3D SEARCH CARD ===== */
+        /* ===== SEARCH ===== */
         .search-3d-wrap {
             max-width: 1400px;
             margin: 0 auto 28px;
             perspective: 1200px;
         }
-
         .search-3d {
             background: rgba(255,255,255,0.7);
             backdrop-filter: blur(14px);
@@ -173,30 +199,18 @@
             align-items: center;
             justify-content: space-between;
             border: 1px solid rgba(255,255,255,0.6);
-            box-shadow: 
-                0 12px 0 #d0d9e8,
-                0 18px 40px -12px rgba(37, 99, 235, 0.2),
-                inset 0 1px 0 rgba(255,255,255,0.8);
+            box-shadow: 0 12px 0 #d0d9e8, 0 18px 40px -12px rgba(37, 99, 235, 0.2), inset 0 1px 0 rgba(255,255,255,0.8);
             transform: rotateX(2deg) translateZ(6px);
             transition: transform 0.25s ease, box-shadow 0.25s ease;
             max-width: 620px;
             margin-left: auto;
             margin-right: auto;
         }
-
         .search-3d:hover {
             transform: rotateX(0deg) translateZ(12px);
-            box-shadow: 
-                0 14px 0 #c8d1e0,
-                0 24px 48px -14px rgba(37, 99, 235, 0.3),
-                inset 0 1px 0 rgba(255,255,255,0.9);
+            box-shadow: 0 14px 0 #c8d1e0, 0 24px 48px -14px rgba(37, 99, 235, 0.3), inset 0 1px 0 rgba(255,255,255,0.9);
         }
-
-        .search-3d i {
-            color: #94a3b8;
-            font-size: 18px;
-        }
-
+        .search-3d i { color: #94a3b8; font-size: 18px; }
         .search-3d input {
             flex: 1;
             border: none;
@@ -209,12 +223,7 @@
             color: #0f172a;
             min-width: 0;
         }
-
-        .search-3d input::placeholder {
-            color: #94a3b8;
-            font-weight: 400;
-        }
-
+        .search-3d input::placeholder { color: #94a3b8; font-weight: 400; }
         .search-3d .search-btn {
             background: linear-gradient(145deg, #2563eb, #1d4ed8);
             border: none;
@@ -231,17 +240,8 @@
             transition: 0.15s ease;
             letter-spacing: 0.3px;
         }
-
-        .search-3d .search-btn i {
-            color: #fff;
-            font-size: 14px;
-        }
-
-        .search-3d .search-btn:active {
-            transform: translateY(4px);
-            box-shadow: 0 2px 0 #1a3b8a;
-        }
-
+        .search-3d .search-btn i { color: #fff; font-size: 14px; }
+        .search-3d .search-btn:active { transform: translateY(4px); box-shadow: 0 2px 0 #1a3b8a; }
         .search-stats-3d {
             max-width: 1400px;
             margin: 18px auto 6px;
@@ -250,7 +250,6 @@
             color: #64748b;
             font-weight: 500;
         }
-
         .search-stats-3d strong {
             color: #0f172a;
             font-weight: 700;
@@ -259,7 +258,7 @@
             border-radius: 40px;
         }
 
-        /* ===== CATEGORY SECTIONS with 3D depth ===== */
+        /* ===== CATEGORIES ===== */
         .categories-grid {
             max-width: 1400px;
             margin: 20px auto 0;
@@ -267,29 +266,20 @@
             flex-direction: column;
             gap: 36px;
         }
-
         .category-section {
             background: rgba(255,255,255,0.65);
             backdrop-filter: blur(8px);
             border-radius: 32px;
             padding: 26px 30px 34px;
             border: 1px solid rgba(255,255,255,0.7);
-            box-shadow: 
-                0 8px 0 #d4dce8,
-                0 16px 40px -12px rgba(0,0,0,0.06),
-                inset 0 1px 0 rgba(255,255,255,0.8);
+            box-shadow: 0 8px 0 #d4dce8, 0 16px 40px -12px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.8);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
             transform: translateY(0) rotateX(0.5deg);
         }
-
         .category-section:hover {
             transform: translateY(-4px) rotateX(0deg);
-            box-shadow: 
-                0 12px 0 #c8d2df,
-                0 28px 48px -16px rgba(37, 99, 235, 0.12),
-                inset 0 1px 0 rgba(255,255,255,0.9);
+            box-shadow: 0 12px 0 #c8d2df, 0 28px 48px -16px rgba(37, 99, 235, 0.12), inset 0 1px 0 rgba(255,255,255,0.9);
         }
-
         .category-header {
             display: flex;
             align-items: center;
@@ -297,7 +287,6 @@
             margin-bottom: 24px;
             flex-wrap: wrap;
         }
-
         .category-icon-3d {
             width: 50px;
             height: 50px;
@@ -312,11 +301,7 @@
             transform: rotateY(-2deg) translateZ(4px);
             transition: 0.2s;
         }
-
-        .category-section:hover .category-icon-3d {
-            transform: rotateY(0deg) translateZ(8px) scale(1.02);
-        }
-
+        .category-section:hover .category-icon-3d { transform: rotateY(0deg) translateZ(8px) scale(1.02); }
         .cat-pdf .category-icon-3d { background: linear-gradient(145deg, #dc2626, #b91c1c); }
         .cat-image .category-icon-3d { background: linear-gradient(145deg, #7c3aed, #6d28d9); }
         .cat-qr .category-icon-3d { background: linear-gradient(145deg, #059669, #047857); }
@@ -331,7 +316,6 @@
             letter-spacing: -0.3px;
             color: #0f172a;
         }
-
         .category-count {
             font-size: 13px;
             font-weight: 600;
@@ -342,14 +326,12 @@
             margin-left: auto;
             box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
         }
-
-        /* ===== TOOL CARDS 3D ===== */
+        /* ===== TOOL CARDS ===== */
         .tools-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 16px;
         }
-
         .tool-card-3d {
             display: flex;
             align-items: center;
@@ -366,16 +348,12 @@
             color: #1e293b;
             transform: translateY(0) rotateX(0deg);
         }
-
         .tool-card-3d:hover {
             background: #ffffff;
             border-color: #dbeafe;
-            box-shadow: 
-                0 8px 0 #c8d2df,
-                0 16px 32px -10px rgba(37, 99, 235, 0.15);
+            box-shadow: 0 8px 0 #c8d2df, 0 16px 32px -10px rgba(37, 99, 235, 0.15);
             transform: translateY(-6px) rotateX(1deg) scale(1.01);
         }
-
         .tool-card-3d .tool-num {
             font-size: 13px;
             font-weight: 800;
@@ -390,7 +368,6 @@
             flex-shrink: 0;
             box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
         }
-
         .tool-card-3d .tool-icon {
             font-size: 20px;
             color: #2563eb;
@@ -398,19 +375,13 @@
             text-align: center;
             flex-shrink: 0;
         }
-
-        .tool-card-3d .tool-info {
-            flex: 1;
-            min-width: 0;
-        }
-
+        .tool-card-3d .tool-info { flex: 1; min-width: 0; }
         .tool-card-3d .tool-name {
             font-size: 15px;
             font-weight: 700;
             line-height: 1.3;
             color: #0f172a;
         }
-
         .tool-card-3d .tool-desc {
             font-size: 12px;
             color: #64748b;
@@ -420,19 +391,16 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
-
         .tool-card-3d .tool-arrow {
             color: #cbd5e1;
             font-size: 13px;
             transition: 0.2s;
             flex-shrink: 0;
         }
-
         .tool-card-3d:hover .tool-arrow {
             color: #2563eb;
             transform: translateX(4px) scale(1.1);
         }
-
         .no-results {
             grid-column: 1 / -1;
             text-align: center;
@@ -441,82 +409,109 @@
             font-size: 16px;
             font-weight: 500;
         }
-        .no-results i {
+        .no-results i { font-size: 32px; display: block; margin-bottom: 12px; color: #cbd5e1; }
+
+        /* ===== BLOG, FAQ, ABOUT, CONTENT PAGES ===== */
+        .page-content {
+            max-width: 1400px;
+            margin: 30px auto 0;
+            display: none;
+        }
+        .page-content.active { display: block; }
+        .page-card {
+            background: rgba(255,255,255,0.7);
+            backdrop-filter: blur(8px);
+            border-radius: 32px;
+            padding: 40px 44px;
+            border: 1px solid rgba(255,255,255,0.7);
+            box-shadow: 0 8px 0 #d4dce8, 0 16px 40px -12px rgba(0,0,0,0.06);
+        }
+        .page-card h1 {
             font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            background: linear-gradient(145deg, #1e293b, #334155);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .page-card h2 {
+            font-size: 22px;
+            font-weight: 700;
+            margin: 28px 0 12px;
+            color: #0f172a;
+        }
+        .page-card p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #334155;
+            margin-bottom: 16px;
+        }
+        .page-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        .page-card ul li {
+            padding: 8px 0 8px 28px;
+            position: relative;
+            font-size: 15px;
+            color: #334155;
+            border-bottom: 1px solid rgba(0,0,0,0.04);
+        }
+        .page-card ul li:last-child { border-bottom: none; }
+        .page-card ul li::before {
+            content: "▹";
+            position: absolute;
+            left: 4px;
+            color: #2563eb;
+            font-weight: 700;
+        }
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            padding-bottom: 16px;
+        }
+        .faq-item:last-child { border-bottom: none; }
+        .faq-item strong {
+            font-size: 17px;
+            font-weight: 700;
+            color: #0f172a;
             display: block;
-            margin-bottom: 12px;
-            color: #cbd5e1;
+            margin-bottom: 4px;
+        }
+        .faq-item p {
+            margin: 0;
+            font-size: 15px;
+            color: #475569;
         }
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             body { padding: 0 14px 40px; }
-            .hero-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 14px;
-                padding: 20px 0 12px;
-            }
-            .logo-3d {
-                width: 60px;
-                height: 60px;
-                font-size: 24px;
-                border-radius: 20px;
-            }
+            .hero-header { flex-direction: column; align-items: flex-start; gap: 14px; padding: 20px 0 12px; }
+            .logo-3d { width: 60px; height: 60px; font-size: 24px; border-radius: 20px; }
             .logo-main { font-size: 28px; }
             .logo-sub { font-size: 12px; }
-            .header-badge {
-                padding: 8px 18px;
-                font-size: 13px;
-                width: 100%;
-                justify-content: center;
-            }
-            .search-3d {
-                flex-wrap: wrap;
-                border-radius: 40px;
-                padding: 6px 6px 6px 18px;
-                max-width: 100%;
-            }
-            .search-3d input {
-                padding: 14px 10px;
-                font-size: 15px;
-            }
-            .search-3d .search-btn {
-                padding: 10px 20px;
-                font-size: 13px;
-                width: 100%;
-                justify-content: center;
-                border-radius: 40px;
-                margin-top: 4px;
-            }
-            .category-section {
-                padding: 20px 16px 24px;
-                border-radius: 24px;
-            }
+            .header-badge { padding: 8px 18px; font-size: 13px; width: 100%; justify-content: center; }
+            .page-nav { gap: 6px 10px; }
+            .page-nav a { font-size: 13px; padding: 4px 12px; }
+            .search-3d { flex-wrap: wrap; border-radius: 40px; padding: 6px 6px 6px 18px; max-width: 100%; }
+            .search-3d input { padding: 14px 10px; font-size: 15px; }
+            .search-3d .search-btn { padding: 10px 20px; font-size: 13px; width: 100%; justify-content: center; border-radius: 40px; margin-top: 4px; }
+            .category-section { padding: 20px 16px 24px; border-radius: 24px; }
             .category-title { font-size: 20px; }
-            .tools-grid {
-                grid-template-columns: 1fr;
-            }
+            .tools-grid { grid-template-columns: 1fr; }
             .tool-card-3d { padding: 12px 14px; }
             .tool-card-3d .tool-desc { white-space: normal; }
-            .category-count {
-                margin-left: 0;
-                width: auto;
-                margin-top: 2px;
-            }
-            .category-header {
-                margin-bottom: 16px;
-                gap: 10px;
-            }
+            .category-count { margin-left: 0; width: auto; margin-top: 2px; }
+            .category-header { margin-bottom: 16px; gap: 10px; }
+            .page-card { padding: 24px 18px; }
+            .page-card h1 { font-size: 26px; }
         }
-
         @media (min-width: 769px) and (max-width: 1024px) {
-            .tools-grid {
-                grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-            }
+            .tools-grid { grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); }
         }
 
-        /* ===== FOOTER NOTE ===== */
         .footer-note {
             max-width: 1400px;
             margin: 48px auto 0;
@@ -527,14 +522,35 @@
             padding-top: 28px;
             letter-spacing: 0.2px;
         }
-        .footer-note i {
-            color: #2563eb;
+        .footer-note i { color: #2563eb; }
+        .rk-toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(12px);
+            background: rgba(15,23,42,0.92);
+            backdrop-filter: blur(8px);
+            color: #f1f5f9;
+            padding: 14px 32px;
+            border-radius: 60px;
+            font-size: 15px;
+            font-weight: 600;
+            box-shadow: 0 16px 40px rgba(0,0,0,0.3);
+            z-index: 9999;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.2px;
+            opacity: 0;
+            transition: opacity 0.25s, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+            pointer-events: none;
+            max-width: 90%;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.06);
         }
     </style>
 </head>
 <body>
 
-    <!-- ===== 3D HERO HEADER with LOGO ===== -->
+    <!-- ===== HEADER ===== -->
     <header class="hero-header">
         <div class="logo-block">
             <div class="logo-3d">IP</div>
@@ -549,105 +565,179 @@
         </div>
     </header>
 
-    <!-- ===== 3D SEARCH ===== -->
-    <div class="search-3d-wrap">
+    <!-- ===== PAGE NAVIGATION ===== -->
+    <nav class="page-nav" id="pageNav">
+        <a href="#" class="active" data-page="home"><i class="fas fa-home"></i> Home</a>
+        <a href="#" data-page="blog"><i class="fas fa-blog"></i> Blog</a>
+        <a href="#" data-page="about"><i class="fas fa-info-circle"></i> About</a>
+        <a href="#" data-page="faq"><i class="fas fa-question-circle"></i> FAQ</a>
+        <a href="#" data-page="contact"><i class="fas fa-envelope"></i> Contact</a>
+    </nav>
+
+    <!-- ===== SEARCH ===== -->
+    <div class="search-3d-wrap" id="homeSearch">
         <div class="search-3d">
             <i class="fas fa-search"></i>
             <input type="text" id="searchInput" placeholder="Search any tool…" autocomplete="off" />
-            <div class="search-btn">
-                <i class="fas fa-arrow-right"></i> Search
-            </div>
+            <div class="search-btn"><i class="fas fa-arrow-right"></i> Search</div>
         </div>
         <div class="search-stats-3d">
             <span id="visibleCount">34</span> tools ready · <i class="fas fa-rotate-right" style="color:#94a3b8;"></i> instant filter
         </div>
     </div>
 
-    <!-- ===== CATEGORIES ===== -->
-    <div class="categories-grid" id="categoriesContainer">
-
-        <!-- PDF -->
-        <section class="category-section cat-pdf" data-category="pdf">
-            <div class="category-header">
-                <div class="category-icon-3d"><i class="fas fa-file-pdf"></i></div>
-                <div class="category-title">PDF Tools</div>
-                <span class="category-count">10 tools</span>
-            </div>
-            <div class="tools-grid" data-cat="pdf"></div>
-        </section>
-
-        <!-- Image -->
-        <section class="category-section cat-image" data-category="image">
-            <div class="category-header">
-                <div class="category-icon-3d"><i class="fas fa-image"></i></div>
-                <div class="category-title">Image Tools</div>
-                <span class="category-count">7 tools</span>
-            </div>
-            <div class="tools-grid" data-cat="image"></div>
-        </section>
-
-        <!-- QR & Barcode -->
-        <section class="category-section cat-qr" data-category="qr">
-            <div class="category-header">
-                <div class="category-icon-3d"><i class="fas fa-qrcode"></i></div>
-                <div class="category-title">QR &amp; Barcode</div>
-                <span class="category-count">4 tools</span>
-            </div>
-            <div class="tools-grid" data-cat="qr"></div>
-        </section>
-
-        <!-- Text & String -->
-        <section class="category-section cat-text" data-category="text">
-            <div class="category-header">
-                <div class="category-icon-3d"><i class="fas fa-font"></i></div>
-                <div class="category-title">Text &amp; String</div>
-                <span class="category-count">5 tools</span>
-            </div>
-            <div class="tools-grid" data-cat="text"></div>
-        </section>
-
-        <!-- Web & Security -->
-        <section class="category-section cat-web" data-category="web">
-            <div class="category-header">
-                <div class="category-icon-3d"><i class="fas fa-shield-alt"></i></div>
-                <div class="category-title">Web &amp; Security</div>
-                <span class="category-count">2 tools</span>
-            </div>
-            <div class="tools-grid" data-cat="web"></div>
-        </section>
-
-        <!-- Calculators -->
-        <section class="category-section cat-calc" data-category="calc">
-            <div class="category-header">
-                <div class="category-icon-3d"><i class="fas fa-calculator"></i></div>
-                <div class="category-title">Calculators</div>
-                <span class="category-count">3 tools</span>
-            </div>
-            <div class="tools-grid" data-cat="calc"></div>
-        </section>
-
-        <!-- Converters -->
-        <section class="category-section cat-convert" data-category="convert">
-            <div class="category-header">
-                <div class="category-icon-3d"><i class="fas fa-arrows-left-right"></i></div>
-                <div class="category-title">Converters</div>
-                <span class="category-count">3 tools</span>
-            </div>
-            <div class="tools-grid" data-cat="convert"></div>
-        </section>
-
+    <!-- ===== HOME PAGE (tools) ===== -->
+    <div id="page-home" class="page-content active">
+        <div class="categories-grid" id="categoriesContainer">
+            <!-- PDF -->
+            <section class="category-section cat-pdf" data-category="pdf">
+                <div class="category-header">
+                    <div class="category-icon-3d"><i class="fas fa-file-pdf"></i></div>
+                    <div class="category-title">PDF Tools</div>
+                    <span class="category-count">10 tools</span>
+                </div>
+                <div class="tools-grid" data-cat="pdf"></div>
+            </section>
+            <!-- Image -->
+            <section class="category-section cat-image" data-category="image">
+                <div class="category-header">
+                    <div class="category-icon-3d"><i class="fas fa-image"></i></div>
+                    <div class="category-title">Image Tools</div>
+                    <span class="category-count">7 tools</span>
+                </div>
+                <div class="tools-grid" data-cat="image"></div>
+            </section>
+            <!-- QR -->
+            <section class="category-section cat-qr" data-category="qr">
+                <div class="category-header">
+                    <div class="category-icon-3d"><i class="fas fa-qrcode"></i></div>
+                    <div class="category-title">QR &amp; Barcode</div>
+                    <span class="category-count">4 tools</span>
+                </div>
+                <div class="tools-grid" data-cat="qr"></div>
+            </section>
+            <!-- Text -->
+            <section class="category-section cat-text" data-category="text">
+                <div class="category-header">
+                    <div class="category-icon-3d"><i class="fas fa-font"></i></div>
+                    <div class="category-title">Text &amp; String</div>
+                    <span class="category-count">5 tools</span>
+                </div>
+                <div class="tools-grid" data-cat="text"></div>
+            </section>
+            <!-- Web -->
+            <section class="category-section cat-web" data-category="web">
+                <div class="category-header">
+                    <div class="category-icon-3d"><i class="fas fa-shield-alt"></i></div>
+                    <div class="category-title">Web &amp; Security</div>
+                    <span class="category-count">2 tools</span>
+                </div>
+                <div class="tools-grid" data-cat="web"></div>
+            </section>
+            <!-- Calculators -->
+            <section class="category-section cat-calc" data-category="calc">
+                <div class="category-header">
+                    <div class="category-icon-3d"><i class="fas fa-calculator"></i></div>
+                    <div class="category-title">Calculators</div>
+                    <span class="category-count">3 tools</span>
+                </div>
+                <div class="tools-grid" data-cat="calc"></div>
+            </section>
+            <!-- Converters -->
+            <section class="category-section cat-convert" data-category="convert">
+                <div class="category-header">
+                    <div class="category-icon-3d"><i class="fas fa-arrows-left-right"></i></div>
+                    <div class="category-title">Converters</div>
+                    <span class="category-count">3 tools</span>
+                </div>
+                <div class="tools-grid" data-cat="convert"></div>
+            </section>
+        </div>
     </div>
 
+    <!-- ===== BLOG PAGE ===== -->
+    <div id="page-blog" class="page-content">
+        <div class="page-card">
+            <h1><i class="fas fa-blog" style="color:#2563eb; margin-right:12px;"></i>InstaPic Blog</h1>
+            <p>Insights, tutorials, and updates about our tools and digital productivity.</p>
+            <h2>📄 How to Compress Images Without Losing Quality</h2>
+            <p>Learn the best techniques to reduce image size while preserving clarity. Our Image Compressor tool uses smart algorithms to shrink files up to 70%.</p>
+            <h2>🔒 Why You Should Password-Protect Your PDFs</h2>
+            <p>Security matters. Discover how our PDF Lock tool keeps your sensitive documents safe with bank-grade encryption.</p>
+            <h2>📱 QR Codes for Business: Best Practices</h2>
+            <p>From WiFi auto-connect to vCard sharing, our All-in-One QR Generator helps you create professional QR codes in seconds.</p>
+            <p style="margin-top:20px; color:#64748b;"><i class="fas fa-calendar-alt"></i> Published: September 2026 · by InstaPic Team</p>
+        </div>
+    </div>
+
+    <!-- ===== ABOUT PAGE ===== -->
+    <div id="page-about" class="page-content">
+        <div class="page-card">
+            <h1><i class="fas fa-info-circle" style="color:#2563eb; margin-right:12px;"></i>About InstaPic</h1>
+            <p><strong>InstaPic</strong> is a comprehensive utility platform developed by <strong>RK Tools Suite</strong>. We offer <strong>34+ free online tools</strong> across categories: PDF, Image, QR &amp; Barcode, Text, Web &amp; Security, Calculators, and Converters.</p>
+            <p>Our mission is to provide <strong>fast, reliable, and privacy-focused</strong> tools for everyday tasks — whether you're a student, professional, or creator.</p>
+            <h2>✨ Why InstaPic?</h2>
+            <ul>
+                <li><strong>100% Free</strong> – No hidden fees, no premium lock.</li>
+                <li><strong>Privacy First</strong> – All processing is done locally in your browser.</li>
+                <li><strong>Modern UI</strong> – 3D depth, dark/light friendly, fully responsive.</li>
+                <li><strong>SEO Optimized</strong> – Built with structured data and semantic HTML.</li>
+            </ul>
+            <p style="margin-top:12px;">🚀 <strong>Version:</strong> 2.0 · <i class="fas fa-code"></i> Built with HTML, CSS, Vanilla JS</p>
+        </div>
+    </div>
+
+    <!-- ===== FAQ PAGE ===== -->
+    <div id="page-faq" class="page-content">
+        <div class="page-card">
+            <h1><i class="fas fa-question-circle" style="color:#2563eb; margin-right:12px;"></i>Frequently Asked Questions</h1>
+            <div class="faq-item">
+                <strong>❓ Are the tools really free?</strong>
+                <p>Yes, all 34+ tools are completely free to use. No registration, no credit card required.</p>
+            </div>
+            <div class="faq-item">
+                <strong>❓ Do you store my files or data?</strong>
+                <p>No. All processing is done client-side. Your files never leave your device.</p>
+            </div>
+            <div class="faq-item">
+                <strong>❓ Which image formats are supported?</strong>
+                <p>We support PNG, JPG, WEBP, BMP, and more via our Format Converter and other image tools.</p>
+            </div>
+            <div class="faq-item">
+                <strong>❓ Can I use InstaPic on mobile?</strong>
+                <p>Absolutely. The interface is fully responsive and works on all devices.</p>
+            </div>
+            <div class="faq-item">
+                <strong>❓ How do I contact support?</strong>
+                <p>Use the <a href="#" data-page="contact" style="color:#2563eb; font-weight:600;">Contact page</a> or email us at support@instapic.example.com.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== CONTACT PAGE ===== -->
+    <div id="page-contact" class="page-content">
+        <div class="page-card">
+            <h1><i class="fas fa-envelope" style="color:#2563eb; margin-right:12px;"></i>Contact Us</h1>
+            <p>Have questions, feedback, or suggestions? We'd love to hear from you.</p>
+            <p><strong><i class="fas fa-envelope"></i> Email:</strong> support@instapic.example.com</p>
+            <p><strong><i class="fas fa-twitter"></i> Twitter:</strong> @InstaPicTools</p>
+            <p><strong><i class="fas fa-github"></i> GitHub:</strong> github.com/instapic</p>
+            <p style="margin-top:20px; background:#e9eef4; padding:16px 20px; border-radius:16px;">
+                <i class="fas fa-clock" style="color:#2563eb;"></i> Response time: within 24 hours (business days)
+            </p>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
     <div class="footer-note">
-        <i class="fas fa-cube"></i> InstaPic · All Image Tools · 34 utilities with 3D depth
+        <i class="fas fa-cube"></i> InstaPic · All Image Tools · 34 utilities · © 2026 RK Tools Suite
     </div>
 
     <script>
         // ============================================================
-        //  TOOL DATA  –  exactly as listed (34 tools)
+        //  TOOL DATA (34 tools)
         // ============================================================
         const TOOLS = [
-            // PDF (1–10)
             { id: 1, cat: 'pdf', name: 'PDF to Image', icon: 'fa-file-image', desc: 'Convert PDF pages to JPG / PNG' },
             { id: 2, cat: 'pdf', name: 'PDF Lock', icon: 'fa-lock', desc: 'Password-protect your PDF' },
             { id: 3, cat: 'pdf', name: 'PDF Unlock', icon: 'fa-unlock', desc: 'Remove PDF password' },
@@ -658,7 +748,6 @@
             { id: 8, cat: 'pdf', name: 'PDF Watermark Remover', icon: 'fa-eraser', desc: 'Remove watermarks from PDF' },
             { id: 9, cat: 'pdf', name: 'PDF Page Editor', icon: 'fa-pen-to-square', desc: 'Edit PDF pages' },
             { id: 10, cat: 'pdf', name: 'PDF Page Rearrange', icon: 'fa-arrow-up-arrow-down', desc: 'Reorder PDF pages' },
-            // Image (11–17)
             { id: 11, cat: 'image', name: 'Image Compressor', icon: 'fa-compress', desc: 'Reduce image size' },
             { id: 12, cat: 'image', name: 'Format Converter', icon: 'fa-arrows-rotate', desc: 'PNG, JPG, WEBP, BMP' },
             { id: 13, cat: 'image', name: 'Image Resizer', icon: 'fa-expand', desc: 'Change width & height' },
@@ -666,32 +755,27 @@
             { id: 15, cat: 'image', name: 'Image to Base64', icon: 'fa-code', desc: 'Convert to Data URL' },
             { id: 16, cat: 'image', name: 'Add Watermark', icon: 'fa-stamp', desc: 'Watermark images' },
             { id: 17, cat: 'image', name: 'Remove Watermark', icon: 'fa-wand-magic-sparkles', desc: 'Remove watermark' },
-            // QR (18–21)
             { id: 18, cat: 'qr', name: 'All-in-One QR Generator', icon: 'fa-qrcode', desc: 'Text, URL, WiFi, vCard' },
             { id: 19, cat: 'qr', name: 'QR Code Scanner', icon: 'fa-camera', desc: 'Scan QR codes from image' },
             { id: 20, cat: 'qr', name: 'Barcode Generator', icon: 'fa-barcode', desc: 'Code 28, EAN, Code39' },
             { id: 21, cat: 'qr', name: 'Barcode Scanner', icon: 'fa-camera', desc: 'Scan barcodes' },
-            // Text (22–26)
             { id: 22, cat: 'text', name: 'Word Counter', icon: 'fa-align-left', desc: 'Count words & characters' },
             { id: 23, cat: 'text', name: 'Text to Speech', icon: 'fa-volume-high', desc: 'Convert text to audio' },
             { id: 24, cat: 'text', name: 'Line Counter', icon: 'fa-list-ol', desc: 'Count lines in text' },
             { id: 25, cat: 'text', name: 'Text Case Changer', icon: 'fa-font', desc: 'UPPER, lower, Title, Sentence' },
             { id: 26, cat: 'text', name: 'Text Repeater', icon: 'fa-repeat', desc: 'Repeat text 100–1000×' },
-            // Web (27–28)
             { id: 27, cat: 'web', name: 'Password Strength Tester', icon: 'fa-lock', desc: 'Weak / Strong password check' },
             { id: 28, cat: 'web', name: 'Speed Tester', icon: 'fa-tachometer-alt', desc: 'Test your internet speed' },
-            // Calc (29–31)
             { id: 29, cat: 'calc', name: 'Standard Calculator', icon: 'fa-calculator', desc: '+, −, ×, ÷, %' },
             { id: 30, cat: 'calc', name: 'Age Calculator', icon: 'fa-calendar-days', desc: 'Calculate age from DOB' },
             { id: 31, cat: 'calc', name: 'Loan / Interest Calculator', icon: 'fa-hand-holding-dollar', desc: 'Compound interest & EMI' },
-            // Convert (32–34)
             { id: 32, cat: 'convert', name: 'Length Converter', icon: 'fa-ruler', desc: 'Meters, feet, inches, km' },
             { id: 33, cat: 'convert', name: 'Weight Converter', icon: 'fa-weight-scale', desc: 'kg, lbs, ounces, tons' },
             { id: 34, cat: 'convert', name: 'Area Converter', icon: 'fa-up-down', desc: 'Acres, sq ft, hectares' },
         ];
 
         // ============================================================
-        //  RENDER
+        //  RENDER TOOLS
         // ============================================================
         function renderTools(filter = '') {
             const lower = filter.toLowerCase().trim();
@@ -747,12 +831,65 @@
         document.getElementById('searchInput').addEventListener('input', (e) => renderTools(e.target.value));
 
         // ============================================================
-        //  INIT
+        //  PAGE NAVIGATION
         // ============================================================
-        renderTools('');
+        const pageLinks = document.querySelectorAll('#pageNav a');
+        const pageContents = {
+            home: document.getElementById('page-home'),
+            blog: document.getElementById('page-blog'),
+            about: document.getElementById('page-about'),
+            faq: document.getElementById('page-faq'),
+            contact: document.getElementById('page-contact'),
+        };
+
+        // Show home by default, hide others
+        Object.keys(pageContents).forEach(key => {
+            if (key !== 'home') pageContents[key].classList.remove('active');
+        });
+        document.getElementById('page-home').classList.add('active');
+
+        pageLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const page = link.dataset.page;
+                // Update active nav
+                pageLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+                // Show/hide pages
+                Object.keys(pageContents).forEach(key => {
+                    if (key === page) {
+                        pageContents[key].classList.add('active');
+                    } else {
+                        pageContents[key].classList.remove('active');
+                    }
+                });
+                // If home, ensure search is visible; for other pages hide search?
+                const searchWrap = document.getElementById('homeSearch');
+                if (page === 'home') {
+                    searchWrap.style.display = 'block';
+                } else {
+                    searchWrap.style.display = 'none';
+                }
+                // Re-run search filter if home
+                if (page === 'home') {
+                    renderTools(document.getElementById('searchInput').value);
+                }
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+
+        // Also handle contact link from FAQ
+        document.querySelectorAll('[data-page="contact"]').forEach(el => {
+            el.addEventListener('click', (e) => {
+                e.preventDefault();
+                const contactLink = document.querySelector('#pageNav a[data-page="contact"]');
+                if (contactLink) contactLink.click();
+            });
+        });
 
         // ============================================================
-        //  CARD CLICK → toast
+        //  TOAST
         // ============================================================
         function showToast(msg) {
             const old = document.querySelector('.rk-toast');
@@ -760,16 +897,6 @@
             const toast = document.createElement('div');
             toast.className = 'rk-toast';
             toast.textContent = msg;
-            Object.assign(toast.style, {
-                position: 'fixed', bottom: '30px', left: '50%', transform: 'translateX(-50%) translateY(12px)',
-                background: 'rgba(15,23,42,0.92)', backdropFilter: 'blur(8px)',
-                color: '#f1f5f9', padding: '14px 32px', borderRadius: '60px',
-                fontSize: '15px', fontWeight: '600', boxShadow: '0 16px 40px rgba(0,0,0,0.3)',
-                zIndex: '9999', fontFamily: 'Inter, sans-serif', letterSpacing: '0.2px',
-                opacity: '0', transition: 'opacity 0.25s, transform 0.3s cubic-bezier(0.22,1,0.36,1)',
-                pointerEvents: 'none', maxWidth: '90%', textAlign: 'center',
-                border: '1px solid rgba(255,255,255,0.06)'
-            });
             document.body.appendChild(toast);
             requestAnimationFrame(() => {
                 toast.style.opacity = '1';
@@ -789,6 +916,11 @@
                 showToast(`🔧 ${name} — ready to use!`);
             }
         });
+
+        // ============================================================
+        //  INIT
+        // ============================================================
+        renderTools('');
     </script>
 </body>
 </html>
