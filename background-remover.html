@@ -1,0 +1,3227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover">
+
+<title>
+  AI Background Remover Online - Remove Image Background Free
+</title>
+
+<meta name="description"
+content="Remove image backgrounds automatically with an AI-powered browser-based background remover. Get clean transparent PNG results with accurate subject edges. No login or image upload required.">
+
+<meta name="keywords"
+content="background remover, remove background, image background remover, AI background remover, remove image background, transparent PNG, background eraser, photo background remover, online background remover, free background remover">
+
+<meta name="robots"
+      content="index,follow,max-image-preview:large">
+
+<meta name="author"
+      content="InstaPic">
+
+<link rel="canonical"
+      href="https://YOUR-DOMAIN.netlify.app/background-remover.html">
+
+<meta property="og:type"
+      content="website">
+
+<meta property="og:title"
+content="AI Background Remover - Remove Image Background Online">
+
+<meta property="og:description"
+content="Automatically remove backgrounds from photos and images and download a clean transparent PNG directly from your browser.">
+
+<meta property="og:url"
+content="https://YOUR-DOMAIN.netlify.app/background-remover.html">
+
+<meta name="twitter:card"
+      content="summary_large_image">
+
+<meta name="twitter:title"
+content="AI Background Remover Online">
+
+<meta name="twitter:description"
+content="Remove image backgrounds directly in your browser and download transparent PNG images.">
+
+<meta name="theme-color"
+      content="#2563eb">
+
+
+<!--
+=========================================================
+SEO STRUCTURED DATA
+=========================================================
+-->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"AI Background Remover",
+  "url":"https://YOUR-DOMAIN.netlify.app/background-remover.html",
+  "applicationCategory":"MultimediaApplication",
+  "operatingSystem":"Windows, macOS, Linux, Android, iOS",
+  "browserRequirements":"Requires JavaScript and a modern browser",
+  "description":"Browser-based AI image background remover that creates transparent PNG images.",
+  "offers":{
+    "@type":"Offer",
+    "price":"0",
+    "priceCurrency":"USD"
+  },
+  "featureList":[
+    "AI background removal",
+    "Transparent PNG output",
+    "Automatic subject detection",
+    "Browser-based processing",
+    "No account required",
+    "Drag and drop upload",
+    "Before and after preview",
+    "High resolution output"
+  ]
+}
+</script>
+
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"How does the background remover work?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"The tool uses an AI image segmentation model that runs in the browser to separate the foreground subject from the background."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Is the background remover free?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"The web tool is designed to work without requiring a user account or paid subscription."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Are my images uploaded to a server?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"The background-removal inference runs in the browser. The image itself does not need to be sent to an image-processing server."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Can I download the result as a transparent PNG?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Yes. The result is generated with transparency and can be downloaded as a PNG file."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Can the tool remove backgrounds from people and products?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"The AI segmentation model is designed for foreground/background separation and can be useful for portraits, people, products and many other images."
+      }
+    }
+  ]
+}
+</script>
+
+
+<style>
+
+:root{
+
+    --blue:#2563eb;
+    --blue-dark:#1d4ed8;
+
+    --green:#10b981;
+    --red:#ef4444;
+
+    --text:#111827;
+    --muted:#6b7280;
+
+    --border:#e5e7eb;
+
+    --background:#f8fafc;
+    --card:#ffffff;
+
+    --radius:20px;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    margin:0;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f8fafc 0%,
+            #ffffff 100%
+        );
+
+    color:var(--text);
+
+    font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    line-height:1.6;
+}
+
+
+button,
+input{
+    font:inherit;
+}
+
+
+button{
+    cursor:pointer;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:100;
+
+    background:
+        rgba(255,255,255,.92);
+
+    backdrop-filter:
+        blur(12px);
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+
+.header-inner{
+
+    width:
+        min(
+            1100px,
+            calc(100% - 28px)
+        );
+
+    min-height:64px;
+
+    margin:auto;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:15px;
+}
+
+
+.logo{
+
+    color:var(--text);
+
+    text-decoration:none;
+
+    font-size:21px;
+
+    font-weight:900;
+
+    letter-spacing:-.5px;
+}
+
+
+.logo span{
+    color:var(--blue);
+}
+
+
+.private-badge{
+
+    color:#047857;
+
+    background:#ecfdf5;
+
+    border:
+        1px solid #a7f3d0;
+
+    border-radius:999px;
+
+    padding:
+        5px 10px;
+
+    font-size:12px;
+
+    font-weight:800;
+}
+
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.container{
+
+    width:
+        min(
+            1100px,
+            calc(100% - 28px)
+        );
+
+    margin:auto;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+
+    text-align:center;
+
+    padding:
+        45px 0 25px;
+}
+
+
+.hero h1{
+
+    margin:
+        0 auto 14px;
+
+    max-width:900px;
+
+    font-size:
+        clamp(
+            32px,
+            6vw,
+            54px
+        );
+
+    line-height:1.08;
+
+    letter-spacing:-2px;
+}
+
+
+.hero h1 span{
+    color:var(--blue);
+}
+
+
+.hero p{
+
+    max-width:780px;
+
+    margin:auto;
+
+    color:var(--muted);
+
+    font-size:17px;
+}
+
+
+/* =====================================================
+   TOOL CARD
+===================================================== */
+
+.tool-card{
+
+    background:
+        var(--card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        24px;
+
+    padding:
+        20px;
+
+    box-shadow:
+        0 15px 45px
+        rgba(15,23,42,.07);
+}
+
+
+/* =====================================================
+   UPLOAD
+===================================================== */
+
+.upload-zone{
+
+    min-height:410px;
+
+    border:
+        3px dashed #9ca3af;
+
+    border-radius:
+        24px;
+
+    background:
+        #f8fafc;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:25px;
+
+    transition:
+        .2s ease;
+}
+
+
+.upload-zone.dragover{
+
+    border-color:
+        var(--blue);
+
+    background:
+        #eff6ff;
+
+    transform:
+        scale(1.005);
+}
+
+
+.upload-content{
+    width:100%;
+}
+
+
+.upload-icon{
+
+    width:
+        125px;
+
+    height:
+        125px;
+
+    margin:
+        0 auto 18px;
+}
+
+
+.upload-icon svg{
+
+    width:100%;
+
+    height:100%;
+}
+
+
+.upload-title{
+
+    font-size:24px;
+
+    font-weight:800;
+
+    margin-bottom:5px;
+}
+
+
+.upload-subtitle{
+
+    color:var(--muted);
+
+    margin-bottom:20px;
+}
+
+
+.browse-btn{
+
+    border:0;
+
+    color:white;
+
+    background:
+        var(--blue);
+
+    padding:
+        14px 32px;
+
+    border-radius:
+        999px;
+
+    font-weight:800;
+
+    box-shadow:
+        0 7px 18px
+        rgba(37,99,235,.25);
+
+    transition:.2s;
+}
+
+
+.browse-btn:hover{
+
+    background:
+        var(--blue-dark);
+
+    transform:
+        translateY(-1px);
+}
+
+
+.upload-note{
+
+    color:
+        var(--muted);
+
+    font-size:
+        12px;
+
+    margin-top:
+        13px;
+}
+
+
+/* =====================================================
+   FILE INFO
+===================================================== */
+
+.file-info{
+
+    display:none;
+
+    margin-top:
+        18px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        16px;
+
+    padding:
+        14px;
+
+    background:#fff;
+}
+
+
+.file-info.active{
+    display:flex;
+}
+
+
+.file-thumb{
+
+    width:70px;
+
+    height:70px;
+
+    flex-shrink:0;
+
+    border-radius:
+        12px;
+
+    overflow:hidden;
+
+    background:#f3f4f6;
+}
+
+
+.file-thumb img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+}
+
+
+.file-details{
+
+    min-width:0;
+
+    flex:1;
+
+    padding-left:12px;
+}
+
+
+.file-name{
+
+    font-weight:800;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+    white-space:nowrap;
+}
+
+
+.file-meta{
+
+    color:
+        var(--muted);
+
+    font-size:
+        13px;
+
+    margin-top:
+        3px;
+}
+
+
+.remove-file{
+
+    width:40px;
+
+    height:40px;
+
+    border:0;
+
+    border-radius:
+        10px;
+
+    background:
+        #fef2f2;
+
+    color:
+        #dc2626;
+
+    font-size:22px;
+}
+
+
+/* =====================================================
+   PROCESS BUTTON
+===================================================== */
+
+.process-btn{
+
+    width:100%;
+
+    margin-top:18px;
+
+    padding:
+        15px;
+
+    border:0;
+
+    border-radius:
+        13px;
+
+    background:
+        var(--blue);
+
+    color:#fff;
+
+    font-weight:900;
+
+    font-size:16px;
+
+    transition:.2s;
+}
+
+
+.process-btn:hover{
+    background:var(--blue-dark);
+}
+
+
+.process-btn:disabled{
+
+    opacity:.55;
+
+    cursor:not-allowed;
+}
+
+
+/* =====================================================
+   PROGRESS
+===================================================== */
+
+.progress-area{
+
+    display:none;
+
+    margin-top:20px;
+}
+
+
+.progress-area.active{
+    display:block;
+}
+
+
+.progress-title{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:10px;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    margin-bottom:7px;
+}
+
+
+.progress-track{
+
+    height:10px;
+
+    background:#e5e7eb;
+
+    border-radius:
+        999px;
+
+    overflow:hidden;
+}
+
+
+.progress-bar{
+
+    width:0%;
+
+    height:100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #2563eb,
+            #10b981
+        );
+
+    border-radius:
+        inherit;
+
+    transition:
+        width .2s ease;
+}
+
+
+.progress-message{
+
+    margin-top:8px;
+
+    color:var(--muted);
+
+    font-size:12px;
+}
+
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+.status{
+
+    display:none;
+
+    margin-top:
+        15px;
+
+    padding:
+        12px 14px;
+
+    border-radius:
+        11px;
+
+    font-size:
+        14px;
+}
+
+
+.status.show{
+    display:block;
+}
+
+
+.status.info{
+
+    color:#1d4ed8;
+
+    background:#eff6ff;
+}
+
+
+.status.success{
+
+    color:#047857;
+
+    background:#ecfdf5;
+}
+
+
+.status.error{
+
+    color:#b91c1c;
+
+    background:#fef2f2;
+}
+
+
+/* =====================================================
+   RESULT
+===================================================== */
+
+.result-section{
+
+    display:none;
+
+    margin-top:
+        24px;
+}
+
+
+.result-section.active{
+    display:block;
+}
+
+
+.result-heading{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:14px;
+}
+
+
+.result-heading h2{
+
+    margin:0;
+
+    font-size:23px;
+}
+
+
+.result-badge{
+
+    background:
+        #ecfdf5;
+
+    color:
+        #047857;
+
+    border-radius:
+        999px;
+
+    padding:
+        6px 10px;
+
+    font-size:
+        12px;
+
+    font-weight:
+        800;
+}
+
+
+/* =====================================================
+   BEFORE AFTER
+===================================================== */
+
+.preview-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
+    gap:16px;
+}
+
+
+.preview-card{
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        18px;
+
+    overflow:hidden;
+
+    background:#fff;
+}
+
+
+.preview-label{
+
+    padding:
+        11px 14px;
+
+    border-bottom:
+        1px solid var(--border);
+
+    font-size:
+        13px;
+
+    font-weight:
+        800;
+}
+
+
+.preview-image{
+
+    min-height:
+        310px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:14px;
+
+    overflow:hidden;
+}
+
+
+/*
+Checkerboard makes transparent
+background clearly visible.
+*/
+
+.checkerboard{
+
+    background-color:#fff;
+
+    background-image:
+
+        linear-gradient(
+            45deg,
+            #e5e7eb 25%,
+            transparent 25%
+        ),
+
+        linear-gradient(
+            -45deg,
+            #e5e7eb 25%,
+            transparent 25%
+        ),
+
+        linear-gradient(
+            45deg,
+            transparent 75%,
+            #e5e7eb 75%
+        ),
+
+        linear-gradient(
+            -45deg,
+            transparent 75%,
+            #e5e7eb 75%
+        );
+
+    background-size:
+        24px 24px;
+
+    background-position:
+        0 0,
+        0 12px,
+        12px -12px,
+        -12px 0;
+}
+
+
+.preview-image img{
+
+    max-width:100%;
+
+    max-height:420px;
+
+    object-fit:
+        contain;
+
+    display:block;
+
+    border-radius:
+        8px;
+}
+
+
+.result-info{
+
+    padding:
+        15px;
+
+    border-top:
+        1px solid var(--border);
+}
+
+
+.result-stats{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:8px;
+
+    margin-bottom:
+        14px;
+}
+
+
+.stat{
+
+    padding:
+        10px;
+
+    border-radius:
+        11px;
+
+    background:
+        #f8fafc;
+
+    text-align:center;
+}
+
+
+.stat-label{
+
+    color:
+        var(--muted);
+
+    font-size:
+        11px;
+
+    display:block;
+}
+
+
+.stat-value{
+
+    font-size:
+        13px;
+
+    font-weight:
+        800;
+}
+
+
+.download-btn{
+
+    width:100%;
+
+    border:0;
+
+    padding:
+        13px;
+
+    border-radius:
+        11px;
+
+    background:
+        var(--green);
+
+    color:white;
+
+    font-weight:
+        900;
+}
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+.reset-btn{
+
+    width:100%;
+
+    margin-top:
+        10px;
+
+    border:
+        1px solid var(--border);
+
+    background:
+        white;
+
+    color:
+        var(--text);
+
+    padding:
+        12px;
+
+    border-radius:
+        11px;
+
+    font-weight:
+        700;
+}
+
+
+/* =====================================================
+   SEO ARTICLE
+===================================================== */
+
+.seo-section{
+
+    margin-top:
+        45px;
+
+    background:#fff;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        22px;
+
+    padding:
+        30px;
+}
+
+
+.seo-section h2{
+
+    margin-top:0;
+
+    font-size:
+        30px;
+
+    line-height:
+        1.2;
+}
+
+
+.seo-section h3{
+
+    margin-top:
+        30px;
+
+    font-size:
+        21px;
+}
+
+
+.seo-section p,
+.seo-section li{
+
+    color:#374151;
+}
+
+
+.seo-section li{
+    margin:6px 0;
+}
+
+
+.faq{
+
+    border-top:
+        1px solid var(--border);
+}
+
+
+.faq details{
+
+    padding:
+        15px 0;
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+
+.faq summary{
+
+    cursor:pointer;
+
+    font-weight:
+        800;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+
+    margin-top:
+        50px;
+
+    padding:
+        30px 0;
+
+    text-align:
+        center;
+
+    color:
+        var(--muted);
+
+    font-size:
+        13px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:700px){
+
+    .container{
+
+        width:
+            calc(100% - 18px);
+    }
+
+
+    .header-inner{
+
+        min-height:
+            58px;
+    }
+
+
+    .private-badge{
+        font-size:10px;
+    }
+
+
+    .hero{
+
+        padding:
+            30px 0 18px;
+    }
+
+
+    .hero h1{
+
+        letter-spacing:
+            -1px;
+    }
+
+
+    .hero p{
+
+        font-size:
+            15px;
+    }
+
+
+    .tool-card{
+
+        padding:
+            12px;
+
+        border-radius:
+            18px;
+    }
+
+
+    .upload-zone{
+
+        min-height:
+            390px;
+
+        border-radius:
+            20px;
+    }
+
+
+    .preview-grid{
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .preview-image{
+
+        min-height:
+            260px;
+    }
+
+
+    .result-stats{
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+
+    .seo-section{
+
+        padding:
+            20px;
+
+        border-radius:
+            18px;
+    }
+
+}
+
+
+</style>
+</head>
+
+
+<body>
+
+
+<header class="header">
+
+<div class="header-inner">
+
+<a
+    href="index.html"
+    class="logo">
+
+    Insta<span>Pic</span>
+
+</a>
+
+<div class="private-badge">
+
+    Browser AI • No Login
+
+</div>
+
+</div>
+
+</header>
+
+
+<main>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+<div class="container">
+
+<h1>
+    AI <span>Background Remover</span>
+</h1>
+
+<p>
+    Remove image backgrounds automatically and create a clean,
+    transparent PNG with accurate subject edges — directly in
+    your browser.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     TOOL
+===================================================== -->
+
+<section class="container">
+
+<div class="tool-card">
+
+
+<!-- UPLOAD -->
+
+<div
+    id="uploadZone"
+    class="upload-zone">
+
+<div class="upload-content">
+
+
+<div class="upload-icon">
+
+<svg
+    viewBox="0 0 120 120"
+    xmlns="http://www.w3.org/2000/svg">
+
+<defs>
+
+<linearGradient
+    id="cloudGradient"
+    x1="0%"
+    y1="0%"
+    x2="100%"
+    y2="100%">
+
+<stop
+    offset="0%"
+    stop-color="#4ade80"/>
+
+<stop
+    offset="100%"
+    stop-color="#93c5fd"/>
+
+</linearGradient>
+
+</defs>
+
+
+<path
+d="M36 86h51c15 0 27-11 27-25
+0-13-10-24-23-25
+-5-18-21-30-39-30
+-20 0-36 15-39 34
+C7 42 0 51 0 63
+0 76 11 86 24 86z"
+fill="url(#cloudGradient)"
+stroke="#374151"
+stroke-width="2"/>
+
+
+<path
+d="M60 75V42"
+stroke="#374151"
+stroke-width="3"
+stroke-linecap="round"/>
+
+
+<path
+d="M47 53l13-13 13 13"
+fill="none"
+stroke="#374151"
+stroke-width="3"
+stroke-linecap="round"
+stroke-linejoin="round"/>
+
+</svg>
+
+</div>
+
+
+<div class="upload-title">
+
+    Add Image
+
+</div>
+
+
+<div class="upload-subtitle">
+
+    Upload a person, product, object or photo
+
+</div>
+
+
+<button
+    type="button"
+    id="browseBtn"
+    class="browse-btn">
+
+    Browse
+
+</button>
+
+
+<div class="upload-note">
+
+    or drag a photo here
+
+</div>
+
+
+<input
+    id="fileInput"
+    type="file"
+    accept="image/jpeg,image/png,image/webp,image/jpg"
+    hidden>
+
+</div>
+
+</div>
+
+
+<!-- FILE -->
+
+<div
+    id="fileInfo"
+    class="file-info">
+
+<div class="file-thumb">
+
+<img
+    id="fileThumb"
+    alt="Selected image preview">
+
+</div>
+
+
+<div class="file-details">
+
+<div
+    id="fileName"
+    class="file-name">
+</div>
+
+<div
+    id="fileMeta"
+    class="file-meta">
+</div>
+
+</div>
+
+
+<button
+    id="removeFile"
+    class="remove-file"
+    type="button">
+
+    ×
+
+</button>
+
+</div>
+
+
+<!-- PROCESS -->
+
+<button
+    id="processBtn"
+    class="process-btn"
+    disabled>
+
+    Remove Background
+
+</button>
+
+
+<!-- PROGRESS -->
+
+<div
+    id="progressArea"
+    class="progress-area">
+
+<div class="progress-title">
+
+<span id="progressTitle">
+    Preparing AI model…
+</span>
+
+<span id="progressPercent">
+    0%
+</span>
+
+</div>
+
+
+<div class="progress-track">
+
+<div
+    id="progressBar"
+    class="progress-bar">
+</div>
+
+</div>
+
+
+<div
+    id="progressMessage"
+    class="progress-message">
+
+    The first run may take longer because
+    the AI model has to be downloaded and initialized.
+
+</div>
+
+</div>
+
+
+<!-- STATUS -->
+
+<div
+    id="status"
+    class="status">
+</div>
+
+
+<!-- RESULT -->
+
+<div
+    id="resultSection"
+    class="result-section">
+
+<div class="result-heading">
+
+<h2>
+    Background Removed
+</h2>
+
+<div class="result-badge">
+
+    Transparent PNG
+
+</div>
+
+</div>
+
+
+<div class="preview-grid">
+
+
+<!-- ORIGINAL -->
+
+<div class="preview-card">
+
+<div class="preview-label">
+    Original Image
+</div>
+
+<div class="preview-image">
+
+<img
+    id="originalPreview"
+    alt="Original image">
+
+</div>
+
+</div>
+
+
+<!-- RESULT -->
+
+<div class="preview-card">
+
+<div class="preview-label">
+    Background Removed
+</div>
+
+<div
+    class="preview-image checkerboard">
+
+<img
+    id="resultPreview"
+    alt="Background removed transparent image">
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="result-info">
+
+
+<div class="result-stats">
+
+
+<div class="stat">
+
+<span class="stat-label">
+    Original
+</span>
+
+<span
+    id="originalSize"
+    class="stat-value">
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<span class="stat-label">
+    Result
+</span>
+
+<span
+    id="resultSize"
+    class="stat-value">
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<span class="stat-label">
+    Resolution
+</span>
+
+<span
+    id="resultResolution"
+    class="stat-value">
+</span>
+
+</div>
+
+
+</div>
+
+
+<button
+    id="downloadBtn"
+    class="download-btn">
+
+    Download Transparent PNG
+
+</button>
+
+
+<button
+    id="resetBtn"
+    class="reset-btn">
+
+    Remove Another Image
+
+</button>
+
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     SEO CONTENT
+===================================================== -->
+
+<section class="container">
+
+<article class="seo-section">
+
+
+<h2>
+    Free AI Background Remover Online
+</h2>
+
+
+<p>
+    Removing a background from an image is useful when you want to
+    isolate a person, product, object or other foreground subject.
+    A background remover automatically separates the main subject
+    from the surrounding background and creates an image with
+    transparent areas.
+</p>
+
+
+<p>
+    This browser-based background remover is designed for common
+    photo editing tasks such as creating product images, profile
+    pictures, thumbnails, social media graphics, presentations,
+    online store images and creative designs.
+</p>
+
+
+<h3>
+    Accurate Background Removal
+</h3>
+
+
+<p>
+    The tool uses AI-based image segmentation rather than simply
+    deleting a particular background color. This allows it to
+    attempt to identify the foreground subject even when the
+    background contains different colors, textures and lighting.
+</p>
+
+
+<p>
+    Edge quality is particularly important when removing a photo
+    background. A poor cutout can leave visible background halos,
+    jagged edges or missing parts of the subject. The AI processing
+    used by this tool is intended to produce a cleaner foreground
+    mask than simple color-based background erasers.
+</p>
+
+
+<h3>
+    Remove Background From People
+</h3>
+
+
+<p>
+    You can use the tool to isolate people from photographs.
+    Portraits, profile pictures, fashion photographs and other
+    images containing a clear foreground person can be processed
+    directly in the browser.
+</p>
+
+
+<p>
+    Hair, transparent objects, very fine details and subjects with
+    colors similar to the background can be difficult for any
+    automatic segmentation system. For best results, use a clear
+    image where the subject is reasonably separated from the
+    background.
+</p>
+
+
+<h3>
+    Remove Product Backgrounds
+</h3>
+
+
+<p>
+    Product photography often requires a clean subject without a
+    distracting background. A transparent product image can be
+    placed over a different background for ecommerce listings,
+    advertisements, catalogs, thumbnails and promotional graphics.
+</p>
+
+
+<h3>
+    Transparent PNG Output
+</h3>
+
+
+<p>
+    The result is generated as a PNG image with an alpha channel.
+    Transparent areas therefore remain transparent instead of being
+    replaced with a solid white background.
+</p>
+
+
+<p>
+    This is especially useful when you want to place the extracted
+    subject on another image, colored background, presentation,
+    website design or graphic.
+</p>
+
+
+<h3>
+    How to Remove an Image Background
+</h3>
+
+
+<ol>
+
+<li>
+    Click the <strong>Browse</strong> button.
+</li>
+
+<li>
+    Select a JPG, JPEG, PNG or WebP image.
+</li>
+
+<li>
+    Wait for the image preview to appear.
+</li>
+
+<li>
+    Click <strong>Remove Background</strong>.
+</li>
+
+<li>
+    Wait while the AI model processes the image.
+</li>
+
+<li>
+    Compare the original and transparent result.
+</li>
+
+<li>
+    Click <strong>Download Transparent PNG</strong>.
+</li>
+
+</ol>
+
+
+<h3>
+    Is Background Removal Done on the Server?
+</h3>
+
+
+<p>
+    The AI inference for this implementation runs inside the user's
+    browser. The image is supplied to the local browser-side
+    processing pipeline instead of being sent to a dedicated
+    image-processing API.
+</p>
+
+
+<p>
+    The AI model itself may need to be downloaded the first time
+    the tool is used. After the browser caches the required assets,
+    subsequent processing can be faster.
+</p>
+
+
+<h3>
+    Why Does the First Background Removal Take Longer?
+</h3>
+
+
+<p>
+    Browser-based AI requires the model and WebAssembly processing
+    components to be initialized. On the first use, these assets
+    have to be fetched and initialized. The library documentation
+    specifically notes that the first run can take longer and that
+    the assets can subsequently be cached by the browser.
+</p>
+
+
+<h3>
+    Tips for Better Background Removal Results
+</h3>
+
+
+<ul>
+
+<li>
+    Use a high-resolution original image.
+</li>
+
+<li>
+    Make sure the main subject is clearly visible.
+</li>
+
+<li>
+    Avoid extremely dark or heavily blurred photographs.
+</li>
+
+<li>
+    Avoid images where the subject blends into the background.
+</li>
+
+<li>
+    Give the subject enough space around its edges.
+</li>
+
+<li>
+    Use good lighting whenever possible.
+</li>
+
+<li>
+    For products, use clear photographs with strong subject
+    separation.
+</li>
+
+</ul>
+
+
+<h3>
+    Background Removal for Ecommerce
+</h3>
+
+
+<p>
+    Transparent product images are commonly useful for ecommerce
+    design. Removing a distracting background can make products
+    easier to place into product cards, promotional banners,
+    catalogs and advertisements.
+</p>
+
+
+<h3>
+    Background Removal for Social Media
+</h3>
+
+
+<p>
+    Transparent cutouts can also be used in social media thumbnails,
+    profile graphics, posters, banners, short-video covers and
+    promotional designs. After downloading the transparent PNG,
+    the subject can be placed over another background using an
+    image editor.
+</p>
+
+
+<h3>
+    Browser-Based and No Login
+</h3>
+
+
+<p>
+    This tool is designed as a browser-based utility. It does not
+    require users to create an account simply to remove an image
+    background. The processing interface works with modern desktop
+    and mobile browsers.
+</p>
+
+
+<h3>
+    Frequently Asked Questions
+</h3>
+
+
+<div class="faq">
+
+
+<details>
+
+<summary>
+    Is this AI background remover free?
+</summary>
+
+<p>
+    The tool is designed to provide background removal without
+    requiring a user account or paid subscription.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+    Can I remove the background from a JPG?
+</summary>
+
+<p>
+    Yes. JPG and JPEG images can be selected and processed.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+    Can I remove the background from PNG images?
+</summary>
+
+<p>
+    Yes. PNG images are supported as input.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+    Will the result have a transparent background?
+</summary>
+
+<p>
+    Yes. The result is generated as a PNG with transparency.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+    Can I use it on a phone?
+</summary>
+
+<p>
+    Yes. The interface is responsive and designed to work with
+    modern mobile browsers, although AI processing speed depends
+    heavily on the phone's CPU, memory and browser capabilities.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+    Does the tool require an API key?
+</summary>
+
+<p>
+    No image-processing API key is required by this implementation.
+    The AI inference runs in the browser.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+    Why is the first processing slower?
+</summary>
+
+<p>
+    The AI model and WebAssembly components need to be downloaded
+    and initialized on the first run. Browser caching can make later
+    runs faster.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+    Will every image have a perfect cutout?
+</summary>
+
+<p>
+    No automatic AI segmentation system can guarantee a perfect
+    result for every image. Very fine hair, transparent materials,
+    low-resolution images, heavy blur, extreme lighting and subjects
+    that blend into the background can reduce accuracy.
+</p>
+
+</details>
+
+
+</div>
+
+
+</article>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+<div class="container">
+
+© <span id="year"></span>
+InstaPic — Browser Image Tools
+
+</div>
+
+</footer>
+
+
+<!-- =====================================================
+     APPLICATION
+===================================================== -->
+
+<script type="module">
+
+/*
+=========================================================
+IMPORTANT
+
+The AI library is loaded dynamically so the initial page
+can remain lightweight.
+
+Current package:
+@imgly/background-removal 1.7.0
+
+The library performs the segmentation in the browser.
+=========================================================
+*/
+
+
+let removeBackgroundFunction = null;
+
+let selectedFile = null;
+
+let originalObjectURL = null;
+
+let resultBlob = null;
+
+let resultObjectURL = null;
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const uploadZone =
+    document.getElementById("uploadZone");
+
+const browseBtn =
+    document.getElementById("browseBtn");
+
+const fileInput =
+    document.getElementById("fileInput");
+
+const fileInfo =
+    document.getElementById("fileInfo");
+
+const fileThumb =
+    document.getElementById("fileThumb");
+
+const fileName =
+    document.getElementById("fileName");
+
+const fileMeta =
+    document.getElementById("fileMeta");
+
+const removeFile =
+    document.getElementById("removeFile");
+
+const processBtn =
+    document.getElementById("processBtn");
+
+const progressArea =
+    document.getElementById("progressArea");
+
+const progressBar =
+    document.getElementById("progressBar");
+
+const progressTitle =
+    document.getElementById("progressTitle");
+
+const progressPercent =
+    document.getElementById("progressPercent");
+
+const progressMessage =
+    document.getElementById("progressMessage");
+
+const status =
+    document.getElementById("status");
+
+const resultSection =
+    document.getElementById("resultSection");
+
+const originalPreview =
+    document.getElementById("originalPreview");
+
+const resultPreview =
+    document.getElementById("resultPreview");
+
+const originalSize =
+    document.getElementById("originalSize");
+
+const resultSize =
+    document.getElementById("resultSize");
+
+const resultResolution =
+    document.getElementById("resultResolution");
+
+const downloadBtn =
+    document.getElementById("downloadBtn");
+
+const resetBtn =
+    document.getElementById("resetBtn");
+
+
+/* =====================================================
+   UTILITIES
+===================================================== */
+
+function formatBytes(bytes){
+
+    if(!bytes){
+        return "0 B";
+    }
+
+    const units =
+        [
+            "B",
+            "KB",
+            "MB",
+            "GB"
+        ];
+
+    const index =
+        Math.floor(
+            Math.log(bytes) /
+            Math.log(1024)
+        );
+
+    return (
+        bytes /
+        Math.pow(
+            1024,
+            index
+        )
+    ).toFixed(
+        index === 0 ? 0 : 2
+    )
+    + " "
+    + units[index];
+
+}
+
+
+function setStatus(
+    message,
+    type = "info"
+){
+
+    status.textContent =
+        message;
+
+    status.className =
+        "status show " + type;
+
+}
+
+
+function setProgress(
+    percent,
+    title,
+    message
+){
+
+    const safe =
+        Math.max(
+            0,
+            Math.min(
+                100,
+                percent
+            )
+        );
+
+    progressBar.style.width =
+        safe + "%";
+
+    progressPercent.textContent =
+        Math.round(safe) + "%";
+
+    progressTitle.textContent =
+        title;
+
+    progressMessage.textContent =
+        message;
+
+}
+
+
+function resetProgress(){
+
+    progressBar.style.width =
+        "0%";
+
+    progressPercent.textContent =
+        "0%";
+
+}
+
+
+/* =====================================================
+   LOAD AI LIBRARY
+===================================================== */
+
+async function loadAILibrary(){
+
+    if(removeBackgroundFunction){
+
+        return removeBackgroundFunction;
+
+    }
+
+
+    setStatus(
+        "Loading browser AI background-removal engine…",
+        "info"
+    );
+
+
+    progressArea.classList.add(
+        "active"
+    );
+
+
+    setProgress(
+        5,
+        "Loading AI engine…",
+        "Preparing the browser-based background removal system."
+    );
+
+
+    try{
+
+        /*
+        Dynamic ESM import.
+
+        This is NOT an image API.
+        It loads the browser-side AI package.
+        */
+
+        const module =
+            await import(
+                "https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.7.0/+esm"
+            );
+
+
+        removeBackgroundFunction =
+            module.default ||
+            module.removeBackground;
+
+
+        if(
+            typeof removeBackgroundFunction !==
+            "function"
+        ){
+
+            throw new Error(
+                "Background-removal library failed to initialize."
+            );
+
+        }
+
+
+        setProgress(
+            15,
+            "AI engine ready",
+            "The browser-side segmentation model is ready."
+        );
+
+
+        return removeBackgroundFunction;
+
+    }
+    catch(error){
+
+        console.error(
+            "AI library loading error:",
+            error
+        );
+
+
+        throw new Error(
+            "Could not load the AI background remover. Check your internet connection and try again."
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   FILE SELECTION
+===================================================== */
+
+function handleFile(file){
+
+    if(!file){
+
+        return;
+
+    }
+
+
+    if(
+        !file.type.startsWith(
+            "image/"
+        )
+    ){
+
+        setStatus(
+            "Please select a valid JPG, PNG or WebP image.",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    /*
+    Prevent accidentally processing
+    extremely large images on weak devices.
+    */
+
+    if(
+        file.size >
+        50 * 1024 * 1024
+    ){
+
+        setStatus(
+            "This image is larger than 50 MB. Please choose a smaller image for reliable browser processing.",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    cleanupURLs();
+
+
+    selectedFile =
+        file;
+
+
+    originalObjectURL =
+        URL.createObjectURL(
+            file
+        );
+
+
+    fileThumb.src =
+        originalObjectURL;
+
+    originalPreview.src =
+        originalObjectURL;
+
+
+    fileName.textContent =
+        file.name;
+
+
+    fileMeta.textContent =
+        formatBytes(
+            file.size
+        )
+        + " • "
+        + (
+            file.type ||
+            "Image"
+        );
+
+
+    fileInfo.classList.add(
+        "active"
+    );
+
+
+    processBtn.disabled =
+        false;
+
+
+    resultSection.classList.remove(
+        "active"
+    );
+
+
+    setStatus(
+        "Image ready. Click Remove Background to start.",
+        "success"
+    );
+
+}
+
+
+/* =====================================================
+   INPUT EVENTS
+===================================================== */
+
+browseBtn.addEventListener(
+    "click",
+    ()=>{
+        fileInput.click();
+    }
+);
+
+
+fileInput.addEventListener(
+    "change",
+    ()=>{
+        handleFile(
+            fileInput.files[0]
+        );
+
+        /*
+        Allows selecting the same
+        file again later.
+        */
+
+        fileInput.value =
+            "";
+    }
+);
+
+
+/* =====================================================
+   DRAG & DROP
+===================================================== */
+
+uploadZone.addEventListener(
+    "dragover",
+    event=>{
+
+        event.preventDefault();
+
+        uploadZone.classList.add(
+            "dragover"
+        );
+
+    }
+);
+
+
+uploadZone.addEventListener(
+    "dragleave",
+    ()=>{
+
+        uploadZone.classList.remove(
+            "dragover"
+        );
+
+    }
+);
+
+
+uploadZone.addEventListener(
+    "drop",
+    event=>{
+
+        event.preventDefault();
+
+        uploadZone.classList.remove(
+            "dragover"
+        );
+
+        const file =
+            event.dataTransfer.files[0];
+
+        handleFile(file);
+
+    }
+);
+
+
+/* =====================================================
+   REMOVE SELECTED FILE
+===================================================== */
+
+removeFile.addEventListener(
+    "click",
+    ()=>{
+
+        resetTool();
+
+    }
+);
+
+
+/* =====================================================
+   IMAGE DIMENSIONS
+===================================================== */
+
+function getImageDimensions(file){
+
+    return new Promise(
+        (resolve,reject)=>{
+
+            const url =
+                URL.createObjectURL(
+                    file
+                );
+
+            const image =
+                new Image();
+
+            image.onload =
+                ()=>{
+                    URL.revokeObjectURL(
+                        url
+                    );
+
+                    resolve({
+
+                        width:
+                            image.naturalWidth,
+
+                        height:
+                            image.naturalHeight
+
+                    });
+
+                };
+
+            image.onerror =
+                ()=>{
+                    URL.revokeObjectURL(
+                        url
+                    );
+
+                    reject(
+                        new Error(
+                            "Could not read image dimensions."
+                        )
+                    );
+
+                };
+
+            image.src =
+                url;
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   PROCESS IMAGE
+===================================================== */
+
+async function processImage(){
+
+    if(!selectedFile){
+
+        return;
+
+    }
+
+
+    processBtn.disabled =
+        true;
+
+
+    progressArea.classList.add(
+        "active"
+    );
+
+
+    resultSection.classList.remove(
+        "active"
+    );
+
+
+    resetProgress();
+
+
+    try{
+
+        setStatus(
+            "Preparing AI background removal…",
+            "info"
+        );
+
+
+        const removeBackground =
+            await loadAILibrary();
+
+
+        setProgress(
+            20,
+            "Preparing image…",
+            "Reading the selected image inside your browser."
+        );
+
+
+        /*
+        Configuration deliberately uses the
+        higher-quality IS-Net model.
+
+        Output is PNG so transparency is preserved.
+        */
+
+        const config = {
+
+            model:
+                "isnet",
+
+            output:{
+
+                format:
+                    "image/png",
+
+                quality:
+                    1
+
+            },
+
+            progress:
+                (
+                    key,
+                    current,
+                    total
+                )=>{
+
+                    if(
+                        total > 0
+                    ){
+
+                        const local =
+                            current /
+                            total;
+
+                        /*
+                        Reserve 20–95% for
+                        AI processing.
+                        */
+
+                        const percent =
+                            20 +
+                            local *
+                            75;
+
+                        let message =
+                            "Processing image…";
+
+
+                        if(
+                            key.includes(
+                                "fetch"
+                            )
+                        ){
+
+                            message =
+                                "Downloading AI model assets…";
+
+                        }
+
+                        else if(
+                            key.includes(
+                                "decode"
+                            )
+                        ){
+
+                            message =
+                                "Preparing image pixels…";
+
+                        }
+
+                        else if(
+                            key.includes(
+                                "inference"
+                            )
+                        ){
+
+                            message =
+                                "AI is detecting the foreground subject…";
+
+                        }
+
+                        else if(
+                            key.includes(
+                                "mask"
+                            )
+                        ){
+
+                            message =
+                                "Refining the subject mask and transparent edges…";
+
+                        }
+
+
+                        setProgress(
+                            percent,
+                            "Removing background…",
+                            message
+                        );
+
+                    }
+
+                }
+
+        };
+
+
+        /*
+        The image remains in the browser.
+        */
+
+        resultBlob =
+            await removeBackground(
+                selectedFile,
+                config
+            );
+
+
+        if(
+            !resultBlob ||
+            resultBlob.size === 0
+        ){
+
+            throw new Error(
+                "The AI engine returned an empty image."
+            );
+
+        }
+
+
+        setProgress(
+            96,
+            "Finishing result…",
+            "Creating the transparent PNG preview."
+        );
+
+
+        if(
+            resultObjectURL
+        ){
+
+            URL.revokeObjectURL(
+                resultObjectURL
+            );
+
+        }
+
+
+        resultObjectURL =
+            URL.createObjectURL(
+                resultBlob
+            );
+
+
+        resultPreview.src =
+            resultObjectURL;
+
+
+        originalSize.textContent =
+            formatBytes(
+                selectedFile.size
+            );
+
+
+        resultSize.textContent =
+            formatBytes(
+                resultBlob.size
+            );
+
+
+        const dimensions =
+            await getImageDimensions(
+                selectedFile
+            );
+
+
+        resultResolution.textContent =
+            dimensions.width
+            + " × "
+            + dimensions.height;
+
+
+        setProgress(
+            100,
+            "Background removed",
+            "Your transparent PNG is ready."
+        );
+
+
+        resultSection.classList.add(
+            "active"
+        );
+
+
+        setStatus(
+            "Background removed successfully.",
+            "success"
+        );
+
+
+        /*
+        Scroll result into view
+        on mobile devices.
+        */
+
+        setTimeout(
+            ()=>{
+                resultSection.scrollIntoView({
+                    behavior:"smooth",
+                    block:"start"
+                });
+            },
+            150
+        );
+
+
+    }
+    catch(error){
+
+        console.error(
+            error
+        );
+
+
+        setStatus(
+            error.message ||
+            "Background removal failed. Please try another image.",
+            "error"
+        );
+
+
+        setProgress(
+            0,
+            "Processing failed",
+            "Please try again with another image."
+        );
+
+    }
+    finally{
+
+        processBtn.disabled =
+            false;
+
+    }
+
+}
+
+
+/* =====================================================
+   PROCESS EVENT
+===================================================== */
+
+processBtn.addEventListener(
+    "click",
+    processImage
+);
+
+
+/* =====================================================
+   DOWNLOAD
+===================================================== */
+
+downloadBtn.addEventListener(
+    "click",
+    ()=>{
+
+        if(
+            !resultBlob
+        ){
+
+            setStatus(
+                "There is no processed image to download.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        const url =
+            URL.createObjectURL(
+                resultBlob
+            );
+
+
+        const link =
+            document.createElement(
+                "a"
+            );
+
+
+        link.href =
+            url;
+
+
+        link.download =
+            createOutputName(
+                selectedFile
+                ? selectedFile.name
+                : "image"
+            );
+
+
+        link.style.display =
+            "none";
+
+
+        document.body.appendChild(
+            link
+        );
+
+
+        link.click();
+
+
+        link.remove();
+
+
+        setTimeout(
+            ()=>{
+                URL.revokeObjectURL(
+                    url
+                );
+            },
+            3000
+        );
+
+
+        setStatus(
+            "Transparent PNG download started.",
+            "success"
+        );
+
+    }
+);
+
+
+/* =====================================================
+   OUTPUT NAME
+===================================================== */
+
+function createOutputName(
+    name
+){
+
+    const clean =
+        name.replace(
+            /\.[^/.]+$/,
+            ""
+        );
+
+
+    return (
+        clean +
+        "-background-removed.png"
+    );
+
+}
+
+
+/* =====================================================
+   CLEANUP
+===================================================== */
+
+function cleanupURLs(){
+
+    if(
+        originalObjectURL
+    ){
+
+        URL.revokeObjectURL(
+            originalObjectURL
+        );
+
+        originalObjectURL =
+            null;
+
+    }
+
+
+    if(
+        resultObjectURL
+    ){
+
+        URL.revokeObjectURL(
+            resultObjectURL
+        );
+
+        resultObjectURL =
+            null;
+
+    }
+
+}
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+function resetTool(){
+
+    cleanupURLs();
+
+
+    selectedFile =
+        null;
+
+
+    resultBlob =
+        null;
+
+
+    fileInfo.classList.remove(
+        "active"
+    );
+
+
+    resultSection.classList.remove(
+        "active"
+    );
+
+
+    progressArea.classList.remove(
+        "active"
+    );
+
+
+    status.className =
+        "status";
+
+
+    status.textContent =
+        "";
+
+
+    fileThumb.removeAttribute(
+        "src"
+    );
+
+
+    originalPreview.removeAttribute(
+        "src"
+    );
+
+
+    resultPreview.removeAttribute(
+        "src"
+    );
+
+
+    fileName.textContent =
+        "";
+
+
+    fileMeta.textContent =
+        "";
+
+
+    processBtn.disabled =
+        true;
+
+
+    resetProgress();
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+resetBtn.addEventListener(
+    "click",
+    resetTool
+);
+
+
+/* =====================================================
+   PAGE YEAR
+===================================================== */
+
+document.getElementById(
+    "year"
+).textContent =
+    new Date().getFullYear();
+
+
+/* =====================================================
+   INITIAL
+===================================================== */
+
+processBtn.disabled =
+    true;
+
+</script>
+
+
+</body>
+</html>
