@@ -1,0 +1,818 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Image Resizer Online - Resize JPG, PNG & WebP Free</title>
+<meta name="description" content="Resize images online for free directly in your browser. Change image width and height, lock aspect ratio, choose JPG PNG or WebP, adjust quality, use quick presets, preview the result and download it. No login, no upload and no server required.">
+<meta name="keywords" content="image resizer, resize image, resize photo, image resize online, free image resizer, JPG resizer, PNG resizer, WebP resizer, photo resizer, change image dimensions, resize image to pixels, reduce image dimensions, browser image resizer">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="author" content="InstaPic">
+<link rel="canonical" href="https://YOUR-DOMAIN.netlify.app/image-resizer.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Image Resizer Online - Resize JPG, PNG & WebP">
+<meta property="og:description" content="Resize images directly in your browser with custom dimensions, aspect-ratio lock, quality control, format conversion and instant download.">
+<meta property="og:url" content="https://YOUR-DOMAIN.netlify.app/image-resizer.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Image Resizer Online">
+<meta name="twitter:description" content="Free browser-based image resizer with custom dimensions, presets, quality and JPG/PNG/WebP output.">
+<meta name="theme-color" content="#2563eb">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Image Resizer Online",
+  "url":"https://YOUR-DOMAIN.netlify.app/image-resizer.html",
+  "applicationCategory":"MultimediaApplication",
+  "operatingSystem":"Windows, macOS, Linux, Android, iOS",
+  "browserRequirements":"Requires JavaScript and a modern browser",
+  "description":"A browser-based image resizer for changing image dimensions and exporting JPG, PNG or WebP files.",
+  "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+  "featureList":[
+    "Custom image width and height",
+    "Aspect ratio lock",
+    "Quick resize presets",
+    "JPG PNG and WebP output",
+    "Image quality control",
+    "Before and after preview",
+    "Client-side processing",
+    "No login required",
+    "No server upload required"
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"How do I resize an image online?","acceptedAnswer":{"@type":"Answer","text":"Select an image, enter the desired width and height or choose a preset, keep the aspect ratio locked if needed, choose an output format and quality, then resize and download the result."}},
+    {"@type":"Question","name":"Is this image resizer free?","acceptedAnswer":{"@type":"Answer","text":"Yes. The tool is designed to work without an account or paid subscription."}},
+    {"@type":"Question","name":"Are my images uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No image-processing server is required. The resizing operation is performed locally in the browser using the Canvas API."}},
+    {"@type":"Question","name":"Can I resize JPG, PNG and WebP images?","acceptedAnswer":{"@type":"Answer","text":"Yes. Modern browsers can load common JPG, PNG and WebP images, and the tool can export JPG, PNG or WebP."}},
+    {"@type":"Question","name":"Can I keep the original aspect ratio?","acceptedAnswer":{"@type":"Answer","text":"Yes. Turn on the aspect-ratio lock before changing width or height and the other dimension will be calculated automatically."}},
+    {"@type":"Question","name":"Does PNG quality change with the quality slider?","acceptedAnswer":{"@type":"Answer","text":"PNG is lossless in normal browser canvas export, so the quality setting mainly affects JPEG and WebP output."}}
+  ]
+}
+</script>
+
+<style>
+:root{
+  --blue:#2563eb;
+  --blue-dark:#1d4ed8;
+  --green:#10b981;
+  --red:#ef4444;
+  --text:#111827;
+  --muted:#6b7280;
+  --border:#e5e7eb;
+  --bg:#f8fafc;
+  --card:#fff;
+  --radius:20px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:linear-gradient(180deg,#f8fafc,#fff);
+  color:var(--text);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  line-height:1.6;
+}
+button,input,select{font:inherit}
+button{cursor:pointer}
+.header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.header-inner{width:min(1100px,calc(100% - 28px));min-height:64px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-size:21px;font-weight:900;text-decoration:none;color:var(--text)}
+.logo span{color:var(--blue)}
+.badge{font-size:11px;font-weight:800;color:#047857;background:#ecfdf5;border:1px solid #a7f3d0;padding:5px 10px;border-radius:999px}
+.container{width:min(1100px,calc(100% - 28px));margin:auto}
+.hero{text-align:center;padding:42px 0 24px}
+.hero h1{font-size:clamp(32px,6vw,54px);line-height:1.08;letter-spacing:-2px;margin:0 auto 14px;max-width:900px}
+.hero h1 span{color:var(--blue)}
+.hero p{max-width:780px;margin:auto;color:var(--muted);font-size:17px}
+.card{background:#fff;border:1px solid var(--border);border-radius:24px;padding:20px;box-shadow:0 15px 45px rgba(15,23,42,.07)}
+.upload{
+  min-height:360px;border:3px dashed #9ca3af;border-radius:24px;background:#f8fafc;
+  display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;transition:.2s
+}
+.upload.drag{border-color:var(--blue);background:#eff6ff;transform:scale(1.005)}
+.cloud{width:115px;height:115px;margin:0 auto 14px}
+.cloud svg{width:100%;height:100%}
+.upload h2{font-size:24px;margin:0 0 4px}
+.upload p{margin:0 0 18px;color:var(--muted)}
+.browse,.primary{
+  border:0;color:#fff;background:var(--blue);border-radius:999px;padding:13px 28px;font-weight:900;
+  box-shadow:0 7px 18px rgba(37,99,235,.22)
+}
+.browse:hover,.primary:hover{background:var(--blue-dark)}
+.note{font-size:12px;color:var(--muted);margin-top:12px}
+.file-info{display:none;margin-top:16px;padding:13px;border:1px solid var(--border);border-radius:16px;align-items:center;gap:12px}
+.file-info.show{display:flex}
+.thumb{width:70px;height:70px;flex:0 0 70px;border-radius:12px;overflow:hidden;background:#f3f4f6}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.file-text{min-width:0;flex:1}
+.file-name{font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.meta{font-size:13px;color:var(--muted)}
+.icon-btn{border:0;background:#fef2f2;color:#dc2626;width:40px;height:40px;border-radius:10px;font-size:22px}
+.settings{display:none;margin-top:18px}
+.settings.show{display:block}
+.settings-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.field{border:1px solid var(--border);border-radius:15px;padding:13px;background:#fff}
+.field label{display:block;font-size:12px;color:var(--muted);font-weight:800;margin-bottom:7px}
+.field input,.field select{
+  width:100%;height:44px;border:1px solid #d1d5db;border-radius:10px;padding:0 11px;background:#fff;outline:none
+}
+.field input:focus,.field select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.1)}
+.aspect-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;padding:12px 14px;background:#f8fafc;border-radius:12px}
+.switch{display:flex;align-items:center;gap:9px;font-weight:800;font-size:14px}
+.switch input{width:18px;height:18px;accent-color:var(--blue)}
+.ratio{font-size:12px;color:var(--muted)}
+.presets{margin-top:18px}
+.presets-title{font-size:13px;font-weight:900;margin-bottom:9px}
+.preset-list{display:flex;flex-wrap:wrap;gap:8px}
+.preset{
+  border:1px solid var(--border);background:#fff;border-radius:999px;padding:8px 12px;font-size:12px;font-weight:800
+}
+.preset:hover{border-color:var(--blue);color:var(--blue)}
+.quality{margin-top:18px}
+.quality-head{display:flex;justify-content:space-between;font-size:13px;font-weight:800;margin-bottom:7px}
+.quality input{width:100%;accent-color:var(--blue)}
+.quality-help{font-size:11px;color:var(--muted)}
+.format-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.action{margin-top:18px;width:100%;border:0;border-radius:13px;padding:15px;background:var(--blue);color:#fff;font-weight:900;font-size:16px}
+.action:disabled{opacity:.5;cursor:not-allowed}
+.status{display:none;margin-top:14px;padding:11px 13px;border-radius:11px;font-size:13px}
+.status.show{display:block}
+.status.info{background:#eff6ff;color:#1d4ed8}
+.status.ok{background:#ecfdf5;color:#047857}
+.status.err{background:#fef2f2;color:#b91c1c}
+.result{display:none;margin-top:22px}
+.result.show{display:block}
+.result-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:13px}
+.result-head h2{margin:0;font-size:23px}
+.ready{font-size:11px;font-weight:900;color:#047857;background:#ecfdf5;padding:6px 10px;border-radius:999px}
+.preview-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.preview-card{border:1px solid var(--border);border-radius:18px;overflow:hidden;background:#fff}
+.preview-label{padding:10px 13px;border-bottom:1px solid var(--border);font-size:13px;font-weight:900}
+.preview{min-height:300px;display:flex;align-items:center;justify-content:center;padding:14px;background:#f8fafc;overflow:hidden}
+.checker{
+  background-color:#fff;
+  background-image:linear-gradient(45deg,#e5e7eb 25%,transparent 25%),linear-gradient(-45deg,#e5e7eb 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#e5e7eb 75%),linear-gradient(-45deg,transparent 75%,#e5e7eb 75%);
+  background-size:24px 24px;background-position:0 0,0 12px,12px -12px,-12px 0
+}
+.preview img{max-width:100%;max-height:420px;display:block;object-fit:contain;border-radius:7px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:15px}
+.stat{background:#f8fafc;border-radius:11px;padding:9px;text-align:center}
+.stat small{display:block;color:var(--muted);font-size:10px}
+.stat b{font-size:12px}
+.download{width:100%;margin-top:14px;border:0;border-radius:12px;padding:14px;background:var(--green);color:#fff;font-weight:900}
+.reset{width:100%;margin-top:9px;border:1px solid var(--border);border-radius:12px;padding:12px;background:#fff;font-weight:800}
+.seo{margin-top:44px;background:#fff;border:1px solid var(--border);border-radius:22px;padding:30px}
+.seo h2{margin-top:0;font-size:30px;line-height:1.2}
+.seo h3{margin-top:29px;font-size:21px}
+.seo p,.seo li{color:#374151}
+.seo li{margin:6px 0}
+.faq{border-top:1px solid var(--border)}
+.faq details{border-bottom:1px solid var(--border);padding:14px 0}
+.faq summary{cursor:pointer;font-weight:800}
+footer{padding:32px 0 45px;text-align:center;color:var(--muted);font-size:13px}
+@media(max-width:700px){
+  .container{width:calc(100% - 18px)}
+  .hero{padding:29px 0 18px}
+  .hero h1{letter-spacing:-1px}
+  .hero p{font-size:15px}
+  .card{padding:12px;border-radius:18px}
+  .upload{min-height:380px;border-radius:20px}
+  .settings-grid,.format-row,.preview-grid{grid-template-columns:1fr}
+  .preview{min-height:260px}
+  .stats{grid-template-columns:1fr 1fr}
+  .seo{padding:20px;border-radius:18px}
+}
+</style>
+</head>
+
+<body>
+<header class="header">
+  <div class="header-inner">
+    <a class="logo" href="index.html">Insta<span>Pic</span></a>
+    <div class="badge">100% Browser-Based • No Login</div>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="container">
+    <h1>Free Online <span>Image Resizer</span></h1>
+    <p>Resize JPG, PNG and WebP images to exact pixel dimensions, preserve aspect ratio, choose output quality and download the result directly from your browser.</p>
+  </div>
+</section>
+
+<section class="container">
+<div class="card">
+
+  <div id="upload" class="upload">
+    <div>
+      <div class="cloud">
+        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#4ade80"/><stop offset="100%" stop-color="#93c5fd"/>
+          </linearGradient></defs>
+          <path d="M36 86h51c15 0 27-11 27-25 0-13-10-24-23-25-5-18-21-30-39-30-20 0-36 15-39 34C7 42 0 51 0 63c0 13 11 23 24 23z" fill="url(#g)" stroke="#374151" stroke-width="2"/>
+          <path d="M60 75V42" stroke="#374151" stroke-width="3" stroke-linecap="round"/>
+          <path d="M47 53l13-13 13 13" fill="none" stroke="#374151" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h2>Add Image</h2>
+      <p>Upload a JPG, PNG or WebP photo to resize</p>
+      <button id="browse" class="browse" type="button">Browse</button>
+      <div class="note">or drag a photo here</div>
+      <input id="file" type="file" accept="image/jpeg,image/png,image/webp,image/jpg" hidden>
+    </div>
+  </div>
+
+  <div id="fileInfo" class="file-info">
+    <div class="thumb"><img id="thumb" alt="Selected image preview"></div>
+    <div class="file-text">
+      <div id="fileName" class="file-name"></div>
+      <div id="fileMeta" class="meta"></div>
+    </div>
+    <button id="remove" class="icon-btn" type="button" aria-label="Remove image">×</button>
+  </div>
+
+  <div id="settings" class="settings">
+    <div class="settings-grid">
+      <div class="field">
+        <label for="width">WIDTH (PX)</label>
+        <input id="width" type="number" min="1" max="10000" inputmode="numeric">
+      </div>
+      <div class="field">
+        <label for="height">HEIGHT (PX)</label>
+        <input id="height" type="number" min="1" max="10000" inputmode="numeric">
+      </div>
+    </div>
+
+    <div class="aspect-row">
+      <label class="switch">
+        <input id="lock" type="checkbox" checked>
+        <span>Lock aspect ratio</span>
+      </label>
+      <span id="ratio" class="ratio">—</span>
+    </div>
+
+    <div class="presets">
+      <div class="presets-title">Quick Resize Presets</div>
+      <div class="preset-list">
+        <button class="preset" data-w="1920" data-h="1080">Full HD 1920×1080</button>
+        <button class="preset" data-w="1280" data-h="720">HD 1280×720</button>
+        <button class="preset" data-w="1080" data-h="1080">Square 1080×1080</button>
+        <button class="preset" data-w="1080" data-h="1350">Instagram Portrait</button>
+        <button class="preset" data-w="1080" data-h="1920">Story 1080×1920</button>
+        <button class="preset" data-w="1200" data-h="628">Social 1200×628</button>
+        <button class="preset" data-w="800" data-h="800">800×800</button>
+        <button class="preset" data-w="640" data-h="480">640×480</button>
+      </div>
+    </div>
+
+    <div class="format-row">
+      <div class="field">
+        <label for="format">OUTPUT FORMAT</label>
+        <select id="format">
+          <option value="image/jpeg">JPG / JPEG</option>
+          <option value="image/png">PNG</option>
+          <option value="image/webp">WebP</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>RESIZE METHOD</label>
+        <select id="method">
+          <option value="stretch">Exact dimensions</option>
+          <option value="contain">Fit inside dimensions</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="quality">
+      <div class="quality-head">
+        <span>QUALITY</span><span id="qualityValue">90%</span>
+      </div>
+      <input id="quality" type="range" min="10" max="100" value="90">
+      <div class="quality-help">Quality mainly affects JPG and WebP. PNG canvas export is lossless.</div>
+    </div>
+
+    <button id="resize" class="action" type="button">Resize Image</button>
+  </div>
+
+  <div id="status" class="status"></div>
+
+  <div id="result" class="result">
+    <div class="result-head">
+      <h2>Resized Image</h2>
+      <div class="ready">READY TO DOWNLOAD</div>
+    </div>
+
+    <div class="preview-grid">
+      <div class="preview-card">
+        <div class="preview-label">Original Image</div>
+        <div class="preview"><img id="originalPreview" alt="Original image preview"></div>
+      </div>
+      <div class="preview-card">
+        <div class="preview-label">Resized Result</div>
+        <div id="resultPreviewBox" class="preview checker"><img id="resultPreview" alt="Resized image result"></div>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><small>Original Size</small><b id="sOriginal">—</b></div>
+      <div class="stat"><small>Result Size</small><b id="sResult">—</b></div>
+      <div class="stat"><small>Dimensions</small><b id="sDimensions">—</b></div>
+      <div class="stat"><small>Format</small><b id="sFormat">—</b></div>
+    </div>
+
+    <button id="download" class="download" type="button">Download Resized Image</button>
+    <button id="reset" class="reset" type="button">Resize Another Image</button>
+  </div>
+
+</div>
+</section>
+
+<section class="container">
+<article class="seo">
+<h2>Resize Images Online for Free</h2>
+
+<p>Our image resizer is a browser-based tool for changing the dimensions of photos and other raster images. You can enter an exact width and height in pixels, keep the original aspect ratio, use common size presets, choose JPG, PNG or WebP output, adjust quality and download the resized image.</p>
+
+<p>The complete resize operation is performed locally by your web browser using the HTML Canvas API. There is no need to create an account, install desktop software or send an image to a dedicated image-processing server.</p>
+
+<h3>What Is an Image Resizer?</h3>
+<p>An image resizer changes the pixel dimensions of an image. For example, a photograph that is 4000 × 3000 pixels can be resized to 1920 × 1440 pixels. Resizing is useful when a website, social network, application, document or online form requires a particular image dimension.</p>
+
+<h3>Resize JPG, PNG and WebP Images</h3>
+<p>You can select common JPG, JPEG, PNG and WebP images. After resizing, the result can be exported as JPG, PNG or WebP. This also makes the tool useful when you need to change both image dimensions and file format in one browser-based workflow.</p>
+
+<h3>Resize an Image to Exact Pixel Dimensions</h3>
+<p>Enter the desired width and height in pixels. With the aspect-ratio lock enabled, changing one dimension automatically calculates the other dimension using the original image ratio. Disable the lock when you specifically need independent width and height values.</p>
+
+<h3>Quick Image Resize Presets</h3>
+<p>The tool includes common dimensions for Full HD, HD, square images, social media graphics, portrait posts and vertical stories. Presets are convenient when you already know the target platform or design size.</p>
+
+<ul>
+<li>1920 × 1080 Full HD</li>
+<li>1280 × 720 HD</li>
+<li>1080 × 1080 square image</li>
+<li>1080 × 1350 portrait social image</li>
+<li>1080 × 1920 vertical story</li>
+<li>1200 × 628 social graphic</li>
+</ul>
+
+<h3>Keep the Original Aspect Ratio</h3>
+<p>Changing width and height independently can stretch or squeeze a photograph. The aspect-ratio lock helps prevent accidental distortion by calculating the second dimension from the original image ratio.</p>
+
+<h3>Choose JPG, PNG or WebP Output</h3>
+<p>JPG is useful for photographs and generally produces compact files. PNG is useful when lossless raster output or transparency is important. WebP can provide efficient image compression in browsers and modern web applications.</p>
+
+<h3>Image Quality Control</h3>
+<p>The quality slider controls the browser's JPEG or WebP canvas encoding quality. A higher value generally preserves more visual detail while creating a larger file. A lower value can reduce file size at the cost of more compression artifacts. PNG output does not behave like JPEG because normal canvas PNG encoding is lossless.</p>
+
+<h3>Fit Inside Dimensions</h3>
+<p>The Fit Inside option keeps the original aspect ratio and places the image inside the requested bounding box. This is useful when you want an image to fit within maximum dimensions without cropping or stretching. Empty areas can appear when the requested ratio differs from the original ratio.</p>
+
+<h3>How to Resize an Image</h3>
+<ol>
+<li>Click <strong>Browse</strong> and select an image.</li>
+<li>Check the original image dimensions, file size and format.</li>
+<li>Enter your target width and height or select a quick preset.</li>
+<li>Keep <strong>Lock aspect ratio</strong> enabled if you do not want distortion.</li>
+<li>Select JPG, PNG or WebP as the output format.</li>
+<li>Adjust quality if you are exporting JPG or WebP.</li>
+<li>Click <strong>Resize Image</strong>.</li>
+<li>Review the original and resized previews.</li>
+<li>Download the finished image.</li>
+</ol>
+
+<h3>Is This Image Resizer Private?</h3>
+<p>The image resize operation is designed to run locally in the browser. The page uses JavaScript and the Canvas API to decode, scale and export the selected image. No account or image-processing API is required for the resize operation.</p>
+
+<h3>Image Resizing on Mobile Phones</h3>
+<p>The interface is responsive and can be used on modern mobile browsers. Very large photographs can require substantial memory during decoding and canvas rendering, so extremely large images may be slower or may exceed the memory available to a particular phone or browser.</p>
+
+<h3>Tips for Better Image Resizing</h3>
+<ul>
+<li>Keep the aspect ratio locked for normal photographs.</li>
+<li>Use PNG when transparency and lossless output are important.</li>
+<li>Use JPG for many photographic images when a smaller file is preferred.</li>
+<li>Use WebP when you need a modern web-friendly format.</li>
+<li>Avoid unnecessarily enlarging a low-resolution image if you need maximum sharpness.</li>
+<li>For very large images, resize to a sensible working dimension before doing additional editing.</li>
+</ul>
+
+<h3>Frequently Asked Questions</h3>
+<div class="faq">
+<details><summary>Is the image resizer free?</summary><p>Yes. The tool is designed to work without requiring an account or subscription.</p></details>
+<details><summary>Do I need to upload my image?</summary><p>No dedicated image-processing server is required. The resizing is performed locally in the browser.</p></details>
+<details><summary>Can I resize an image to a specific width and height?</summary><p>Yes. Enter the exact pixel dimensions you need.</p></details>
+<details><summary>Can I preserve the original aspect ratio?</summary><p>Yes. Keep the aspect-ratio lock enabled while changing the width or height.</p></details>
+<details><summary>Can I convert JPG to PNG or WebP while resizing?</summary><p>Yes. Choose the desired output format before clicking Resize Image.</p></details>
+<details><summary>Will resizing improve a blurry image?</summary><p>No. Resizing changes pixel dimensions; it cannot reliably restore detail that was never present in the original image.</p></details>
+<details><summary>Why can a resized image sometimes have a larger file size?</summary><p>File size depends on dimensions, image content, output format and compression settings. A smaller pixel dimension does not guarantee a smaller encoded file, especially when changing formats or using PNG.</p></details>
+</div>
+</article>
+</section>
+</main>
+
+<footer>
+  © <span id="year"></span> InstaPic — Free Browser Image Tools
+</footer>
+
+<script>
+(() => {
+"use strict";
+
+const $ = id => document.getElementById(id);
+
+const upload = $("upload");
+const browse = $("browse");
+const fileInput = $("file");
+const fileInfo = $("fileInfo");
+const thumb = $("thumb");
+const fileName = $("fileName");
+const fileMeta = $("fileMeta");
+const removeBtn = $("remove");
+
+const settings = $("settings");
+const widthInput = $("width");
+const heightInput = $("height");
+const lock = $("lock");
+const ratio = $("ratio");
+const format = $("format");
+const method = $("method");
+const quality = $("quality");
+const qualityValue = $("qualityValue");
+const resizeBtn = $("resize");
+
+const status = $("status");
+const result = $("result");
+const originalPreview = $("originalPreview");
+const resultPreview = $("resultPreview");
+const resultPreviewBox = $("resultPreviewBox");
+const sOriginal = $("sOriginal");
+const sResult = $("sResult");
+const sDimensions = $("sDimensions");
+const sFormat = $("sFormat");
+const downloadBtn = $("download");
+const resetBtn = $("reset");
+
+let sourceFile = null;
+let sourceURL = null;
+let resultBlob = null;
+let resultURL = null;
+let sourceImage = null;
+let originalWidth = 0;
+let originalHeight = 0;
+let busy = false;
+
+function bytes(n){
+  if(!n) return "0 B";
+  const units = ["B","KB","MB","GB"];
+  const i = Math.min(units.length - 1, Math.floor(Math.log(n)/Math.log(1024)));
+  return (n/Math.pow(1024,i)).toFixed(i ? 2 : 0) + " " + units[i];
+}
+
+function showStatus(text,type="info"){
+  status.textContent = text;
+  status.className = "status show " + type;
+}
+
+function clearStatus(){
+  status.textContent = "";
+  status.className = "status";
+}
+
+function formatName(mime){
+  if(mime === "image/png") return "PNG";
+  if(mime === "image/webp") return "WebP";
+  return "JPG";
+}
+
+function extensionFor(mime){
+  if(mime === "image/png") return "png";
+  if(mime === "image/webp") return "webp";
+  return "jpg";
+}
+
+function cleanupURLs(){
+  if(sourceURL){ URL.revokeObjectURL(sourceURL); sourceURL = null; }
+  if(resultURL){ URL.revokeObjectURL(resultURL); resultURL = null; }
+}
+
+function loadImage(file){
+  return new Promise((resolve,reject) => {
+    const url = URL.createObjectURL(file);
+
+    if("createImageBitmap" in window){
+      createImageBitmap(file, {imageOrientation:"from-image"})
+        .then(bitmap => {
+          URL.revokeObjectURL(url);
+          resolve(bitmap);
+        })
+        .catch(() => {
+          const img = new Image();
+          img.onload = () => { URL.revokeObjectURL(url); resolve(img); };
+          img.onerror = () => { URL.revokeObjectURL(url); reject(new Error("Could not decode this image.")); };
+          img.src = url;
+        });
+    } else {
+      const img = new Image();
+      img.onload = () => { URL.revokeObjectURL(url); resolve(img); };
+      img.onerror = () => { URL.revokeObjectURL(url); reject(new Error("Could not decode this image.")); };
+      img.src = url;
+    }
+  });
+}
+
+function imageWidth(img){ return img.width || img.naturalWidth; }
+function imageHeight(img){ return img.height || img.naturalHeight; }
+
+async function selectFile(file){
+  if(!file) return;
+
+  if(!/^image\/(jpeg|png|webp)$/i.test(file.type)){
+    showStatus("Please choose a JPG, PNG or WebP image.", "err");
+    return;
+  }
+
+  if(file.size > 60 * 1024 * 1024){
+    showStatus("This image is larger than 60 MB. Please choose a smaller image for reliable browser processing.", "err");
+    return;
+  }
+
+  cleanupURLs();
+  sourceFile = file;
+  resultBlob = null;
+  sourceImage = null;
+  result.classList.remove("show");
+
+  try{
+    sourceImage = await loadImage(file);
+    originalWidth = imageWidth(sourceImage);
+    originalHeight = imageHeight(sourceImage);
+
+    if(!originalWidth || !originalHeight){
+      throw new Error("The image dimensions could not be detected.");
+    }
+
+    sourceURL = URL.createObjectURL(file);
+
+    thumb.src = sourceURL;
+    originalPreview.src = sourceURL;
+
+    fileName.textContent = file.name;
+    fileMeta.textContent =
+      `${bytes(file.size)} • ${formatName(file.type)} • ${originalWidth} × ${originalHeight}px`;
+
+    widthInput.value = originalWidth;
+    heightInput.value = originalHeight;
+    ratio.textContent = `Ratio ${originalWidth}:${originalHeight}`;
+
+    fileInfo.classList.add("show");
+    settings.classList.add("show");
+    showStatus("Image ready. Set your target dimensions and resize.", "ok");
+  }catch(err){
+    showStatus(err.message || "Could not read this image.", "err");
+  }
+}
+
+browse.addEventListener("click", () => fileInput.click());
+
+fileInput.addEventListener("change", () => {
+  selectFile(fileInput.files[0]);
+  fileInput.value = "";
+});
+
+["dragenter","dragover"].forEach(evt => {
+  upload.addEventListener(evt, e => {
+    e.preventDefault();
+    upload.classList.add("drag");
+  });
+});
+
+["dragleave","drop"].forEach(evt => {
+  upload.addEventListener(evt, e => {
+    e.preventDefault();
+    upload.classList.remove("drag");
+  });
+});
+
+upload.addEventListener("drop", e => {
+  selectFile(e.dataTransfer.files[0]);
+});
+
+removeBtn.addEventListener("click", resetAll);
+resetBtn.addEventListener("click", resetAll);
+
+function updateFromWidth(){
+  const w = Math.max(1, Number(widthInput.value) || 1);
+  if(lock.checked && originalWidth && originalHeight){
+    heightInput.value = Math.max(1, Math.round(w * originalHeight / originalWidth));
+  }
+}
+
+function updateFromHeight(){
+  const h = Math.max(1, Number(heightInput.value) || 1);
+  if(lock.checked && originalWidth && originalHeight){
+    widthInput.value = Math.max(1, Math.round(h * originalWidth / originalHeight));
+  }
+}
+
+widthInput.addEventListener("input", updateFromWidth);
+heightInput.addEventListener("input", updateFromHeight);
+
+quality.addEventListener("input", () => {
+  qualityValue.textContent = quality.value + "%";
+});
+
+document.querySelectorAll(".preset").forEach(btn => {
+  btn.addEventListener("click", () => {
+    widthInput.value = btn.dataset.w;
+    heightInput.value = btn.dataset.h;
+    lock.checked = false;
+    showStatus(`Preset selected: ${btn.dataset.w} × ${btn.dataset.h}px.`, "info");
+  });
+});
+
+format.addEventListener("change", () => {
+  const isPNG = format.value === "image/png";
+  quality.disabled = isPNG;
+  qualityValue.style.opacity = isPNG ? ".5" : "1";
+});
+
+function canvasBlob(canvas, mime, q){
+  return new Promise((resolve,reject) => {
+    canvas.toBlob(blob => {
+      if(blob) resolve(blob);
+      else reject(new Error("Your browser could not create the output image."));
+    }, mime, q);
+  });
+}
+
+function getTargetDimensions(){
+  let w = Math.round(Number(widthInput.value));
+  let h = Math.round(Number(heightInput.value));
+
+  if(!Number.isFinite(w) || !Number.isFinite(h) || w < 1 || h < 1){
+    throw new Error("Enter valid width and height values.");
+  }
+
+  if(w > 10000 || h > 10000){
+    throw new Error("For browser stability, maximum output dimension is 10,000 pixels.");
+  }
+
+  if(method.value === "contain"){
+    const scale = Math.min(w / originalWidth, h / originalHeight);
+    w = Math.max(1, Math.round(originalWidth * scale));
+    h = Math.max(1, Math.round(originalHeight * scale));
+  }
+
+  return {w,h};
+}
+
+async function performResize(){
+  if(!sourceFile || !sourceImage || busy) return;
+
+  busy = true;
+  resizeBtn.disabled = true;
+
+  try{
+    const {w,h} = getTargetDimensions();
+
+    if(w * h > 50000000){
+      throw new Error("This output is extremely large. Choose smaller dimensions to avoid browser memory problems.");
+    }
+
+    showStatus("Resizing image locally in your browser…", "info");
+
+    await new Promise(requestAnimationFrame);
+
+    const canvas = document.createElement("canvas");
+    canvas.width = w;
+    canvas.height = h;
+
+    const ctx = canvas.getContext("2d", {alpha:true});
+    if(!ctx) throw new Error("Canvas is not available in this browser.");
+
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = "high";
+
+    const mime = format.value;
+
+    if(mime === "image/jpeg"){
+      ctx.fillStyle = "#ffffff";
+      ctx.fillRect(0,0,w,h);
+    }
+
+    if(method.value === "contain"){
+      const scale = Math.min(w/originalWidth, h/originalHeight);
+      const dw = Math.max(1, Math.round(originalWidth * scale));
+      const dh = Math.max(1, Math.round(originalHeight * scale));
+      const dx = Math.floor((w-dw)/2);
+      const dy = Math.floor((h-dh)/2);
+
+      if(mime === "image/jpeg"){
+        ctx.fillStyle = "#ffffff";
+        ctx.fillRect(0,0,w,h);
+      }
+
+      ctx.drawImage(sourceImage, dx, dy, dw, dh);
+    }else{
+      ctx.drawImage(sourceImage, 0, 0, w, h);
+    }
+
+    const q = Math.max(.1, Math.min(1, Number(quality.value)/100));
+    resultBlob = await canvasBlob(canvas, mime, q);
+
+    if(resultURL) URL.revokeObjectURL(resultURL);
+    resultURL = URL.createObjectURL(resultBlob);
+
+    resultPreview.src = resultURL;
+
+    if(mime === "image/jpeg"){
+      resultPreviewBox.classList.remove("checker");
+    }else{
+      resultPreviewBox.classList.add("checker");
+    }
+
+    sOriginal.textContent = bytes(sourceFile.size);
+    sResult.textContent = bytes(resultBlob.size);
+    sDimensions.textContent = `${w} × ${h}px`;
+    sFormat.textContent = formatName(mime);
+
+    result.classList.add("show");
+    showStatus("Image resized successfully. Your result is ready.", "ok");
+
+    setTimeout(() => {
+      result.scrollIntoView({behavior:"smooth",block:"start"});
+    }, 120);
+  }catch(err){
+    console.error(err);
+    showStatus(err.message || "Resize failed. Please try again.", "err");
+  }finally{
+    busy = false;
+    resizeBtn.disabled = false;
+  }
+}
+
+resizeBtn.addEventListener("click", performResize);
+
+downloadBtn.addEventListener("click", () => {
+  if(!resultBlob || !sourceFile) return;
+
+  const base = sourceFile.name.replace(/\.[^/.]+$/,"");
+  const ext = extensionFor(format.value);
+  const url = URL.createObjectURL(resultBlob);
+  const a = document.createElement("a");
+
+  a.href = url;
+  a.download = `${base}-resized.${ext}`;
+  a.style.display = "none";
+
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+
+  setTimeout(() => URL.revokeObjectURL(url), 2500);
+  showStatus("Download started.", "ok");
+});
+
+function resetAll(){
+  cleanupURLs();
+
+  sourceFile = null;
+  sourceImage = null;
+  resultBlob = null;
+  originalWidth = 0;
+  originalHeight = 0;
+
+  fileInfo.classList.remove("show");
+  settings.classList.remove("show");
+  result.classList.remove("show");
+  clearStatus();
+
+  thumb.removeAttribute("src");
+  originalPreview.removeAttribute("src");
+  resultPreview.removeAttribute("src");
+
+  fileName.textContent = "";
+  fileMeta.textContent = "";
+  widthInput.value = "";
+  heightInput.value = "";
+  ratio.textContent = "—";
+
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+$("year").textContent = new Date().getFullYear();
+
+format.dispatchEvent(new Event("change"));
+})();
+</script>
+</body>
+</html>
