@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>Free All-in-One QR Code Generator | RK Tools</title>
+  <meta name="description" content="Free online All-in-One QR Code Generator. Create instant QR codes for URLs, YouTube channels, long text, social profiles, and image links directly in your browser.">
+  <meta name="keywords" content="QR code generator, free qr maker, client-side qr generator, rk tools qr">
+  <link rel="canonical" href="https://yourdomain.com/qr-code-generator.html">
+
+  <!-- Schema Markup for Search Engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "All-in-One QR Code Generator - RK Tools",
+    "url": "https://yourdomain.com/qr-code-generator.html",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Fast, High-Accuracy Pure JS QR Engine -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+
+  <!-- Header -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
+    <div class="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2 font-bold text-xl text-indigo-600">
+        <span class="bg-indigo-600 text-white px-2.5 py-1 rounded-lg text-sm">RK</span> RK Tools
+      </a>
+      <a href="index.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">← Back to Home</a>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="flex-grow max-w-4xl mx-auto px-4 py-8 w-full">
+    
+    <!-- Title & SEO Headline -->
+    <div class="text-center mb-8">
+      <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">All-in-One QR Code Generator</h1>
+      <p class="text-slate-500 text-sm md:text-base mt-2">Generate instant, high-resolution QR codes for websites, channels, text, and files.</p>
+    </div>
+
+    <!-- Workspace Container -->
+    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8">
+      
+      <!-- Selector Tabs -->
+      <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">Select What to Generate:</label>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-6">
+        <button type="button" onclick="setTab('url')" id="tab-url" class="tab-btn py-2.5 px-3 rounded-xl border font-medium text-sm transition bg-indigo-50 border-indigo-600 text-indigo-700">
+          🔗 Website / Link
+        </button>
+        <button type="button" onclick="setTab('channel')" id="tab-channel" class="tab-btn py-2.5 px-3 rounded-xl border font-medium text-sm transition border-slate-200 text-slate-600 hover:bg-slate-50">
+          ▶ Social / Channel
+        </button>
+        <button type="button" onclick="setTab('text')" id="tab-text" class="tab-btn py-2.5 px-3 rounded-xl border font-medium text-sm transition border-slate-200 text-slate-600 hover:bg-slate-50">
+          📝 Plain / Long Text
+        </button>
+        <button type="button" onclick="setTab('file')" id="tab-file" class="tab-btn py-2.5 px-3 rounded-xl border font-medium text-sm transition border-slate-200 text-slate-600 hover:bg-slate-50">
+          📁 Image / PDF Link
+        </button>
+      </div>
+
+      <!-- Dynamic Input Fields -->
+      <div class="space-y-4">
+        <div>
+          <label id="inputLabel" class="block text-sm font-semibold text-slate-700 mb-1">Enter Website URL:</label>
+          <div id="inputContainer">
+            <input type="text" id="qrDataInput" class="w-full p-3.5 border border-slate-300 rounded-xl outline-none focus:border-indigo-600 focus:ring-2 focus:ring-indigo-100 text-sm transition" placeholder="https://example.com" />
+          </div>
+          <p id="helperText" class="text-xs text-slate-400 mt-1.5">Enter full URL starting with https://</p>
+        </div>
+
+        <button type="button" onclick="generateQR()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3.5 rounded-xl shadow-sm transition duration-200">
+          Generate QR Code
+        </button>
+      </div>
+
+      <!-- Output Section -->
+      <div id="resultSection" class="hidden mt-8 pt-8 border-t border-slate-100 flex flex-col items-center">
+        <div class="p-4 bg-white border border-slate-200 rounded-2xl shadow-sm inline-block">
+          <div id="qrcode" class="flex justify-center"></div>
+        </div>
+        <p class="text-xs text-emerald-600 font-medium mt-3">✓ 100% Scannable & High Precision</p>
+
+        <!-- Download Action -->
+        <button type="button" onclick="downloadQR()" class="mt-4 inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white text-sm font-medium px-6 py-2.5 rounded-xl transition">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+          Download QR (PNG)
+        </button>
+      </div>
+
+    </div>
+
+    <!-- SEO Content & FAQ Section -->
+    <section class="mt-12 space-y-6">
+      <div class="border-b border-slate-200 pb-4">
+        <h2 class="text-xl font-bold text-slate-800">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="space-y-4">
+        <div class="bg-white p-5 rounded-xl border border-slate-200">
+          <h3 class="font-semibold text-slate-800 text-sm">Does this QR code ever expire?</h3>
+          <p class="text-slate-600 text-sm mt-1">No. These are static QR codes generated directly via client-side algorithms, meaning they work permanently without any redirection or expiry.</p>
+        </div>
+
+        <div class="bg-white p-5 rounded-xl border border-slate-200">
+          <h3 class="font-semibold text-slate-800 text-sm">Can it handle very long text?</h3>
+          <p class="text-slate-600 text-sm mt-1">Yes, the engine auto-adjusts version sizing and sets High Error Correction (Level H) so dense data remains fully scannable across all devices.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Black Sticky Footer (Paste your home page footer HTML below) -->
+  <footer class="bg-black text-white py-8 px-4 mt-12 border-t border-slate-900">
+    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-400">
+      <div>© 2026 RK Tools. All rights reserved. Free online tools for everyone.</div>
+      <div class="flex gap-4">
+        <a href="#" class="hover:text-white transition">Privacy Policy</a>
+        <a href="#" class="hover:text-white transition">Terms & Conditions</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script Logic -->
+  <script>
+    let currentTab = 'url';
+    let qrInstance = null;
+
+    function setTab(tab) {
+      currentTab = tab;
+      
+      // Update Tab Styles
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.className = "tab-btn py-2.5 px-3 rounded-xl border font-medium text-sm transition border-slate-200 text-slate-600 hover:bg-slate-50";
+      });
+      const activeBtn = document.getElementById(`tab-${tab}`);
+      activeBtn.className = "tab-btn py-2.5 px-3 rounded-xl border font-medium text-sm transition bg-indigo-50 border-indigo-600 text-indigo-700";
+
+      // Dynamically Render Input Elements
+      const container = document.getElementById('inputContainer');
+      const label = document.getElementById('inputLabel');
+      const helper = document.getElementById('helperText');
+
+      if (tab === 'text') {
+        label.innerText = "Enter Plain / Long Text:";
+        container.innerHTML = `<textarea id="qrDataInput" rows="4" class="w-full p-3.5 border border-slate-300 rounded-xl outline-none focus:border-indigo-600 focus:ring-2 focus:ring-indigo-100 text-sm transition" placeholder="Paste your text, address, or long message here..."></textarea>`;
+        helper.innerText = "Supports paragraphs, Unicode, and long descriptions.";
+      } else if (tab === 'channel') {
+        label.innerText = "Enter Channel / Social Profile Link:";
+        container.innerHTML = `<input type="text" id="qrDataInput" class="w-full p-3.5 border border-slate-300 rounded-xl outline-none focus:border-indigo-600 focus:ring-2 focus:ring-indigo-100 text-sm transition" placeholder="https://youtube.com/@YourChannel or Instagram URL" />`;
+        helper.innerText = "Paste direct link to YouTube, Instagram, Telegram, etc.";
+      } else if (tab === 'file') {
+        label.innerText = "Enter Image or PDF Hosted Link:";
+        container.innerHTML = `<input type="text" id="qrDataInput" class="w-full p-3.5 border border-slate-300 rounded-xl outline-none focus:border-indigo-600 focus:ring-2 focus:ring-indigo-100 text-sm transition" placeholder="https://drive.google.com/... or public image link" />`;
+        helper.innerText = "Since files run client-side, paste the Google Drive, Dropbox, or public file link.";
+      } else {
+        label.innerText = "Enter Website URL:";
+        container.innerHTML = `<input type="text" id="qrDataInput" class="w-full p-3.5 border border-slate-300 rounded-xl outline-none focus:border-indigo-600 focus:ring-2 focus:ring-indigo-100 text-sm transition" placeholder="https://example.com" />`;
+        helper.innerText = "Enter full URL starting with https://";
+      }
+    }
+
+    function generateQR() {
+      const inputEl = document.getElementById('qrDataInput');
+      const value = inputEl.value.trim();
+
+      if (!value) {
+        alert("Please enter valid text or a link!");
+        return;
+      }
+
+      const qrContainer = document.getElementById('qrcode');
+      qrContainer.innerHTML = ""; // Clear previous QR
+
+      // Engine parameters with High Error Correction
+      qrInstance = new QRCode(qrContainer, {
+        text: value,
+        width: 230,
+        height: 230,
+        colorDark : "#000000",
+        colorLight : "#ffffff",
+        correctLevel : QRCode.CorrectLevel.H
+      });
+
+      document.getElementById('resultSection').classList.remove('hidden');
+    }
+
+    function downloadQR() {
+      const img = document.querySelector('#qrcode img');
+      if (img && img.src) {
+        const link = document.createElement('a');
+        link.download = `rktools-qr-${Date.now()}.png`;
+        link.href = img.src;
+        link.click();
+      } else {
+        const canvas = document.querySelector('#qrcode canvas');
+        if (canvas) {
+          const link = document.createElement('a');
+          link.download = `rktools-qr-${Date.now()}.png`;
+          link.href = canvas.toDataURL("image/png");
+          link.click();
+        }
+      }
+    }
+  </script>
+</body>
+    </html>
+  
