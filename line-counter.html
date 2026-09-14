@@ -1,1 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DHZ9E8XV4S"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
+      gtag('config', 'G-DHZ9E8XV4S');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Online Line Counter - Count Lines, Words & Characters | Tveezal Tools</title>
+    <meta name="title" content="Online Line Counter - Count Lines, Words & Characters | Tveezal Tools">
+    <meta name="description" content="Free online line counter tool. Accurately count total lines, non-empty lines, empty rows, words, and characters in real time. Fast, secure, and mobile-friendly.">
+    <meta name="keywords" content="line counter, count lines online, text line counter, count code lines, word counter, character counter, count blank lines, tveezal tools">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#2563eb">
+
+    <link rel="canonical" href="https://tveezal.com/line-counter.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tveezal.com/line-counter.html">
+    <meta property="og:title" content="Online Line Counter - Count Lines, Words & Characters | Tveezal Tools">
+    <meta property="og:description" content="Count lines, empty lines, characters, and words instantly in your browser with real-time analytics.">
+    <meta property="og:site_name" content="Tveezal Tools">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "Tveezal Line Counter",
+          "operatingSystem": "All",
+          "applicationCategory": "UtilitiesApplication",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "description": "An online utility to count text lines, empty rows, non-empty lines, words, and characters in real time."
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How does the online line counter count lines?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The tool analyzes newline line break characters (\\n and \\r\\n) in real time to display total lines, lines with text, and blank lines."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is my text data stored on your servers?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. All text parsing happens directly inside your client browser. Your text or code is never uploaded or saved."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I count lines in code files like HTML, Python, or CSS?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, simply paste your source code into the editor box to immediately view total lines of code and non-empty lines."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        :root {
+            --blue: #2563eb;
+            --blue-hover: #1d4ed8;
+            --dark: #0f172a;
+            --text: #334155;
+            --muted: #64748b;
+            --line: #e2e8f0;
+            --bg: #f5f7fb;
+            --card: #ffffff;
+            --success: #16a34a;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--dark);
+            line-height: 1.75;
+        }
+
+        a {
+            color: var(--blue);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* HEADER STYLES */
+        .header {
+            background: linear-gradient(135deg, #0f172a 0%, #172554 55%, #1d4ed8 100%);
+            color: white;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: auto;
+            padding: 16px 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .brand {
+            font-size: 24px;
+            font-weight: 850;
+            letter-spacing: -0.7px;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .brand span {
+            color: #60a5fa;
+            text-shadow: 0 0 15px rgba(96, 165, 250, 0.45);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            background: rgba(255, 255, 255, 0.09);
+            color: white;
+            padding: 7px 15px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            text-decoration: none;
+            transform: translateY(-1px);
+        }
+
+        /* HERO */
+        .hero {
+            max-width: 1200px;
+            margin: auto;
+            padding: 48px 22px 52px;
+            text-align: center;
+        }
+
+        .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 1.7px;
+            color: #93c5fd;
+            font-size: 12px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-size: clamp(34px, 5vw, 54px);
+            line-height: 1.15;
+            letter-spacing: -1.5px;
+            margin-bottom: 14px;
+            color: #ffffff;
+        }
+
+        .hero p {
+            max-width: 720px;
+            margin: 0 auto;
+            color: #dbeafe;
+            font-size: 16px;
+        }
+
+        /* ADVERTISEMENT PLACEHOLDER */
+        .ad-banner-slot {
+            max-width: 1100px;
+            margin: 24px auto;
+            padding: 16px;
+            text-align: center;
+            background: #e2e8f0;
+            border: 2px dashed #cbd5e1;
+            border-radius: 12px;
+            color: #64748b;
+            font-size: 13px;
+            font-weight: 600;
+            min-height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* APP CONTAINER */
+        .app-container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        .tool-card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 24px;
+            padding: clamp(20px, 4vw, 36px);
+            box-shadow: 0 10px 35px rgba(15, 23, 42, 0.06);
+            margin-bottom: 40px;
+        }
+
+        /* STATS DISPLAY GRID */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .metric-box {
+            background: #f8fafc;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 16px;
+            text-align: center;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .metric-box:hover {
+            border-color: var(--blue);
+            transform: translateY(-2px);
+        }
+
+        .metric-value {
+            font-size: 26px;
+            font-weight: 850;
+            color: var(--blue);
+            letter-spacing: -0.5px;
+            display: block;
+        }
+
+        .metric-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 4px;
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 16px;
+            border: 1.5px solid var(--line);
+            border-radius: 14px;
+            font-family: monospace, inherit;
+            font-size: 14px;
+            line-height: 1.6;
+            background: #fff;
+            color: var(--dark);
+            resize: vertical;
+            min-height: 240px;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+
+        /* BUTTONS */
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 16px 0;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: 12px;
+            border: none;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background: var(--blue);
+            color: white;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--blue-hover);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: #eff6ff;
+            color: var(--blue);
+            border: 1px solid #bfdbfe;
+        }
+
+        .btn-secondary:hover {
+            background: #dbeafe;
+        }
+
+        .btn-danger {
+            background: #fff1f2;
+            color: #e11d48;
+            border: 1px solid #fecdd3;
+        }
+
+        .btn-danger:hover {
+            background: #ffe4e6;
+        }
+
+        .status-msg {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--success);
+            margin-left: auto;
+            align-self: center;
+        }
+
+        /* SEO ARTICLE */
+        .seo-content {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 24px;
+            padding: clamp(24px, 5vw, 48px);
+            margin-bottom: 60px;
+            box-shadow: 0 5px 25px rgba(15, 23, 42, 0.03);
+        }
+
+        .seo-content h2 {
+            font-size: 26px;
+            letter-spacing: -0.6px;
+            margin-bottom: 12px;
+            color: var(--dark);
+        }
+
+        .seo-content h3 {
+            font-size: 19px;
+            margin: 24px 0 8px;
+            color: var(--dark);
+        }
+
+        .seo-content p {
+            font-size: 15px;
+            color: var(--text);
+            margin-bottom: 14px;
+        }
+
+        .seo-content ul {
+            padding-left: 24px;
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+
+        .seo-content li {
+            margin: 6px 0;
+        }
+
+        /* FEATURE BOXES */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin: 24px 0;
+        }
+
+        .feature-card {
+            background: #f8fafc;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 20px;
+        }
+
+        .feature-card h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+
+        .feature-card p {
+            font-size: 13px;
+            color: var(--muted);
+            margin: 0;
+        }
+
+        /* FAQ ACCORDION */
+        .faq-accordion {
+            margin-top: 24px;
+        }
+
+        .faq-item {
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            margin-bottom: 10px;
+            background: #fff;
+            overflow: hidden;
+        }
+
+        .faq-item summary {
+            padding: 16px 20px;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item summary::after {
+            content: "+";
+            font-size: 20px;
+            color: var(--muted);
+        }
+
+        .faq-item[open] summary::after {
+            content: "−";
+        }
+
+        .faq-content {
+            padding: 0 20px 18px;
+            font-size: 14px;
+            color: var(--text);
+        }
+
+        /* FOOTER */
+        .footer {
+            background: #0f172a;
+            color: #cbd5e1;
+            padding: 44px 22px 30px;
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .footer-brand {
+            font-size: 22px;
+            font-weight: 850;
+            color: white;
+            margin-bottom: 6px;
+        }
+
+        .footer p {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 24px;
+            margin: 22px 0;
+        }
+
+        .footer-links a {
+            color: #cbd5e1;
+            font-size: 13px;
+        }
+
+        .footer-links a:hover {
+            color: #ffffff;
+        }
+
+        .copy {
+            font-size: 12px;
+            color: #64748b;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- =========================================================
+         HEADER
+    ========================================================= -->
+    <header class="header">
+        <nav class="nav">
+            <a class="brand" href="index.html">
+                Tveezal <span>Tools</span>
+            </a>
+            <div class="nav-links">
+                <a class="nav-btn" href="index.html">Home</a>
+                <a class="nav-btn" href="index.html#all-tools">All Tools</a>
+                <a class="nav-btn" href="blog.html">Blog</a>
+                <a class="nav-btn" href="faq.html">FAQ</a>
+                <a class="nav-btn" href="privacy.html">Privacy</a>
+                <a class="nav-btn" href="terms.html">Terms</a>
+            </div>
+        </nav>
+
+        <div class="hero">
+            <div class="eyebrow">Text & Code Analysis Utility</div>
+            <h1>Online Line Counter</h1>
+            <p>Count lines, empty rows, words, and characters with instant real-time calculation. Perfect for writers, developers, and data editors.</p>
+        </div>
+    </header>
+
+    <!-- Top Advertisement Slot -->
+    <div class="app-container">
+        <div class="ad-banner-slot">
+            <!-- [YOUR ADSENSE OR DISPLAY AD CODE HERE] -->
+            <span>Advertisement (Top Leaderboard)</span>
+        </div>
+    </div>
+
+    <!-- =========================================================
+         MAIN APPLICATION INTERFACE
+    ========================================================= -->
+    <main class="app-container">
+        <section class="tool-card">
+            <!-- Real-time Metrics Grid -->
+            <div class="metrics-grid">
+                <div class="metric-box">
+                    <span class="metric-value" id="statTotalLines">0</span>
+                    <span class="metric-label">Total Lines</span>
+                </div>
+                <div class="metric-box">
+                    <span class="metric-value" id="statNonEmptyLines">0</span>
+                    <span class="metric-label">Non-Empty Lines</span>
+                </div>
+                <div class="metric-box">
+                    <span class="metric-value" id="statEmptyLines">0</span>
+                    <span class="metric-label">Blank Lines</span>
+                </div>
+                <div class="metric-box">
+                    <span class="metric-value" id="statWords">0</span>
+                    <span class="metric-label">Words</span>
+                </div>
+                <div class="metric-box">
+                    <span class="metric-value" id="statChars">0</span>
+                    <span class="metric-label">Characters</span>
+                </div>
+                <div class="metric-box">
+                    <span class="metric-value" id="statCharsNoSpaces">0</span>
+                    <span class="metric-label">No Spaces</span>
+                </div>
+            </div>
+
+            <!-- Text Area Input -->
+            <div class="form-group">
+                <label for="editor">
+                    <span>Paste or type your text or source code:</span>
+                    <span id="charLimitNote" style="color: var(--muted); font-size: 12px; font-weight: normal;">Live calculation enabled</span>
+                </label>
+                <textarea id="editor" placeholder="Start typing or paste your content here to count lines instantly..."></textarea>
+            </div>
+
+            <!-- Action Controls -->
+            <div class="btn-group">
+                <button class="btn btn-primary" id="copyBtn">
+                    Copy Text
+                </button>
+                <button class="btn btn-secondary" id="sampleBtn">
+                    Load Sample Text
+                </button>
+                <button class="btn btn-secondary" id="removeBlankBtn">
+                    Remove Empty Lines
+                </button>
+                <button class="btn btn-danger" id="clearBtn">
+                    Clear Text
+                </button>
+                <span class="status-msg" id="statusMessage"></span>
+            </div>
+        </section>
+
+        <!-- Result Advertisement Slot -->
+        <div class="ad-banner-slot">
+            <!-- [YOUR ADSENSE OR DISPLAY AD CODE HERE] -->
+            <span>Advertisement (Below Tool Results)</span>
+        </div>
+
+        <!-- =========================================================
+             SEO CONTENT SECTION
+        ========================================================= -->
+        <article class="seo-content">
+            <h2>What is Tveezal Online Line Counter?</h2>
+            <p>The <strong>Tveezal Online Line Counter</strong> is a fast, free, and accurate text analysis tool engineered to calculate the exact number of lines, words, paragraphs, and characters in your documents, essays, transcripts, or code snippets. Whether you are reviewing an article's paragraph structure or auditing lines of code (LOC) in HTML, Python, or JavaScript, our tool delivers real-time breakdown statistics instantly.</p>
+
+            <h3>Why Choose Tveezal Tools for Line Counting?</h3>
+            <p>Unlike basic counters that fail to separate empty carriage returns from populated text, our tool provides a deep breakdown of your text structure:</p>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Smart Line Separation</h4>
+                    <p>Accurately separates lines with content from empty or whitespace-only lines to give you true usable line counts.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Instant Real-Time Calculation</h4>
+                    <p>Calculations happen on every keystroke without button clicks, page reloads, or lag, even for large documents.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>100% Client-Side Privacy</h4>
+                    <p>Your text is processed locally inside your web browser. No confidential documents or proprietary code are ever transmitted to our servers.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>One-Click Clean-Up Tools</h4>
+                    <p>Instantly strip out unwanted blank lines, load sample text for testing, or copy filtered results with one click.</p>
+                </div>
+            </div>
+
+            <h3>Common Use Cases</h3>
+            <ul>
+                <li><strong>Programmers & Software Engineers:</strong> Audit lines of code (LOC), verify configuration files, and inspect JSON or YAML scripts.</li>
+                <li><strong>Writers & Editors:</strong> Track formatting lengths, dialogue line counts, and paragraph cadence in articles or scripts.</li>
+                <li><strong>Data Analysts:</strong> Count line items in CSV datasets, text exports, or database record dumps prior to importation.</li>
+                <li><strong>Students & Teachers:</strong> Verify assignment formatting guidelines, character counts, and poetry verse lines.</li>
+            </ul>
+
+            <!-- FAQ Section -->
+            <h3>Frequently Asked Questions</h3>
+            <div class="faq-accordion">
+                <details class="faq-item">
+                    <summary>Does this tool count wrapped lines or true newlines?</summary>
+                    <div class="faq-content">
+                        <p>This counter calculates true programmatic newline breaks (<code>\n</code> or <code>\r\n</code>). Visual line wraps caused by browser window dimensions do not increase the line count.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>What is considered a "Blank Line"?</summary>
+                    <div class="faq-content">
+                        <p>A line that contains no visible characters or only spaces and tabs is counted under the "Blank Lines" metric.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Can I paste large code files or novels?</summary>
+                    <div class="faq-content">
+                        <p>Yes. The tool easily processes tens of thousands of lines smoothly within modern web browsers without freezing your device.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Is this line counter tool completely free?</summary>
+                    <div class="faq-content">
+                        <p>Yes, 100% free with no registration, no hidden usage caps, and no subscriptions required.</p>
+                    </div>
+                </details>
+            </div>
+        </article>
+
+        <!-- Bottom Content Advertisement Slot -->
+        <div class="ad-banner-slot">
+            <!-- [YOUR ADSENSE OR DISPLAY AD CODE HERE] -->
+            <span>Advertisement (Bottom Banner)</span>
+        </div>
+    </main>
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================= -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">Tveezal Tools</div>
+            <p>Simple, ultra-fast browser-based online tools for productivity and web tasks.</p>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#all-tools">All Tools</a>
+                <a href="blog.html">Blog</a>
+                <a href="seo.html">SEO</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="faq.html">FAQ</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+            </div>
+            <div class="copy">
+                © 2026 Tveezal Tools. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- =========================================================
+         CLIENT JAVASCRIPT LOGIC
+    ========================================================= -->
+    <script>
+        const editor = document.getElementById('editor');
+        const statTotalLines = document.getElementById('statTotalLines');
+        const statNonEmptyLines = document.getElementById('statNonEmptyLines');
+        const statEmptyLines = document.getElementById('statEmptyLines');
+        const statWords = document.getElementById('statWords');
+        const statChars = document.getElementById('statChars');
+        const statCharsNoSpaces = document.getElementById('statCharsNoSpaces');
+        const statusMessage = document.getElementById('statusMessage');
+
+        const copyBtn = document.getElementById('copyBtn');
+        const sampleBtn = document.getElementById('sampleBtn');
+        const removeBlankBtn = document.getElementById('removeBlankBtn');
+        const clearBtn = document.getElementById('clearBtn');
+
+        function calculateMetrics() {
+            const text = editor.value;
+
+            if (text.length === 0) {
+                statTotalLines.textContent = '0';
+                statNonEmptyLines.textContent = '0';
+                statEmptyLines.textContent = '0';
+                statWords.textContent = '0';
+                statChars.textContent = '0';
+                statCharsNoSpaces.textContent = '0';
+                return;
+            }
+
+            // Lines splitting
+            const lines = text.split(/\r\n|\r|\n/);
+            const totalLines = lines.length;
+
+            let nonEmptyLines = 0;
+            let emptyLines = 0;
+
+            for (let i = 0; i < lines.length; i++) {
+                if (lines[i].trim().length > 0) {
+                    nonEmptyLines++;
+                } else {
+                    emptyLines++;
+                }
+            }
+
+            // Words calculation
+            const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+
+            // Characters calculation
+            const chars = text.length;
+            const charsNoSpaces = text.replace(/\s/g, '').length;
+
+            // Update UI
+            statTotalLines.textContent = totalLines.toLocaleString();
+            statNonEmptyLines.textContent = nonEmptyLines.toLocaleString();
+            statEmptyLines.textContent = emptyLines.toLocaleString();
+            statWords.textContent = words.toLocaleString();
+            statChars.textContent = chars.toLocaleString();
+            statCharsNoSpaces.textContent = charsNoSpaces.toLocaleString();
+        }
+
+        editor.addEventListener('input', calculateMetrics);
+
+        // Copy button
+        copyBtn.addEventListener('click', () => {
+            if (!editor.value) {
+                showStatus('No text to copy.');
+                return;
+            }
+            navigator.clipboard.writeText(editor.value).then(() => {
+                showStatus('Text copied to clipboard!');
+            }).catch(() => {
+                editor.select();
+                document.execCommand('copy');
+                showStatus('Copied!');
+            });
+        });
+
+        // Load sample text
+        sampleBtn.addEventListener('click', () => {
+            editor.value = 
+`// Sample Code & Text
+function calculateSpeed(distance, time) {
+    if (time <= 0) return 0;
+
+    // Return speed in km/h
+    return distance / time;
+}
+
+Tveezal Tools provides free online utilities:
+1. Text Repeater
+2. Line Counter
+3. Image Converters
+
+Fast, private, and secure browser tools!`;
+            calculateMetrics();
+            showStatus('Sample text loaded.');
+        });
+
+        // Remove blank lines
+        removeBlankBtn.addEventListener('click', () => {
+            if (!editor.value) return;
+            const lines = editor.value.split(/\r\n|\r|\n/);
+            const filtered = lines.filter(l => l.trim().length > 0);
+            editor.value = filtered.join('\n');
+            calculateMetrics();
+            showStatus('Empty lines removed.');
+        });
+
+        // Clear button
+        clearBtn.addEventListener('click', () => {
+            editor.value = '';
+            calculateMetrics();
+            showStatus('Cleared all text.');
+        });
+
+        function showStatus(msg) {
+            statusMessage.textContent = msg;
+            setTimeout(() => {
+                statusMessage.textContent = '';
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
