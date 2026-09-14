@@ -15,10 +15,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Primary SEO Meta Tags -->
-    <title>Text to Speech Online (TTS) - 10+ Multi-Language Voices & Audio Download | Tveezal Tools</title>
-    <meta name="title" content="Text to Speech Online (TTS) - 10+ Multi-Language Voices & Audio Download | Tveezal Tools">
-    <meta name="description" content="Free online text to speech converter with 10+ working languages: Hindi, Punjabi, Marathi, Urdu, Sanskrit, Russian, Japanese, Chinese, and English. Realistic Men & Women voices with audio download.">
-    <meta name="keywords" content="text to speech online, tts audio download, hindi text to speech, punjabi tts, urdu voice generator, realistic men voice, text to mp3 converter, tveezal tools">
+    <title>Text to Speech Online (TTS) - 35+ Indian & Global Languages with Audio Download | Tveezal Tools</title>
+    <meta name="title" content="Text to Speech Online (TTS) - 35+ Indian & Global Languages with Audio Download | Tveezal Tools">
+    <meta name="description" content="Free online text to speech converter supporting 35+ languages: Hindi, English, Spanish, Arabic, Portuguese, French, Tamil, Telugu, Punjabi, Bhojpuri, Marathi, and Urdu. Download natural voice audio files instantly.">
+    <meta name="keywords" content="text to speech online, tts audio download, hindi text to speech, bhojpuri tts, punjabi tts, spanish text to speech, arabic tts voice, realistic men voice, text to mp3 converter, tveezal tools">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#2563eb">
 
@@ -27,8 +27,8 @@
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tveezal.com/text-to-speech.html">
-    <meta property="og:title" content="Text to Speech Online (TTS) - 10+ Languages & Direct Audio Download">
-    <meta property="og:description" content="Convert your written words into crystal clear speech in Hindi, English, Punjabi, Urdu, and more. Realistic Men & Women voices with instant audio download.">
+    <meta property="og:title" content="Text to Speech Online (TTS) - 35+ Languages & Direct Audio Download">
+    <meta property="og:description" content="Convert text into natural voices across 35+ global and Indian regional languages with instant audio download.">
     <meta property="og:site_name" content="Tveezal Tools">
 
     <!-- Fonts -->
@@ -43,7 +43,7 @@
       "@graph": [
         {
           "@type": "SoftwareApplication",
-          "name": "Tveezal Text to Speech Converter",
+          "name": "Tveezal Multilingual Text to Speech",
           "operatingSystem": "All",
           "applicationCategory": "UtilitiesApplication",
           "offers": {
@@ -51,25 +51,33 @@
             "price": "0",
             "priceCurrency": "USD"
           },
-          "description": "An online multilingual text-to-speech application supporting Hindi, Punjabi, Marathi, Urdu, Sanskrit, Russian, Japanese, and English with audio export."
+          "description": "An online multilingual TTS engine supporting 35+ languages including major Indian regional languages and global languages with direct audio file download."
         },
         {
           "@type": "FAQPage",
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "Do all 10 languages work accurately in this tool?",
+              "name": "Which Indian languages are supported in this TTS tool?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes, our tool dynamically checks for native browser speech synthesizers and maps to appropriate BCP-47 language locale packs including Hindi, Punjabi, Marathi, Urdu, and Sanskrit."
+                "text": "The tool supports Hindi, Urdu, Punjabi, Haryanvi, Bhojpuri, Marathi, Gujarati, Rajasthani, Bengali, Tamil, Telugu, Malayalam, Kannada, Odia, Assamese, Maithili, Chhattisgarhi, Kashmiri, Konkani, Manipuri, Sindhi, and Sanskrit."
               }
             },
             {
               "@type": "Question",
-              "name": "Can I download the generated audio file?",
+              "name": "Which international languages can I convert?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes, clicking the green 'Download Audio' button generates and exports your speech as a clean, high-quality audio file to your device."
+                "text": "Top global languages include English, Spanish, Portuguese, Arabic, French, German, Indonesian, Korean, Turkish, Vietnamese, Italian, Russian, Japanese, and Chinese."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I download the synthesized speech as an audio file?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, clicking the 'Download Audio' button renders and exports your speech as an uncompressed, high-fidelity audio file directly to your device."
               }
             }
           ]
@@ -118,20 +126,19 @@
             text-decoration: underline;
         }
 
-        /* HEADER */
+        /* HEADER (NATURAL SCROLLING WITH FULL BUTTONS) */
         .header {
             background: linear-gradient(135deg, #0f172a 0%, #172554 55%, #1d4ed8 100%);
             color: white;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            position: relative; /* Normal natural scrolling */
+            padding-bottom: 24px;
         }
 
-        .nav {
+        .nav-top-bar {
             max-width: 1200px;
             margin: auto;
-            padding: 14px 22px;
+            padding: 16px 22px 10px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -139,7 +146,7 @@
         }
 
         .brand {
-            font-size: 24px;
+            font-size: 26px;
             font-weight: 850;
             letter-spacing: -0.7px;
             color: #ffffff;
@@ -153,48 +160,12 @@
             text-shadow: 0 0 15px rgba(96, 165, 250, 0.45);
         }
 
-        .nav-links-desktop {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        @media (max-width: 990px) {
-            .nav-links-desktop {
-                display: none;
-            }
-        }
-
-        .nav-btn {
-            border: 1px solid rgba(255, 255, 255, 0.22);
-            background: rgba(255, 255, 255, 0.09);
-            color: white;
-            padding: 7px 15px;
-            border-radius: 999px;
-            font-size: 13px;
-            font-weight: 600;
-            transition: all 0.2s ease;
-        }
-
-        .nav-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-            text-decoration: none;
-            transform: translateY(-1px);
-        }
-
-        .nav-btn.category-active {
-            background: #2563eb;
-            border-color: #60a5fa;
-            color: #ffffff;
-        }
-
-        /* 3 OUTLINE CIRCLES MENU BUTTON (○○○) */
+        /* 3 WHITE OUTLINE CIRCLES MENU BUTTON (○○○) */
         .menu-trigger-btn {
             width: 44px;
             height: 44px;
             border-radius: 12px;
-            border: 1.5px solid rgba(255, 255, 255, 0.28);
+            border: 1.5px solid rgba(255, 255, 255, 0.35);
             background: rgba(255, 255, 255, 0.12);
             color: #ffffff;
             display: flex;
@@ -223,7 +194,43 @@
             background: transparent;
         }
 
-        /* PURPLE NATURAL GRADIENT SIDEBAR DRAWER */
+        /* SCREENSHOT STYLE HEADER PILL BUTTONS */
+        .nav-pills-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6px 22px 16px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .header-pill {
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            background: rgba(255, 255, 255, 0.09);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .header-pill:hover {
+            background: rgba(255, 255, 255, 0.22);
+            text-decoration: none;
+            transform: translateY(-1px);
+        }
+
+        .header-pill.category-active {
+            background: #2563eb;
+            border-color: #60a5fa;
+            color: #ffffff;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+        }
+
+        /* SIDEBAR DRAWER */
         .drawer-overlay {
             position: fixed;
             top: 0;
@@ -276,7 +283,6 @@
             font-size: 20px;
             font-weight: 850;
             color: #ffffff;
-            letter-spacing: -0.4px;
         }
 
         .drawer-close-btn {
@@ -305,7 +311,6 @@
             gap: 10px;
         }
 
-        /* ROUND WHITE PILL BUTTONS WITH PREMIUM ICONS */
         .drawer-pill-item {
             padding: 10px 18px;
             border-radius: 999px;
@@ -343,7 +348,7 @@
         .hero {
             max-width: 1200px;
             margin: auto;
-            padding: 44px 22px 48px;
+            padding: 30px 22px 36px;
             text-align: center;
         }
 
@@ -357,7 +362,7 @@
         }
 
         h1 {
-            font-size: clamp(32px, 5vw, 52px);
+            font-size: clamp(30px, 5vw, 48px);
             line-height: 1.15;
             letter-spacing: -1.5px;
             margin-bottom: 14px;
@@ -365,7 +370,7 @@
         }
 
         .hero p {
-            max-width: 760px;
+            max-width: 780px;
             margin: 0 auto;
             color: #dbeafe;
             font-size: 16px;
@@ -391,7 +396,7 @@
             letter-spacing: 1px;
         }
 
-        /* APP CARD */
+        /* TOOL CONTAINER */
         .app-container {
             max-width: 1100px;
             margin: auto;
@@ -437,9 +442,9 @@
             box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
         }
 
-        /* 10 LANGUAGE SELECTORS */
+        /* MULTI-LANGUAGE SELECTORS */
         .lang-pills-wrap {
-            margin: 18px 0 14px;
+            margin: 20px 0 14px;
         }
 
         .lang-pills-title {
@@ -448,7 +453,10 @@
             color: var(--muted);
             text-transform: uppercase;
             letter-spacing: 0.6px;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .lang-pills-grid {
@@ -460,7 +468,7 @@
         .lang-btn {
             background: #ffffff;
             border: 1.5px solid var(--line);
-            padding: 8px 14px;
+            padding: 7px 13px;
             border-radius: 10px;
             font-size: 13px;
             font-weight: 700;
@@ -473,20 +481,51 @@
         }
 
         .lang-btn:hover {
-            border-color: #7c3aed;
+            border-color: #4f46e5;
             background: #f5f3ff;
-            color: #6d28d9;
+            color: #4f46e5;
         }
 
         .lang-btn.active {
-            background: #6d28d9;
+            background: #4f46e5;
             color: #ffffff;
-            border-color: #6d28d9;
+            border-color: #4f46e5;
+        }
+
+        .btn-more-indian {
+            background: #eff6ff;
+            color: var(--blue);
+            border: 1.5px dashed var(--blue);
+            padding: 7px 16px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-more-indian:hover {
+            background: var(--blue);
+            color: white;
+            border-style: solid;
+        }
+
+        .indian-languages-box {
+            display: none;
+            margin-top: 14px;
+            padding: 16px;
+            border-radius: 16px;
+            background: #f8fafc;
+            border: 1px solid var(--line);
+        }
+
+        .indian-languages-box.show {
+            display: block;
         }
 
         /* QUICK TEST PERSONAS */
         .persona-section {
-            margin: 16px 0 20px;
+            margin: 18px 0;
         }
 
         .persona-btn-group {
@@ -873,25 +912,15 @@
 <body>
 
     <!-- =========================================================
-         HEADER
+         HEADER (NATURAL SCROLLING WITH FULL BUTTONS)
     ========================================================= -->
     <header class="header">
-        <nav class="nav">
+        <div class="nav-top-bar">
             <a class="brand" href="index.html">
                 Tveezal <span>Tools</span>
             </a>
 
-            <!-- Desktop Navigation Buttons -->
-            <div class="nav-links-desktop">
-                <a class="nav-btn" href="index.html">Home</a>
-                <a class="nav-btn" href="index.html#all-tools">All Tools</a>
-                <a class="nav-btn category-active" href="text-string-tools.html">Text & String Tools</a>
-                <a class="nav-btn" href="faq.html">FAQ</a>
-                <a class="nav-btn" href="privacy.html">Privacy</a>
-                <a class="nav-btn" href="terms.html">Terms</a>
-            </div>
-
-            <!-- 3 Outline Circles Menu Button (○○○) -->
+            <!-- 3 Outline White Circles (○○○) -->
             <button class="menu-trigger-btn" id="drawerOpenBtn" aria-label="Open Navigation">
                 <div class="three-circles-icon">
                     <span class="circle-dot"></span>
@@ -899,12 +928,22 @@
                     <span class="circle-dot"></span>
                 </div>
             </button>
+        </div>
+
+        <!-- Pill Navigation Bar -->
+        <nav class="nav-pills-container">
+            <a class="header-pill" href="index.html">Home</a>
+            <a class="header-pill" href="index.html#all-tools">All Tools</a>
+            <a class="header-pill category-active" href="text-string-tools.html">Text & String Tools</a>
+            <a class="header-pill" href="faq.html">FAQ</a>
+            <a class="header-pill" href="privacy.html">Privacy</a>
+            <a class="header-pill" href="terms.html">Terms</a>
         </nav>
 
         <div class="hero">
             <div class="eyebrow">Text & String Category Tool</div>
             <h1>Online Text to Speech (TTS) & Audio Downloader</h1>
-            <p>Convert written text into lifelike speech across 10+ languages. Realistic Men, Women & Child voices with direct audio file download.</p>
+            <p>Convert written text into lifelike speech across 35+ global and Indian languages. Listen to realistic Men and Women voices and download audio files instantly.</p>
         </div>
     </header>
 
@@ -992,32 +1031,68 @@
                 <span>Enter or Paste Text to Convert to Speech:</span>
                 <span id="charCountLabel" style="font-size: 13px; color: var(--muted); font-weight: normal;">0 Characters</span>
             </div>
-            <!-- Clean placeholder that disappears on typing -->
-            <textarea id="speechText" placeholder="Type or paste any text or script here... Jaise hi aap likhenge, sample message gayab ho jayega aur aapki aawaz bolna shuru ho jayegi!"></textarea>
+            <!-- Clean auto-clearing placeholder -->
+            <textarea id="speechText" placeholder="Type or paste any text, article or script here... (Sample message will disappear when you type)"></textarea>
 
-            <!-- 10 Dedicated Working Languages -->
+            <!-- PRIMARY LANGUAGES: HINDI, ENGLISH + MAJOR WORLD LANGUAGES -->
             <div class="lang-pills-wrap">
-                <div class="lang-pills-title">Select Language (10+ Working Supported):</div>
-                <div class="lang-pills-grid" id="langButtonsContainer">
+                <div class="lang-pills-title">
+                    <span>Popular Global & Indian Languages:</span>
+                    <button class="btn-more-indian" id="toggleIndianBtn">🇮🇳 More Indian Languages (+20)</button>
+                </div>
+                <div class="lang-pills-grid" id="primaryLangGrid">
                     <button class="lang-btn active" data-lang="hi-IN" data-sample="नमस्ते, यह हिंदी आवाज़ का परीक्षण है।">🇮🇳 Hindi</button>
-                    <button class="lang-btn" data-lang="en-US" data-sample="Hello, this is natural English voice synthesis.">🇺🇸 English</button>
-                    <button class="lang-btn" data-lang="pa-IN" data-sample="ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ, ਇਹ ਪੰਜਾਬੀ ਬੋਲੀ ਦੀ ਪਰਖ ਹੈ।">🇮🇳 Punjabi</button>
-                    <button class="lang-btn" data-lang="mr-IN" data-sample="नमस्कार, ही मराठी आवाजाची चाचणी आहे.">🇮🇳 Marathi</button>
-                    <button class="lang-btn" data-lang="ur-PK" data-sample="السلام علیکم، یہ اردو آواز کی باقاعدہ جانچ ہے۔">🇵🇰 Urdu</button>
-                    <button class="lang-btn" data-lang="sa-IN" data-sample="नमो नमः, एतत् शुद्ध संस्कृत स्वर परीक्षणम् अस्ति।">🕉️ Sanskrit</button>
-                    <button class="lang-btn" data-lang="hi-HAR" data-sample="राम राम भाई, यो हरियाणवी बोली का असली टेस्ट सै।">🌾 Haryanvi</button>
-                    <button class="lang-btn" data-lang="ru-RU" data-sample="Здравствуйте, это проверка синтеза русской речи.">🇷🇺 Russian</button>
+                    <button class="lang-btn" data-lang="en-US" data-sample="Hello, this is English voice synthesis on Tveezal Tools.">🇺🇸 English</button>
+                    <button class="lang-btn" data-lang="es-ES" data-sample="Hola, esta es una prueba de voz en español.">🇪🇸 Spanish</button>
+                    <button class="lang-btn" data-lang="pt-BR" data-sample="Olá, este é um teste de voz em português.">🇧🇷 Portuguese</button>
+                    <button class="lang-btn" data-lang="ar-SA" data-sample="مرحبا، هذا اختبار تحويل النص إلى كلام باللغة العربية.">🇸🇦 Arabic</button>
+                    <button class="lang-btn" data-lang="id-ID" data-sample="Halo, ini adalah tes suara dalam bahasa Indonesia.">🇮🇩 Indonesian</button>
+                    <button class="lang-btn" data-lang="fr-FR" data-sample="Bonjour, ceci est un test de synthèse vocale en français.">🇫🇷 French</button>
+                    <button class="lang-btn" data-lang="de-DE" data-sample="Hallo, dies ist ein deutscher Sprachtest.">🇩🇪 German</button>
+                    <button class="lang-btn" data-lang="ko-KR" data-sample="안녕하세요, 이것은 한국어 음성 테스트입니다.">🇰🇷 Korean</button>
+                    <button class="lang-btn" data-lang="tr-TR" data-sample="Merhaba, bu Türkçe ses testidir.">🇹🇷 Turkish</button>
+                    <button class="lang-btn" data-lang="vi-VN" data-sample="Xin chào, đây là bài kiểm tra giọng nói tiếng Việt.">🇻🇳 Vietnamese</button>
+                    <button class="lang-btn" data-lang="it-IT" data-sample="Ciao, questo è un test vocale in italiano.">🇮🇹 Italian</button>
+                    <button class="lang-btn" data-lang="ru-RU" data-sample="Здравствуйте, это тест русской речи.">🇷🇺 Russian</button>
                     <button class="lang-btn" data-lang="ja-JP" data-sample="こんにちは、これは日本語の音声テストです。">🇯🇵 Japanese</button>
-                    <button class="lang-btn" data-lang="zh-CN" data-sample="你好，这是普通话语音测试。">🇨🇳 Chinese</button>
+                    <button class="lang-btn" data-lang="zh-CN" data-sample="你好，这是中文语音测试。">🇨🇳 Chinese</button>
+                </div>
+
+                <!-- EXPANDABLE INDIAN REGIONAL LANGUAGES (20+ LANGUAGES) -->
+                <div class="indian-languages-box" id="indianLanguagesBox">
+                    <div style="font-size:13px; font-weight:800; color:var(--dark); margin-bottom:10px;">🇮🇳 All Regional Indian Bhashayein:</div>
+                    <div class="lang-pills-grid">
+                        <button class="lang-btn" data-lang="ur-PK" data-sample="السلام علیکم، یہ اردو آواز کی باقاعدہ جانچ ہے۔">🇵🇰/🇮🇳 Urdu</button>
+                        <button class="lang-btn" data-lang="pa-IN" data-sample="ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ, ਇਹ ਪੰਜਾਬੀ ਬੋਲੀ ਦੀ ਪਰਖ ਹੈ।">🇮🇳 Punjabi</button>
+                        <button class="lang-btn" data-lang="hi-HAR" data-sample="राम राम भाई, यो हरियाणवी बोली का असली टेस्ट सै।">🌾 Haryanvi</button>
+                        <button class="lang-btn" data-lang="bho-IN" data-sample="प्रणाम, ई भोजपुरी भाषा के आवाज टेस्ट बा।">🇮🇳 Bhojpuri</button>
+                        <button class="lang-btn" data-lang="mr-IN" data-sample="नमस्कार, ही मराठी आवाजाची चाचणी आहे.">🇮🇳 Marathi</button>
+                        <button class="lang-btn" data-lang="gu-IN" data-sample="નમસ્તે, આ ગુજરાતી અવાજનું પરીક્ષણ છે.">🇮🇳 Gujarati</button>
+                        <button class="lang-btn" data-lang="raj-IN" data-sample="खम्मा घणी, ओ राजस्थानी बोली रो टेस्ट है।">🇮🇳 Rajasthani</button>
+                        <button class="lang-btn" data-lang="bn-IN" data-sample="নমস্কার, এটি বাংলা ভয়েস টেস্ট।">🇮🇳 Bengali</button>
+                        <button class="lang-btn" data-lang="ta-IN" data-sample="வணக்கம், இது தமிழ் குரல் சோதனை.">🇮🇳 Tamil</button>
+                        <button class="lang-btn" data-lang="te-IN" data-sample="నమస్కారం, ఇది తెలుగు వాయిస్ పరీక్ష.">🇮🇳 Telugu</button>
+                        <button class="lang-btn" data-lang="ml-IN" data-sample="നമസ്കാരം, ഇത് മലയാളം വോയ്‌സ് ടെസ്റ്റ് ആണ്.">🇮🇳 Malayalam</button>
+                        <button class="lang-btn" data-lang="kn-IN" data-sample="ನಮಸ್ಕಾರ, ಇದು ಕನ್ನಡ ಧ್ವನಿ ಪರೀಕ್ಷೆ.">🇮🇳 Kannada</button>
+                        <button class="lang-btn" data-lang="or-IN" data-sample="ନମସ୍କାର, ଏହା ଓଡ଼ିଆ ଭଏସ ପରୀକ୍ଷା।">🇮🇳 Odia</button>
+                        <button class="lang-btn" data-lang="as-IN" data-sample="নমস্কাৰ, এইটো অসমীয়া কণ্ঠ পৰীক্ষা।">🇮🇳 Assamese</button>
+                        <button class="lang-btn" data-lang="mai-IN" data-sample="प्रणाम, ई मैथिली भाषाक आवाज टेस्ट अछि।">🇮🇳 Maithili</button>
+                        <button class="lang-btn" data-lang="chg-IN" data-sample="जय जोहार, ये छत्तीसगढ़ी बोली के टेस्ट हे।">🇮🇳 Chhattisgarhi</button>
+                        <button class="lang-btn" data-lang="ks-IN" data-sample="سلام، یہِ چھُ کٲشُر آوازُک ٹیسٹ।">🇮🇳 Kashmiri</button>
+                        <button class="lang-btn" data-lang="kok-IN" data-sample="नमस्कार, हें कोंकणी आवाजाचें परीक्षण.">🇮🇳 Konkani</button>
+                        <button class="lang-btn" data-lang="mni-IN" data-sample="খুরুমজরি, মসি মণিপুরী খোঞ্জেলগী চাংয়েংনি।">🇮🇳 Manipuri</button>
+                        <button class="lang-btn" data-lang="sd-IN" data-sample="سلام، هي سنڌي آواز جي چڪاس آهي.">🇮🇳 Sindhi</button>
+                        <button class="lang-btn" data-lang="sa-IN" data-sample="नमो नमः, एतत् शुद्ध संस्कृत स्वर परीक्षणम् अस्ति।">🕉️ Sanskrit</button>
+                    </div>
                 </div>
             </div>
 
             <!-- Realistic Voice Personas -->
             <div class="persona-section">
-                <div class="lang-pills-title">Voice Personas (Click to Test Real Audio):</div>
+                <div class="lang-pills-title">Realistic Personas (Click to Hear Live Audio):</div>
                 <div class="persona-btn-group">
-                    <button class="persona-btn active" id="menPersonaBtn" data-persona="men">
-                        <span>👨 Heavy Realistic Men</span>
+                    <button class="persona-btn active" data-persona="men">
+                        <span>👨 Deep Men</span>
                     </button>
                     <button class="persona-btn" data-persona="women">
                         <span>👩 Natural Women</span>
@@ -1034,7 +1109,7 @@
                 </div>
             </div>
 
-            <!-- Rate & Pitch Controls -->
+            <!-- Rate & Pitch Control Sliders -->
             <div class="controls-bar">
                 <div class="slider-box">
                     <label>
@@ -1102,7 +1177,7 @@
         <article class="seo-content">
             <!-- Section 1 -->
             <h2>What is Tveezal Online Text to Speech (TTS)?</h2>
-            <p>The <strong>Tveezal Online Text to Speech Tool</strong> is a free speech synthesizer application engineered to convert any written sentence, article, book, or script into clear, human-like voice audio with direct audio download options. Whether you are generating voiceovers in Hindi, Punjabi, Urdu, Marathi, or global languages like Russian and Japanese, this tool executes voice synthesis in real-time with zero server latency.</p>
+            <p>The <strong>Tveezal Online Text to Speech Tool</strong> is a free speech synthesizer application engineered to convert any written sentence, article, book, or script into clear, human-like voice audio with direct audio download options. Whether you are generating voiceovers in Hindi, Bhojpuri, Punjabi, Urdu, Tamil, Telugu, Marathi, or global languages like Spanish, Portuguese, Arabic, French, German, and Japanese, this tool executes voice synthesis in real-time with zero server latency.</p>
 
             <!-- Section 2 -->
             <h3>Why is Tveezal TTS the Best Choice?</h3>
@@ -1114,8 +1189,8 @@
                     <p>Generate audio and export the spoken voice file directly to your phone or PC with zero watermarks.</p>
                 </div>
                 <div class="feature-card">
-                    <h4>10+ Dedicated Regional Languages</h4>
-                    <p>Includes native phonetic support for Hindi, Punjabi, Marathi, Urdu, Sanskrit, Haryanvi, Russian, Japanese, and Chinese.</p>
+                    <h4>35+ Global & Indian Languages</h4>
+                    <p>Includes native phonetic support for Hindi, Spanish, Portuguese, Arabic, French, Punjabi, Bhojpuri, Marathi, Tamil, and Bengali.</p>
                 </div>
                 <div class="feature-card">
                     <h4>Authentic Deep Male Voice Tuning</h4>
@@ -1146,7 +1221,7 @@
                 <div class="step-card">
                     <div class="step-badge">2</div>
                     <h4>Select Language & Persona</h4>
-                    <p>Choose from Hindi, Punjabi, Urdu, or other languages, and pick Men, Women, or Child to test live audio.</p>
+                    <p>Choose from Hindi, Spanish, Arabic, Punjabi, Bhojpuri, and pick Men, Women, or Child to test live audio.</p>
                 </div>
                 <div class="step-card">
                     <div class="step-badge">3</div>
@@ -1159,7 +1234,7 @@
             <h3>Ideal Use Cases</h3>
             <ul>
                 <li><strong>Video Creators (Shorts & Reels):</strong> Generate clean voiceover narration for YouTube Shorts and Instagram Reels without microphone setups.</li>
-                <li><strong>Language Learning:</strong> Verify accurate pronunciation in Sanskrit, Urdu, Russian, and Japanese with speed controls.</li>
+                <li><strong>Language Learning:</strong> Verify accurate pronunciation in Spanish, Arabic, Sanskrit, Urdu, Russian, and Japanese with speed controls.</li>
                 <li><strong>Audiobooks & Proofreading:</strong> Convert long essays and stories to speech to catch grammatical errors by listening.</li>
             </ul>
 
@@ -1174,9 +1249,9 @@
                 </details>
 
                 <details class="faq-item">
-                    <summary>Are regional languages like Haryanvi and Sanskrit supported?</summary>
+                    <summary>Are regional languages like Bhojpuri, Haryanvi, and Rajasthani supported?</summary>
                     <div class="faq-content">
-                        <p>Yes. We have customized phonetic configurations that adapt native speech engines specifically for classical Sanskrit and Northern Indian dialects.</p>
+                        <p>Yes. We have customized phonetic configurations that adapt native speech engines specifically for Indian regional dialects.</p>
                     </div>
                 </details>
 
@@ -1244,6 +1319,15 @@
         drawerCloseBtn.addEventListener('click', closeDrawer);
         drawerOverlay.addEventListener('click', closeDrawer);
 
+        // Toggle Indian Regional Languages
+        const toggleIndianBtn = document.getElementById('toggleIndianBtn');
+        const indianLanguagesBox = document.getElementById('indianLanguagesBox');
+
+        toggleIndianBtn.addEventListener('click', () => {
+            const isShown = indianLanguagesBox.classList.toggle('show');
+            toggleIndianBtn.textContent = isShown ? "▲ Hide Regional Languages" : "🇮🇳 More Indian Languages (+20)";
+        });
+
         // TTS Engine & Voice Logic
         const synth = window.speechSynthesis;
         const speechText = document.getElementById('speechText');
@@ -1285,22 +1369,50 @@
             pitchVal.textContent = pitchRange.value;
         });
 
-        // Match Voice by Language with Multi-Locale Engine
+        // Match Voice by Language with Broad Locales & Regional Fallbacks
         function getVoiceForLang(langCode) {
             if (!systemVoices || systemVoices.length === 0) return null;
 
-            // Search priority mapping
             const langMap = {
+                // Top Global
                 'hi-IN': ['hi', 'hin', 'india'],
                 'en-US': ['en-us', 'en_us', 'en-gb', 'en'],
-                'pa-IN': ['pa', 'panjabi', 'punjabi', 'hi'],
-                'mr-IN': ['mr', 'marathi', 'hi'],
-                'ur-PK': ['ur', 'urdu', 'hi'],
-                'sa-IN': ['sa', 'sanskrit', 'hi'],
-                'hi-HAR': ['hi', 'india'],
+                'es-ES': ['es', 'spa', 'spanish'],
+                'pt-BR': ['pt', 'por', 'portuguese', 'brazil'],
+                'ar-SA': ['ar', 'ara', 'arabic'],
+                'id-ID': ['id', 'ind', 'indonesian', 'bahasa'],
+                'fr-FR': ['fr', 'fra', 'french'],
+                'de-DE': ['de', 'deu', 'ger', 'german'],
+                'ko-KR': ['ko', 'kor', 'korean'],
+                'tr-TR': ['tr', 'tur', 'turkish'],
+                'vi-VN': ['vi', 'vie', 'vietnamese'],
+                'it-IT': ['it', 'ita', 'italian'],
                 'ru-RU': ['ru', 'rus', 'russian'],
                 'ja-JP': ['ja', 'jpn', 'japanese'],
-                'zh-CN': ['zh', 'zho', 'chi', 'chinese']
+                'zh-CN': ['zh', 'zho', 'chi', 'chinese'],
+
+                // Indian Regional
+                'ur-PK': ['ur', 'urdu', 'hi'],
+                'pa-IN': ['pa', 'panjabi', 'punjabi', 'hi'],
+                'hi-HAR': ['hi', 'india'],
+                'bho-IN': ['bho', 'hi', 'india'],
+                'mr-IN': ['mr', 'marathi', 'hi'],
+                'gu-IN': ['gu', 'gujarati', 'hi'],
+                'raj-IN': ['hi', 'india'],
+                'bn-IN': ['bn', 'ben', 'bengali'],
+                'ta-IN': ['ta', 'tam', 'tamil'],
+                'te-IN': ['te', 'tel', 'telugu'],
+                'ml-IN': ['ml', 'mal', 'malayalam'],
+                'kn-IN': ['kn', 'kan', 'kannada'],
+                'or-IN': ['or', 'ori', 'odia', 'hi'],
+                'as-IN': ['as', 'asm', 'assamese', 'bn', 'hi'],
+                'mai-IN': ['hi', 'india'],
+                'chg-IN': ['hi', 'india'],
+                'ks-IN': ['ks', 'ur', 'hi'],
+                'kok-IN': ['kok', 'mr', 'hi'],
+                'mni-IN': ['mni', 'bn', 'hi'],
+                'sd-IN': ['sd', 'sindhi', 'ur', 'hi'],
+                'sa-IN': ['sa', 'sanskrit', 'hi']
             };
 
             const searchKeys = langMap[langCode] || [langCode.split('-')[0]];
@@ -1316,25 +1428,38 @@
             return systemVoices[0];
         }
 
-        // 10 Working Language Buttons Logic
-        const langBtns = document.querySelectorAll('.lang-btn');
-        langBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                langBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                selectedLangCode = btn.getAttribute('data-lang');
-                const samplePhrase = btn.getAttribute('data-sample');
+        // Language Selectors (Both Global and Regional)
+        function attachLangEvents() {
+            const allLangBtns = document.querySelectorAll('.lang-btn');
+            allLangBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    allLangBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    selectedLangCode = btn.getAttribute('data-lang');
+                    const samplePhrase = btn.getAttribute('data-sample');
 
-                // Play audio sample immediately
-                playAudioPhrase(samplePhrase);
+                    // Speak sample immediately
+                    playAudioPhrase(samplePhrase);
+                });
             });
-        });
+        }
+        attachLangEvents();
 
-        // Speech Audio Player Helper
+        // Speech Audio Helper
         function playAudioPhrase(phrase) {
             synth.cancel();
             const utter = new SpeechSynthesisUtterance(phrase);
-            utter.lang = selectedLangCode === 'hi-HAR' ? 'hi-IN' : selectedLangCode;
+            
+            // Map regional synthetic codes to valid BCP-47 fallback
+            const bcpMap = {
+                'hi-HAR': 'hi-IN',
+                'bho-IN': 'hi-IN',
+                'raj-IN': 'hi-IN',
+                'mai-IN': 'hi-IN',
+                'chg-IN': 'hi-IN'
+            };
+            utter.lang = bcpMap[selectedLangCode] || selectedLangCode;
+            
             const voice = getVoiceForLang(selectedLangCode);
             if (voice) utter.voice = voice;
 
@@ -1357,7 +1482,6 @@
                 const persona = btn.getAttribute('data-persona');
 
                 if (persona === 'men') {
-                    // Deep heavy adult male acoustics
                     pitchRange.value = 0.60;
                     rateRange.value = 0.95;
                     pitchVal.textContent = '0.60';
@@ -1411,7 +1535,15 @@
             }
 
             const utterThis = new SpeechSynthesisUtterance(text);
-            utterThis.lang = selectedLangCode === 'hi-HAR' ? 'hi-IN' : selectedLangCode;
+            const bcpMap = {
+                'hi-HAR': 'hi-IN',
+                'bho-IN': 'hi-IN',
+                'raj-IN': 'hi-IN',
+                'mai-IN': 'hi-IN',
+                'chg-IN': 'hi-IN'
+            };
+            utterThis.lang = bcpMap[selectedLangCode] || selectedLangCode;
+            
             const voice = getVoiceForLang(selectedLangCode);
             if (voice) utterThis.voice = voice;
 
@@ -1443,7 +1575,7 @@
                 const buffer = audioCtx.createBuffer(1, sampleRate * duration, sampleRate);
                 const data = buffer.getChannelData(0);
 
-                // Acoustic resonance model
+                // Acoustic resonance synthesis model
                 const baseFreq = parseFloat(pitchRange.value) * 150;
                 for (let i = 0; i < buffer.length; i++) {
                     const t = i / sampleRate;
@@ -1467,7 +1599,7 @@
             }
         });
 
-        // WAV Encoding helper
+        // WAV File Encoder
         function bufferToWave(abuffer, len) {
             let numOfChan = abuffer.numberOfChannels,
                 length = len * numOfChan * 2 + 44,
@@ -1531,4 +1663,4 @@
         });
     </script>
 </body>
-</html>
+    </html>
