@@ -126,19 +126,19 @@
             text-decoration: underline;
         }
 
-        /* HEADER (NATURAL SCROLLING WITH FULL BUTTONS) */
+        /* HEADER */
         .header {
             background: linear-gradient(135deg, #0f172a 0%, #172554 55%, #1d4ed8 100%);
             color: white;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative; /* Normal natural scrolling */
+            position: relative;
             padding-bottom: 24px;
         }
 
         .nav-top-bar {
             max-width: 1200px;
             margin: auto;
-            padding: 16px 22px 10px;
+            padding: 18px 22px 12px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -160,45 +160,43 @@
             text-shadow: 0 0 15px rgba(96, 165, 250, 0.45);
         }
 
-        /* 3 WHITE OUTLINE CIRCLES MENU BUTTON (○○○) */
+        /* SOLID WHITE VERTICAL 3-DOT BUTTON (BORDERLESS & CLEAN) */
         .menu-trigger-btn {
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
-            border: 1.5px solid rgba(255, 255, 255, 0.35);
-            background: rgba(255, 255, 255, 0.12);
-            color: #ffffff;
+            background: transparent;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
-            transition: all 0.2s ease;
+            transition: transform 0.2s ease, opacity 0.2s ease;
         }
 
         .menu-trigger-btn:hover {
-            background: rgba(255, 255, 255, 0.25);
-            transform: scale(1.05);
+            transform: scale(1.15);
+            opacity: 0.9;
         }
 
-        .three-circles-icon {
+        .vertical-dots {
             display: flex;
+            flex-direction: column;
+            gap: 5px;
             align-items: center;
-            gap: 4px;
         }
 
-        .circle-dot {
-            width: 8px;
-            height: 8px;
-            border: 2px solid #ffffff;
+        .solid-dot {
+            width: 5.5px;
+            height: 5.5px;
+            background-color: #ffffff;
             border-radius: 50%;
-            background: transparent;
+            box-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
         }
 
-        /* SCREENSHOT STYLE HEADER PILL BUTTONS */
+        /* SCREENSHOT STYLE HEADER PILL BUTTONS (STRETCHED & BALANCED) */
         .nav-pills-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 6px 22px 16px;
+            padding: 8px 22px 14px;
             display: flex;
             align-items: center;
             flex-wrap: wrap;
@@ -209,12 +207,15 @@
             border: 1px solid rgba(255, 255, 255, 0.22);
             background: rgba(255, 255, 255, 0.09);
             color: white;
-            padding: 8px 18px;
+            padding: 8px 20px;
             border-radius: 999px;
-            font-size: 13px;
+            font-size: 13.5px;
             font-weight: 600;
             transition: all 0.2s ease;
             text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .header-pill:hover {
@@ -230,7 +231,7 @@
             box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
         }
 
-        /* SIDEBAR DRAWER */
+        /* PURPLE THEME DRAWER */
         .drawer-overlay {
             position: fixed;
             top: 0;
@@ -334,6 +335,7 @@
             text-decoration: none;
         }
 
+        /* COMMON SVG ICONS */
         .icon-svg {
             width: 18px;
             height: 18px;
@@ -342,6 +344,7 @@
             stroke-width: 2.2;
             stroke-linecap: round;
             stroke-linejoin: round;
+            flex-shrink: 0;
         }
 
         /* HERO */
@@ -523,7 +526,7 @@
             display: block;
         }
 
-        /* QUICK TEST PERSONAS */
+        /* PERSONA PRESETS */
         .persona-section {
             margin: 18px 0;
         }
@@ -669,7 +672,7 @@
             margin-left: auto;
         }
 
-        /* 7 CATEGORIES BAR */
+        /* 7 CATEGORIES BAR (MATCHING SAME ICONS AS DRAWER) */
         .categories-bar-wrapper {
             margin: 32px 0 24px;
             text-align: center;
@@ -694,13 +697,17 @@
         .cat-tag-btn {
             background: #ffffff;
             border: 1px solid var(--line);
-            padding: 8px 16px;
-            border-radius: 12px;
+            padding: 9px 18px;
+            border-radius: 999px;
             font-size: 13px;
             font-weight: 700;
             color: var(--dark);
             box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             transition: all 0.2s ease;
+            text-decoration: none;
         }
 
         .cat-tag-btn:hover {
@@ -708,6 +715,7 @@
             color: var(--blue);
             transform: translateY(-2px);
             text-decoration: none;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.12);
         }
 
         /* SEO ARTICLE */
@@ -920,17 +928,17 @@
                 Tveezal <span>Tools</span>
             </a>
 
-            <!-- 3 Outline White Circles (○○○) -->
+            <!-- Borderless Vertical 3 Solid White Dots (⋮) -->
             <button class="menu-trigger-btn" id="drawerOpenBtn" aria-label="Open Navigation">
-                <div class="three-circles-icon">
-                    <span class="circle-dot"></span>
-                    <span class="circle-dot"></span>
-                    <span class="circle-dot"></span>
+                <div class="vertical-dots">
+                    <span class="solid-dot"></span>
+                    <span class="solid-dot"></span>
+                    <span class="solid-dot"></span>
                 </div>
             </button>
         </div>
 
-        <!-- Pill Navigation Bar -->
+        <!-- Stretched & Balanced Navigation Bar -->
         <nav class="nav-pills-container">
             <a class="header-pill" href="index.html">Home</a>
             <a class="header-pill" href="index.html#all-tools">All Tools</a>
@@ -947,7 +955,7 @@
         </div>
     </header>
 
-    <!-- Purple Modern Navigation Drawer with Clean White Pill Buttons -->
+    <!-- Purple Navigation Drawer with Clean White Pill Buttons -->
     <div class="drawer-overlay" id="drawerOverlay"></div>
     <aside class="side-drawer" id="sideDrawer">
         <div class="drawer-header">
@@ -1156,18 +1164,39 @@
         </div>
 
         <!-- =========================================================
-             7 CATEGORIES NAVIGATION BUTTONS BAR
+             7 CATEGORIES NAVIGATION BUTTONS BAR (SAME SVG ICONS AS DRAWER)
         ========================================================= -->
         <section class="categories-bar-wrapper">
             <div class="categories-title">Explore All Tool Categories</div>
             <div class="category-buttons-list">
-                <a class="cat-tag-btn" href="pdf-tools.html">📄 PDF Tools</a>
-                <a class="cat-tag-btn" href="image-tools.html">🖼️ Image Tools</a>
-                <a class="cat-tag-btn" href="qr-barcode-tools.html">📱 QR & Barcode</a>
-                <a class="cat-tag-btn" href="text-string-tools.html">✍️ Text & String</a>
-                <a class="cat-tag-btn" href="web-security-tools.html">🔒 Web & Security</a>
-                <a class="cat-tag-btn" href="calculators.html">🧮 Calculators</a>
-                <a class="cat-tag-btn" href="converters.html">🔄 Converters</a>
+                <a class="cat-tag-btn" href="pdf-tools.html">
+                    <svg class="icon-svg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                    <span>PDF Tools</span>
+                </a>
+                <a class="cat-tag-btn" href="image-tools.html">
+                    <svg class="icon-svg" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                    <span>Image Tools</span>
+                </a>
+                <a class="cat-tag-btn" href="qr-barcode-tools.html">
+                    <svg class="icon-svg" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                    <span>QR & Barcode</span>
+                </a>
+                <a class="cat-tag-btn" href="text-string-tools.html">
+                    <svg class="icon-svg" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                    <span>Text & String</span>
+                </a>
+                <a class="cat-tag-btn" href="web-security-tools.html">
+                    <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    <span>Web & Security</span>
+                </a>
+                <a class="cat-tag-btn" href="calculators.html">
+                    <svg class="icon-svg" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line><line x1="16" y1="14" x2="16" y2="18"></line><path d="M8 10h.01"></path><path d="M12 10h.01"></path><path d="M16 10h.01"></path><path d="M8 14h.01"></path><path d="M12 14h.01"></path><path d="M8 18h.01"></path><path d="M12 18h.01"></path></svg>
+                    <span>Calculators</span>
+                </a>
+                <a class="cat-tag-btn" href="converters.html">
+                    <svg class="icon-svg" viewBox="0 0 24 24"><polyline points="17 1 21 5 17 9"></polyline><path d="M3 11V9a4 4 0 0 1 4-4h14"></path><polyline points="7 23 3 19 7 15"></polyline><path d="M21 13v2a4 4 0 0 1-4 4H3"></path></svg>
+                    <span>Converters</span>
+                </a>
             </div>
         </section>
 
@@ -1450,7 +1479,6 @@
             synth.cancel();
             const utter = new SpeechSynthesisUtterance(phrase);
             
-            // Map regional synthetic codes to valid BCP-47 fallback
             const bcpMap = {
                 'hi-HAR': 'hi-IN',
                 'bho-IN': 'hi-IN',
@@ -1663,4 +1691,4 @@
         });
     </script>
 </body>
-    </html>
+</html>
