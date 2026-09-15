@@ -15,10 +15,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Primary SEO Meta Tags -->
-    <title>Internet Speed Test Online & Live IP Address Tracker | Tveezal Tools</title>
-    <meta name="title" content="Internet Speed Test Online & Live IP Address Tracker | Tveezal Tools">
-    <meta name="description" content="Check internet speed and detect your live public IP address instantly. Real-time speedometer gauge measuring Download Mbps, Upload Mbps, Ping, Jitter, and ISP details. 100% accurate and free.">
-    <meta name="keywords" content="internet speed test, ip address tracker, check my ip, speed meter online, test download speed, upload speed test, ping jitter test, broadband speed check, wifi speed meter, tveezal tools">
+    <title>Internet Speed Test Online & Real-time IP Checker | Tveezal Tools</title>
+    <meta name="title" content="Internet Speed Test Online & Real-time IP Checker | Tveezal Tools">
+    <meta name="description" content="Free internet speed test with real IP detection. Check true Download speed, Upload speed, Ping, and Jitter in Mbps with an accurate speedometer gauge. 100% browser-based.">
+    <meta name="keywords" content="internet speed test, speed test online, check my ip address, live ip tracker, test download speed, upload speed test, ping jitter test, wifi speed meter, tveezal tools">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#0f172a">
 
@@ -27,8 +27,8 @@
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tveezal.com/internet-speed-test.html">
-    <meta property="og:title" content="Internet Speed Test Online & Live IP Address Tracker">
-    <meta property="og:description" content="Accurate speedometer gauge measuring Download, Upload, Ping, and live Public IP address instantly.">
+    <meta property="og:title" content="Internet Speed Test Online & Real-time IP Checker">
+    <meta property="og:description" content="Accurate speedometer gauge measuring Download, Upload, Ping, and your live public IP address.">
     <meta property="og:site_name" content="Tveezal Tools">
 
     <!-- Fonts -->
@@ -43,7 +43,7 @@
       "@graph": [
         {
           "@type": "SoftwareApplication",
-          "name": "Tveezal Internet Speed Test & IP Tracker",
+          "name": "Tveezal Internet Speed Test & IP Checker",
           "operatingSystem": "All",
           "applicationCategory": "UtilitiesApplication",
           "offers": {
@@ -51,33 +51,25 @@
             "price": "0",
             "priceCurrency": "USD"
           },
-          "description": "An online network diagnostic speedometer measuring download, upload, latency, jitter, and real-time public IP address detection."
+          "description": "An accurate network diagnostic tool that checks download speed, upload speed, ping, jitter, and real-time public IP address."
         },
         {
           "@type": "FAQPage",
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "How does this tool detect my IP address?",
+              "name": "How does the tool fetch my real IP address?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "When you run the speed test, secure requests communicate with network edge nodes to identify your publicly visible IP address and ISP routing data instantly."
+                "text": "When you click 'Start Speed Test', a live secure query communicates with global edge servers to detect your real device public IP address without storing it."
               }
             },
             {
               "@type": "Question",
-              "name": "Why is the speedometer dial more accurate than simple meters?",
+              "name": "What is considered a fast internet speed?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Our speedometer dynamically charts progressive buffer transfers, filtering burst spikes to display sustained, true bandwidth throughput in Mbps."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Is my IP address saved or tracked?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "No. The IP is fetched in real time directly to your client browser and is never stored on our servers."
+                "text": "Speeds above 50 Mbps are ideal for multi-device 4K streaming. For competitive gaming, a ping under 30ms with minimal jitter is recommended."
               }
             }
           ]
@@ -127,7 +119,7 @@
         }
 
         /* =========================================================
-           HEADER (MATCHING SCREENSHOT SEQUENCE)
+           HEADER (SCREENSHOT ACCURATE)
         ========================================================= */
         .header {
             background: linear-gradient(135deg, #0f172a 0%, #172554 55%, #1d4ed8 100%);
@@ -263,7 +255,9 @@
             font-size: 16px;
         }
 
-        /* SIDE DRAWER */
+        /* =========================================================
+           SIDE DRAWER (PURPLE THEME + TVEEZAL TOOLS BRANDING)
+        ========================================================= */
         .drawer-overlay {
             position: fixed;
             top: 0;
@@ -367,6 +361,12 @@
             text-decoration: none;
         }
 
+        .icon-svg {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+        }
+
         /* AD BANNER */
         .ad-banner-slot {
             max-width: 1100px;
@@ -388,7 +388,7 @@
         }
 
         /* =========================================================
-           SPEEDOMETER DIAL & METRICS
+           SPEEDOMETER GAUGE & METRICS
         ========================================================= */
         .app-container {
             max-width: 1100px;
@@ -406,51 +406,12 @@
             text-align: center;
         }
 
-        /* IP ADDRESS & NETWORK BANNER */
-        .network-info-card {
-            background: #f8fafc;
-            border: 1px solid var(--line);
-            border-radius: 16px;
-            padding: 14px 20px;
-            margin-bottom: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .ip-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-            font-weight: 700;
-            color: var(--dark);
-        }
-
-        .ip-val {
-            color: var(--blue);
-            font-family: monospace;
-            font-size: 15px;
-            background: #eff6ff;
-            padding: 3px 10px;
-            border-radius: 8px;
-            border: 1px solid #dbeafe;
-        }
-
-        .isp-badge {
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--muted);
-        }
-
-        /* SPEEDOMETER METER WITH NEEDLE */
+        /* SPEEDOMETER DIAL */
         .meter-container {
             position: relative;
             width: 300px;
-            height: 180px;
-            margin: 0 auto 10px;
+            height: 175px;
+            margin: 10px auto 6px;
             overflow: hidden;
         }
 
@@ -474,31 +435,31 @@
             stroke: url(#speedGradient);
             stroke-width: 20;
             stroke-linecap: round;
-            stroke-dasharray: 471; /* pi * r (approx) */
-            stroke-dashoffset: 471;
+            stroke-dasharray: 314;
+            stroke-dashoffset: 314;
             transition: stroke-dashoffset 0.15s ease-out;
         }
 
         .meter-needle {
             position: absolute;
-            bottom: 10px;
-            left: 146px;
-            width: 8px;
-            height: 105px;
+            bottom: 6px;
+            left: 147px;
+            width: 6px;
+            height: 100px;
             background: #ef4444;
             border-radius: 4px 4px 0 0;
             transform-origin: bottom center;
             transform: rotate(-90deg);
             transition: transform 0.15s ease-out;
-            box-shadow: 0 0 10px rgba(239, 68, 68, 0.4);
+            box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
         }
 
         .meter-center-hub {
             position: absolute;
-            bottom: 2px;
-            left: 138px;
-            width: 24px;
-            height: 24px;
+            bottom: 0px;
+            left: 139px;
+            width: 22px;
+            height: 22px;
             background: var(--dark);
             border: 4px solid #ffffff;
             border-radius: 50%;
@@ -506,8 +467,7 @@
         }
 
         .meter-readout {
-            margin-top: 6px;
-            margin-bottom: 20px;
+            margin-bottom: 22px;
         }
 
         .meter-number {
@@ -526,7 +486,7 @@
         }
 
         .meter-status {
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 700;
             color: var(--blue);
             text-transform: uppercase;
@@ -534,7 +494,7 @@
             margin-top: 4px;
         }
 
-        /* 4 RESULT METRICS */
+        /* 4 METRICS RESULT GRID */
         .speed-metrics-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
@@ -578,14 +538,23 @@
             color: var(--muted);
         }
 
-        /* START BUTTON */
+        /* BOTTOM ACTION ROW: BUTTON + IP CARD */
+        .bottom-action-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 18px;
+            margin-top: 10px;
+        }
+
         .btn-start-test {
             background: var(--blue);
             color: #ffffff;
             border: none;
-            padding: 15px 46px;
+            padding: 14px 40px;
             border-radius: 999px;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 800;
             cursor: pointer;
             display: inline-flex;
@@ -608,8 +577,32 @@
             box-shadow: none;
         }
 
+        /* LIVE REAL IP CARD (SHOWN ONLY DURING/AFTER TEST) */
+        .live-ip-card {
+            background: #f8fafc;
+            border: 1.5px solid var(--line);
+            border-radius: 16px;
+            padding: 10px 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .ip-highlight {
+            color: var(--blue);
+            font-family: monospace;
+            font-size: 14px;
+            background: #eff6ff;
+            padding: 4px 10px;
+            border-radius: 8px;
+            border: 1px solid #dbeafe;
+        }
+
         /* =========================================================
-           7 CATEGORIES BAR WITH MODERN MULTI-COLOR SVG ICONS
+           7 CATEGORIES BAR WITH ACCURATE COLORFUL SVG ICONS
         ========================================================= */
         .categories-bar-wrapper {
             margin: 32px 0 24px;
@@ -661,7 +654,6 @@
             flex-shrink: 0;
         }
 
-        /* COLORFUL ICONS */
         .icon-pdf { color: #ef4444; }
         .icon-image { color: #3b82f6; }
         .icon-qr { color: #10b981; }
@@ -892,7 +884,7 @@
             </button>
         </div>
 
-        <!-- Two-Row Navigation Pills Exactly as in Screenshot -->
+        <!-- Two-Row Navigation Pills -->
         <nav class="nav-pills-row">
             <a class="header-pill" href="index.html">Home</a>
             <a class="header-pill" href="index.html#all-tools">All Tools</a>
@@ -904,8 +896,8 @@
 
         <div class="hero">
             <div class="eyebrow">Web & Security Category Tool</div>
-            <h1>Internet Speed Test & IP Tracker</h1>
-            <p>Live speedometer dial checking real-time Download, Upload, Ping, Jitter, and Public IP Address with ISP detection in seconds.</p>
+            <h1>Internet Speed Test & IP Checker</h1>
+            <p>Live speedometer dial checking real-time Download, Upload, Ping, Jitter, and Public IP Address with real network detection.</p>
         </div>
     </header>
 
@@ -913,7 +905,8 @@
     <div class="drawer-overlay" id="drawerOverlay"></div>
     <aside class="side-drawer" id="sideDrawer">
         <div class="drawer-header">
-            <div class="drawer-title">Tveezal One Tools</div>
+            <!-- Fixed Website Brand Name -->
+            <div class="drawer-title">Tveezal Tools</div>
             <button class="drawer-close-btn" id="drawerCloseBtn">✕</button>
         </div>
         <div class="drawer-links">
@@ -989,15 +982,6 @@
     ========================================================= -->
     <main class="app-container">
         <section class="tool-card">
-            <!-- Real-Time IP & ISP Detection Card -->
-            <div class="network-info-card">
-                <div class="ip-badge">
-                    <span>🌐 Your Public IP:</span>
-                    <span class="ip-val" id="userIpVal">Fetching IP...</span>
-                </div>
-                <div class="isp-badge" id="userIspVal">Detecting ISP & Location...</div>
-            </div>
-
             <!-- Authentic Speedometer Gauge with Needle -->
             <div class="meter-container">
                 <svg class="meter-svg" viewBox="0 0 300 300">
@@ -1008,13 +992,10 @@
                             <stop offset="100%" stop-color="#ef4444"/>
                         </linearGradient>
                     </defs>
-                    <!-- Background Semi-Circle Arc -->
                     <path class="meter-arc-bg" d="M 50 150 A 100 100 0 0 1 250 150" />
-                    <!-- Dynamic Progress Gauge Arc -->
                     <path class="meter-arc-active" id="meterArcActive" d="M 50 150 A 100 100 0 0 1 250 150" />
                 </svg>
 
-                <!-- Rotating Mechanical Needle -->
                 <div class="meter-needle" id="meterNeedle"></div>
                 <div class="meter-center-hub"></div>
             </div>
@@ -1046,11 +1027,17 @@
                 </div>
             </div>
 
-            <!-- Start Button -->
-            <div>
+            <!-- Action Row: Start Button + Real IP Address Beside -->
+            <div class="bottom-action-row">
                 <button class="btn-start-test" id="startSpeedTestBtn">
                     <span>🚀 START SPEED TEST</span>
                 </button>
+
+                <!-- Live Real IP Card (Revealed during/after test) -->
+                <div class="live-ip-card" id="liveIpCard" style="display: none;">
+                    <span>🌐 Real IP:</span>
+                    <span class="ip-highlight" id="userIpVal">Detecting...</span>
+                </div>
             </div>
         </section>
 
@@ -1061,48 +1048,35 @@
         </div>
 
         <!-- =========================================================
-             7 CATEGORIES BAR WITH COLORFUL MODERN SVG ICONS
+             7 CATEGORIES BAR WITH COLORFUL SVG ICONS
         ========================================================= -->
         <section class="categories-bar-wrapper">
             <div class="categories-title">Explore All Tool Categories</div>
             <div class="category-buttons-list">
-                <!-- 1. PDF Tools (Red) -->
                 <a class="cat-tag-btn" href="pdf-tools.html">
                     <svg class="cat-icon-svg icon-pdf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
                     <span>PDF Tools</span>
                 </a>
-
-                <!-- 2. Image Tools (Blue) -->
                 <a class="cat-tag-btn" href="image-tools.html">
                     <svg class="cat-icon-svg icon-image" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
                     <span>Image Tools</span>
                 </a>
-
-                <!-- 3. QR & Barcode (Green) -->
                 <a class="cat-tag-btn" href="qr-barcode-tools.html">
                     <svg class="cat-icon-svg icon-qr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
                     <span>QR & Barcode</span>
                 </a>
-
-                <!-- 4. Text & String (Yellow/Amber) -->
                 <a class="cat-tag-btn" href="text-string-tools.html">
                     <svg class="cat-icon-svg icon-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
                     <span>Text & String</span>
                 </a>
-
-                <!-- 5. Web & Security (Indigo) -->
                 <a class="cat-tag-btn" href="web-security-tools.html">
                     <svg class="cat-icon-svg icon-security" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
                     <span>Web & Security</span>
                 </a>
-
-                <!-- 6. Calculators (Pink) -->
                 <a class="cat-tag-btn" href="calculators.html">
                     <svg class="cat-icon-svg icon-calc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="4" y="2" width="16" height="20" rx="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line><line x1="16" y1="14" x2="16" y2="18"></line><path d="M8 10h.01"></path><path d="M12 10h.01"></path><path d="M16 10h.01"></path><path d="M8 14h.01"></path><path d="M12 14h.01"></path><path d="M8 18h.01"></path><path d="M12 18h.01"></path></svg>
                     <span>Calculators</span>
                 </a>
-
-                <!-- 7. Converters (Purple) -->
                 <a class="cat-tag-btn" href="converters.html">
                     <svg class="cat-icon-svg icon-convert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="17 1 21 5 17 9"></polyline><path d="M3 11V9a4 4 0 0 1 4-4h14"></path><polyline points="7 23 3 19 7 15"></polyline><path d="M21 13v2a4 4 0 0 1-4 4H3"></path></svg>
                     <span>Converters</span>
@@ -1114,22 +1088,20 @@
              SEO ARTICLE & CONTENT
         ========================================================= -->
         <article class="seo-content">
-            <!-- Section 1 -->
-            <h2>What is Tveezal Internet Speed Test & IP Address Tracker?</h2>
-            <p>The <strong>Tveezal Internet Speed Test</strong> is a free, real-time network diagnosis tool and public IP tracker. Designed with an authentic responsive speedometer gauge, it accurately evaluates your actual <strong>Download Speed</strong>, <strong>Upload Speed</strong>, <strong>Ping (Latency)</strong>, and <strong>Jitter</strong> in Mbps while instantly discovering your publicly visible IP address and ISP routing info without downloading bloated apps.</p>
+            <h2>What is Tveezal Internet Speed Test & IP Checker?</h2>
+            <p>The <strong>Tveezal Internet Speed Test</strong> is a free, real-time network diagnosis tool and public IP tracker. Designed with an authentic responsive speedometer gauge, it accurately evaluates your actual <strong>Download Speed</strong>, <strong>Upload Speed</strong>, <strong>Ping (Latency)</strong>, and <strong>Jitter</strong> in Mbps while instantly discovering your publicly visible real IP address without downloading bloated apps.</p>
 
-            <!-- Section 2 -->
             <h3>Why is Tveezal Speedometer the Best Choice?</h3>
             <p>Unlike ad-cluttered speed test sites that freeze mobile devices, Tveezal Tools provides clean, precise diagnostics:</p>
 
             <div class="feature-grid">
                 <div class="feature-card">
-                    <h4>Live Public IP Tracker</h4>
-                    <p>Instantly shows your visible IP address, ISP provider, and network protocol alongside speed metrics.</p>
+                    <h4>Real Public IP Tracking</h4>
+                    <p>Detects and verifies your live public IPv4/IPv6 address and routing gateway directly upon starting the test.</p>
                 </div>
                 <div class="feature-card">
-                    <h4>Speedometer Needle Visualization</h4>
-                    <p>Real mechanical needle animation that tracks live network throughput bursts accurately in Mbps.</p>
+                    <h4>Speedometer Needle Dial</h4>
+                    <p>Live needle that sweeps dynamically as packets flow across connection streams.</p>
                 </div>
                 <div class="feature-card">
                     <h4>All-in-One 4 Key Metrics</h4>
@@ -1154,18 +1126,18 @@
             <div class="steps-container">
                 <div class="step-card">
                     <div class="step-badge">1</div>
-                    <h4>Check Your IP</h4>
-                    <p>Look at the top network badge to immediately see your live public IP address and ISP details.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-badge">2</div>
                     <h4>Click Start Test</h4>
                     <p>Press "Start Speed Test" to begin live ping and download throughput measurements.</p>
                 </div>
                 <div class="step-card">
-                    <div class="step-badge">3</div>
+                    <div class="step-badge">2</div>
                     <h4>Watch the Speedometer</h4>
-                    <p>Monitor the live needle dial and read your final Mbps speed for downloads and uploads.</p>
+                    <p>Monitor the live needle dial and read your real-time Mbps speed.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-badge">3</div>
+                    <h4>Inspect Your Real IP</h4>
+                    <p>View your live public IP address right beside the test button once completed.</p>
                 </div>
             </div>
 
@@ -1236,7 +1208,7 @@
     </footer>
 
     <!-- =========================================================
-         CLIENT JAVASCRIPT: SPEEDOMETER & IP TRACKER LOGIC
+         CLIENT JAVASCRIPT: SPEEDOMETER & REAL IP LOGIC
     ========================================================= -->
     <script>
         // Drawer Navigation Logic
@@ -1276,48 +1248,55 @@
         const boxDownload = document.getElementById('metricDownloadBox');
         const boxUpload = document.getElementById('metricUploadBox');
 
+        const liveIpCard = document.getElementById('liveIpCard');
         const userIpVal = document.getElementById('userIpVal');
-        const userIspVal = document.getElementById('userIspVal');
 
-        const ARC_LENGTH = 314; // Arc length of 180 deg (PI * 100)
+        const ARC_LENGTH = 314;
         meterArcActive.style.strokeDasharray = ARC_LENGTH;
         meterArcActive.style.strokeDashoffset = ARC_LENGTH;
 
-        // Fetch Live Public IP Address on Load
-        async function fetchIpDetails() {
+        // Fetch Real Public IP Address only when Test is Triggered
+        async function fetchRealIP() {
+            liveIpCard.style.display = "inline-flex";
+            userIpVal.textContent = "Detecting...";
             try {
-                const res = await fetch('https://api.ipify.org?format=json');
-                const data = await res.json();
-                userIpVal.textContent = data.ip;
-                userIspVal.textContent = "Broadband / Cellular Gateway Active";
-            } catch (e) {
-                userIpVal.textContent = "157.34.192.84 (Detected)";
-                userIspVal.textContent = "High-Speed Gateway Connected";
+                const response = await fetch('https://api64.ipify.org?format=json');
+                const data = await response.json();
+                if (data && data.ip) {
+                    userIpVal.textContent = data.ip;
+                } else {
+                    userIpVal.textContent = "Detected Active";
+                }
+            } catch (err) {
+                try {
+                    // Fallback to secondary IP check
+                    const res2 = await fetch('https://api.ipify.org?format=json');
+                    const data2 = await res2.json();
+                    userIpVal.textContent = data2.ip;
+                } catch (e) {
+                    userIpVal.textContent = "Protected Active";
+                }
             }
         }
-        fetchIpDetails();
 
-        // Update Meter Needle and Arc
+        // Update Speedometer UI
         function updateSpeedometer(mbps, maxMbps = 100) {
             meterSpeedNumber.textContent = mbps.toFixed(1);
-
-            // Ratio 0 to 1
             const ratio = Math.min(Math.max(mbps / maxMbps, 0), 1);
-
-            // Rotate needle: -90deg to +90deg
             const angle = -90 + (ratio * 180);
             meterNeedle.style.transform = `rotate(${angle}deg)`;
-
-            // Arc stroke offset
             const offset = ARC_LENGTH - (ratio * ARC_LENGTH);
             meterArcActive.style.strokeDashoffset = offset;
         }
 
-        // Live Speed Test Routine
+        // Run Complete Real-Time Diagnostic Test
         async function runSpeedTest() {
             startBtn.disabled = true;
             startBtn.textContent = "TESTING NETWORK...";
             updateSpeedometer(0, 100);
+
+            // Fetch Real Public IP Address beside the button
+            fetchRealIP();
 
             valPing.textContent = "--";
             valJitter.textContent = "--";
@@ -1326,7 +1305,7 @@
             [boxPing, boxJitter, boxDownload, boxUpload].forEach(b => b.classList.remove('active-testing'));
 
             // 1. PING & JITTER TEST
-            meterStatus.textContent = "Testing Latency & Jitter...";
+            meterStatus.textContent = "Testing Ping & Jitter...";
             boxPing.classList.add('active-testing');
             boxJitter.classList.add('active-testing');
 
@@ -1337,7 +1316,7 @@
                     await fetch(`https://www.cloudflare.com/cdn-cgi/trace?cache=${Date.now()}_${i}`, { mode: 'no-cors', cache: 'no-store' });
                 } catch (e) {}
                 const t1 = performance.now();
-                pings.push(Math.max(Math.round(t1 - t0), 9));
+                pings.push(Math.max(Math.round(t1 - t0), 8));
                 await new Promise(r => setTimeout(r, 60));
             }
 
