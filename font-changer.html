@@ -12,7 +12,8 @@
     </script>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#0f172a" id="metaThemeColor">
 
     <!-- Primary SEO Meta Tags -->
     <title>Font Changer Online - 1000+ Fancy Text Generator & Font Converter | Tveezal Tools</title>
@@ -20,18 +21,19 @@
     <meta name="description" content="Free online font changer and fancy text generator. Convert normal text into 1000+ stylish fonts, cursive, gothic, bold, aesthetic, and cool Unicode symbols. Copy & paste for Instagram, WhatsApp, Discord, and TikTok.">
     <meta name="keywords" content="font changer, text font changer, fancy text generator, font converter, cool fonts copy paste, aesthetic text changer, instagram bio font changer, stylish text generator, tveezal tools">
     <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#2563eb">
+    <meta name="author" content="Tveezal Tools">
 
-    <link rel="canonical" href="https://tveezal.com/text-case-changer.html">
+    <link rel="canonical" href="https://tveezal.com/font-changer.html">
 
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://tveezal.com/text-case-changer.html">
+    <meta property="og:url" content="https://tveezal.com/font-changer.html">
     <meta property="og:title" content="Font Changer Online - 1000+ Fancy Text Generator & Font Converter">
     <meta property="og:description" content="Convert your words into 1000+ stylish Unicode fonts instantly. One-click copy for social bios, gaming tags, and chats.">
     <meta property="og:site_name" content="Tveezal Tools">
 
-    <!-- Fonts -->
+    <!-- Fonts & Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -58,10 +60,10 @@
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "How does this font changer work?",
+              "name": "How does this online font changer work?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "The tool converts your standard ASCII text into decorative Unicode character symbols. Because they are characters rather than desktop font files, they can be pasted anywhere on the web, including Instagram bios, WhatsApp messages, and Twitter tweets."
+                "text": "The tool translates standard ASCII text into decorative Unicode character symbols. Because they are characters rather than desktop font files, they can be pasted anywhere on the web, including Instagram bios, WhatsApp messages, and Twitter tweets."
               }
             },
             {
@@ -70,14 +72,6 @@
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "Yes! All generated fonts are 100% compatible with modern social media platforms, games (like BGMI, PUBG, Free Fire), and instant messaging apps."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Is there any cost or registration required?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "No, Tveezal Font Changer is completely free with zero hidden limits or sign-up walls."
               }
             }
           ]
@@ -88,21 +82,23 @@
 
     <style>
         :root {
-            --blue: #2563eb;
-            --blue-hover: #1d4ed8;
+            --bg: #f8fafc;
+            --white: #ffffff;
             --dark: #0f172a;
             --text: #334155;
             --muted: #64748b;
             --line: #e2e8f0;
-            --bg: #f5f7fb;
-            --card: #ffffff;
-            --success: #16a34a;
+            --blue: #2563eb;
+            --blue-hover: #1d4ed8;
+            --vibrant-blue: linear-gradient(145deg, #0b1e4f 0%, #153e90 45%, #1e58c8 100%);
+            --shadow: 0 10px 30px rgba(15, 23, 42, 0.055);
+            --transition: 0.25s ease;
         }
 
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         html {
@@ -113,7 +109,17 @@
             font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
             background: var(--bg);
             color: var(--dark);
-            line-height: 1.75;
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        button, input, textarea {
+            font-family: inherit;
+        }
+
+        button {
+            cursor: pointer;
         }
 
         a {
@@ -125,74 +131,210 @@
             text-decoration: underline;
         }
 
-        /* HEADER */
-        .header {
-            background: linear-gradient(135deg, #0f172a 0%, #172554 55%, #1d4ed8 100%);
-            color: white;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        .container {
+            width: min(calc(100% - 32px), 1150px);
+            margin-inline: auto;
         }
 
-        .nav {
-            max-width: 1200px;
+        /* =========================================================
+           1. PERMANENT STICKY PURE WHITE TOP STRIP
+        ========================================================= */
+        .sticky-white-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #ffffff;
+            border-bottom: 1px solid #e2e8f0;
+            box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+        }
+
+        .sticky-nav-inner {
+            max-width: 1250px;
             margin: auto;
-            padding: 16px 22px;
+            padding: 12px 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 16px;
-            flex-wrap: wrap;
         }
 
-        .brand {
-            font-size: 24px;
-            font-weight: 850;
-            letter-spacing: -0.7px;
+        .brand-container {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-tvz {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, #153e90 0%, #1e58c8 100%);
             color: #ffffff;
+            border-radius: 12px;
             display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px rgba(30, 88, 200, 0.35);
+            flex-shrink: 0;
+        }
+
+        .brand-text {
+            font-size: 22px;
+            font-weight: 850;
+            letter-spacing: -0.6px;
+            color: #0f172a;
+            display: inline-flex;
             align-items: center;
             gap: 6px;
         }
 
-        .brand span {
-            color: #60a5fa;
-            text-shadow: 0 0 15px rgba(96, 165, 250, 0.45);
+        .brand-text span {
+            color: #2563eb;
         }
 
-        .nav-links {
+        .menu-trigger-btn {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .nav-btn {
-            border: 1px solid rgba(255, 255, 255, 0.22);
-            background: rgba(255, 255, 255, 0.09);
-            color: white;
-            padding: 7px 15px;
-            border-radius: 999px;
-            font-size: 13px;
-            font-weight: 600;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
             transition: all 0.2s ease;
         }
 
-        .nav-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-            text-decoration: none;
-            transform: translateY(-1px);
+        .menu-trigger-btn:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+            transform: scale(1.04);
         }
 
-        .nav-btn.category-active {
+        .three-dots-solid {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .dot-solid {
+            width: 6px;
+            height: 6px;
+            background-color: #0f172a;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        /* =========================================================
+           2. VIBRANT BLUE SUB-HEADER WITH BACK & SHARE BUTTONS
+        ========================================================= */
+        .blue-hero-header {
+            background: var(--vibrant-blue);
+            color: white;
+            padding: 16px 0 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .sub-nav-row {
+            max-width: 1250px;
+            margin: auto;
+            padding: 0 20px 14px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .nav-pills-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px 10px;
+        }
+
+        .header-pill {
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            background: rgba(255, 255, 255, 0.08);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 999px;
+            font-size: 12.5px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+        }
+
+        .header-pill:hover {
+            background: rgba(255, 255, 255, 0.22);
+            transform: translateY(-1px);
+            text-decoration: none;
+        }
+
+        .header-pill.active {
             background: #2563eb;
             border-color: #60a5fa;
             color: #ffffff;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
         }
 
-        /* HERO */
+        /* Back Button Located Safely Below Top White Strip */
+        .tool-back-btn {
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            background: rgba(255, 255, 255, 0.18);
+            color: #ffffff;
+            padding: 6px 16px;
+            border-radius: 999px;
+            font-size: 12.5px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .tool-back-btn:hover {
+            background: #ffffff;
+            color: var(--blue);
+            transform: translateX(-2px);
+            text-decoration: none;
+        }
+
+        /* Specific Tool Share Button */
+        .tool-share-btn {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #ffffff;
+            padding: 6px 16px;
+            border-radius: 999px;
+            font-size: 12.5px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .tool-share-btn:hover {
+            background: #25d366;
+            border-color: #25d366;
+            color: #ffffff;
+            transform: translateY(-1px);
+        }
+
         .hero {
             max-width: 1200px;
             margin: auto;
-            padding: 48px 22px 52px;
+            padding: 8px 20px 6px;
             text-align: center;
         }
 
@@ -200,64 +342,227 @@
             text-transform: uppercase;
             letter-spacing: 1.7px;
             color: #93c5fd;
-            font-size: 12px;
+            font-size: 11.5px;
             font-weight: 800;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
 
         h1 {
-            font-size: clamp(34px, 5vw, 54px);
+            font-size: clamp(24px, 4.2vw, 42px);
             line-height: 1.15;
-            letter-spacing: -1.5px;
-            margin-bottom: 14px;
+            letter-spacing: -1.2px;
+            margin-bottom: 10px;
             color: #ffffff;
         }
 
         .hero p {
-            max-width: 720px;
+            max-width: 740px;
             margin: 0 auto;
             color: #dbeafe;
-            font-size: 16px;
+            font-size: 15px;
         }
 
-        /* ADVERTISEMENT PLACEHOLDER */
-        .ad-banner-slot {
-            max-width: 1100px;
-            margin: 24px auto;
-            padding: 16px;
-            text-align: center;
-            background: #e2e8f0;
-            border: 2px dashed #cbd5e1;
-            border-radius: 12px;
-            color: #64748b;
-            font-size: 13px;
-            font-weight: 600;
-            min-height: 90px;
+        /* =========================================================
+           3. FULL WHITE SIDE DRAWER WITH NAME DIVIDER & SOCIAL
+        ========================================================= */
+        .drawer-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .drawer-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .side-drawer {
+            position: fixed;
+            top: 0;
+            right: -340px;
+            width: 320px;
+            height: 100%;
+            background: #ffffff;
+            box-shadow: -10px 0 35px rgba(15, 23, 42, 0.12);
+            z-index: 2001;
+            padding: 24px 20px;
+            overflow-y: auto;
+            transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            border-left: 1px solid #e2e8f0;
+        }
+
+        .side-drawer.active {
+            right: 0;
+        }
+
+        .drawer-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #e2e8f0;
+            margin-bottom: 18px;
+        }
+
+        .drawer-title-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .drawer-title {
+            font-size: 19px;
+            font-weight: 850;
+            color: #0f172a;
+            letter-spacing: -0.5px;
+        }
+
+        .drawer-close-btn {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            font-size: 15px;
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
+            color: #475569;
+            transition: 0.2s ease;
+        }
+
+        .drawer-close-btn:hover {
+            background: #fee2e2;
+            color: #ef4444;
+            border-color: #fca5a5;
+        }
+
+        .drawer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+        }
+
+        .drawer-pill-item {
+            padding: 10px 18px;
+            border-radius: 999px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            color: #1e293b;
+            font-size: 14px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .drawer-pill-item:hover {
+            transform: translateX(4px);
+            background: #eff6ff;
+            border-color: #bfdbfe;
+            color: #2563eb;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.12);
+            text-decoration: none;
+        }
+
+        .drawer-social-section {
+            margin-top: auto;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+            text-align: center;
+        }
+
+        .drawer-social-title {
+            font-size: 11px;
+            font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 1px;
+            color: var(--muted);
+            margin-bottom: 12px;
         }
 
-        /* APP CONTAINER */
-        .app-container {
-            max-width: 1100px;
-            margin: auto;
-            padding: 0 20px;
+        .social-icons-flex {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
         }
 
+        .social-link-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            color: #475569;
+            font-size: 15px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .social-link-btn:hover {
+            transform: translateY(-2px);
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .social-link-btn.wa:hover { background: #25d366; border-color: #25d366; }
+        .social-link-btn.tg:hover { background: #0088cc; border-color: #0088cc; }
+        .social-link-btn.yt:hover { background: #ff0000; border-color: #ff0000; }
+        .social-link-btn.ig:hover { background: #e1306c; border-color: #e1306c; }
+        .social-link-btn.fb:hover { background: #1877f2; border-color: #1877f2; }
+        .social-link-btn.tw:hover { background: #000000; border-color: #000000; }
+
+        .btn-share-full-site {
+            margin-top: 14px;
+            width: 100%;
+            padding: 9px 16px;
+            border-radius: 999px;
+            border: 1px solid #bbf7d0;
+            background: #dcfce7;
+            color: #15803d;
+            font-size: 13px;
+            font-weight: 800;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-share-full-site:hover {
+            background: #bbf7d0;
+            transform: translateY(-1px);
+        }
+
+        /* =========================================================
+           4. FONT CHANGER TOOL WORKBENCH
+        ========================================================= */
         .tool-card {
-            background: var(--card);
+            background: #ffffff;
             border: 1px solid var(--line);
-            border-radius: 24px;
+            border-radius: 28px;
             padding: clamp(20px, 4vw, 36px);
-            box-shadow: 0 10px 35px rgba(15, 23, 42, 0.06);
-            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            margin-top: 24px;
         }
 
         .input-label {
-            font-size: 15px;
+            font-size: 14.5px;
             font-weight: 700;
             margin-bottom: 8px;
             display: flex;
@@ -269,24 +574,24 @@
             width: 100%;
             padding: 16px;
             border: 1.5px solid var(--line);
-            border-radius: 14px;
+            border-radius: 16px;
             font-family: inherit;
             font-size: 16px;
             line-height: 1.6;
-            background: #fff;
+            background: #f8fafc;
             color: var(--dark);
             resize: vertical;
-            min-height: 120px;
+            min-height: 110px;
             transition: border-color 0.2s ease, box-shadow 0.2s ease;
         }
 
         textarea:focus {
             outline: none;
+            background: #ffffff;
             border-color: var(--blue);
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
         }
 
-        /* FILTER TABS */
         .filter-bar {
             display: flex;
             flex-wrap: wrap;
@@ -301,7 +606,7 @@
             background: #f8fafc;
             color: var(--text);
             font-size: 13px;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
             transition: all 0.2s ease;
         }
@@ -312,11 +617,11 @@
             border-color: var(--blue);
         }
 
-        /* FONT RESULTS GRID */
+        /* 1000+ FONT RESULTS GRID */
         .fonts-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 14px;
+            gap: 12px;
             margin-top: 10px;
         }
 
@@ -324,7 +629,7 @@
             background: #f8fafc;
             border: 1px solid var(--line);
             border-radius: 16px;
-            padding: 16px 20px;
+            padding: 14px 18px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -354,7 +659,7 @@
         }
 
         .font-output-text {
-            font-size: 19px;
+            font-size: 18px;
             color: var(--dark);
             word-break: break-word;
             line-height: 1.4;
@@ -385,11 +690,156 @@
 
         .copy-btn.copied {
             background: #f0fdf4;
-            color: var(--success);
+            color: #16a34a;
             border-color: #86efac;
         }
 
-        /* 7 CATEGORIES NAVIGATION BAR */
+        .load-more-container {
+            text-align: center;
+            margin-top: 24px;
+        }
+
+        .btn-load-more {
+            background: #ffffff;
+            border: 1.5px solid var(--line);
+            color: var(--dark);
+            padding: 10px 28px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 800;
+            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+            transition: all 0.2s ease;
+        }
+
+        .btn-load-more:hover {
+            background: #eff6ff;
+            border-color: var(--blue);
+            color: var(--blue);
+        }
+
+        /* =========================================================
+           5. BANNER CAROUSELS (DOTS OUTSIDE / BELOW BANNER)
+        ========================================================= */
+        .banner-section {
+            padding: 24px 0 10px;
+        }
+
+        .banner-shell {
+            position: relative;
+            background: transparent;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .banner-carousel {
+            position: relative;
+            width: 100%;
+            height: clamp(230px, 30vw, 400px);
+            overflow: hidden;
+            border-radius: 24px;
+            background: #eef4ff;
+            box-shadow: var(--shadow);
+            cursor: grab;
+        }
+
+        .banner-carousel:active {
+            cursor: grabbing;
+        }
+
+        /* Slim Finger-profile Ribbon */
+        .banner-carousel.slim-carousel {
+            height: clamp(75px, 11vw, 100px);
+            border-radius: 16px;
+        }
+
+        .banner-track {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            will-change: transform;
+            transition: transform 0.45s cubic-bezier(.22, .61, .36, 1);
+        }
+
+        .banner-slide {
+            min-width: 100%;
+            height: 100%;
+            position: relative;
+            flex-shrink: 0;
+            display: block;
+            text-decoration: none;
+        }
+
+        .banner-slide img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            user-select: none;
+            -webkit-user-drag: none;
+            pointer-events: none;
+        }
+
+        .banner-fallback {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 12px;
+            background: linear-gradient(135deg, #dbeafe, #ede9fe, #fae8ff);
+        }
+
+        .banner-fallback h3 {
+            font-size: clamp(15px, 2.5vw, 24px);
+            color: var(--dark);
+            margin-bottom: 3px;
+        }
+
+        /* Dots Positioned Below Banner */
+        .banner-dots-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 10px;
+        }
+
+        .banner-dot {
+            width: 7px;
+            height: 7px;
+            border: 0;
+            border-radius: 50%;
+            background: #cbd5e1;
+            transition: width 0.25s ease, background 0.25s ease;
+            cursor: pointer;
+        }
+
+        .banner-dot.active {
+            width: 20px;
+            border-radius: 20px;
+            background: #2563eb;
+        }
+
+        /* Ad block */
+        .ad-block {
+            width: 100%;
+            min-height: 65px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1.5px dashed #cbd5e1;
+            border-radius: 16px;
+            background: #f1f5f9;
+            color: #64748b;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin: 16px 0;
+        }
+
+        /* 7 CATEGORIES EXPLORER */
         .categories-bar-wrapper {
             margin: 32px 0 24px;
             text-align: center;
@@ -421,6 +871,10 @@
             color: var(--dark);
             box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
             transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
 
         .cat-tag-btn:hover {
@@ -430,86 +884,105 @@
             text-decoration: none;
         }
 
-        /* SEO ARTICLE */
-        .seo-content {
-            background: var(--card);
+        /* =========================================================
+           6. TRANSPARENT GREEN FLOW & DETAILED SEO CONTENT
+        ========================================================= */
+        .seo-content-box {
+            background: #ffffff;
             border: 1px solid var(--line);
-            border-radius: 24px;
-            padding: clamp(24px, 5vw, 48px);
-            margin-bottom: 60px;
-            box-shadow: 0 5px 25px rgba(15, 23, 42, 0.03);
+            border-radius: 28px;
+            padding: clamp(24px, 4vw, 44px);
+            margin-top: 32px;
+            box-shadow: var(--shadow);
+            text-align: left;
         }
 
-        .seo-content h2 {
-            font-size: 26px;
-            letter-spacing: -0.6px;
+        .seo-content-box h2 {
+            font-size: clamp(22px, 3.5vw, 32px);
+            letter-spacing: -0.8px;
             margin-bottom: 12px;
             color: var(--dark);
         }
 
-        .seo-content h3 {
+        .seo-content-box h3 {
             font-size: 19px;
-            margin: 28px 0 10px;
+            margin: 26px 0 10px;
             color: var(--dark);
         }
 
-        .seo-content p {
-            font-size: 15px;
-            color: var(--text);
+        .seo-content-box p {
+            color: #334155;
+            font-size: 14.5px;
             margin-bottom: 14px;
         }
 
-        .seo-content ul {
+        .seo-content-box ul {
             padding-left: 24px;
             margin-bottom: 20px;
-            color: var(--text);
+            color: #334155;
+            font-size: 14px;
         }
 
-        .seo-content li {
-            margin: 6px 0;
-        }
+        .seo-content-box li { margin: 6px 0; }
 
-        /* FEATURE BOXES */
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 18px;
+        /* Transparent Green Visual Flowchart Box */
+        .visual-diagram-card {
+            background: rgba(240, 253, 244, 0.75);
+            border: 1.5px solid #bbf7d0;
+            backdrop-filter: blur(6px);
+            border-radius: 20px;
+            padding: 22px;
             margin: 24px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 16px;
+            text-align: center;
         }
 
-        .feature-card {
-            background: #f8fafc;
-            border: 1px solid var(--line);
-            border-radius: 16px;
-            padding: 20px;
+        .diagram-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            max-width: 140px;
         }
 
-        .feature-card h4 {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: var(--dark);
+        .diagram-icon-svg {
+            width: 44px;
+            height: 44px;
+            padding: 9px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(22, 101, 52, 0.12);
         }
 
-        .feature-card p {
-            font-size: 13px;
-            color: var(--muted);
-            margin: 0;
+        .diagram-step span {
+            font-size: 12px;
+            font-weight: 800;
+            color: #166534;
         }
 
-        /* VISUAL HOW TO USE */
+        .diagram-arrow {
+            font-size: 20px;
+            color: #16a34a;
+            font-weight: 900;
+        }
+
+        /* Numbered Step-by-Step Usage Cards */
         .steps-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
-            margin: 24px 0 32px;
+            gap: 18px;
+            margin: 20px 0 28px;
         }
 
         .step-card {
             border: 1px solid var(--line);
-            border-radius: 16px;
+            border-radius: 18px;
             padding: 20px;
-            background: #ffffff;
+            background: #f8fafc;
             text-align: center;
         }
 
@@ -529,6 +1002,7 @@
         .step-card h4 {
             font-size: 15px;
             margin-bottom: 6px;
+            color: var(--dark);
         }
 
         .step-card p {
@@ -537,118 +1011,218 @@
             margin: 0;
         }
 
-        /* FAQ ACCORDION */
-        .faq-accordion {
-            margin-top: 24px;
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+            margin: 22px 0;
+        }
+
+        .feature-box {
+            background: #f8fafc;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 20px;
+        }
+
+        .feature-box h4 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: var(--dark);
+        }
+
+        .feature-box p {
+            font-size: 13px;
+            color: var(--muted);
+            margin: 0;
+        }
+
+        /* FAQ Accordion with Clickable Links */
+        .faq-section {
+            padding: 30px 0 10px;
+        }
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 18px;
         }
 
         .faq-item {
+            background: #ffffff;
             border: 1px solid var(--line);
-            border-radius: 14px;
-            margin-bottom: 10px;
-            background: #fff;
+            border-radius: 16px;
             overflow: hidden;
         }
 
-        .faq-item summary {
-            padding: 16px 20px;
-            font-weight: 700;
-            font-size: 15px;
-            cursor: pointer;
-            list-style: none;
+        .faq-question {
+            width: 100%;
+            border: 0;
+            background: transparent;
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-
-        .faq-item summary::-webkit-details-marker {
-            display: none;
-        }
-
-        .faq-item summary::after {
-            content: "+";
-            font-size: 20px;
-            color: var(--muted);
-        }
-
-        .faq-item[open] summary::after {
-            content: "−";
-        }
-
-        .faq-content {
-            padding: 0 20px 18px;
+            padding: 18px 20px;
+            text-align: left;
             font-size: 14px;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .faq-answer {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.28s ease;
+        }
+
+        .faq-answer-inner {
+            overflow: hidden;
+            padding: 0 20px;
             color: var(--text);
+            font-size: 13.5px;
+            line-height: 1.65;
         }
 
-        /* FOOTER */
-        .footer {
-            background: #0f172a;
-            color: #cbd5e1;
-            padding: 44px 22px 30px;
+        .faq-item.open .faq-answer { grid-template-rows: 1fr; }
+        .faq-item.open .faq-answer-inner { padding-bottom: 18px; }
+
+        /* =========================================================
+           7. FOOTER WITH INTEGRATED SOCIAL MEDIA & SHARE WEBSITE
+        ========================================================= */
+        .footer-section {
+            margin-top: 60px;
+            background: #0a0f1d;
+            color: #ffffff;
+            border-radius: 32px 32px 0 0;
+            padding: 55px 0 30px;
         }
 
-        .footer-inner {
-            max-width: 1100px;
-            margin: auto;
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr repeat(3, 1fr);
+            gap: 40px;
         }
 
-        .footer-brand {
-            font-size: 22px;
-            font-weight: 850;
-            color: white;
-            margin-bottom: 6px;
-        }
-
-        .footer p {
+        .footer-brand p {
             color: #94a3b8;
-            font-size: 14px;
+            font-size: 13px;
+            margin: 12px 0 18px;
+        }
+
+        .footer-column h3 {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #64748b;
+            margin-bottom: 14px;
         }
 
         .footer-links {
             display: flex;
-            flex-wrap: wrap;
-            gap: 12px 24px;
-            margin: 22px 0;
+            flex-direction: column;
+            gap: 10px;
         }
 
-        .footer-links a {
+        .footer-link {
             color: #cbd5e1;
             font-size: 13px;
+            transition: var(--transition);
         }
 
-        .footer-links a:hover {
+        .footer-link:hover { color: #ffffff; text-decoration: none; }
+
+        .footer-share-box {
+            margin-top: 18px;
+        }
+
+        .footer-share-btn {
+            background: #2563eb;
             color: #ffffff;
+            border: 0;
+            padding: 9px 18px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+            transition: all 0.2s ease;
         }
 
-        .copy {
-            font-size: 12px;
-            color: #64748b;
+        .footer-share-btn:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
             border-top: 1px solid rgba(255, 255, 255, 0.08);
+            margin-top: 45px;
             padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            color: #64748b;
+            font-size: 12px;
+        }
+
+        @media (max-width: 850px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .footer-brand { grid-column: 1 / -1; }
         }
     </style>
 </head>
 <body>
 
     <!-- =========================================================
-         HEADER
+         1. PERMANENT STICKY PURE WHITE TOP STRIP
     ========================================================= -->
-    <header class="header">
-        <nav class="nav">
-            <a class="brand" href="index.html">
-                Tveezal <span>Tools</span>
+    <div class="sticky-white-nav">
+        <div class="sticky-nav-inner">
+            <a class="brand-container" href="index.html">
+                <div class="logo-tvz">TVZ</div>
+                <div class="brand-text">
+                    TVEEZAL <span>Tools</span>
+                </div>
             </a>
-            <div class="nav-links">
-                <a class="nav-btn" href="index.html">Home</a>
-                <a class="nav-btn" href="index.html#all-tools">All Tools</a>
-                <!-- Category navigation button -->
-                <a class="nav-btn category-active" href="text-string-tools.html">Text & String Tools</a>
-                <a class="nav-btn" href="faq.html">FAQ</a>
-                <a class="nav-btn" href="privacy.html">Privacy</a>
-                <a class="nav-btn" href="terms.html">Terms</a>
-            </div>
-        </nav>
+
+            <!-- 3 Solid Dots Menu Button -->
+            <button class="menu-trigger-btn" id="menuButton" aria-label="Open Navigation">
+                <div class="three-dots-solid">
+                    <span class="dot-solid"></span>
+                    <span class="dot-solid"></span>
+                    <span class="dot-solid"></span>
+                </div>
+            </button>
+        </div>
+    </div>
+
+    <!-- =========================================================
+         2. VIBRANT BLUE SUB-HEADER WITH BACK & SHARE BUTTONS
+    ========================================================= -->
+    <header class="blue-hero-header">
+        <div class="sub-nav-row">
+            <!-- Back Button Positioned Safely Below Top White Strip -->
+            <a href="index.html" class="tool-back-btn" id="smartBackBtn">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Back to Tools</span>
+            </a>
+
+            <nav class="nav-pills-row">
+                <a class="header-pill" href="index.html">Home</a>
+                <a class="header-pill" href="index.html#categoriesContainer">All Tools</a>
+                <a class="header-pill active" href="text-string-tools.html">Text & String</a>
+                <a class="header-pill" href="faq.html">FAQ</a>
+            </nav>
+
+            <!-- Share Specific Tool Button -->
+            <button class="tool-share-btn" id="shareToolBtn" aria-label="Share This Tool">
+                <i class="fa-solid fa-share-nodes"></i>
+                <span>Share Tool</span>
+            </button>
+        </div>
 
         <div class="hero">
             <div class="eyebrow">Text & String Category Tool</div>
@@ -657,22 +1231,57 @@
         </div>
     </header>
 
-    <!-- Top Advertisement Slot -->
-    <div class="app-container">
-        <div class="ad-banner-slot">
-            <!-- [YOUR ADSENSE OR DISPLAY AD CODE HERE] -->
-            <span>Advertisement (Top Leaderboard)</span>
+    <!-- Full White Side Navigation Drawer with Social Media Strip & Share Website -->
+    <div class="drawer-overlay" id="menuOverlay"></div>
+    <aside class="side-drawer" id="navDrawer">
+        <div class="drawer-header">
+            <div class="drawer-title-group">
+                <div class="logo-tvz" style="width: 32px; height: 32px; font-size: 12px; border-radius: 8px;">TVZ</div>
+                <div class="drawer-title">Tveezal Tools</div>
+            </div>
+            <button class="drawer-close-btn" id="drawerClose">✕</button>
         </div>
-    </div>
+        <div class="drawer-links">
+            <a class="drawer-pill-item" href="index.html"><i class="fa-solid fa-house" style="color:#2563eb;"></i> Home</a>
+            <a class="drawer-pill-item" href="pdf-tools.html"><i class="fa-solid fa-file-pdf" style="color:#dc2626;"></i> PDF Tools</a>
+            <a class="drawer-pill-item" href="image-tools.html"><i class="fa-solid fa-image" style="color:#7c3aed;"></i> Image Tools</a>
+            <a class="drawer-pill-item" href="qr-barcode-tools.html"><i class="fa-solid fa-qrcode" style="color:#059669;"></i> QR & Barcode</a>
+            <a class="drawer-pill-item" href="text-string-tools.html"><i class="fa-solid fa-font" style="color:#d97706;"></i> Text & String</a>
+            <a class="drawer-pill-item" href="web-security-tools.html"><i class="fa-solid fa-shield-halved" style="color:#0891b2;"></i> Web & Security</a>
+            <a class="drawer-pill-item" href="calculators.html"><i class="fa-solid fa-calculator" style="color:#4f46e5;"></i> Calculators</a>
+            <a class="drawer-pill-item" href="converters.html"><i class="fa-solid fa-arrows-left-right" style="color:#e11d48;"></i> Converters</a>
+            <a class="drawer-pill-item" href="blog.html"><i class="fa-solid fa-newspaper" style="color:#64748b;"></i> Blog</a>
+            <a class="drawer-pill-item" href="about.html"><i class="fa-solid fa-circle-info" style="color:#64748b;"></i> About Us</a>
+            <a class="drawer-pill-item" href="contact.html"><i class="fa-solid fa-envelope" style="color:#64748b;"></i> Contact Us</a>
+            <a class="drawer-pill-item" href="privacy.html"><i class="fa-solid fa-lock" style="color:#64748b;"></i> Privacy Policy</a>
+            <a class="drawer-pill-item" href="terms.html"><i class="fa-solid fa-file-contract" style="color:#64748b;"></i> Terms & Conditions</a>
+        </div>
 
-    <!-- =========================================================
-         MAIN APPLICATION INTERFACE
-    ========================================================= -->
-    <main class="app-container">
+        <div class="drawer-social-section">
+            <div class="drawer-social-title">Connect With Us</div>
+            <div class="social-icons-flex">
+                <a class="social-link-btn wa" href="https://whatsapp.com/channel/YOUR_LINK" target="_blank" aria-label="WhatsApp Channel"><i class="fa-brands fa-whatsapp"></i></a>
+                <a class="social-link-btn tg" href="https://t.me/YOUR_LINK" target="_blank" aria-label="Telegram Channel"><i class="fa-brands fa-telegram"></i></a>
+                <a class="social-link-btn yt" href="https://youtube.com/@YOUR_LINK" target="_blank" aria-label="YouTube Channel"><i class="fa-brands fa-youtube"></i></a>
+                <a class="social-link-btn ig" href="https://instagram.com/YOUR_LINK" target="_blank" aria-label="Instagram Profile"><i class="fa-brands fa-instagram"></i></a>
+                <a class="social-link-btn fb" href="https://facebook.com/YOUR_LINK" target="_blank" aria-label="Facebook Page"><i class="fa-brands fa-facebook-f"></i></a>
+                <a class="social-link-btn tw" href="https://x.com/YOUR_LINK" target="_blank" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+            <!-- Share Full Website from Drawer -->
+            <button class="btn-share-full-site" id="drawerShareWebsiteBtn">
+                <i class="fa-solid fa-share-nodes"></i> Share Tveezal Website
+            </button>
+        </div>
+    </aside>
+
+    <main class="container">
+        <!-- =========================================================
+             4. FONT CHANGER TOOL WORKBENCH
+        ========================================================= -->
         <section class="tool-card">
             <div class="input-label">
                 <span>Type or Paste Your Text Below:</span>
-                <span id="charCountLabel" style="font-size: 13px; color: var(--muted); font-weight: normal;">0 Characters</span>
+                <span id="charCountLabel" style="font-size: 13px; color: var(--muted); font-weight: 600;">0 Characters</span>
             </div>
             <textarea id="inputText" placeholder="Enter text here (e.g. Hello Friends, Follow me, Cool Bio)...">Hello Tveezal</textarea>
 
@@ -686,271 +1295,559 @@
                 <button class="filter-pill" data-filter="glitch">Glitch & Zalgo</button>
             </div>
 
-            <!-- Dynamic Font Results Container -->
-            <div class="fonts-grid" id="fontsContainer">
-                <!-- Generated dynamically via JS -->
+            <!-- Dynamic Font Results Container (1000+ Unique Combinations) -->
+            <div class="fonts-grid" id="fontsContainer"></div>
+
+            <div class="load-more-container" id="loadMoreWrap">
+                <button class="btn-load-more" id="loadMoreBtn">
+                    <i class="fa-solid fa-plus"></i> Load More Fonts (Showing 50 of 1000+)
+                </button>
             </div>
         </section>
 
-        <!-- Result Advertisement Slot -->
-        <div class="ad-banner-slot">
-            <!-- [YOUR ADSENSE OR DISPLAY AD CODE HERE] -->
-            <span>Advertisement (Below Generated Fonts)</span>
+        <!-- Top Advertisement -->
+        <div class="ad-block">
+            <span><i class="fas fa-rectangle-ad"></i> Advertisement (Sponsored Partner)</span>
         </div>
 
         <!-- =========================================================
-             7 CATEGORIES NAVIGATION BUTTONS BAR
+             5. SLIM FINGER-PROFILE 10-BANNER RIBBON (DOTS OUTSIDE)
+        ========================================================= -->
+        <section class="banner-section" style="padding-top: 0;">
+            <div class="banner-shell">
+                <div class="banner-carousel slim-carousel" id="slimRibbonCarousel">
+                    <div class="banner-track" id="slimRibbonTrack"></div>
+                </div>
+                <div class="banner-dots-wrapper" id="slimRibbonDots"></div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             6. EXPLORE ALL TOOL CATEGORIES BAR
         ========================================================= -->
         <section class="categories-bar-wrapper">
             <div class="categories-title">Explore All Tool Categories</div>
             <div class="category-buttons-list">
-                <a class="cat-tag-btn" href="pdf-tools.html">📄 PDF Tools</a>
-                <a class="cat-tag-btn" href="image-tools.html">🖼️ Image Tools</a>
-                <a class="cat-tag-btn" href="qr-barcode-tools.html">📱 QR & Barcode</a>
-                <a class="cat-tag-btn" href="text-string-tools.html">✍️ Text & String</a>
-                <a class="cat-tag-btn" href="web-security-tools.html">🔒 Web & Security</a>
-                <a class="cat-tag-btn" href="calculators.html">🧮 Calculators</a>
-                <a class="cat-tag-btn" href="converters.html">🔄 Converters</a>
+                <a class="cat-tag-btn" href="pdf-tools.html"><i class="fa-solid fa-file-pdf" style="color:#dc2626;"></i> PDF Tools</a>
+                <a class="cat-tag-btn" href="image-tools.html"><i class="fa-solid fa-image" style="color:#7c3aed;"></i> Image Tools</a>
+                <a class="cat-tag-btn" href="qr-barcode-tools.html"><i class="fa-solid fa-qrcode" style="color:#059669;"></i> QR & Barcode</a>
+                <a class="cat-tag-btn" href="text-string-tools.html"><i class="fa-solid fa-font" style="color:#d97706;"></i> Text & String</a>
+                <a class="cat-tag-btn" href="web-security-tools.html"><i class="fa-solid fa-shield-halved" style="color:#0891b2;"></i> Web & Security</a>
+                <a class="cat-tag-btn" href="calculators.html"><i class="fa-solid fa-calculator" style="color:#4f46e5;"></i> Calculators</a>
+                <a class="cat-tag-btn" href="converters.html"><i class="fa-solid fa-arrows-left-right" style="color:#e11d48;"></i> Converters</a>
             </div>
         </section>
 
         <!-- =========================================================
-             SEO ARTICLE & CONTENT
+             7. TRANSPARENT GREEN FLOW, HOW TO USE & RICH SEO
         ========================================================= -->
-        <article class="seo-content">
-            <!-- Section 1 -->
-            <h2>What is Tveezal Online Font Changer?</h2>
-            <p><strong>Tveezal Font Changer</strong> is a free, instant Unicode text converter and fancy font generator. Unlike traditional desktop fonts (like <code>.ttf</code> or <code>.otf</code> files) which cannot be posted onto social media platforms, our font changer translates ordinary alphanumeric characters into hundreds of unique Unicode symbols and typography glyphs. This allows you to copy and paste stylish, aesthetic, bold, and cursive text directly onto Instagram, WhatsApp, Discord, TikTok, YouTube, and gaming profiles.</p>
+        <article class="seo-content-box">
+            <h2>Why Tveezal Online Font Changer is the Ultimate Text Styler in 2026?</h2>
+            <p>The <strong>Tveezal Font Changer</strong> converts normal ASCII text into more than 1000+ distinct Unicode typography combinations. Standard desktop fonts (.ttf or .otf files) cannot be posted into social media bios. Our engine translates characters directly into universal Unicode symbols, ensuring your stylish text renders perfectly across Instagram, WhatsApp, Discord, TikTok, and YouTube. Want to analyze your text length? Try our <a href="word-counter.html">Word Counter</a>, create synthesized audio with <a href="text-to-speech.html">Text to Speech</a>, compress photo assets with our <a href="image-compressor.html">Image Compressor</a>, or convert file data using our <a href="format-converter.html">Format Converter</a>.</p>
 
-            <!-- Section 2 -->
-            <h3>Why is Tveezal the Best Font Generator?</h3>
-            <p>Our font generator is built for speed, endless variety, and universal device support:</p>
-
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <h4>1000+ Dynamic Variations</h4>
-                    <p>Includes cursive, bold serif, gothic, double-struck, circled, boxed, glitch zalgo, inverted, and artistic decorator prefixes.</p>
+            <!-- Transparent Green Visual Flowchart Box -->
+            <div class="visual-diagram-card">
+                <div class="diagram-step">
+                    <svg class="diagram-icon-svg" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                    <span>1. Type Text</span>
                 </div>
-                <div class="feature-card">
-                    <h4>Instant One-Click Copy</h4>
-                    <p>Every generated font has a direct copy button that works smoothly on Android, iPhone, Windows, and macOS.</p>
+                <div class="diagram-arrow">➔</div>
+                <div class="diagram-step">
+                    <svg class="diagram-icon-svg" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>2. Unicode Translation</span>
                 </div>
-                <div class="feature-card">
-                    <h4>100% Client-Side & Private</h4>
-                    <p>Your entered text is transformed locally in your web browser. Nothing is stored on our servers or logged in databases.</p>
+                <div class="diagram-arrow">➔</div>
+                <div class="diagram-step">
+                    <svg class="diagram-icon-svg" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><polyline points="11 9 14 12 11 15"></polyline></svg>
+                    <span>3. 1000+ Variations</span>
                 </div>
-                <div class="feature-card">
-                    <h4>Universal Social Compatibility</h4>
-                    <p>Designed to render reliably across Instagram captions, Twitter handles, Facebook statuses, and Telegram bios.</p>
+                <div class="diagram-arrow">➔</div>
+                <div class="diagram-step">
+                    <svg class="diagram-icon-svg" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    <span>4. One-Click Copy</span>
                 </div>
             </div>
 
-            <!-- Strategic Advertisement Slot (After 2 Headings) -->
-            <div class="ad-banner-slot">
-                <!-- [YOUR ADSENSE OR DISPLAY AD CODE HERE] -->
-                <span>Advertisement (In-Content Banner)</span>
-            </div>
-
-            <!-- Section 3: Visual How to Use -->
-            <h3>How to Change Text Fonts Step-by-Step</h3>
-            <p>Transforming ordinary text into stylish, eye-catching fonts takes less than 3 seconds:</p>
-
+            <!-- Numbered Step-by-Step Usage Guide -->
+            <h3>How to Use the Online Font Changer Step-by-Step</h3>
             <div class="steps-container">
                 <div class="step-card">
                     <div class="step-badge">1</div>
                     <h4>Enter Your Text</h4>
-                    <p>Type or paste your message or name into the text box at the top of the page.</p>
+                    <p>Type your message, username, or quote into the input box at the top of the page.</p>
                 </div>
                 <div class="step-card">
                     <div class="step-badge">2</div>
-                    <h4>Select Filter / Style</h4>
-                    <p>Scroll through 1000+ real-time generated font styles or click a category tab like Cursive or Gothic.</p>
+                    <h4>Select Filter / Browse 1000+</h4>
+                    <p>Switch between Cursive, Gothic, Aesthetic, or Glitch to filter down your desired typography.</p>
                 </div>
                 <div class="step-card">
                     <div class="step-badge">3</div>
-                    <h4>Click Copy & Paste</h4>
-                    <p>Click the "Copy" button next to your favorite style and paste it directly into your bio or app.</p>
+                    <h4>Copy and Paste</h4>
+                    <p>Click the "Copy" button next to any style and paste it directly into your bio, chat, or gaming tag.</p>
                 </div>
             </div>
 
-            <!-- Section 4 -->
-            <h3>Where Can You Use These Stylish Fonts?</h3>
+            <!-- Detailed Features -->
+            <h3>Key Features Built for Creators & Gamers</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>1000+ Non-Repeating Styles</h4>
+                    <p>Mathematical Unicode permutation engine combining fraktur, cursive, circled, and aesthetic symbols.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Instant One-Click Copy</h4>
+                    <p>Clipboard integration that works across Android, iOS, macOS, Windows, and Linux browsers.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>100% Client-Side Privacy</h4>
+                    <p>Your entered text is transformed locally in memory. Nothing is stored on our servers or databases.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Universal App Support</h4>
+                    <p>Compatible with Instagram, Discord, WhatsApp, Telegram, TikTok, BGMI, PUBG, and Free Fire nicknames.</p>
+                </div>
+            </div>
+
+            <!-- Internal Ecosystem Links -->
+            <h3>Explore Related Text & String Tools</h3>
+            <p>Tveezal Tools provides a complete ecosystem of text utilities:</p>
             <ul>
-                <li><strong>Instagram Bios & Captions:</strong> Stand out in followers' feeds with bold headers, cursive quotes, and aesthetic typography.</li>
-                <li><strong>Gaming Nicknames (Free Fire, BGMI, Roblox, PUBG):</strong> Create intimidating and legendary clan tags with cool symbols and glitch characters.</li>
-                <li><strong>Discord & Telegram Channels:</strong> Format server rules, announcement channels, and usernames with double-struck or monospace fonts.</li>
-                <li><strong>WhatsApp & Messenger:</strong> Surprise friends with upside-down, strikethrough, or bubble text in everyday chats.</li>
+                <li><a href="text-repeater.html">Text Repeater</a> – Repeat any text message up to 10,000 times for WhatsApp fun.</li>
+                <li><a href="line-counter.html">Line Counter</a> – Count non-empty lines and strip blank rows from copy.</li>
+                <li><a href="text-to-speech.html">Text to Speech Tool</a> – Convert text into natural voiceover audio in 35+ languages.</li>
+                <li><a href="pdf-tools.html">PDF Tools Suite</a> – Secure and manage documents with <a href="pdf-merge.html">PDF Merge</a> and <a href="pdf-lock.html">PDF Lock</a>.</li>
             </ul>
 
-            <!-- FAQ Section -->
-            <h3>Frequently Asked Questions</h3>
-            <div class="faq-accordion">
-                <details class="faq-item">
-                    <summary>Are these real fonts or symbols?</summary>
-                    <div class="faq-content">
-                        <p>These are special characters from the universal <strong>Unicode Standard</strong>. Because Unicode is supported by modern operating systems, web browsers, and apps, these symbols appear as formatted fonts everywhere you paste them.</p>
-                    </div>
-                </details>
+            <!-- 10 Real-World FAQs with Clickable Links -->
+            <section class="faq-section">
+                <h3 style="font-size: 22px; margin-bottom: 4px;">Frequently Asked Questions (Font Changer)</h3>
+                <p style="color: var(--muted); font-size: 13.5px;">Detailed answers on Unicode compatibility, social bios, and styling.</p>
 
-                <details class="faq-item">
-                    <summary>Why do some devices show boxes (question marks) instead of fonts?</summary>
-                    <div class="faq-content">
-                        <p>A few very old devices or outdated operating systems may lack support for newer Unicode glyphs. However, over 99% of modern smartphones and computers render these fonts perfectly.</p>
-                    </div>
-                </details>
-
-                <details class="faq-item">
-                    <summary>Is this font changer free to use for commercial projects?</summary>
-                    <div class="faq-content">
-                        <p>Yes. Unicode text characters are universally open and free to use in social media posts, branding drafts, YouTube titles, and personal messages.</p>
-                    </div>
-                </details>
-            </div>
+                <div class="faq-list" id="faqList"></div>
+            </section>
         </article>
 
-        <!-- Bottom Content Advertisement Slot -->
-        <div class="ad-banner-slot">
-            <!-- [YOUR ADSENSE OR DISPLAY AD CODE HERE] -->
-            <span>Advertisement (Bottom Banner)</span>
+        <!-- =========================================================
+             8. BOTTOM FEATURED 10-BANNER CAROUSEL (DOTS OUTSIDE)
+        ========================================================= -->
+        <section class="banner-section" style="margin-top: 20px;">
+            <div class="banner-shell">
+                <div class="banner-carousel" id="bottomBannerCarousel">
+                    <div class="banner-track" id="bottomBannerTrack"></div>
+                </div>
+                <div class="banner-dots-wrapper" id="bottomBannerDots"></div>
+            </div>
+        </section>
+
+        <!-- Bottom Advertisement -->
+        <div class="ad-block">
+            <span><i class="fas fa-rectangle-ad"></i> Advertisement (Bottom Leaderboard)</span>
         </div>
     </main>
 
     <!-- =========================================================
-         FOOTER
+         9. FOOTER WITH INTEGRATED SOCIAL MEDIA & SHARE WEBSITE
     ========================================================= -->
-    <footer class="footer">
-        <div class="footer-inner">
-            <div class="footer-brand">Tveezal Tools</div>
-            <p>Simple, ultra-fast browser-based online tools for everyday productivity and web tasks.</p>
-            <div class="footer-links">
-                <a href="index.html">Home</a>
-                <a href="index.html#all-tools">All Tools</a>
-                <a href="text-string-tools.html">Text & String Tools</a>
-                <a href="seo.html">SEO</a>
-                <a href="about.html">About</a>
-                <a href="contact.html">Contact</a>
-                <a href="faq.html">FAQ</a>
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="terms.html">Terms of Service</a>
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="brand-container" style="margin-bottom: 4px;">
+                        <div class="logo-tvz" style="background: #2563eb; color:#fff; width:36px; height:36px; font-size:13px;">TVZ</div>
+                        <div class="brand-text" style="color:#fff; font-size:22px;">TVEEZAL <span style="color:#60a5fa;">Tools</span></div>
+                    </div>
+                    <p>High-speed, browser-based online utilities designed for productivity, data privacy, and daily convenience.</p>
+                    <div class="social-icons-flex" style="justify-content: flex-start; gap: 8px;">
+                        <a class="social-link-btn wa" href="https://whatsapp.com/channel/YOUR_LINK" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a class="social-link-btn tg" href="https://t.me/YOUR_LINK" target="_blank" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+                        <a class="social-link-btn yt" href="https://youtube.com/@YOUR_LINK" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                        <a class="social-link-btn ig" href="https://instagram.com/YOUR_LINK" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a class="social-link-btn fb" href="https://facebook.com/YOUR_LINK" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a class="social-link-btn tw" href="https://x.com/YOUR_LINK" target="_blank" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                    </div>
+                    <!-- Share Full Website from Footer -->
+                    <div class="footer-share-box">
+                        <button class="footer-share-btn" id="footerShareWebsiteBtn">
+                            <i class="fa-solid fa-share-nodes"></i> Share Website
+                        </button>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="footer-column" style="color:#64748b; font-size:12px; margin-bottom:12px;">Tool Hubs</h3>
+                    <div class="footer-links">
+                        <a class="footer-link" href="pdf-tools.html">PDF Tools</a>
+                        <a class="footer-link" href="image-tools.html">Image Tools</a>
+                        <a class="footer-link" href="text-string-tools.html">Text & String</a>
+                        <a class="footer-link" href="web-security-tools.html">Web & Security</a>
+                        <a class="footer-link" href="calculators.html">Calculators</a>
+                        <a class="footer-link" href="converters.html">Converters</a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="footer-column" style="color:#64748b; font-size:12px; margin-bottom:12px;">Social Channels</h3>
+                    <div class="footer-links">
+                        <a class="footer-link" href="https://whatsapp.com/channel/YOUR_LINK" target="_blank"><i class="fa-brands fa-whatsapp" style="color:#25d366; width:16px;"></i> WhatsApp Channel</a>
+                        <a class="footer-link" href="https://t.me/YOUR_LINK" target="_blank"><i class="fa-brands fa-telegram" style="color:#0088cc; width:16px;"></i> Telegram Channel</a>
+                        <a class="footer-link" href="https://youtube.com/@YOUR_LINK" target="_blank"><i class="fa-brands fa-youtube" style="color:#ff0000; width:16px;"></i> YouTube Channel</a>
+                        <a class="footer-link" href="https://instagram.com/YOUR_LINK" target="_blank"><i class="fa-brands fa-instagram" style="color:#e1306c; width:16px;"></i> Instagram Page</a>
+                        <a class="footer-link" href="https://facebook.com/YOUR_LINK" target="_blank"><i class="fa-brands fa-facebook" style="color:#1877f2; width:16px;"></i> Facebook Page</a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="footer-column" style="color:#64748b; font-size:12px; margin-bottom:12px;">Legal & Info</h3>
+                    <div class="footer-links">
+                        <a class="footer-link" href="index.html">Home</a>
+                        <a class="footer-link" href="blog.html">Blog Articles</a>
+                        <a class="footer-link" href="about.html">About Us</a>
+                        <a class="footer-link" href="contact.html">Contact Us</a>
+                        <a class="footer-link" href="privacy.html">Privacy Policy</a>
+                        <a class="footer-link" href="terms.html">Terms of Service</a>
+                        <a class="footer-link" href="faq.html">Detailed FAQ</a>
+                    </div>
+                </div>
             </div>
-            <div class="copy">
-                © 2026 Tveezal Tools. All rights reserved.
+            <div class="footer-bottom">
+                <div>© 2026 Tveezal Tools. All rights reserved.</div>
+                <div>Free browser utilities for everyone.</div>
             </div>
         </div>
     </footer>
 
     <!-- =========================================================
-         CLIENT JAVASCRIPT LOGIC (UNICODE TRANSFORMATION ENGINE)
+         JAVASCRIPT CONTROLLERS
     ========================================================= -->
     <script>
+        // 1. SMART DYNAMIC BACK BUTTON
+        const smartBackBtn = document.getElementById("smartBackBtn");
+        const referrer = document.referrer;
+        const isFromHome = referrer && (referrer.includes("index.html") || referrer.includes(window.location.hostname));
+
+        smartBackBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            if (isFromHome && window.history.length > 1) {
+                window.history.back();
+            } else {
+                window.location.href = "index.html#category-text";
+            }
+        });
+
+        // 2. DEDICATED SHARE ENGINES
+        const shareToolBtn = document.getElementById("shareToolBtn");
+        const footerShareWebsiteBtn = document.getElementById("footerShareWebsiteBtn");
+        const drawerShareWebsiteBtn = document.getElementById("drawerShareWebsiteBtn");
+
+        shareToolBtn.addEventListener("click", () => {
+            if (navigator.share) {
+                navigator.share({
+                    title: "Font Changer Online (1000+ Fancy Fonts) – Tveezal Tools",
+                    text: "Create 1000+ stylish fonts and fancy text for Instagram, WhatsApp, and gaming nicknames!",
+                    url: window.location.href
+                }).catch(() => {});
+            } else {
+                navigator.clipboard.writeText(window.location.href);
+                alert("Tool link copied to clipboard: " + window.location.href);
+            }
+        });
+
+        function shareFullWebsite() {
+            const homeUrl = window.location.origin + "/index.html";
+            if (navigator.share) {
+                navigator.share({
+                    title: "Tveezal Tools – Free Online Utilities",
+                    text: "Explore 34+ free browser tools for PDF, image compression, fancy fonts, and calculations!",
+                    url: homeUrl
+                }).catch(() => {});
+            } else {
+                navigator.clipboard.writeText(homeUrl);
+                alert("Website link copied to clipboard: " + homeUrl);
+            }
+        }
+        footerShareWebsiteBtn.addEventListener("click", shareFullWebsite);
+        drawerShareWebsiteBtn.addEventListener("click", shareFullWebsite);
+
+        // 3. DRAWER CONTROLS
+        const menuBtn = document.getElementById("menuButton");
+        const drawer = document.getElementById("navDrawer");
+        const overlay = document.getElementById("menuOverlay");
+        const drawerClose = document.getElementById("drawerClose");
+
+        function openDrawer() {
+            drawer.classList.add("active");
+            overlay.classList.add("active");
+        }
+        function closeDrawer() {
+            drawer.classList.remove("active");
+            overlay.classList.remove("active");
+        }
+        menuBtn.addEventListener("click", openDrawer);
+        drawerClose.addEventListener("click", closeDrawer);
+        overlay.addEventListener("click", closeDrawer);
+
+        // 4. MASTER BANNER DATASETS
+        const SLIM_BANNERS = [
+            { image: "assets/slim-banner-3.webp", link: "font-changer.html", title: "Create 1000+ Aesthetic Fonts Online" },
+            { image: "assets/slim-banner-1.webp", link: "image-compressor.html", title: "Compress Photo to 50KB for Govt Forms" },
+            { image: "assets/slim-banner-2.webp", link: "pdf-lock.html", title: "Fast Secure PDF Encryption" },
+            { image: "assets/slim-banner-4.webp", link: "internet-speed-test.html", title: "Check 5G & Fiber Latency" },
+            { image: "assets/slim-banner-5.webp", link: "word-counter.html", title: "Accurate Word Reading Meter" },
+            { image: "assets/slim-banner-6.webp", link: "qr-scanner.html", title: "Fast Camera QR Scanner" },
+            { image: "assets/slim-banner-7.webp", link: "loan-interest-calculator.html", title: "Instant EMI Loan Calculator" },
+            { image: "assets/slim-banner-8.webp", link: "area-converter.html", title: "Convert Acres, Hectares & Bigha" },
+            { image: "assets/slim-banner-9.webp", link: "text-repeater.html", title: "Repeat Messages 10,000 Times" },
+            { image: "assets/slim-banner-10.webp", link: "format-converter.html", title: "Convert WebP to JPG Cleanly" }
+        ];
+
+        const BOTTOM_BANNERS = [
+            { image: "assets/banner-7.webp", link: "font-changer.html", title: "Fancy Font Changer for Social Media" },
+            { image: "assets/banner-1.webp", link: "image-compressor.html", title: "Image Compressor to 50KB" },
+            { image: "assets/banner-2.webp", link: "pdf-merge.html", title: "Merge Multiple PDF Files Online" },
+            { image: "assets/banner-3.webp", link: "text-to-speech.html", title: "Text to Speech Synthesis" },
+            { image: "assets/banner-4.webp", link: "internet-speed-test.html", title: "Live Internet Speed & Public IP" },
+            { image: "assets/banner-5.webp", link: "word-counter.html", title: "Word & Character Counter" },
+            { image: "assets/banner-6.webp", link: "qr-generator.html", title: "All-in-One Custom QR Generator" },
+            { image: "assets/banner-8.webp", link: "age-calculator.html", title: "Accurate Age Calculator" },
+            { image: "assets/banner-9.webp", link: "background-remover.html", title: "AI Background Remover" },
+            { image: "assets/banner-10.webp", link: "format-converter.html", title: "Image Format Converter" }
+        ];
+
+        // 5. 1:1 FINGER DRAG CAROUSEL ENGINE WITH CYCLIC LOOP
+        function setupCarousel(trackId, dotsId, dataset) {
+            const track = document.getElementById(trackId);
+            const dotsContainer = document.getElementById(dotsId);
+            if (!track || !dotsContainer) return;
+
+            const carousel = track.closest('.banner-carousel');
+            let current = 0;
+            let timer = null;
+
+            let isDragging = false;
+            let startX = 0;
+            let currentTranslate = 0;
+            let prevTranslate = 0;
+            let animationID = 0;
+
+            track.innerHTML = "";
+            dotsContainer.innerHTML = "";
+
+            dataset.forEach((b, idx) => {
+                const slide = document.createElement("a");
+                slide.className = "banner-slide";
+                slide.href = b.link;
+                slide.innerHTML = `
+                    <img src="${b.image}" alt="${b.title}" loading="${idx === 0 ? 'eager' : 'lazy'}" onerror="this.parentElement.innerHTML='<div class=\\'banner-fallback\\'><h3>${b.title}</h3><p>Fast Online Utility on Tveezal Tools</p></div>'">
+                `;
+                track.appendChild(slide);
+
+                const dot = document.createElement("button");
+                dot.className = `banner-dot ${idx === 0 ? 'active' : ''}`;
+                dot.setAttribute("aria-label", `Slide ${idx + 1}`);
+                dot.addEventListener("click", () => {
+                    current = idx;
+                    setPositionByIndex();
+                    restartTimer();
+                });
+                dotsContainer.appendChild(dot);
+            });
+
+            function setSliderPosition() {
+                track.style.transform = `translateX(${currentTranslate}px)`;
+            }
+
+            function animation() {
+                setSliderPosition();
+                if (isDragging) requestAnimationFrame(animation);
+            }
+
+            function setPositionByIndex(smooth = true) {
+                currentTranslate = -current * carousel.offsetWidth;
+                prevTranslate = currentTranslate;
+                track.style.transition = smooth ? 'transform 0.45s cubic-bezier(.22, .61, .36, 1)' : 'none';
+                setSliderPosition();
+                updateDots();
+            }
+
+            function updateDots() {
+                dotsContainer.querySelectorAll(".banner-dot").forEach((d, i) => {
+                    d.classList.toggle("active", i === current);
+                });
+            }
+
+            function startTimer() {
+                stopTimer();
+                timer = setInterval(() => {
+                    current = (current + 1) % dataset.length;
+                    setPositionByIndex();
+                }, 4000);
+            }
+
+            function stopTimer() {
+                if (timer) clearInterval(timer);
+            }
+
+            function restartTimer() {
+                stopTimer();
+                startTimer();
+            }
+
+            function touchStart(event) {
+                isDragging = true;
+                stopTimer();
+                startX = getPositionX(event);
+                track.style.transition = 'none';
+                animationID = requestAnimationFrame(animation);
+            }
+
+            function touchMove(event) {
+                if (isDragging) {
+                    const currentX = getPositionX(event);
+                    const diff = currentX - startX;
+                    currentTranslate = prevTranslate + diff;
+                }
+            }
+
+            function touchEnd() {
+                if (!isDragging) return;
+                isDragging = false;
+                cancelAnimationFrame(animationID);
+
+                const movedBy = currentTranslate - prevTranslate;
+                const threshold = Math.min(50, carousel.offsetWidth * 0.14);
+
+                if (movedBy < -threshold) {
+                    current = (current + 1) % dataset.length;
+                } else if (movedBy > threshold) {
+                    current = (current - 1 + dataset.length) % dataset.length;
+                }
+
+                setPositionByIndex();
+                startTimer();
+            }
+
+            function getPositionX(event) {
+                return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
+            }
+
+            carousel.addEventListener('touchstart', touchStart, { passive: true });
+            carousel.addEventListener('touchmove', touchMove, { passive: true });
+            carousel.addEventListener('touchend', touchEnd);
+
+            carousel.addEventListener('mousedown', touchStart);
+            carousel.addEventListener('mousemove', touchMove);
+            carousel.addEventListener('mouseup', touchEnd);
+            carousel.addEventListener('mouseleave', () => { if (isDragging) touchEnd(); });
+
+            window.addEventListener('resize', () => {
+                setPositionByIndex(false);
+            });
+
+            setPositionByIndex(false);
+            startTimer();
+        }
+
+        // 6. 1000+ NON-REPEATING UNICODE FONT ENGINE
         const inputText = document.getElementById('inputText');
         const fontsContainer = document.getElementById('fontsContainer');
         const charCountLabel = document.getElementById('charCountLabel');
         const filterPills = document.querySelectorAll('.filter-pill');
+        const loadMoreBtn = document.getElementById('loadMoreBtn');
+        const loadMoreWrap = document.getElementById('loadMoreWrap');
 
         let currentFilter = 'all';
+        let displayLimit = 50;
+        let generatedMasterList = [];
 
-        // Basic character map sets
         const normalLetters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
-        const fontStyles = [
-            {
-                name: "Bold Serif",
-                cat: "popular",
-                map: "𝐚𝐛𝐜𝐝𝐞𝐟𝐠𝐡𝐢𝐣𝐤𝐥𝐦𝐧𝐨𝐩𝐪𝐫𝐬𝐭𝐮𝐯𝐰𝐱𝐲𝐳𝐀𝐁𝐂𝐃𝐄𝐅𝐆𝐇𝐈𝐉𝐊𝐋𝐌𝐍𝐎𝐏𝐐𝐑𝐒𝐓𝐔𝐕𝐖𝐗𝐘𝐙𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗"
-            },
-            {
-                name: "Bold Sans",
-                cat: "popular",
-                map: "𝗮𝗯𝗰𝗱𝗲𝗳𝗴𝗵𝗶𝗷𝗸𝗹𝗺𝗻𝗼𝗽𝗾𝗿𝘀𝘁𝘂𝘃𝘄𝘅𝘆𝘇𝗔𝗕𝗖𝗗𝗘𝗙𝗚𝗛𝗜𝗝𝗞𝗟𝗠𝗡𝗢𝗣𝗤𝗥𝗦𝗧𝗨𝗩𝗪𝗫𝗬𝗭𝟬𝟭𝟮𝟯𝟰𝟱𝟲𝟳𝟴𝟵"
-            },
-            {
-                name: "Italic Serif",
-                cat: "popular",
-                map: "𝑎𝑏𝑐𝑑𝑒𝑓𝑔ℎ𝑖𝑗𝑘𝑙𝑚𝑛𝑜𝑝𝑞𝑟𝑠𝑡𝑢𝑣𝑤𝑥𝑦𝑧𝐴𝐵𝐶𝐷𝐸𝐹𝐺𝐻𝐼𝐽𝐾𝐿𝑀𝑁𝑂𝑃𝑄𝑅𝑆𝑇𝑈𝑉𝑊𝑋𝑌𝑍0123456789"
-            },
-            {
-                name: "Bold Italic",
-                cat: "popular",
-                map: "𝒂𝒃𝒄𝒅𝒆𝒇𝒈𝒉𝒊𝒋𝒌𝒍𝒎𝒏𝒐𝒑𝒒𝒓𝒔𝒕𝒖𝒗𝒘𝒙𝒚𝒛𝑨𝑩𝑪𝑫𝑬𝑭𝑮𝑯𝑰𝑱𝑲𝑳𝑴𝑵𝑶𝑷𝑸𝑹𝑺𝑻𝑼𝑽𝑾𝑿𝒀𝒁𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗"
-            },
-            {
-                name: "Gothic / Fraktur",
-                cat: "gothic",
-                map: "𝔞𝔟𝔠𝔡𝔢𝔣𝔤𝔥𝔦𝔧𝔨𝔩𝔪𝔫𝔬𝔭𝔮𝔯𝔰𝔱𝔲𝔳𝔴𝔵𝔶𝔺𝔄𝔅ℭ𝔇𝔈𝔉𝔊ℌℑ𝔍𝔎𝔏𝔐𝔑𝔒𝔓𝔔ℜ𝔖𝔗𝔘𝔙𝔚𝔛𝔜ℨ0123456789"
-            },
-            {
-                name: "Bold Gothic",
-                cat: "gothic",
-                map: "𝖆𝖇𝖈𝖉𝖊𝖋𝖌𝖍𝖎𝖏𝖐𝖑𝖒𝖓𝖔𝖕𝖖𝖗𝖘𝖙𝖚𝖛𝖜𝖝𝖞𝖟𝕬𝕭𝕮𝕯𝕰𝕱𝕲𝕳𝕴𝕵𝕶𝕷𝕸𝕹𝕺𝕻𝕼𝕽𝕾𝕿𝖀𝖁𝖂𝖃𝖄𝖅0123456789"
-            },
-            {
-                name: "Cursive / Script",
-                cat: "cursive",
-                map: "𝒶𝒷𝒸𝒹ℯ𝒻ℊ𝒽𝒾𝒿𝓀𝓁𝓂𝓃ℴ𝓅𝓆𝓇𝓈𝓉𝓊𝓋𝓌𝓍𝓎𝓏𝒜ℬ𝒞𝒟ℰℱ𝒢ℋℐ𝒥𝒦ℒℳ𝒩𝒪𝒫𝒬ℛ𝒮𝒯𝒰𝒱𝒲𝒳𝒴𝒵0123456789"
-            },
-            {
-                name: "Bold Cursive",
-                cat: "cursive",
-                map: "𝓪𝓫𝓬𝓭𝓮𝓯𝓰𝓱𝓲𝓳𝓴𝓵𝓶𝓷𝓸𝓹𝓺𝓻𝓼𝓽𝓾𝓿𝔀𝔁𝔂𝔃𝓐𝓑𝓒𝓓𝓔𝓕𝓖𝓗𝓘𝓙𝓚𝓛𝓜𝓝𝓞𝓟𝓠𝓡𝓢𝓣𝓤𝓥𝓦𝓧𝓨𝓩0123456789"
-            },
-            {
-                name: "Double-Struck (Outline)",
-                cat: "popular",
-                map: "𝕒𝕓𝕔𝕕𝕖𝕗𝕘𝕙𝕚𝕛𝕜𝕝𝕞𝕟𝕠𝕡𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫𝔸𝔹ℂ𝔻𝔼𝔽𝔾ℍ𝕀𝕁𝕂𝕃𝕄ℕ𝕆ℙℚℝ𝕊𝕋𝕌𝕍𝕎𝕏𝕐ℤ𝟘𝟙𝟚𝟛𝟜𝟝𝟞𝟟𝟠𝟡"
-            },
-            {
-                name: "Monospace",
-                cat: "popular",
-                map: "𝚊𝚋𝚌𝚍𝚎𝚏𝚐𝚑𝚒𝚓𝚔𝚕𝚖𝚗𝚘𝚙𝚚𝚛𝚜𝚝𝚞𝚟𝚠𝚡𝚢𝚣𝙰𝙱𝙲𝙳𝙴𝙵𝙶𝙷𝙸𝙹𝙺𝙻𝙼𝙽𝙾𝙿𝚀𝚁𝚂𝚃𝚄𝚅𝚆𝚇𝚈𝚉𝟶𝟷𝟸𝟹𝟺𝟻𝟼𝟽𝟾𝟿"
-            },
-            {
-                name: "Circled (Bubble)",
-                cat: "popular",
-                map: "ⓐⓑⓒⓓⓔⓕⓖⓗⓘⓙⓚⓛⓜⓝⓞⓟⓠⓡⓢⓣⓤⓥⓦⓧⓨⓩⒶⒷⒸⒹⒺⒻⒼⒽⒾⒿⓀⓁⓂⓃⓄⓅⓆⓇⓈⓉⓊⓋⓌⓍⓎⓏ⓪①②③④⑤⑥⑦⑧⑨"
-            },
-            {
-                name: "Dark Bubble (Inverted)",
-                cat: "aesthetic",
-                map: "🅐🅑🅒🅓🅔🅕🅖🅗🅘🅙🅚🅛🅜🅝🅞🅟🅠🅡🅢🅣🅤🅥🅦🅧🅨🅩🅐🅑🅒🅓🅔🅕🅖🅗🅘🅙🅚🅛🅜🅝🅞🅟🅠🅡🅢🅣🅤🅥🅦🅧🅨🅩⓿➊➋➌➍➎➏➐➑➒"
-            },
-            {
-                name: "Square Box",
-                cat: "aesthetic",
-                map: "🄰🄱🄲🄳🄴🄵🄶🄷🄸🄹🄺🄻🄼🄽🄾🄿🅀🅁🅂🅃🅄🅅🅆🅇🅈🅉🄰🄱🄲🄳🄴🄵🄶🄷🄸🄹🄺🄻🄼🄽🄾🄿🅀🅁🅂🅃🅄🅅🅆🅇🅈🅉0123456789"
-            },
-            {
-                name: "Dark Square",
-                cat: "aesthetic",
-                map: "🅰🅱🅲🅳🅴🅵🅶🅷🅸🅹🅺🅻🅼🅽🅾🅿🆀🆁🆂🆃🆄🆅🆆🆇🆈🆉🅰🅱🅲🅳🅴🅵🅶🅷🅸🅹🅺🅻🅼🅽🅾🅿🆀🆁🆂🆃🆄🆅🆆🆇🆈🆉0123456789"
-            },
-            {
-                name: "Small Capitals",
-                cat: "popular",
-                map: "ᴀʙᴄᴅᴇꜰɢʜɪᴊᴋʟᴍɴᴏᴩqʀꜱᴛᴜᴠᴡyᴢABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-            },
-            {
-                name: "Wide / Fullwidth",
-                cat: "aesthetic",
-                map: "ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ０１２３４５６７８９"
-            }
+        // 16 Foundation Alphabets
+        const BASE_STYLES = [
+            { id: "bold_serif", name: "Bold Serif", cat: "popular", map: "𝐚𝐛𝐜𝐝𝐞𝐟𝐠𝐡𝐢𝐣𝐤𝐥𝐦𝐧𝐨𝐩𝐪𝐫𝐬𝐭𝐮𝐯𝐰𝐱𝐲𝐳𝐀𝐁𝐂𝐃𝐄𝐅𝐆𝐇𝐈𝐉𝐊𝐋𝐌𝐍𝐎𝐏𝐐𝐑𝐒𝐓𝐔𝐕𝐖𝐗𝐘𝐙𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗" },
+            { id: "bold_sans", name: "Bold Sans", cat: "popular", map: "𝗮𝗯𝗰𝗱𝗲𝗳𝗴𝗵𝗶𝗷𝗸𝗹𝗺𝗻𝗼𝗽𝗾𝗿𝘀𝘁𝘂𝘃𝘄𝘅𝘆𝘇𝗔𝗕𝗖𝗗𝗘𝗙𝗚𝗛𝗜𝗝𝗞𝗟𝗠𝗡𝗢𝗣𝗤𝗥𝗦𝗧𝗨𝗩𝗪𝗫𝗬𝗭𝟬𝟭𝟮𝟯𝟰𝟱𝟲𝟳𝟴𝟵" },
+            { id: "italic_serif", name: "Italic Serif", cat: "popular", map: "𝑎𝑏𝑐𝑑𝑒𝑓𝑔ℎ𝑖𝑗𝑘𝑙𝑚𝑛𝑜𝑝𝑞𝑟𝑠𝑡𝑢𝑣𝑤𝑥𝑦𝑧𝐴𝐵𝐶𝐷𝐸𝐹𝐺𝐻𝐼𝐽𝐾𝐿𝑀𝑁𝑂𝑃𝑄𝑅𝑆𝑇𝑈𝑉𝑊𝑋𝑌𝑍0123456789" },
+            { id: "bold_italic", name: "Bold Italic", cat: "popular", map: "𝒂𝒃𝒄𝒅𝒆𝒇𝒈𝒉𝒊𝒋𝒌𝒍𝒎𝒏𝒐𝒑𝒒𝒓𝒔𝒕𝒖𝒗𝒘𝒙𝒚𝒛𝑨𝑩𝑪𝑫𝑬𝑭𝑮𝑯𝑰𝑱𝑲𝑳𝑴𝑵𝑶𝑷𝑸𝑹𝑺𝑻𝑼𝑽𝑾𝑿𝒀𝒁𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗" },
+            { id: "gothic", name: "Gothic / Fraktur", cat: "gothic", map: "𝔞𝔟𝔠𝔡𝔢𝔣𝔤𝔥𝔦𝔧𝔨𝔩𝔪𝔫𝔬𝔭𝔮𝔯𝔰𝔱𝔲𝔳𝔴𝔵𝔶𝔺𝔄𝔅ℭ𝔇𝔈𝔉𝔊ℌℑ𝔍𝔎𝔏𝔐𝔑𝔒𝔓𝔔ℜ𝔖𝔗𝔘𝔙𝔚𝔛𝔜ℨ0123456789" },
+            { id: "bold_gothic", name: "Bold Gothic", cat: "gothic", map: "𝖆𝖇𝖈𝖉𝖊𝖋𝖌𝖍𝖎𝖏𝖐𝖑𝖒𝖓𝖔𝖕𝖖𝖗𝖘𝖙𝖚𝖛𝖜𝖝𝖞𝖟𝕬𝕭𝕮𝕯𝕰𝕱𝕲𝕳𝕴𝕵𝕶𝕷𝕸𝕹𝕺𝕻𝕼𝕽𝕾𝕿𝖀𝖁𝖂𝖃𝖄𝖅0123456789" },
+            { id: "cursive", name: "Cursive / Script", cat: "cursive", map: "𝒶𝒷𝒸𝒹ℯ𝒻ℊ𝒽𝒾𝒿𝓀𝓁𝓂𝓃ℴ𝓅𝓆𝓇𝓈𝓉𝓊𝓋𝓌𝓍𝓎𝓏𝒜ℬ𝒞𝒟ℰℱ𝒢ℋℐ𝒥𝒦ℒℳ𝒩𝒪𝒫𝒬ℛ𝒮𝒯𝒰𝒱𝒲𝒳𝒴𝒵0123456789" },
+            { id: "bold_cursive", name: "Bold Cursive", cat: "cursive", map: "𝓪𝓫𝓬𝓭𝓮𝓯𝓰𝓱𝓲𝓳𝓴𝓵𝓶𝓷𝓸𝓹𝓺𝓻𝓼𝓽𝓾𝓿𝔀𝔁𝔂𝔃𝓐𝓑𝓒𝓓𝓔𝓕𝓖𝓗𝓘𝓙𝓚𝓛𝓜𝓝𝓞𝓟𝓠𝓡𝓢𝓣𝓤𝓥𝓦𝓧𝓨𝓩0123456789" },
+            { id: "double_struck", name: "Double-Struck (Outline)", cat: "popular", map: "𝕒𝕓𝕔𝕕𝕖𝕗𝕘𝕙𝕚𝕛𝕜𝕝𝕞𝕟𝕠𝕡𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫𝔸𝔹ℂ𝔻𝔼𝔽𝔾ℍ𝕀𝕁𝕂𝕃𝕄ℕ𝕆ℙℚℝ𝕊𝕋𝕌𝕍𝕎𝕏𝕐ℤ𝟘𝟙𝟚𝟛𝟜𝟝𝟞𝟟𝟠𝟡" },
+            { id: "monospace", name: "Monospace Code", cat: "popular", map: "𝚊𝚋𝚌𝚍𝚎𝚏𝚐𝚑𝚒𝚓𝚔𝚕𝚖𝚗𝚘𝚙𝚚𝚛𝚜𝚝𝚞𝚟𝚠𝚡𝚢𝚣𝙰𝙱𝙲𝙳𝙴𝙵𝙶𝙷𝙸𝙹𝙺𝙻𝙼𝙽𝙾𝙿𝚀𝚁𝚂𝚃𝚄𝚅𝚆𝚇𝚈𝚉𝟶𝟷𝟸𝟹𝟺𝟻𝟼𝟽𝟾𝟿" },
+            { id: "circled", name: "Circled Bubble", cat: "popular", map: "ⓐⓑⓒⓓⓔⓕⓖⓗⓘⓙⓚⓛⓜⓝⓞⓟⓠⓡⓢⓣⓤⓥⓦⓧⓨⓩⒶⒷⒸⒹⒺⒻⒼⒽⒾⒿⓀⓁⓂⓃⓄⓅⓆⓇⓈⓉⓊⓋⓌⓍⓎⓏ⓪①②③④⑤⑥⑦⑧⑨" },
+            { id: "dark_bubble", name: "Dark Bubble (Inverted)", cat: "aesthetic", map: "🅐🅑🅒🅓🅔🅕🅖🅗🅘🅙🅚🅛🅜🅝🅞🅟🅠🅡🅢🅣🅤🅥🅦🅧🅨🅩🅐🅑🅒🅓🅔🅕🅖🅗🅘🅙🅚🅛🅜🅝🅞🅟🅠🅡🅢🅣🅤🅥🅦🅧🅨🅩⓿➊➋➌➍➎➏➐➑➒" },
+            { id: "square_box", name: "Square Box", cat: "aesthetic", map: "🄰🄱🄲🄳🄴🄵🄶🄷🄸🄹🄺🄻🄼🄽🄾🄿🅀🅁🅂🅃🅄🅅🅆🅇🅈🅉🄰🄱🄲🄳🄴🄵🄶🄷🄸🄹🄺🄻🄼🄽🄾🄿🅀🅁🅂🅃🅄🅅🅆🅇🅈🅉0123456789" },
+            { id: "dark_square", name: "Dark Square", cat: "aesthetic", map: "🅰🅱🅲🅳🅴🅵🅶🅷🅸🅹🅺🅻🅼🅽🅾🅿🆀🆁🆂🆃🆄🆅🆆🆇🆈🆉🅰🅱🅲🅳🅴🅵🅶🅷🅸🅹🅺🅻🅼🅽🅾🅿🆀🆁🆂🆃🆄🆅🆆🆇🆈🆉0123456789" },
+            { id: "small_caps", name: "Small Capitals", cat: "popular", map: "ᴀʙᴄᴅᴇꜰɢʜɪᴊᴋʟᴍɴᴏᴩqʀꜱᴛᴜᴠᴡyᴢABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789" },
+            { id: "wide_full", name: "Wide Aesthetic", cat: "aesthetic", map: "ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵ𝑉𝑊𝑋𝑌𝑍０１２３４５６７８９" }
         ];
 
-        // Aesthetic Symbols and Decorator Combinations
-        const decorators = [
+        // 65 Unique Decorator Pairs (16 Base * 65 Decorators = 1,040 Unique Non-Repeating Styles)
+        const DECORATOR_PAIRS = [
             { name: "Sparkles", pre: "✨ ", post: " ✨", cat: "aesthetic" },
             { name: "Heart Queen", pre: "꧁💖 ", post: " 💖꧂", cat: "aesthetic" },
             { name: "Star King", pre: "★彡 ", post: " 彡★", cat: "aesthetic" },
             { name: "Angel Wings", pre: "༒☬ ", post: " ☬༒", cat: "aesthetic" },
             { name: "Sword Warrior", pre: "⚔️ ", post: " ⚔️", cat: "aesthetic" },
             { name: "Fire Blaze", pre: "🔥 ", post: " 🔥", cat: "aesthetic" },
-            { name: "Flower Blossom", pre: "🌸 ", post: " 🌸", cat: "aesthetic" },
+            { name: "Cherry Blossom", pre: "🌸 ", post: " 🌸", cat: "aesthetic" },
             { name: "Target Sniper", pre: "🎯 ", post: " 🎯", cat: "aesthetic" },
             { name: "Ghost Shadow", pre: "░▒▓█ ", post: " █▓▒░", cat: "aesthetic" },
-            { name: "Glitched Cross", pre: "☠️ ", post: " ☠️", cat: "glitch" }
+            { name: "Glitched Cross", pre: "☠️ ", post: " ☠️", cat: "glitch" },
+            { name: "Golden Crown", pre: "👑 ", post: " 👑", cat: "popular" },
+            { name: "Diamond Gem", pre: "💎 ", post: " 💎", cat: "popular" },
+            { name: "Thunder Flash", pre: "⚡ ", post: " ⚡", cat: "popular" },
+            { name: "Rose Garden", pre: "🌹 ", post: " 🌹", cat: "aesthetic" },
+            { name: "Butterfly Fly", pre: "🦋 ", post: " 🦋", cat: "aesthetic" },
+            { name: "Moon Night", pre: "🌙 ", post: " 🌙", cat: "aesthetic" },
+            { name: "Magic Wand", pre: "🪄 ", post: " 🪄", cat: "aesthetic" },
+            { name: "Poison Bio", pre: "☣️ ", post: " ☣️", cat: "glitch" },
+            { name: "Radiation Haz", pre: "☢️ ", post: " ☢️", cat: "glitch" },
+            { name: "Infinity Love", pre: "♾️ ", post: " ♾️", cat: "aesthetic" },
+            { name: "Arrow Bow", pre: "🏹 ", post: " 🏹", cat: "aesthetic" },
+            { name: "Music Melody", pre: "🎵 ", post: " 🎵", cat: "popular" },
+            { name: "Headphones Beat", pre: "🎧 ", post: " 🎧", cat: "popular" },
+            { name: "Dragon Eye", pre: "🐉 ", post: " 🐉", cat: "aesthetic" },
+            { name: "Wolf Clan", pre: "🐺 ", post: " 🐺", cat: "aesthetic" },
+            { name: "Lion Pride", pre: "🦁 ", post: " 🦁", cat: "aesthetic" },
+            { name: "Cyber Matrix", pre: "【 ", post: " 】", cat: "popular" },
+            { name: "Double Chevron", pre: "« ", post: " »", cat: "popular" },
+            { name: "Corner Bracket", pre: "『 ", post: " 』", cat: "popular" },
+            { name: "Tortoise Shell", pre: "〔 ", post: " 〕", cat: "popular" },
+            { name: "White Lenticular", pre: "〖 ", post: " 〗", cat: "popular" },
+            { name: "Pointed Star", pre: "✧ ", post: " ✧", cat: "aesthetic" },
+            { name: "Four Star Spark", pre: "✦ ", post: " ✦", cat: "aesthetic" },
+            { name: "Black Star Burst", pre: "✪ ", post: " ✪", cat: "aesthetic" },
+            { name: "Flower Flake", pre: "❊ ", post: " ❊", cat: "aesthetic" },
+            { name: "Sparkle Asterisk", pre: "❇ ", post: " ❇", cat: "aesthetic" },
+            { name: "Snow Crystal", pre: "❄ ", post: " ❄", cat: "aesthetic" },
+            { name: "Sun Rays", pre: "☀️ ", post: " ☀️", cat: "aesthetic" },
+            { name: "Cloud Mists", pre: "☁️ ", post: " ☁️", cat: "aesthetic" },
+            { name: "Dagger Blade", pre: "🗡️ ", post: " 🗡️", cat: "gothic" },
+            { name: "Gothic Cross", pre: "† ", post: " †", cat: "gothic" },
+            { name: "Shield Guard", pre: "🛡️ ", post: " 🛡️", cat: "gothic" },
+            { name: "Trident Power", pre: "🔱 ", post: " 🔱", cat: "gothic" },
+            { name: "Skull Bones", pre: "💀 ", post: " 💀", cat: "gothic" },
+            { name: "Ghost Spirit", pre: "👻 ", post: " 👻", cat: "gothic" },
+            { name: "Devil Horns", pre: "😈 ", post: " 😈", cat: "gothic" },
+            { name: "Evil Eye", pre: "🧿 ", post: " 🧿", cat: "aesthetic" },
+            { name: "Peace Symbol", pre: "☮️ ", post: " ☮️", cat: "aesthetic" },
+            { name: "Yin Yang", pre: "☯️ ", post: " ☯️", cat: "aesthetic" },
+            { name: "Lotus Petal", pre: "🪷 ", post: " 🪷", cat: "aesthetic" },
+            { name: "Leaf Breeze", pre: "🍃 ", post: " 🍃", cat: "aesthetic" },
+            { name: "Maple Golden", pre: "🍁 ", post: " 🍁", cat: "aesthetic" },
+            { name: "Ribbon Gift", pre: "🎀 ", post: " 🎀", cat: "cursive" },
+            { name: "Teddy Hug", pre: "🧸 ", post: " 🧸", cat: "cursive" },
+            { name: "Shooting Comet", pre: "☄️ ", post: " ☄️", cat: "popular" },
+            { name: "Alien UFO", pre: "🛸 ", post: " 🛸", cat: "glitch" },
+            { name: "Rocket Launch", pre: "🚀 ", post: " 🚀", cat: "popular" },
+            { name: "Hourglass Time", pre: "⏳ ", post: " ⏳", cat: "popular" },
+            { name: "Key Lock", pre: "🔑 ", post: " 🔑", cat: "popular" },
+            { name: "Treasure Chest", pre: "🏆 ", post: " 🏆", cat: "popular" },
+            { name: "Black Heart", pre: "🖤 ", post: " 🖤", cat: "gothic" },
+            { name: "White Heart", pre: "🤍 ", post: " 🤍", cat: "aesthetic" },
+            { name: "Blue Diamond Heart", pre: "💙 ", post: " 💙", cat: "aesthetic" },
+            { name: "Glitch Static Line", pre: "━╤デ╦︻ ", post: "", cat: "glitch" },
+            { name: "Cyber Punk Glitch", pre: "☣️█ ", post: " █☣️", cat: "glitch" }
         ];
 
-        // Unicode converter helper
         function mapText(text, targetMap) {
             const chars = Array.from(targetMap);
             let result = "";
@@ -965,7 +1862,6 @@
             return result;
         }
 
-        // Zalgo / Glitch generator
         function zalgoText(text) {
             const diacritics = ['\u0300','\u0301','\u0302','\u0303','\u0304','\u0305','\u0306','\u0307','\u0308','\u0309','\u030A','\u030B','\u030C','\u030D','\u0334','\u0335','\u0336','\u0337','\u0338'];
             let res = '';
@@ -980,70 +1876,53 @@
             return res;
         }
 
-        // Strikethrough generator
-        function strikeText(text) {
-            return text.split('').map(c => c + '\u0336').join('');
-        }
+        function strikeText(text) { return text.split('').map(c => c + '\u0336').join(''); }
+        function underlineText(text) { return text.split('').map(c => c + '\u0332').join(''); }
 
-        // Underline generator
-        function underlineText(text) {
-            return text.split('').map(c => c + '\u0332').join('');
-        }
-
-        // Render all fonts and combinations
-        function renderFonts() {
+        function generateFullMasterMatrix() {
             const raw = inputText.value || "Hello Tveezal";
             charCountLabel.textContent = `${raw.length} Characters`;
+            generatedMasterList = [];
 
-            fontsContainer.innerHTML = '';
-            const allItems = [];
-
-            // 1. Base fonts
-            fontStyles.forEach(st => {
-                allItems.push({
+            // 1. Base 16 Fonts
+            BASE_STYLES.forEach(st => {
+                generatedMasterList.push({
                     name: st.name,
                     cat: st.cat,
                     text: mapText(raw, st.map)
                 });
             });
 
-            // 2. Special text transforms
-            allItems.push({ name: "Strikethrough", cat: "popular", text: strikeText(raw) });
-            allItems.push({ name: "Double Underline", cat: "popular", text: underlineText(raw) });
-            allItems.push({ name: "Glitch Zalgo", cat: "glitch", text: zalgoText(raw) });
+            // 2. Special Dynamic Transformations
+            generatedMasterList.push({ name: "Strikethrough Cross", cat: "popular", text: strikeText(raw) });
+            generatedMasterList.push({ name: "Double Underline Line", cat: "popular", text: underlineText(raw) });
+            generatedMasterList.push({ name: "Glitch Zalgo Chaos", cat: "glitch", text: zalgoText(raw) });
 
-            // 3. Decorated Combinations (Extends into 1000+ style matrix)
-            decorators.forEach(dec => {
-                allItems.push({
-                    name: `Bold + ${dec.name}`,
-                    cat: dec.cat,
-                    text: dec.pre + mapText(raw, fontStyles[0].map) + dec.post
-                });
-                allItems.push({
-                    name: `Cursive + ${dec.name}`,
-                    cat: dec.cat,
-                    text: dec.pre + mapText(raw, fontStyles[6].map) + dec.post
-                });
-                allItems.push({
-                    name: `Gothic + ${dec.name}`,
-                    cat: dec.cat,
-                    text: dec.pre + mapText(raw, fontStyles[4].map) + dec.post
-                });
-                allItems.push({
-                    name: `Outline + ${dec.name}`,
-                    cat: dec.cat,
-                    text: dec.pre + mapText(raw, fontStyles[8].map) + dec.post
+            // 3. Complete Non-Repeating Combinations: 16 Base Styles * 65 Unique Decorators = 1,040 Styles
+            DECORATOR_PAIRS.forEach((dec, dIdx) => {
+                BASE_STYLES.forEach((base, bIdx) => {
+                    const assignedCat = dec.cat === "glitch" ? "glitch" : (base.cat !== "popular" ? base.cat : dec.cat);
+                    generatedMasterList.push({
+                        name: `${base.name} + ${dec.name} (#${(dIdx * BASE_STYLES.length) + bIdx + 1})`,
+                        cat: assignedCat,
+                        text: dec.pre + mapText(raw, base.map) + dec.post
+                    });
                 });
             });
+        }
 
-            // Filter logic
-            const filtered = allItems.filter(item => {
+        function renderFonts(resetCount = false) {
+            if (resetCount) displayLimit = 50;
+
+            const filtered = generatedMasterList.filter(item => {
                 if (currentFilter === 'all') return true;
                 return item.cat === currentFilter;
             });
 
-            // Output HTML cards
-            filtered.forEach((item, index) => {
+            fontsContainer.innerHTML = '';
+            const sliceToRender = filtered.slice(0, displayLimit);
+
+            sliceToRender.forEach((item, index) => {
                 const card = document.createElement('div');
                 card.className = 'font-result-card';
                 card.innerHTML = `
@@ -1052,17 +1931,23 @@
                         <div class="font-output-text" id="fontText_${index}">${escapeHTML(item.text)}</div>
                     </div>
                     <button class="copy-btn" onclick="copyFont(${index}, this)">
+                        <i class="fa-solid fa-copy"></i>
                         <span>Copy</span>
                     </button>
                 `;
                 fontsContainer.appendChild(card);
             });
+
+            if (displayLimit < filtered.length) {
+                loadMoreWrap.style.display = "block";
+                loadMoreBtn.innerHTML = `<i class="fa-solid fa-plus"></i> Load More Fonts (Showing ${sliceToRender.length} of ${filtered.length})`;
+            } else {
+                loadMoreWrap.style.display = "none";
+            }
         }
 
         function escapeHTML(str) {
-            return str.replace(/[&<>'"]/g, 
-                tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
-            );
+            return str.replace(/[&<>'"]/g, tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag));
         }
 
         window.copyFont = function(index, btn) {
@@ -1070,28 +1955,103 @@
             if (!el) return;
             navigator.clipboard.writeText(el.innerText).then(() => {
                 btn.classList.add('copied');
-                btn.innerHTML = '<span>✓ Copied!</span>';
+                btn.innerHTML = '<i class="fa-solid fa-check"></i> <span>Copied!</span>';
                 setTimeout(() => {
                     btn.classList.remove('copied');
-                    btn.innerHTML = '<span>Copy</span>';
-                }, 2000);
+                    btn.innerHTML = '<i class="fa-solid fa-copy"></i> <span>Copy</span>';
+                }, 1800);
             });
         };
 
-        // Filter pills event
+        loadMoreBtn.addEventListener("click", () => {
+            displayLimit += 60;
+            renderFonts(false);
+        });
+
         filterPills.forEach(pill => {
             pill.addEventListener('click', () => {
                 filterPills.forEach(p => p.classList.remove('active'));
                 pill.classList.add('active');
                 currentFilter = pill.getAttribute('data-filter');
-                renderFonts();
+                renderFonts(true);
             });
         });
 
-        inputText.addEventListener('input', renderFonts);
+        inputText.addEventListener('input', () => {
+            generateFullMasterMatrix();
+            renderFonts(false);
+        });
 
-        // Initial trigger
-        renderFonts();
+        // 7. 10 DETAILED FAQS WITH CLICKABLE LINKS
+        const FAQS = [
+            {
+                q: "How does Tveezal Online Font Changer work?",
+                a: "The tool converts your standard ASCII text into special typography glyphs from the universal Unicode standard. Because they are characters rather than local font files, you can copy and paste them everywhere. If you want to check word lengths as well, try our <a href='word-counter.html'>Word Counter</a>."
+            },
+            {
+                q: "Can I use these fonts in Instagram bios, Discord, and WhatsApp?",
+                a: "Yes! All 1000+ generated fonts are 100% compatible with Instagram, WhatsApp, Discord, TikTok, and Twitter. You can also generate matching Wi-Fi or text codes with our <a href='qr-generator.html'>QR Generator</a>."
+            },
+            {
+                q: "Are these fancy fonts compatible with BGMI, Free Fire, and PUBG nicknames?",
+                a: "Yes. Mobile games support Unicode characters, allowing you to use our Aesthetic, Gothic, and Glitch categories to create unique clan tags and player IDs."
+            },
+            {
+                q: "Why do some older phones display question marks or square boxes?",
+                a: "Older operating systems may lack updated Unicode libraries. However, over 99% of modern smartphones, PCs, and web browsers render these typography glyphs cleanly."
+            },
+            {
+                q: "Is there any character limit on how much text I can convert?",
+                a: "No. You can paste single words, entire paragraphs, or full bios. For large texts or lines, you can clean empty lines using our <a href='line-counter.html'>Line Counter</a>."
+            },
+            {
+                q: "Is my text data stored or monitored on your servers?",
+                a: "Never. All 1000+ font permutations are generated locally in your browser memory via JavaScript. You can verify our security standards in our <a href='privacy.html'>Privacy Policy</a>."
+            },
+            {
+                q: "Can I repeat a styled font 10,000 times for WhatsApp fun?",
+                a: "Yes! Simply copy your favorite font style from here and paste it into our <a href='text-repeater.html'>Text Repeater Tool</a> to duplicate it thousands of times instantly."
+            },
+            {
+                q: "How do I convert written text into realistic audio speech?",
+                a: "If you want natural male or female spoken audio in Hindi, English, or other languages, visit our dedicated <a href='text-to-speech.html'>Text to Speech Tool</a>."
+            },
+            {
+                q: "Does Tveezal Tools charge any subscription fee?",
+                a: "No. All tools on Tveezal Tools are 100% free with zero paywalls. Learn more about our vision on our <a href='about.html'>About Us</a> page."
+            },
+            {
+                q: "Can I embed these fancy texts into PDF documents?",
+                a: "Yes. Once copied, paste them into any document editor and merge them securely using our client-side <a href='pdf-merge.html'>PDF Merge Tool</a>."
+            }
+        ];
+
+        const faqList = document.getElementById("faqList");
+        FAQS.forEach(item => {
+            const div = document.createElement("div");
+            div.className = "faq-item";
+            div.innerHTML = `
+                <button class="faq-question">
+                    <span>${item.q}</span>
+                    <i class="fas fa-chevron-down" style="color:var(--muted); font-size:12px;"></i>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">${item.a}</div>
+                </div>
+            `;
+            div.querySelector(".faq-question").addEventListener("click", () => {
+                div.classList.toggle("open");
+                const icon = div.querySelector(".fa-chevron-down");
+                if (icon) icon.style.transform = div.classList.contains("open") ? "rotate(180deg)" : "rotate(0deg)";
+            });
+            faqList.appendChild(div);
+        });
+
+        // Initialize Everything
+        generateFullMasterMatrix();
+        renderFonts(true);
+        setupCarousel("slimRibbonTrack", "slimRibbonDots", SLIM_BANNERS);
+        setupCarousel("bottomBannerTrack", "bottomBannerDots", BOTTOM_BANNERS);
     </script>
 </body>
 </html>
