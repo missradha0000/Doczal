@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,7 +38,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <!-- Schema.org FAQPage Structured Data (Full Rich Snippet Coverage) -->
+    <!-- Schema.org FAQPage Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -47,7 +46,7 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What is Tveezal Tools and what makes it unique?",
+          "name": "What is Tveezal Tools and what makes it completely unique?",
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Tveezal Tools is a free online platform featuring 34+ high-speed web utilities designed for PDF manipulation, photo optimization, text transformations, and daily calculations. It operates 100% client-side in your browser for zero-server data leakage."
@@ -93,7 +92,6 @@
         :root {
             --blue: #2563eb;
             --blue-hover: #1d4ed8;
-            --purple-theme: linear-gradient(145deg, #4f46e5 0%, #7c3aed 55%, #9333ea 100%);
             --dark: #0f172a;
             --text: #334155;
             --muted: #64748b;
@@ -131,7 +129,7 @@
         }
 
         /* =========================================================
-           HEADER (STANDARDIZED ARCHITECTURE)
+           HEADER
         ========================================================= */
         .site-header {
             background: linear-gradient(135deg, #0f172a 0%, #172554 55%, #1d4ed8 100%);
@@ -265,11 +263,13 @@
             font-size: 16px;
         }
 
-        /* SIDE DRAWER */
+        /* =========================================================
+           SIDE DRAWER (DEEP MIDNIGHT NAVY THEME - MATCHED)
+        ========================================================= */
         .drawer-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(15, 23, 42, 0.6);
+            background: rgba(15, 23, 42, 0.65);
             backdrop-filter: blur(4px);
             z-index: 2000;
             opacity: 0;
@@ -288,14 +288,16 @@
             right: -340px;
             width: 320px;
             height: 100%;
-            background: var(--purple-theme);
-            box-shadow: -10px 0 35px rgba(79, 70, 229, 0.3);
+            /* Deep Midnight Navy Gradient */
+            background: linear-gradient(160deg, #0f172a 0%, #172554 60%, #1e3a8a 100%);
+            box-shadow: -10px 0 35px rgba(15, 23, 42, 0.5);
             z-index: 2001;
             padding: 24px 20px;
             overflow-y: auto;
             transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .side-drawer.active {
@@ -307,7 +309,7 @@
             align-items: center;
             justify-content: space-between;
             padding-bottom: 16px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
             margin-bottom: 18px;
         }
 
@@ -315,11 +317,12 @@
             font-size: 20px;
             font-weight: 850;
             color: #ffffff;
+            letter-spacing: -0.5px;
         }
 
         .drawer-close-btn {
-            background: rgba(255, 255, 255, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             width: 34px;
             height: 34px;
             border-radius: 10px;
@@ -329,6 +332,12 @@
             align-items: center;
             justify-content: center;
             color: #ffffff;
+            transition: 0.2s ease;
+        }
+
+        .drawer-close-btn:hover {
+            background: rgba(239, 68, 68, 0.6);
+            border-color: #ef4444;
         }
 
         .drawer-links {
@@ -341,20 +350,22 @@
             padding: 10px 18px;
             border-radius: 999px;
             background: #ffffff;
-            color: #334155;
+            color: #0f172a;
             font-size: 14px;
             font-weight: 700;
             display: flex;
             align-items: center;
             gap: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
             transition: all 0.2s ease;
+            text-decoration: none;
         }
 
         .drawer-pill-item:hover {
             transform: translateX(4px);
-            background: #f8fafc;
-            color: #4f46e5;
+            background: #eff6ff;
+            color: #2563eb;
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.25);
             text-decoration: none;
         }
 
@@ -476,7 +487,7 @@
         }
 
         /* =========================================================
-           5-BANNER ROTATING CAROUSEL (EVERY 10 QUESTIONS)
+           5-BANNER ROTATING CAROUSEL
         ========================================================= */
         .mid-carousel-wrapper {
             margin: 32px 0 40px;
@@ -640,7 +651,7 @@
         .icon-convert { color: #8b5cf6; }
 
         /* =========================================================
-           SEO IN-DEPTH ARTICLE & EXPLANATION
+           SEO IN-DEPTH ARTICLE
         ========================================================= */
         .seo-content {
             background: var(--card);
@@ -779,7 +790,6 @@
             </button>
         </div>
 
-        <!-- Standard Two-Row Navigation Pills -->
         <nav class="nav-pills-row">
             <a class="header-pill" href="index.html">Home</a>
             <a class="header-pill" href="index.html#categoriesContainer">All Tools</a>
@@ -796,7 +806,7 @@
         </div>
     </header>
 
-    <!-- Side Navigation Drawer -->
+    <!-- Side Navigation Drawer (Updated to Deep Midnight Navy) -->
     <div class="drawer-overlay" id="menuOverlay"></div>
     <aside class="side-drawer" id="navDrawer">
         <div class="drawer-header">
@@ -812,11 +822,11 @@
             <a class="drawer-pill-item" href="web-security-tools.html"><i class="fa-solid fa-shield-halved" style="color:#0891b2;"></i> Web & Security</a>
             <a class="drawer-pill-item" href="calculators.html"><i class="fa-solid fa-calculator" style="color:#4f46e5;"></i> Calculators</a>
             <a class="drawer-pill-item" href="converters.html"><i class="fa-solid fa-arrows-left-right" style="color:#e11d48;"></i> Converters</a>
-            <a class="drawer-pill-item" href="blog.html"><i class="fa-solid fa-newspaper" style="color:#475569;"></i> Blog</a>
-            <a class="drawer-pill-item" href="about.html"><i class="fa-solid fa-circle-info" style="color:#475569;"></i> About</a>
-            <a class="drawer-pill-item" href="contact.html"><i class="fa-solid fa-envelope" style="color:#475569;"></i> Contact</a>
-            <a class="drawer-pill-item" href="privacy.html"><i class="fa-solid fa-lock" style="color:#475569;"></i> Privacy Policy</a>
-            <a class="drawer-pill-item" href="terms.html"><i class="fa-solid fa-file-contract" style="color:#475569;"></i> Terms & Conditions</a>
+            <a class="drawer-pill-item" href="blog.html"><i class="fa-solid fa-newspaper" style="color:#64748b;"></i> Blog</a>
+            <a class="drawer-pill-item" href="about.html"><i class="fa-solid fa-circle-info" style="color:#64748b;"></i> About</a>
+            <a class="drawer-pill-item" href="contact.html"><i class="fa-solid fa-envelope" style="color:#64748b;"></i> Contact</a>
+            <a class="drawer-pill-item" href="privacy.html"><i class="fa-solid fa-lock" style="color:#64748b;"></i> Privacy Policy</a>
+            <a class="drawer-pill-item" href="terms.html"><i class="fa-solid fa-file-contract" style="color:#64748b;"></i> Terms & Conditions</a>
         </div>
     </aside>
 
@@ -1420,7 +1430,7 @@
         drawerClose.addEventListener("click", closeDrawer);
         overlay.addEventListener("click", closeDrawer);
 
-        // 5-Banner Rotator Datasets (You can customize links to your Hostinger or Tool links)
+        // 5-Banner Rotator Datasets (You can easily customize image & link to your Hostinger/Affiliate links)
         const CAROUSEL_SETS = {
             1: [
                 { image: "assets/banner-1.webp", link: "image-compressor.html", title: "Exact 50KB Image Compressor" },
@@ -1459,7 +1469,7 @@
             ]
         };
 
-        // Initialize all 5 Banner Carousels
+        // Initialize All 5 Banner Carousels
         function initCarousel(id, banners) {
             const track = document.getElementById(`carouselTrack${id}`);
             const dotsContainer = document.getElementById(`carouselDots${id}`);
@@ -1537,7 +1547,7 @@
             startTimer();
         }
 
-        // Initialize All 5 Banners
+        // Initialize All 5 Carousels
         for (let i = 1; i <= 5; i++) {
             initCarousel(i, CAROUSEL_SETS[i]);
         }
