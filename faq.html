@@ -129,12 +129,12 @@
         }
 
         /* =========================================================
-           HEADER
+           HEADER (WITH TVZ BRAND BADGE & REFINED SLATE-NAVY GRADIENT)
         ========================================================= */
         .site-header {
-            background: linear-gradient(135deg, #0f172a 0%, #172554 55%, #1d4ed8 100%);
+            background: linear-gradient(135deg, #090e1a 0%, #0f172a 45%, #172554 85%, #1e3a8a 100%);
             color: white;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
             position: relative;
             padding-bottom: 24px;
         }
@@ -148,8 +148,33 @@
             justify-content: space-between;
         }
 
+        /* TVZ Logo & Brand Cluster */
+        .brand-container {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .brand-badge {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            background: linear-gradient(145deg, #2563eb, #7c3aed);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 16px rgba(37, 99, 235, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            flex-shrink: 0;
+        }
+
         .brand-text {
-            font-size: 26px;
+            font-size: 24px;
             font-weight: 850;
             letter-spacing: -0.8px;
             color: #ffffff;
@@ -288,7 +313,7 @@
             right: -340px;
             width: 320px;
             height: 100%;
-            background: linear-gradient(160deg, #0f172a 0%, #172554 60%, #1e3a8a 100%);
+            background: linear-gradient(160deg, #090e1a 0%, #0f172a 50%, #172554 100%);
             box-shadow: -10px 0 35px rgba(15, 23, 42, 0.5);
             z-index: 2001;
             padding: 24px 20px;
@@ -312,8 +337,27 @@
             margin-bottom: 18px;
         }
 
+        .drawer-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .drawer-badge {
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            background: linear-gradient(145deg, #2563eb, #7c3aed);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 13px;
+            font-weight: 900;
+        }
+
         .drawer-title {
-            font-size: 20px;
+            font-size: 19px;
             font-weight: 850;
             color: #ffffff;
             letter-spacing: -0.5px;
@@ -740,6 +784,9 @@
             font-weight: 850;
             color: white;
             margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .footer p {
@@ -774,12 +821,15 @@
 <body>
 
     <!-- =========================================================
-         HEADER
+         HEADER (WITH LOGO BADGE + REFINED MIDNIGHT GRADIENT)
     ========================================================= -->
     <header class="site-header">
         <div class="header-top">
-            <a class="brand-text" href="index.html">
-                Tveezal <span>Tools</span>
+            <a class="brand-container" href="index.html">
+                <div class="brand-badge">TVZ</div>
+                <div class="brand-text">
+                    Tveezal <span>Tools</span>
+                </div>
             </a>
 
             <!-- 3 Solid White Dots (● ● ●) -->
@@ -812,7 +862,10 @@
     <div class="drawer-overlay" id="menuOverlay"></div>
     <aside class="side-drawer" id="navDrawer">
         <div class="drawer-header">
-            <div class="drawer-title">Tveezal Tools</div>
+            <div class="drawer-brand">
+                <div class="drawer-badge">TVZ</div>
+                <div class="drawer-title">Tveezal Tools</div>
+            </div>
             <button class="drawer-close-btn" id="drawerClose">✕</button>
         </div>
         <div class="drawer-links">
@@ -1328,7 +1381,7 @@
                     <span>QR & Barcode</span>
                 </a>
                 <a class="cat-tag-btn" href="text-string-tools.html">
-                    <svg class="cat-icon-svg icon-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M11 4H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                    <svg class="cat-icon-svg icon-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
                     <span>Text & String</span>
                 </a>
                 <a class="cat-tag-btn" href="web-security-tools.html">
@@ -1392,7 +1445,10 @@
     ========================================================= -->
     <footer class="footer">
         <div class="footer-inner">
-            <div class="footer-brand">Tveezal Tools</div>
+            <div class="footer-brand">
+                <div class="brand-badge" style="width:34px; height:34px; font-size:13px;">TVZ</div>
+                <div>Tveezal Tools</div>
+            </div>
             <p>Simple, ultra-fast browser-based online tools for everyday productivity and web tasks.</p>
             <div class="footer-links">
                 <a href="index.html">Home</a>
