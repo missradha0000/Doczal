@@ -60,18 +60,18 @@
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "Why did previous compressors swap image sizes across photos?",
+              "name": "How does Tveezal Image Compressor reduce photo size to exact 50 KB or 20 KB?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Asynchronous loading can cause file queue mismatches. Tveezal Tools uses an isolated unique-ID binding pipeline ensuring every image is processed strictly on its own card."
+                "text": "Our compressor uses an iterative binary search engine that adjusts quality factors automatically until your file meets your target KB constraint within ±1-2 KB."
               }
             },
             {
               "@type": "Question",
-              "name": "Can I tune each image size independently?",
+              "name": "Can I tune each image size independently in batch upload?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes! Every single photo card features its own dedicated 'Target KB' input and 'Set' button alongside the global 'Apply to All' tool."
+                "text": "Yes! Every single photo card features its own dedicated 'Target KB' input alongside the global 'Apply to All' tool."
               }
             }
           ]
@@ -123,8 +123,12 @@
         }
 
         a {
-            color: inherit;
+            color: var(--blue);
             text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
         }
 
         .container {
@@ -133,7 +137,7 @@
         }
 
         /* =========================================================
-           1. PERMANENT STICKY PURE WHITE TOP STRIP (HOMEPAGE MATCH)
+           1. PERMANENT STICKY PURE WHITE TOP STRIP
         ========================================================= */
         .sticky-white-nav {
             position: sticky;
@@ -226,7 +230,7 @@
         }
 
         /* =========================================================
-           2. VIBRANT BLUE SUB-HEADER HERO WITH BACK & SHARE TOOL
+           2. VIBRANT BLUE SUB-HEADER WITH BACK & SHARE BUTTONS
         ========================================================= */
         .blue-hero-header {
             background: var(--vibrant-blue);
@@ -265,11 +269,13 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
+            text-decoration: none;
         }
 
         .header-pill:hover {
             background: rgba(255, 255, 255, 0.22);
             transform: translateY(-1px);
+            text-decoration: none;
         }
 
         .header-pill.active {
@@ -279,7 +285,7 @@
             box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
         }
 
-        /* Back Button Located Safely Under the White Bar */
+        /* Back Button Located Below White Strip */
         .tool-back-btn {
             border: 1px solid rgba(255, 255, 255, 0.35);
             background: rgba(255, 255, 255, 0.18);
@@ -292,15 +298,17 @@
             align-items: center;
             gap: 7px;
             transition: all 0.2s ease;
+            text-decoration: none;
         }
 
         .tool-back-btn:hover {
             background: #ffffff;
             color: var(--blue);
             transform: translateX(-2px);
+            text-decoration: none;
         }
 
-        /* Specific Tool Share Button in Top Blue Strip */
+        /* Specific Tool Share Button */
         .tool-share-btn {
             background: rgba(255, 255, 255, 0.15);
             border: 1px solid rgba(255, 255, 255, 0.3);
@@ -456,6 +464,7 @@
             gap: 12px;
             box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
             transition: all 0.2s ease;
+            text-decoration: none;
         }
 
         .drawer-pill-item:hover {
@@ -464,6 +473,7 @@
             border-color: #bfdbfe;
             color: #2563eb;
             box-shadow: 0 4px 14px rgba(37, 99, 235, 0.12);
+            text-decoration: none;
         }
 
         .drawer-social-section {
@@ -500,11 +510,13 @@
             color: #475569;
             font-size: 15px;
             transition: all 0.2s ease;
+            text-decoration: none;
         }
 
         .social-link-btn:hover {
             transform: translateY(-2px);
             color: #ffffff;
+            text-decoration: none;
         }
 
         .social-link-btn.wa:hover { background: #25d366; border-color: #25d366; }
@@ -864,7 +876,7 @@
             margin-bottom: 3px;
         }
 
-        /* Dots Positioned Below/Outside Banner */
+        /* Dots Cleanly Positioned Below Banner */
         .banner-dots-wrapper {
             display: flex;
             justify-content: center;
@@ -907,7 +919,7 @@
         }
 
         /* =========================================================
-           6. SEO IN-DEPTH ARTICLE & 10 FAQS
+           6. TRANSPARENT GREEN VISUAL FLOW & SEO ARTICLE
         ========================================================= */
         .seo-content-box {
             background: #ffffff;
@@ -916,17 +928,20 @@
             padding: clamp(24px, 4vw, 44px);
             margin-top: 32px;
             box-shadow: var(--shadow);
+            text-align: left;
         }
 
         .seo-content-box h2 {
             font-size: clamp(22px, 3.5vw, 32px);
             letter-spacing: -0.8px;
             margin-bottom: 12px;
+            color: var(--dark);
         }
 
         .seo-content-box h3 {
             font-size: 19px;
             margin: 26px 0 10px;
+            color: var(--dark);
         }
 
         .seo-content-box p {
@@ -943,6 +958,92 @@
         }
 
         .seo-content-box li { margin: 6px 0; }
+
+        /* Transparent Green Visual Flowchart Box */
+        .visual-diagram-card {
+            background: rgba(240, 253, 244, 0.75);
+            border: 1.5px solid #bbf7d0;
+            backdrop-filter: blur(6px);
+            border-radius: 20px;
+            padding: 22px;
+            margin: 24px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 16px;
+            text-align: center;
+        }
+
+        .diagram-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            max-width: 140px;
+        }
+
+        .diagram-icon-svg {
+            width: 44px;
+            height: 44px;
+            padding: 9px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(22, 101, 52, 0.12);
+        }
+
+        .diagram-step span {
+            font-size: 12px;
+            font-weight: 800;
+            color: #166534;
+        }
+
+        .diagram-arrow {
+            font-size: 20px;
+            color: #16a34a;
+            font-weight: 900;
+        }
+
+        /* Step-by-Step Numbered Cards */
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 18px;
+            margin: 20px 0 28px;
+        }
+
+        .step-card {
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 20px;
+            background: #f8fafc;
+            text-align: center;
+        }
+
+        .step-badge {
+            width: 36px;
+            height: 36px;
+            background: var(--blue);
+            color: white;
+            font-weight: 800;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+        }
+
+        .step-card h4 {
+            font-size: 15px;
+            margin-bottom: 6px;
+            color: var(--dark);
+        }
+
+        .step-card p {
+            font-size: 13px;
+            color: var(--muted);
+            margin: 0;
+        }
 
         .feature-grid {
             display: grid;
@@ -962,6 +1063,7 @@
             font-size: 15px;
             font-weight: 700;
             margin-bottom: 6px;
+            color: var(--dark);
         }
 
         .feature-box p {
@@ -970,16 +1072,16 @@
             margin: 0;
         }
 
-        /* 10 FAQ Accordion */
+        /* FAQ Accordion */
         .faq-section {
-            padding: 36px 0 10px;
+            padding: 30px 0 10px;
         }
 
         .faq-list {
             display: flex;
             flex-direction: column;
             gap: 10px;
-            margin-top: 20px;
+            margin-top: 18px;
         }
 
         .faq-item {
@@ -1013,7 +1115,7 @@
             overflow: hidden;
             padding: 0 20px;
             color: var(--text);
-            font-size: 13px;
+            font-size: 13.5px;
             line-height: 1.65;
         }
 
@@ -1063,7 +1165,7 @@
             transition: var(--transition);
         }
 
-        .footer-link:hover { color: #ffffff; }
+        .footer-link:hover { color: #ffffff; text-decoration: none; }
 
         .footer-share-box {
             margin-top: 18px;
@@ -1116,7 +1218,7 @@
 <body>
 
     <!-- =========================================================
-         1. PERMANENT STICKY PURE WHITE TOP STRIP
+         1. PERMANENT STICKY PURE WHITE TOP STRIP (HOMEPAGE MATCH)
     ========================================================= -->
     <div class="sticky-white-nav">
         <div class="sticky-nav-inner">
@@ -1215,7 +1317,7 @@
 
     <main class="container">
         <!-- =========================================================
-             4. COMPRESSOR WORKBENCH
+             3. COMPRESSOR WORKBENCH
         ========================================================= -->
         <section class="tool-workbench">
             <input type="file" id="fileInput" multiple accept="image/jpeg,image/png,image/webp,image/bmp" style="display: none;">
@@ -1258,7 +1360,7 @@
         </div>
 
         <!-- =========================================================
-             5. SLIM FINGER-PROFILE 10-BANNER RIBBON (DOTS OUTSIDE)
+             4. SLIM FINGER-PROFILE 10-BANNER RIBBON (DOTS OUTSIDE)
         ========================================================= -->
         <section class="banner-section" style="padding-top: 0;">
             <div class="banner-shell">
@@ -1271,49 +1373,105 @@
         </section>
 
         <!-- =========================================================
-             6. SEO IN-DEPTH ARTICLE & 10 FAQS
+             5. TRANSPARENT GREEN FLOW, HOW TO USE & RICH SEO
         ========================================================= -->
         <article class="seo-content-box">
-            <h2>How to Compress Images to Exact KB Without Quality Loss</h2>
-            <p>Most online file compressors either decrease your photo's pixel dimensions or wash out colors through heavy gamma compression. <strong>Tveezal Image Compressor</strong> uses an intelligent client-side binary search matrix that tests file headers and canvas buffers locally. Whether you need an exact <strong>50KB picture for UPSC, SSC, NEET, or Bank exams</strong>, or a <strong>20KB signature photo</strong>, our engine delivers exact results within milliseconds.</p>
+            <h2>Why Tveezal Exact KB Image Compressor is the Best Tool in 2026?</h2>
+            <p>The <strong>Tveezal Exact KB Image Compressor</strong> solves the common issue of size mismatches and washed-out colors. When submitting images for government recruitment portals (UPSC, SSC, IBPS, Railways) or academic applications (NEET, JEE), strict requirements often demand photos under <strong>50 KB or 20 KB</strong>. Our tool uses client-side binary search calibration to hit your required file size within ±1-2 KB without quality loss. Need more edits? You can resize dimensions with our <a href="image-resizer.html">Image Resizer</a>, switch formats using the <a href="format-converter.html">Format Converter</a>, create transparent assets with <a href="background-remover.html">Background Remover</a>, or secure documents via our <a href="pdf-tools.html">PDF Tools</a>.</p>
 
-            <div class="feature-grid">
-                <div class="feature-box">
-                    <h4>Exact Target KB Guarantee</h4>
-                    <p>Enter any custom number (like 35KB or 50KB) and our algorithm calculates the precise threshold.</p>
+            <!-- Transparent Green Visual Flowchart Box -->
+            <div class="visual-diagram-card">
+                <div class="diagram-step">
+                    <svg class="diagram-icon-svg" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                    <span>1. Batch Select (Max 10)</span>
                 </div>
-                <div class="feature-box">
-                    <h4>100% Privacy & Data Safety</h4>
-                    <p>Your photos stay inside your device's memory. No image data is ever transferred to cloud servers.</p>
+                <div class="diagram-arrow">➔</div>
+                <div class="diagram-step">
+                    <svg class="diagram-icon-svg" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>2. Exact KB Binary Search</span>
                 </div>
-                <div class="feature-box">
-                    <h4>Batch Process 10 Files</h4>
-                    <p>Upload up to 10 photos simultaneously and compress them all with independent KB controls.</p>
+                <div class="diagram-arrow">➔</div>
+                <div class="diagram-step">
+                    <svg class="diagram-icon-svg" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    <span>3. Lossless Color Lock</span>
                 </div>
-                <div class="feature-box">
-                    <h4>Instant WhatsApp Share</h4>
-                    <p>Share newly compressed images directly via messaging apps using native Web Share integration.</p>
+                <div class="diagram-arrow">➔</div>
+                <div class="diagram-step">
+                    <svg class="diagram-icon-svg" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+                    <span>4. WhatsApp & ZIP Download</span>
                 </div>
             </div>
 
-            <h3>Recommended Settings for Government & Exam Forms</h3>
+            <!-- Numbered Step-by-Step Usage Guide -->
+            <h3>How to Use the Batch Image Compressor Step-by-Step</h3>
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-badge">1</div>
+                    <h4>Upload Up to 10 Images</h4>
+                    <p>Drag and drop or select your photos. Each image renders on its own isolated card showing original KB size.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-badge">2</div>
+                    <h4>Set Your Target Size</h4>
+                    <p>Pick a preset (50 KB, 20 KB, 100 KB) or enter custom sizes per card for individual adjustments.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-badge">3</div>
+                    <h4>Download or Share Instantly</h4>
+                    <p>Download single images, save a packaged ZIP, or share directly to WhatsApp using the share button.</p>
+                </div>
+            </div>
+
+            <!-- Detailed Features -->
+            <h3>Key Features Built for High Precision</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Independent Card Binding</h4>
+                    <p>Files are processed using isolated session IDs, ensuring settings on Photo #1 never alter Photo #2.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Protected True Color Matrix</h4>
+                    <p>Canvas color profiling keeps whites bright and prevents dark areas from shifting or fading.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Zero Server Data Storage</h4>
+                    <p>All operations run in local browser memory via HTML5 Canvas APIs, keeping your files private.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Direct WhatsApp & Social Sharing</h4>
+                    <p>Send compressed photos directly to WhatsApp chats, Telegram groups, or email drafts without saving locally first.</p>
+                </div>
+            </div>
+
+            <!-- Recommended Guidelines List -->
+            <h3>Recommended File Sizes for Official Portals</h3>
             <ul>
-                <li><strong>Passport Photo:</strong> Target 50 KB (Format: JPEG / JPG, Aspect Ratio 3.5cm x 4.5cm).</li>
-                <li><strong>Candidate Signature:</strong> Target 20 KB (Format: JPEG / JPG, Black ink on white paper).</li>
-                <li><strong>ID & Certificate Scans:</strong> Target 100 KB to 200 KB for legible text recognition.</li>
+                <li><strong>Passport Photo for Exams:</strong> 50 KB (Format: JPEG / JPG, Size: 3.5cm x 4.5cm).</li>
+                <li><strong>Candidate Signature:</strong> 20 KB (Format: JPEG / JPG, Dark ink on clean white background).</li>
+                <li><strong>Document & ID Proof Scans:</strong> 100 KB to 200 KB for clear text readability. Use our <a href="pdf-merge.html">PDF Merge</a> to combine multiple pages.</li>
             </ul>
 
-            <!-- 10 Real-World FAQs -->
+            <!-- Related Tools Section -->
+            <h3>Explore Related Image & Text Tools</h3>
+            <p>Tveezal Tools provides a complete ecosystem of browser utilities:</p>
+            <ul>
+                <li><a href="image-to-base64.html">Image to Base64 Converter</a> – Embed images directly into HTML and CSS without server calls.</li>
+                <li><a href="font-changer.html">Fancy Font Changer</a> – Generate stylish Unicode fonts for bios and social captions.</li>
+                <li><a href="word-counter.html">Word Counter Tool</a> – Count words, characters, and reading times for essays.</li>
+                <li><a href="internet-speed-test.html">Internet Speed Tester</a> – Check network throughput, ping, and public IP address.</li>
+            </ul>
+
+            <!-- 10 FAQs with Clickable Links -->
             <section class="faq-section">
                 <h3 style="font-size: 22px; margin-bottom: 4px;">Frequently Asked Questions (Image Compression)</h3>
-                <p style="color: var(--muted); font-size: 13.5px;">Everything you need to know about photo compression and formats.</p>
+                <p style="color: var(--muted); font-size: 13.5px;">Common questions about file limits, privacy, and output quality.</p>
 
                 <div class="faq-list" id="faqList"></div>
             </section>
         </article>
 
         <!-- =========================================================
-             7. BOTTOM FEATURED 10-BANNER CAROUSEL (DOTS OUTSIDE)
+             6. BOTTOM FEATURED 10-BANNER CAROUSEL (DOTS OUTSIDE)
         ========================================================= -->
         <section class="banner-section" style="margin-top: 20px;">
             <div class="banner-shell">
@@ -1332,7 +1490,7 @@
     </main>
 
     <!-- =========================================================
-         8. FOOTER WITH INTEGRATED SOCIAL MEDIA & SHARE WEBSITE
+         7. FOOTER WITH INTEGRATED SOCIAL MEDIA & SHARE WEBSITE
     ========================================================= -->
     <footer class="footer-section">
         <div class="container">
@@ -1420,7 +1578,7 @@
             }
         });
 
-        // 2. DEDICATED SHARE ENGINES (TOOL SHARE vs FULL WEBSITE SHARE)
+        // 2. DEDICATED SHARE ENGINES
         const shareToolBtn = document.getElementById("shareToolBtn");
         const footerShareWebsiteBtn = document.getElementById("footerShareWebsiteBtn");
         const drawerShareWebsiteBtn = document.getElementById("drawerShareWebsiteBtn");
@@ -1606,9 +1764,9 @@
                 const threshold = Math.min(50, carousel.offsetWidth * 0.14);
 
                 if (movedBy < -threshold) {
-                    current = (current + 1) % dataset.length; // Infinite: last -> first
+                    current = (current + 1) % dataset.length;
                 } else if (movedBy > threshold) {
-                    current = (current - 1 + dataset.length) % dataset.length; // Infinite: first -> last
+                    current = (current - 1 + dataset.length) % dataset.length;
                 }
 
                 setPositionByIndex();
@@ -1668,7 +1826,6 @@
             const allowed = Array.from(selectedFiles).filter(f => f.type.startsWith("image/"));
             if (allowed.length === 0) return;
 
-            // Maximum 10 photos in a single batch
             const combined = [...filesQueue, ...allowed].slice(0, 10);
             filesQueue = [];
 
@@ -1735,7 +1892,6 @@
             });
         }
 
-        // Preset Target Pill buttons
         document.querySelectorAll(".preset-pill-btn").forEach(btn => {
             btn.addEventListener("click", () => {
                 document.querySelectorAll(".preset-pill-btn").forEach(b => b.classList.remove("active"));
@@ -1858,7 +2014,7 @@
                     files: [file]
                 }).catch(() => {});
             } else {
-                alert("Sharing is supported on mobile browsers. Downloading image directly!");
+                alert("Direct sharing supported on mobile. Downloading image file now!");
                 downloadSingle(id);
             }
         };
@@ -1878,18 +2034,48 @@
             link.click();
         });
 
-        // 7. 10 REAL-WORLD FAQS
+        // 7. 10 REAL-WORLD FAQS WITH RELEVANT INTERNAL LINKS
         const FAQS = [
-            { q: "How does Tveezal Image Compressor shrink photos to exact 50 KB or 20 KB?", a: "Our tool executes a binary search algorithm in browser memory that fine-tunes compression matrices repeatedly until the output matches your exact target constraint within ±1-2 KB." },
-            { q: "Are my sensitive photos and government documents uploaded to your servers?", a: "Never. All compression calculations occur entirely in your local browser sandbox via modern HTML5 Canvas APIs. Zero bits are transferred over any network." },
-            { q: "Can I compress photos for UPSC, SSC, NEET, and Government job portals?", a: "Yes. Simply choose the 50 KB or 20 KB preset (or type your exact requirement), compress, and upload the resulting JPG directly to any portal without size rejection." },
-            { q: "Will photo dimensions or colors fade during compression?", a: "No. We enforce strict bilinear pixel interpolation and keep sRGB color spaces intact to avoid washed-out hues or gamma shifts." },
-            { q: "How many images can I batch compress at once?", a: "You can upload and compress up to 10 photos simultaneously in a single session with independent target KB controls for each photo." },
-            { q: "What formats can I upload?", a: "You can upload JPG, JPEG, PNG, WebP, and BMP images. All outputs are cleanly exported as universally compatible JPG files." },
-            { q: "Can I download all compressed images at once?", a: "Yes. Once you click 'Compress All', an active 'Download All (ZIP)' button will appear to save all files in a single archive." },
-            { q: "Can I share compressed photos directly to WhatsApp or Telegram?", a: "Yes. Each image card has a dedicated WhatsApp / Share button using the Web Share API to send photos without saving them first." },
-            { q: "Does Tveezal Tools add watermarks to my photos?", a: "No. All compressed photos are 100% clean and free of watermarks or promotional logos." },
-            { q: "Does the tool work without an active internet connection?", a: "Once this page is loaded in your browser cache, the core compression script works completely offline." }
+            { 
+                q: "How does Tveezal Image Compressor shrink photos to exact 50 KB or 20 KB?", 
+                a: "Our tool executes a binary search algorithm in local browser memory that fine-tunes compression matrices repeatedly until the output matches your target constraint within ±1-2 KB. If you need dimension resizing as well, use our <a href='image-resizer.html'>Image Resizer</a>." 
+            },
+            { 
+                q: "Are my sensitive documents and passport photos uploaded to your servers?", 
+                a: "Never. All compression calculations occur entirely in your local browser sandbox via modern HTML5 Canvas APIs. You can verify this in our <a href='privacy.html'>Privacy Policy</a>." 
+            },
+            { 
+                q: "Can I compress photos for UPSC, SSC, NEET, and Government job portals?", 
+                a: "Yes. Simply choose the 50 KB or 20 KB preset, compress, and upload the resulting JPG directly to any official exam portal without file size rejection." 
+            },
+            { 
+                q: "Will photo dimensions or colors fade during compression?", 
+                a: "No. We enforce strict bilinear pixel interpolation and keep sRGB color spaces intact to avoid washed-out hues. To convert between WEBP or PNG afterwards, check out our <a href='format-converter.html'>Format Converter</a>." 
+            },
+            { 
+                q: "How many images can I batch compress at once?", 
+                a: "You can upload and compress up to 10 photos simultaneously in a single session with independent target KB controls for each card." 
+            },
+            { 
+                q: "What formats can I upload to this compressor?", 
+                a: "You can upload JPG, JPEG, PNG, WebP, and BMP images. All outputs are cleanly exported as universally compatible JPG files. For code assets, you can also try our <a href='image-to-base64.html'>Image to Base64 Tool</a>." 
+            },
+            { 
+                q: "Can I download all compressed images at once?", 
+                a: "Yes. Once you click 'Compress All', an active 'Download All (ZIP)' button will appear to bundle all files into a single archive." 
+            },
+            { 
+                q: "Can I share compressed photos directly to WhatsApp or Telegram?", 
+                a: "Yes. Each image card has a dedicated WhatsApp / Share button using the Web Share API to send photos without having to save them to your gallery first." 
+            },
+            { 
+                q: "Does Tveezal Tools add watermarks to my photos?", 
+                a: "No. All compressed photos are 100% clean and free of watermarks. If you wish to add your own branding, use our <a href='add-watermark.html'>Add Watermark Tool</a>." 
+            },
+            { 
+                q: "How do I compress images inside a PDF document?", 
+                a: "If your images are inside a document, use our <a href='pdf-to-image.html'>PDF to Image</a> tool to extract them first, compress them here, and recombine with <a href='pdf-merge.html'>PDF Merge</a>." 
+            }
         ];
 
         const faqList = document.getElementById("faqList");
@@ -1913,7 +2099,7 @@
             faqList.appendChild(div);
         });
 
-        // Initialize Carousels with dots below
+        // Initialize Carousels with dots outside/below
         setupCarousel("slimRibbonTrack", "slimRibbonDots", SLIM_BANNERS);
         setupCarousel("bottomBannerTrack", "bottomBannerDots", BOTTOM_BANNERS);
     </script>
