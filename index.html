@@ -13,7 +13,6 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <!-- Initial Status Bar: White when header is blue at top -->
     <meta name="theme-color" content="#ffffff" id="metaThemeColor">
 
     <!-- Primary SEO Meta Tags -->
@@ -62,7 +61,6 @@
             --line: #e2e8f0;
             --blue: #2563eb;
             --blue-hover: #1d4ed8;
-            /* Original Mast Vibrant Blue Palette */
             --vibrant-blue-theme: linear-gradient(145deg, #0b1e4f 0%, #153e90 45%, #1e58c8 100%);
             --shadow: 0 10px 30px rgba(15, 23, 42, 0.055);
             --transition: 0.25s ease;
@@ -106,7 +104,7 @@
         }
 
         /* =========================================================
-           1. SMART DYNAMIC HEADER (BLUE AT TOP -> WHITE ON SCROLL)
+           1. SMART DYNAMIC HEADER
         ========================================================= */
         .site-header {
             position: sticky;
@@ -134,7 +132,6 @@
             text-decoration: none;
         }
 
-        /* Logo Badge: White with Blue text at Top */
         .logo-tvz {
             width: 42px;
             height: 42px;
@@ -168,7 +165,6 @@
             text-shadow: 0 0 15px rgba(96, 165, 250, 0.45);
         }
 
-        /* 3 Solid Dots Menu Trigger */
         .menu-trigger-btn {
             background: rgba(255, 255, 255, 0.15);
             border: 1px solid rgba(255, 255, 255, 0.25);
@@ -198,7 +194,7 @@
             transition: background-color 0.3s ease;
         }
 
-        /* Scrolled State: Frozen Pure White Bar */
+        /* Scrolled state */
         .site-header.scrolled {
             background: #ffffff;
             border-bottom: 1px solid #e2e8f0;
@@ -299,7 +295,7 @@
         }
 
         /* =========================================================
-           3. FULL WHITE SIDE DRAWER WITH NAME DIVIDER & SOCIAL
+           3. FULL WHITE SIDE DRAWER
         ========================================================= */
         .drawer-overlay {
             position: fixed;
@@ -459,7 +455,7 @@
         .social-link-btn.tw:hover { background: #000000; border-color: #000000; }
 
         /* =========================================================
-           4. REAL-TIME TOUCH DRAG BANNER CAROUSELS
+           4. BANNER CAROUSELS (1:1 TOUCH & LOOP)
         ========================================================= */
         .banner-section {
             padding: 20px 0 10px;
@@ -488,7 +484,6 @@
             cursor: grabbing;
         }
 
-        /* Slim Middle Banner Profile */
         .banner-carousel.slim-carousel {
             height: clamp(75px, 11vw, 100px);
             border-radius: 16px;
@@ -499,7 +494,6 @@
             width: 100%;
             height: 100%;
             will-change: transform;
-            transition: transform 0.45s cubic-bezier(.22, .61, .36, 1);
         }
 
         .banner-slide {
@@ -664,7 +658,7 @@
         }
 
         /* =========================================================
-           6. CATEGORY SECTIONS (WITH CLEAN VIEW MORE/LESS)
+           6. CATEGORY SECTIONS
         ========================================================= */
         .categories-container {
             display: flex;
@@ -678,6 +672,7 @@
             border-radius: 24px;
             padding: 26px;
             box-shadow: var(--shadow);
+            scroll-margin-top: 80px; /* Precise scroll landing offset */
         }
 
         .category-header {
@@ -782,7 +777,6 @@
             transform: translateX(3px);
         }
 
-        /* Clean Universal View More/Less Button */
         .more-tools-wrapper {
             text-align: center;
             margin-top: 16px;
@@ -806,7 +800,6 @@
             color: var(--blue);
         }
 
-        /* Strategic Ad Slot */
         .ad-block {
             width: 100%;
             min-height: 65px;
@@ -888,7 +881,6 @@
             margin: 0;
         }
 
-        /* FAQ Accordions */
         .faq-section {
             padding: 44px 0 20px;
         }
@@ -1008,14 +1000,12 @@
     <header class="site-header" id="dynamicHeader">
         <div class="header-top">
             <a class="brand-container" href="index.html">
-                <!-- TVZ Logo Badge (White box on top, Blue on scroll) -->
                 <div class="logo-tvz" id="brandLogoBadge">TVZ</div>
                 <div class="brand-text">
                     TVEEZAL <span>Tools</span>
                 </div>
             </a>
 
-            <!-- 3 Solid White Dots Menu Button -->
             <button class="menu-trigger-btn" id="menuButton" aria-label="Open Navigation">
                 <div class="three-dots-solid">
                     <span class="dot-solid"></span>
@@ -1026,7 +1016,7 @@
         </div>
     </header>
 
-    <!-- Sub-Hero Section (Vibrant Blue Zone) -->
+    <!-- Sub-Hero Section -->
     <section class="sub-hero-section">
         <nav class="nav-pills-row">
             <a class="header-pill active" href="index.html">Home</a>
@@ -1043,7 +1033,7 @@
         </div>
     </section>
 
-    <!-- Full White Side Navigation Drawer with Social Media Strip -->
+    <!-- Full White Side Navigation Drawer with Social Strip -->
     <div class="drawer-overlay" id="menuOverlay"></div>
     <aside class="side-drawer" id="navDrawer">
         <div class="drawer-header">
@@ -1069,24 +1059,21 @@
             <a class="drawer-pill-item" href="terms.html"><i class="fa-solid fa-file-contract" style="color:#64748b;"></i> Terms & Conditions</a>
         </div>
 
-        <!-- Social Media Icons in Drawer -->
         <div class="drawer-social-section">
             <div class="drawer-social-title">Connect With Us</div>
             <div class="social-icons-flex">
-                <a class="social-link-btn wa" href="https://whatsapp.com/channel/YOUR_LINK" target="_blank" aria-label="WhatsApp Channel"><i class="fa-brands fa-whatsapp"></i></a>
-                <a class="social-link-btn tg" href="https://t.me/YOUR_LINK" target="_blank" aria-label="Telegram Channel"><i class="fa-brands fa-telegram"></i></a>
-                <a class="social-link-btn yt" href="https://youtube.com/@YOUR_LINK" target="_blank" aria-label="YouTube Channel"><i class="fa-brands fa-youtube"></i></a>
-                <a class="social-link-btn ig" href="https://instagram.com/YOUR_LINK" target="_blank" aria-label="Instagram Profile"><i class="fa-brands fa-instagram"></i></a>
-                <a class="social-link-btn fb" href="https://facebook.com/YOUR_LINK" target="_blank" aria-label="Facebook Page"><i class="fa-brands fa-facebook-f"></i></a>
-                <a class="social-link-btn tw" href="https://x.com/YOUR_LINK" target="_blank" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+                <a class="social-link-btn wa" href="https://whatsapp.com/channel/YOUR_LINK" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                <a class="social-link-btn tg" href="https://t.me/YOUR_LINK" target="_blank" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+                <a class="social-link-btn yt" href="https://youtube.com/@YOUR_LINK" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                <a class="social-link-btn ig" href="https://instagram.com/YOUR_LINK" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a class="social-link-btn fb" href="https://facebook.com/YOUR_LINK" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a class="social-link-btn tw" href="https://x.com/YOUR_LINK" target="_blank" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
             </div>
         </div>
     </aside>
 
     <main>
-        <!-- =========================================================
-             BANNER 1: HERO CAROUSEL (TOP 10 BANNERS)
-        ========================================================= -->
+        <!-- Top Hero Carousel -->
         <section class="banner-section">
             <div class="container">
                 <div class="banner-shell">
@@ -1124,16 +1111,14 @@
             </div>
         </section>
 
-        <!-- Tool Categories Container (Includes 2 Slim Ribbon Banners) -->
+        <!-- Tool Categories Container -->
         <section class="container">
             <div class="categories-container" id="categoriesContainer">
-                <!-- Generated dynamically -->
+                <!-- Generated dynamically with memory anchor attributes -->
             </div>
         </section>
 
-        <!-- =========================================================
-             BANNER 4: BOTTOM FEATURED CAROUSEL
-        ========================================================= -->
+        <!-- Bottom Featured Carousel -->
         <section class="banner-section" style="margin-top: 30px;">
             <div class="container">
                 <div class="banner-shell">
@@ -1206,9 +1191,7 @@
         </div>
     </main>
 
-    <!-- =========================================================
-         8. FOOTER WITH INTEGRATED SOCIAL MEDIA
-    ========================================================= -->
+    <!-- Footer -->
     <footer class="footer-section">
         <div class="container">
             <div class="footer-grid">
@@ -1279,11 +1262,9 @@
         window.addEventListener("scroll", () => {
             if (window.scrollY > 35) {
                 dynamicHeader.classList.add("scrolled");
-                // When top bar turns White, status bar switches to Mast Blue (#153e90)
                 if (metaThemeColor) metaThemeColor.setAttribute("content", "#153e90");
             } else {
                 dynamicHeader.classList.remove("scrolled");
-                // When at very top (header is blue), status bar is White (#ffffff)
                 if (metaThemeColor) metaThemeColor.setAttribute("content", "#ffffff");
             }
         });
@@ -1320,7 +1301,6 @@
             { image: "assets/banner-10.webp", link: "format-converter.html", title: "Image Format Converter" }
         ];
 
-        // Slim 10-Banner Ribbon 1 (After PDF Category)
         const SLIM_BANNERS_1 = [
             { image: "assets/slim-banner-1.webp", link: "image-compressor.html", title: "Special Hostinger Offer / Tool Offer" },
             { image: "assets/slim-banner-2.webp", link: "pdf-lock.html", title: "Fast Secure PDF Encryption" },
@@ -1334,7 +1314,6 @@
             { image: "assets/slim-banner-10.webp", link: "format-converter.html", title: "Convert WebP to JPG Cleanly" }
         ];
 
-        // Slim 10-Banner Ribbon 2 (After Web & Security Category)
         const SLIM_BANNERS_2 = [
             { image: "assets/slim-banner-4.webp", link: "internet-speed-test.html", title: "High Speed Fiber & CDN Ping Test" },
             { image: "assets/slim-banner-1.webp", link: "image-compressor.html", title: "Target Exact 20KB for SSC Exam" },
@@ -1361,7 +1340,6 @@
 
         // 5. MASTER TOOLS LIST
         const TOOLS_LIST = [
-            // PDF Tools (10)
             { cat: "pdf", name: "PDF Protector", file: "pdf-protector.html", icon: "fa-shield-halved", desc: "Protect your PDF with security settings" },
             { cat: "pdf", name: "PDF Lock", file: "pdf-lock.html", icon: "fa-lock", desc: "Password-protect your PDF" },
             { cat: "pdf", name: "PDF Unlock", file: "pdf-unlock.html", icon: "fa-unlock", desc: "Remove PDF password protection" },
@@ -1373,7 +1351,6 @@
             { cat: "pdf", name: "PDF Page Editor", file: "pdf-page-editor.html", icon: "fa-pen-to-square", desc: "Edit and manage PDF pages" },
             { cat: "pdf", name: "PDF Page Rearrange", file: "pdf-page-rearrange.html", icon: "fa-arrow-up-arrow-down", desc: "Reorder PDF pages easily" },
 
-            // Image Tools (7)
             { cat: "image", name: "Image Compressor", file: "image-compressor.html", icon: "fa-compress", desc: "Reduce image file size to exact KB" },
             { cat: "image", name: "Format Converter", file: "format-converter.html", icon: "fa-arrows-rotate", desc: "Convert PNG, JPG, WEBP and more" },
             { cat: "image", name: "Image Resizer", file: "image-resizer.html", icon: "fa-expand", desc: "Change image width and height" },
@@ -1382,29 +1359,24 @@
             { cat: "image", name: "Add Watermark", file: "add-watermark.html", icon: "fa-stamp", desc: "Add watermark to images" },
             { cat: "image", name: "Remove Watermark", file: "remove-watermark.html", icon: "fa-wand-magic-sparkles", desc: "Remove unwanted image watermarks" },
 
-            // QR & Barcode Tools (4)
             { cat: "qr", name: "All-in-One QR Generator", file: "qr-generator.html", icon: "fa-qrcode", desc: "Create QR codes for text, URLs and Wi-Fi" },
             { cat: "qr", name: "QR Code Scanner", file: "qr-scanner.html", icon: "fa-camera", desc: "Scan QR codes from images or camera" },
             { cat: "qr", name: "Barcode Generator", file: "barcode-generator.html", icon: "fa-barcode", desc: "Generate common barcode formats" },
             { cat: "qr", name: "Barcode Scanner", file: "barcode-scanner.html", icon: "fa-camera", desc: "Scan barcodes quickly" },
 
-            // Text & String Tools (5)
             { cat: "text", name: "Word Counter", file: "word-counter.html", icon: "fa-align-left", desc: "Count words, characters and spaces" },
             { cat: "text", name: "Text to Speech", file: "text-to-speech.html", icon: "fa-volume-high", desc: "Convert written text into speech" },
             { cat: "text", name: "Line Counter", file: "line-counter.html", icon: "fa-list-ol", desc: "Count lines in your text" },
             { cat: "text", name: "Font Changer", file: "font-changer.html", icon: "fa-font", desc: "Change text case and generate fancy fonts" },
             { cat: "text", name: "Text Repeater", file: "text-repeater.html", icon: "fa-repeat", desc: "Repeat text multiple times" },
 
-            // Web & Security Tools (2)
             { cat: "web", name: "Password Strength Tester", file: "password-strength-tester.html", icon: "fa-key", desc: "Check password strength and security" },
             { cat: "web", name: "Speed Tester", file: "internet-speed-test.html", icon: "fa-gauge-high", desc: "Test internet speed & live IP address" },
 
-            // Calculators (3)
             { cat: "calc", name: "Standard Calculator", file: "standard-calculator.html", icon: "fa-calculator", desc: "Basic mathematical calculations" },
             { cat: "calc", name: "Age Calculator", file: "age-calculator.html", icon: "fa-calendar-days", desc: "Calculate age from date of birth" },
             { cat: "calc", name: "Loan / Interest Calculator", file: "loan-interest-calculator.html", icon: "fa-hand-holding-dollar", desc: "Calculate EMI, interest and loans" },
 
-            // Converters (3)
             { cat: "convert", name: "Length Converter", file: "length-converter.html", icon: "fa-ruler", desc: "Convert length and distance units" },
             { cat: "convert", name: "Weight Converter", file: "weight-converter.html", icon: "fa-weight-scale", desc: "Convert weight and mass units" },
             { cat: "convert", name: "Area Converter", file: "area-converter.html", icon: "fa-vector-square", desc: "Convert area measurement units" }
@@ -1424,7 +1396,7 @@
             { q: "How do I report bugs or suggest tools to be added?", a: "You can submit suggestions, requests, or bug reports directly through our Contact Us page or via our community channels." }
         ];
 
-        // 7. 1:1 REAL-TIME FINGER DRAG CAROUSEL ENGINE
+        // 7. 1:1 REAL-TIME FINGER DRAG CAROUSEL ENGINE WITH INFINITE LOOP
         function setupCarousel(trackId, dotsId, dataset) {
             const track = document.getElementById(trackId);
             const dotsContainer = document.getElementById(dotsId);
@@ -1434,7 +1406,6 @@
             let current = 0;
             let timer = null;
 
-            // Touch & Drag state
             let isDragging = false;
             let startX = 0;
             let currentTranslate = 0;
@@ -1473,10 +1444,10 @@
                 if (isDragging) requestAnimationFrame(animation);
             }
 
-            function setPositionByIndex() {
+            function setPositionByIndex(smooth = true) {
                 currentTranslate = -current * carousel.offsetWidth;
                 prevTranslate = currentTranslate;
-                track.style.transition = 'transform 0.45s cubic-bezier(.22, .61, .36, 1)';
+                track.style.transition = smooth ? 'transform 0.45s cubic-bezier(.22, .61, .36, 1)' : 'none';
                 setSliderPosition();
                 updateDots();
             }
@@ -1504,12 +1475,11 @@
                 startTimer();
             }
 
-            // Touch / Pointer Event Listeners with Live 1:1 Tracking
             function touchStart(event) {
                 isDragging = true;
                 stopTimer();
                 startX = getPositionX(event);
-                track.style.transition = 'none'; // Instant follow finger
+                track.style.transition = 'none';
                 animationID = requestAnimationFrame(animation);
             }
 
@@ -1527,14 +1497,14 @@
                 cancelAnimationFrame(animationID);
 
                 const movedBy = currentTranslate - prevTranslate;
+                const threshold = Math.min(50, carousel.offsetWidth * 0.14);
 
-                // Threshold: If dragged more than 50px or 15% of carousel width
-                const threshold = Math.min(60, carousel.offsetWidth * 0.15);
-
-                if (movedBy < -threshold && current < dataset.length - 1) {
-                    current += 1;
-                } else if (movedBy > threshold && current > 0) {
-                    current -= 1;
+                if (movedBy < -threshold) {
+                    // Next (Infinite loop: 10th se 1st par aayega)
+                    current = (current + 1) % dataset.length;
+                } else if (movedBy > threshold) {
+                    // Prev (Infinite loop: 1st se 10th par aayega)
+                    current = (current - 1 + dataset.length) % dataset.length;
                 }
 
                 setPositionByIndex();
@@ -1545,7 +1515,6 @@
                 return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
             }
 
-            // Attach touch & mouse events
             carousel.addEventListener('touchstart', touchStart, { passive: true });
             carousel.addEventListener('touchmove', touchMove, { passive: true });
             carousel.addEventListener('touchend', touchEnd);
@@ -1556,14 +1525,14 @@
             carousel.addEventListener('mouseleave', () => { if (isDragging) touchEnd(); });
 
             window.addEventListener('resize', () => {
-                setPositionByIndex();
+                setPositionByIndex(false);
             });
 
-            setPositionByIndex();
+            setPositionByIndex(false);
             startTimer();
         }
 
-        // 8. RENDER TOOLS WITH UNIVERSAL VIEW MORE / LESS TOGGLE & 2 SLIM BANNERS
+        // 8. RENDER TOOLS & PERSISTENT CATEGORY MEMORY
         const categoriesContainer = document.getElementById("categoriesContainer");
         const searchInput = document.getElementById("searchInput");
         const searchClear = document.getElementById("searchClear");
@@ -1583,6 +1552,7 @@
 
                 const section = document.createElement("section");
                 section.className = `category-section ${cat.className}`;
+                section.id = `category-${cat.key}`;
                 section.innerHTML = `
                     <div class="category-header">
                         <div class="category-icon">
@@ -1597,14 +1567,18 @@
                 `;
 
                 const grid = section.querySelector(`#grid_${cat.key}`);
-                
-                // Show 4 initial cards when not searching
                 const INITIAL_LIMIT = cleanQuery ? matchedTools.length : 4;
 
                 matchedTools.forEach((tool, idx) => {
                     const card = document.createElement("a");
                     card.className = "tool-card";
                     card.href = tool.file;
+                    
+                    // Remembers Category ID when clicked so back button returns here
+                    card.addEventListener('click', () => {
+                        sessionStorage.setItem('tveezal_last_category', `category-${cat.key}`);
+                    });
+
                     if (idx >= INITIAL_LIMIT) {
                         card.style.display = "none";
                         card.classList.add(`extra_${cat.key}`);
@@ -1620,7 +1594,7 @@
                     grid.appendChild(card);
                 });
 
-                // Universal View More / Show Less Button (Without numbers)
+                // Universal View More / Show Less Button
                 if (!cleanQuery) {
                     const moreWrap = document.createElement("div");
                     moreWrap.className = "more-tools-wrapper";
@@ -1681,7 +1655,7 @@
                 if (catIndex < CATEGORIES.length - 1 && cat.key !== "pdf" && cat.key !== "web") {
                     const ad = document.createElement("div");
                     ad.className = "ad-block";
-                    ad.innerHTML = "<span><i class='fas fa-rectangle-ad'></i> Advertisement</span>";
+                    ad.innerHTML = "<span><i class="fas fa-rectangle-ad"></i> Advertisement</span>";
                     categoriesContainer.appendChild(ad);
                 }
             });
@@ -1693,6 +1667,22 @@
             // Initialize both slim ribbon carousels
             setupCarousel("slimBannerTrack1", "slimBannerDots1", SLIM_BANNERS_1);
             setupCarousel("slimBannerTrack2", "slimBannerDots2", SLIM_BANNERS_2);
+
+            // Restore Scroll Location If Coming Back From a Tool
+            checkAndRestoreScroll();
+        }
+
+        function checkAndRestoreScroll() {
+            const savedCat = sessionStorage.getItem('tveezal_last_category');
+            if (savedCat) {
+                setTimeout(() => {
+                    const targetEl = document.getElementById(savedCat);
+                    if (targetEl) {
+                        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                    sessionStorage.removeItem('tveezal_last_category');
+                }, 150);
+            }
         }
 
         // Search Input Handlers
