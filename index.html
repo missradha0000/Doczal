@@ -13,7 +13,8 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="theme-color" content="#0f172a" id="metaThemeColor">
+    <!-- Initial Status Bar: White when header is blue at top -->
+    <meta name="theme-color" content="#ffffff" id="metaThemeColor">
 
     <!-- Primary SEO Meta Tags -->
     <title>Tveezal Tools – Free Online Tools & Utilities for PDF, Image, Text & Web</title>
@@ -61,6 +62,8 @@
             --line: #e2e8f0;
             --blue: #2563eb;
             --blue-hover: #1d4ed8;
+            /* Original Mast Vibrant Blue Palette */
+            --vibrant-blue-theme: linear-gradient(145deg, #0b1e4f 0%, #153e90 45%, #1e58c8 100%);
             --shadow: 0 10px 30px rgba(15, 23, 42, 0.055);
             --transition: 0.25s ease;
         }
@@ -109,7 +112,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: linear-gradient(135deg, #0a0f1d 0%, #0f172a 55%, #172554 100%);
+            background: var(--vibrant-blue-theme);
             color: #ffffff;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -136,7 +139,7 @@
             width: 42px;
             height: 42px;
             background: #ffffff;
-            color: #2563eb;
+            color: #1e58c8;
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -167,8 +170,8 @@
 
         /* 3 Solid Dots Menu Trigger */
         .menu-trigger-btn {
-            background: rgba(255, 255, 255, 0.12);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.25);
             width: 44px;
             height: 44px;
             border-radius: 12px;
@@ -195,7 +198,7 @@
             transition: background-color 0.3s ease;
         }
 
-        /* Top Bar State When Scrolled (Pure White Frozen Look) */
+        /* Scrolled State: Frozen Pure White Bar */
         .site-header.scrolled {
             background: #ffffff;
             border-bottom: 1px solid #e2e8f0;
@@ -203,9 +206,9 @@
         }
 
         .site-header.scrolled .logo-tvz {
-            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            background: linear-gradient(135deg, #153e90 0%, #1e58c8 100%);
             color: #ffffff;
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+            box-shadow: 0 4px 12px rgba(30, 88, 200, 0.35);
         }
 
         .site-header.scrolled .brand-text {
@@ -228,10 +231,10 @@
         }
 
         /* =========================================================
-           2. SUB-HERO BLUE AREA (NAV PILLS & TAGLINE)
+           2. SUB-HERO VIBRANT BLUE AREA
         ========================================================= */
         .sub-hero-section {
-            background: linear-gradient(135deg, #0a0f1d 0%, #0f172a 55%, #172554 100%);
+            background: var(--vibrant-blue-theme);
             color: #ffffff;
             padding: 10px 0 28px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -291,7 +294,7 @@
         .intro p {
             max-width: 720px;
             margin: auto;
-            color: #cbd5e1;
+            color: #dbeafe;
             font-size: 15px;
         }
 
@@ -407,7 +410,6 @@
             box-shadow: 0 4px 14px rgba(37, 99, 235, 0.12);
         }
 
-        /* Drawer Social Media Footer Strip */
         .drawer-social-section {
             margin-top: auto;
             padding-top: 20px;
@@ -457,7 +459,7 @@
         .social-link-btn.tw:hover { background: #000000; border-color: #000000; }
 
         /* =========================================================
-           4. BANNER CAROUSELS (TOP, SLIM MID & BOTTOM)
+           4. REAL-TIME TOUCH DRAG BANNER CAROUSELS
         ========================================================= */
         .banner-section {
             padding: 20px 0 10px;
@@ -470,6 +472,8 @@
             background: #eef4ff;
             box-shadow: var(--shadow);
             touch-action: pan-y pinch-zoom;
+            user-select: none;
+            -webkit-user-select: none;
         }
 
         .banner-carousel {
@@ -477,9 +481,14 @@
             width: 100%;
             height: clamp(230px, 30vw, 400px);
             overflow: hidden;
+            cursor: grab;
         }
 
-        /* Slim Middle Banner (Finger-thick profile) */
+        .banner-carousel:active {
+            cursor: grabbing;
+        }
+
+        /* Slim Middle Banner Profile */
         .banner-carousel.slim-carousel {
             height: clamp(75px, 11vw, 100px);
             border-radius: 16px;
@@ -509,6 +518,7 @@
             object-fit: cover;
             user-select: none;
             -webkit-user-drag: none;
+            pointer-events: none;
         }
 
         .banner-fallback {
@@ -772,7 +782,7 @@
             transform: translateX(3px);
         }
 
-        /* Clean Universal View More/Less Toggle */
+        /* Clean Universal View More/Less Button */
         .more-tools-wrapper {
             text-align: center;
             margin-top: 16px;
@@ -998,7 +1008,7 @@
     <header class="site-header" id="dynamicHeader">
         <div class="header-top">
             <a class="brand-container" href="index.html">
-                <!-- TVZ Logo Badge (Changes contrast dynamically on scroll) -->
+                <!-- TVZ Logo Badge (White box on top, Blue on scroll) -->
                 <div class="logo-tvz" id="brandLogoBadge">TVZ</div>
                 <div class="brand-text">
                     TVEEZAL <span>Tools</span>
@@ -1016,7 +1026,7 @@
         </div>
     </header>
 
-    <!-- Sub-Hero Section (Blue Zone: Navigation Pills + Tagline) -->
+    <!-- Sub-Hero Section (Vibrant Blue Zone) -->
     <section class="sub-hero-section">
         <nav class="nav-pills-row">
             <a class="header-pill active" href="index.html">Home</a>
@@ -1114,15 +1124,15 @@
             </div>
         </section>
 
-        <!-- Tool Categories Container -->
+        <!-- Tool Categories Container (Includes 2 Slim Ribbon Banners) -->
         <section class="container">
             <div class="categories-container" id="categoriesContainer">
-                <!-- Dynamically generated with universal View More/Less logic and Middle Slim Banners -->
+                <!-- Generated dynamically -->
             </div>
         </section>
 
         <!-- =========================================================
-             BANNER 3: BOTTOM FEATURED CAROUSEL
+             BANNER 4: BOTTOM FEATURED CAROUSEL
         ========================================================= -->
         <section class="banner-section" style="margin-top: 30px;">
             <div class="container">
@@ -1259,20 +1269,22 @@
     </footer>
 
     <!-- =========================================================
-         JAVASCRIPT CONTROLLERS
+         JAVASCRIPT LOGIC
     ========================================================= -->
     <script>
-        // 1. SMART DYNAMIC HEADER SCROLL LISTENER
+        // 1. SMART DYNAMIC HEADER & DYNAMIC MOBILE STATUS BAR
         const dynamicHeader = document.getElementById("dynamicHeader");
         const metaThemeColor = document.getElementById("metaThemeColor");
 
         window.addEventListener("scroll", () => {
             if (window.scrollY > 35) {
                 dynamicHeader.classList.add("scrolled");
-                if (metaThemeColor) metaThemeColor.setAttribute("content", "#ffffff");
+                // When top bar turns White, status bar switches to Mast Blue (#153e90)
+                if (metaThemeColor) metaThemeColor.setAttribute("content", "#153e90");
             } else {
                 dynamicHeader.classList.remove("scrolled");
-                if (metaThemeColor) metaThemeColor.setAttribute("content", "#0f172a");
+                // When at very top (header is blue), status bar is White (#ffffff)
+                if (metaThemeColor) metaThemeColor.setAttribute("content", "#ffffff");
             }
         });
 
@@ -1294,7 +1306,7 @@
         drawerClose.addEventListener("click", closeDrawer);
         overlay.addEventListener("click", closeDrawer);
 
-        // 3. MASTER BANNER DATASETS (EASILY EDIT IMAGES & AFFILIATE LINKS)
+        // 3. MASTER BANNER DATASETS
         const TOP_BANNERS = [
             { image: "assets/banner-1.webp", link: "image-compressor.html", title: "Image Compressor to 50KB" },
             { image: "assets/banner-2.webp", link: "pdf-merge.html", title: "Merge Multiple PDF Files Online" },
@@ -1308,8 +1320,8 @@
             { image: "assets/banner-10.webp", link: "format-converter.html", title: "Image Format Converter" }
         ];
 
-        // Slim 10-Banner Ribbon dataset for insertion after PDF Category
-        const SLIM_BANNERS = [
+        // Slim 10-Banner Ribbon 1 (After PDF Category)
+        const SLIM_BANNERS_1 = [
             { image: "assets/slim-banner-1.webp", link: "image-compressor.html", title: "Special Hostinger Offer / Tool Offer" },
             { image: "assets/slim-banner-2.webp", link: "pdf-lock.html", title: "Fast Secure PDF Encryption" },
             { image: "assets/slim-banner-3.webp", link: "font-changer.html", title: "Create 1000+ Aesthetic Fonts" },
@@ -1320,6 +1332,20 @@
             { image: "assets/slim-banner-8.webp", link: "area-converter.html", title: "Convert Acres, Hectares & Bigha" },
             { image: "assets/slim-banner-9.webp", link: "text-repeater.html", title: "Repeat Messages 10,000 Times" },
             { image: "assets/slim-banner-10.webp", link: "format-converter.html", title: "Convert WebP to JPG Cleanly" }
+        ];
+
+        // Slim 10-Banner Ribbon 2 (After Web & Security Category)
+        const SLIM_BANNERS_2 = [
+            { image: "assets/slim-banner-4.webp", link: "internet-speed-test.html", title: "High Speed Fiber & CDN Ping Test" },
+            { image: "assets/slim-banner-1.webp", link: "image-compressor.html", title: "Target Exact 20KB for SSC Exam" },
+            { image: "assets/slim-banner-2.webp", link: "pdf-merge.html", title: "Fast PDF Combiner for College Notes" },
+            { image: "assets/slim-banner-3.webp", link: "font-changer.html", title: "Stylish Cursive Fonts for Instagram Bio" },
+            { image: "assets/slim-banner-5.webp", link: "text-to-speech.html", title: "Generate Realistic Audio Voiceovers" },
+            { image: "assets/slim-banner-6.webp", link: "barcode-generator.html", title: "Free Product Barcode Maker" },
+            { image: "assets/slim-banner-7.webp", link: "age-calculator.html", title: "Find Out Exact Hours & Days Lived" },
+            { image: "assets/slim-banner-8.webp", link: "password-strength-tester.html", title: "Test Security Before Setting Passwords" },
+            { image: "assets/slim-banner-9.webp", link: "length-converter.html", title: "Convert Meters, Inches, and Feet" },
+            { image: "assets/slim-banner-10.webp", link: "qr-generator.html", title: "Make WiFi QR Codes Instantly" }
         ];
 
         // 4. CATEGORIES CONFIGURATION
@@ -1333,7 +1359,7 @@
             { key: "convert", title: "Converters", hub: "converters.html", icon: "fa-arrows-left-right", desc: "Convert length, mass, and land measurement units.", className: "cat-convert" }
         ];
 
-        // 5. MASTER TOOLS LIST (WITH font-changer.html UPDATED)
+        // 5. MASTER TOOLS LIST
         const TOOLS_LIST = [
             // PDF Tools (10)
             { cat: "pdf", name: "PDF Protector", file: "pdf-protector.html", icon: "fa-shield-halved", desc: "Protect your PDF with security settings" },
@@ -1398,14 +1424,22 @@
             { q: "How do I report bugs or suggest tools to be added?", a: "You can submit suggestions, requests, or bug reports directly through our Contact Us page or via our community channels." }
         ];
 
-        // 7. CAROUSEL BUILDER ENGINE WITH TOUCH & AUTO-SCROLL
+        // 7. 1:1 REAL-TIME FINGER DRAG CAROUSEL ENGINE
         function setupCarousel(trackId, dotsId, dataset) {
             const track = document.getElementById(trackId);
             const dotsContainer = document.getElementById(dotsId);
             if (!track || !dotsContainer) return;
 
+            const carousel = track.closest('.banner-carousel');
             let current = 0;
             let timer = null;
+
+            // Touch & Drag state
+            let isDragging = false;
+            let startX = 0;
+            let currentTranslate = 0;
+            let prevTranslate = 0;
+            let animationID = 0;
 
             track.innerHTML = "";
             dotsContainer.innerHTML = "";
@@ -1424,58 +1458,112 @@
                 dot.setAttribute("aria-label", `Slide ${idx + 1}`);
                 dot.addEventListener("click", () => {
                     current = idx;
-                    update();
+                    setPositionByIndex();
                     restartTimer();
                 });
                 dotsContainer.appendChild(dot);
             });
 
-            function update() {
-                track.style.transform = `translateX(-${current * 100}%)`;
+            function setSliderPosition() {
+                track.style.transform = `translateX(${currentTranslate}px)`;
+            }
+
+            function animation() {
+                setSliderPosition();
+                if (isDragging) requestAnimationFrame(animation);
+            }
+
+            function setPositionByIndex() {
+                currentTranslate = -current * carousel.offsetWidth;
+                prevTranslate = currentTranslate;
+                track.style.transition = 'transform 0.45s cubic-bezier(.22, .61, .36, 1)';
+                setSliderPosition();
+                updateDots();
+            }
+
+            function updateDots() {
                 dotsContainer.querySelectorAll(".banner-dot").forEach((d, i) => {
                     d.classList.toggle("active", i === current);
                 });
             }
 
             function startTimer() {
+                stopTimer();
                 timer = setInterval(() => {
                     current = (current + 1) % dataset.length;
-                    update();
+                    setPositionByIndex();
                 }, 4000);
             }
+
+            function stopTimer() {
+                if (timer) clearInterval(timer);
+            }
+
             function restartTimer() {
-                clearInterval(timer);
+                stopTimer();
                 startTimer();
             }
 
-            // Touch Swipe Handling
-            let startX = 0;
-            let startY = 0;
-            track.addEventListener("touchstart", (e) => {
-                startX = e.touches[0].clientX;
-                startY = e.touches[0].clientY;
-                clearInterval(timer);
-            }, { passive: true });
+            // Touch / Pointer Event Listeners with Live 1:1 Tracking
+            function touchStart(event) {
+                isDragging = true;
+                stopTimer();
+                startX = getPositionX(event);
+                track.style.transition = 'none'; // Instant follow finger
+                animationID = requestAnimationFrame(animation);
+            }
 
-            track.addEventListener("touchend", (e) => {
-                const diffX = e.changedTouches[0].clientX - startX;
-                const diffY = e.changedTouches[0].clientY - startY;
-
-                if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 35) {
-                    if (diffX < 0) {
-                        current = (current + 1) % dataset.length;
-                    } else {
-                        current = (current - 1 + dataset.length) % dataset.length;
-                    }
-                    update();
+            function touchMove(event) {
+                if (isDragging) {
+                    const currentX = getPositionX(event);
+                    const diff = currentX - startX;
+                    currentTranslate = prevTranslate + diff;
                 }
-                startTimer();
-            }, { passive: true });
+            }
 
+            function touchEnd() {
+                if (!isDragging) return;
+                isDragging = false;
+                cancelAnimationFrame(animationID);
+
+                const movedBy = currentTranslate - prevTranslate;
+
+                // Threshold: If dragged more than 50px or 15% of carousel width
+                const threshold = Math.min(60, carousel.offsetWidth * 0.15);
+
+                if (movedBy < -threshold && current < dataset.length - 1) {
+                    current += 1;
+                } else if (movedBy > threshold && current > 0) {
+                    current -= 1;
+                }
+
+                setPositionByIndex();
+                startTimer();
+            }
+
+            function getPositionX(event) {
+                return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
+            }
+
+            // Attach touch & mouse events
+            carousel.addEventListener('touchstart', touchStart, { passive: true });
+            carousel.addEventListener('touchmove', touchMove, { passive: true });
+            carousel.addEventListener('touchend', touchEnd);
+
+            carousel.addEventListener('mousedown', touchStart);
+            carousel.addEventListener('mousemove', touchMove);
+            carousel.addEventListener('mouseup', touchEnd);
+            carousel.addEventListener('mouseleave', () => { if (isDragging) touchEnd(); });
+
+            window.addEventListener('resize', () => {
+                setPositionByIndex();
+            });
+
+            setPositionByIndex();
             startTimer();
         }
 
-        // 8. RENDER TOOLS WITH UNIVERSAL VIEW MORE / LESS TOGGLE
+        // 8. RENDER TOOLS WITH UNIVERSAL VIEW MORE / LESS TOGGLE & 2 SLIM BANNERS
         const categoriesContainer = document.getElementById("categoriesContainer");
         const searchInput = document.getElementById("searchInput");
         const searchClear = document.getElementById("searchClear");
@@ -1532,7 +1620,7 @@
                     grid.appendChild(card);
                 });
 
-                // Universal View More / Show Less Button (Clean without hardcoded counts)
+                // Universal View More / Show Less Button (Without numbers)
                 if (!cleanQuery) {
                     const moreWrap = document.createElement("div");
                     moreWrap.className = "more-tools-wrapper";
@@ -1541,7 +1629,6 @@
                     const btn = moreWrap.querySelector(`#btn_more_${cat.key}`);
                     let expanded = false;
 
-                    // If total tools is 4 or less, keep visible so user can easily click to reveal any newly added items
                     btn.addEventListener("click", () => {
                         expanded = !expanded;
                         const hiddenCards = grid.querySelectorAll(`.extra_${cat.key}`);
@@ -1554,26 +1641,44 @@
 
                 categoriesContainer.appendChild(section);
 
-                // SLIM RIBBON 10-BANNER INSERTION (After PDF Category)
+                // SLIM RIBBON BANNER 1: After PDF Category
                 if (cat.key === "pdf") {
-                    const slimSection = document.createElement("div");
-                    slimSection.style.margin = "10px 0";
-                    slimSection.innerHTML = `
+                    const slimSection1 = document.createElement("div");
+                    slimSection1.style.margin = "10px 0";
+                    slimSection1.innerHTML = `
                         <div class="ad-block" style="margin-bottom: 12px;">
                             <span><i class="fas fa-rectangle-ad"></i> Sponsored Partner Offer</span>
                         </div>
                         <div class="banner-shell">
-                            <div class="banner-carousel slim-carousel" id="slimBannerCarousel">
-                                <div class="banner-track" id="slimBannerTrack"></div>
-                                <div class="banner-dots" id="slimBannerDots"></div>
+                            <div class="banner-carousel slim-carousel" id="slimBannerCarousel1">
+                                <div class="banner-track" id="slimBannerTrack1"></div>
+                                <div class="banner-dots" id="slimBannerDots1"></div>
                             </div>
                         </div>
                     `;
-                    categoriesContainer.appendChild(slimSection);
+                    categoriesContainer.appendChild(slimSection1);
+                }
+
+                // SLIM RIBBON BANNER 2: After Web & Security Category
+                if (cat.key === "web") {
+                    const slimSection2 = document.createElement("div");
+                    slimSection2.style.margin = "10px 0";
+                    slimSection2.innerHTML = `
+                        <div class="ad-block" style="margin-bottom: 12px;">
+                            <span><i class="fas fa-rectangle-ad"></i> Exclusive Security Deals</span>
+                        </div>
+                        <div class="banner-shell">
+                            <div class="banner-carousel slim-carousel" id="slimBannerCarousel2">
+                                <div class="banner-track" id="slimBannerTrack2"></div>
+                                <div class="banner-dots" id="slimBannerDots2"></div>
+                            </div>
+                        </div>
+                    `;
+                    categoriesContainer.appendChild(slimSection2);
                 }
 
                 // Standard Advertisement Between Other Categories
-                if (catIndex < CATEGORIES.length - 1 && cat.key !== "pdf") {
+                if (catIndex < CATEGORIES.length - 1 && cat.key !== "pdf" && cat.key !== "web") {
                     const ad = document.createElement("div");
                     ad.className = "ad-block";
                     ad.innerHTML = "<span><i class='fas fa-rectangle-ad'></i> Advertisement</span>";
@@ -1585,8 +1690,9 @@
                 categoriesContainer.innerHTML = "<div style='text-align:center; padding:40px; color:var(--muted); font-weight:700;'>No matching tools found. Try another search term!</div>";
             }
 
-            // Init the slim middle banner once the DOM nodes are placed
-            setupCarousel("slimBannerTrack", "slimBannerDots", SLIM_BANNERS);
+            // Initialize both slim ribbon carousels
+            setupCarousel("slimBannerTrack1", "slimBannerDots1", SLIM_BANNERS_1);
+            setupCarousel("slimBannerTrack2", "slimBannerDots2", SLIM_BANNERS_2);
         }
 
         // Search Input Handlers
