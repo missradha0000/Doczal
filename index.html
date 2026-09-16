@@ -62,7 +62,6 @@
             --line: #e2e8f0;
             --blue: #2563eb;
             --blue-hover: #1d4ed8;
-            /* Original Mast Vibrant Blue Theme */
             --vibrant-blue-theme: linear-gradient(145deg, #0b1e4f 0%, #153e90 45%, #1e58c8 100%);
             --shadow: 0 10px 30px rgba(15, 23, 42, 0.055);
             --transition: 0.25s ease;
@@ -134,7 +133,6 @@
             text-decoration: none;
         }
 
-        /* Logo Badge: White with Blue text at Top */
         .logo-tvz {
             width: 42px;
             height: 42px;
@@ -168,7 +166,6 @@
             text-shadow: 0 0 15px rgba(96, 165, 250, 0.45);
         }
 
-        /* 3 Solid Dots Menu Trigger */
         .menu-trigger-btn {
             background: rgba(255, 255, 255, 0.15);
             border: 1px solid rgba(255, 255, 255, 0.25);
@@ -198,7 +195,6 @@
             transition: background-color 0.3s ease;
         }
 
-        /* Scrolled state: Frozen Pure White Bar */
         .site-header.scrolled {
             background: #ffffff;
             border-bottom: 1px solid #e2e8f0;
@@ -236,14 +232,14 @@
         .sub-hero-section {
             background: var(--vibrant-blue-theme);
             color: #ffffff;
-            padding: 10px 0 26px;
+            padding: 10px 0 24px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .nav-pills-row {
             max-width: 1250px;
             margin: auto;
-            padding: 0 20px 18px;
+            padding: 0 20px 14px;
             display: flex;
             flex-wrap: wrap;
             gap: 8px 10px;
@@ -274,28 +270,32 @@
             box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
         }
 
+        /* HIGH-CONTRAST BOLD INTRO (CRISP & DARK ON WHITE BG) */
         .intro {
             text-align: center;
-            padding: 18px 16px 6px;
+            padding: 24px 16px 12px;
         }
 
         .intro h1 {
-            font-size: clamp(26px, 4.5vw, 44px);
+            font-size: clamp(28px, 4.8vw, 44px);
             line-height: 1.15;
             letter-spacing: -1.2px;
-            margin-bottom: 8px;
-            color: #ffffff;
+            margin-bottom: 10px;
+            color: #0f172a; /* Deep bold black-slate */
+            font-weight: 900;
         }
 
         .intro h1 span {
-            color: #60a5fa;
+            color: #2563eb;
         }
 
         .intro p {
-            max-width: 720px;
+            max-width: 760px;
             margin: auto;
-            color: #dbeafe;
-            font-size: 15px;
+            color: #334155; /* Sharp readable dark text */
+            font-size: 15.5px;
+            font-weight: 550;
+            line-height: 1.65;
         }
 
         /* =========================================================
@@ -459,10 +459,10 @@
         .social-link-btn.tw:hover { background: #000000; border-color: #000000; }
 
         /* =========================================================
-           4. REAL-TIME TOUCH DRAG BANNER CAROUSELS (1:1 & LOOP)
+           4. BANNER CAROUSELS (DOTS OUTSIDE AT THE BOTTOM)
         ========================================================= */
         .banner-section {
-            padding: 20px 0 10px;
+            padding: 18px 0 8px;
         }
 
         .banner-shell {
@@ -538,18 +538,14 @@
             margin-bottom: 4px;
         }
 
-        .banner-dots {
-            position: absolute;
-            left: 50%;
-            bottom: 10px;
-            transform: translateX(-50%);
+        /* DOTS OUTSIDE/BELOW THE BANNER (NO IMAGE OVERLAPPING) */
+        .banner-dots-below {
             display: flex;
-            gap: 6px;
-            z-index: 20;
-            padding: 5px 9px;
-            border-radius: 30px;
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(8px);
+            gap: 7px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+            margin-bottom: 6px;
         }
 
         .banner-dot {
@@ -563,7 +559,7 @@
         }
 
         .banner-dot.active {
-            width: 20px;
+            width: 22px;
             border-radius: 20px;
             background: #2563eb;
         }
@@ -677,7 +673,7 @@
             border-radius: 24px;
             padding: 26px;
             box-shadow: var(--shadow);
-            scroll-margin-top: 85px; /* Perfect landing offset */
+            scroll-margin-top: 85px;
         }
 
         .category-header {
@@ -823,7 +819,7 @@
         }
 
         /* =========================================================
-           7. SEO ARTICLE, FEATURES & 10 FAQS
+           7. SEO ARTICLE, FEATURES & 10 FAQS (WITH DIRECT LINKS)
         ========================================================= */
         .seo-home-article {
             background: #ffffff;
@@ -838,17 +834,29 @@
             font-size: clamp(22px, 3.5vw, 32px);
             letter-spacing: -0.8px;
             margin-bottom: 12px;
+            color: #0f172a;
         }
 
         .seo-home-article h3 {
             font-size: 19px;
             margin: 26px 0 10px;
+            color: #0f172a;
         }
 
         .seo-home-article p {
             color: #334155;
             font-size: 14.5px;
             margin-bottom: 14px;
+        }
+
+        .seo-home-article a {
+            color: var(--blue);
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
+        .seo-home-article a:hover {
+            color: var(--blue-hover);
         }
 
         .seo-home-article ul {
@@ -878,6 +886,7 @@
             font-size: 15px;
             font-weight: 700;
             margin-bottom: 6px;
+            color: #0f172a;
         }
 
         .feature-box p {
@@ -929,8 +938,14 @@
             overflow: hidden;
             padding: 0 20px;
             color: var(--text);
-            font-size: 13px;
-            line-height: 1.65;
+            font-size: 13.5px;
+            line-height: 1.7;
+        }
+
+        .faq-answer-inner a {
+            color: var(--blue);
+            font-weight: 700;
+            text-decoration: underline;
         }
 
         .faq-item.open .faq-answer { grid-template-rows: 1fr; }
@@ -1005,7 +1020,7 @@
     <header class="site-header" id="dynamicHeader">
         <div class="header-top">
             <a class="brand-container" href="index.html">
-                <!-- TVZ Logo Badge (White box on top, Blue on scroll) -->
+                <!-- TVZ Logo Badge -->
                 <div class="logo-tvz" id="brandLogoBadge">TVZ</div>
                 <div class="brand-text">
                     TVEEZAL <span>Tools</span>
@@ -1036,20 +1051,21 @@
     </section>
 
     <!-- =========================================================
-         BANNER 1: HERO CAROUSEL (TOP 10 BANNERS FIRST ON HOMEPAGE)
+         BANNER 1: TOP HERO CAROUSEL (DOTS OUTSIDE BELOW)
     ========================================================= -->
     <section class="banner-section">
         <div class="container">
             <div class="banner-shell">
                 <div class="banner-carousel" id="topBannerCarousel">
                     <div class="banner-track" id="topBannerTrack"></div>
-                    <div class="banner-dots" id="topBannerDots"></div>
                 </div>
             </div>
+            <!-- Indicator Dots placed cleanly below banner -->
+            <div class="banner-dots-below" id="topBannerDots"></div>
         </div>
     </section>
 
-    <!-- Title & Tagline Appears Just Below the Top Hero Banner -->
+    <!-- High-Contrast Bold Intro Text (Crisp Black-Slate on White) -->
     <section class="container">
         <div class="intro">
             <h1>Fast, Free & Private <span>Online Utilities</span></h1>
@@ -1083,7 +1099,6 @@
             <a class="drawer-pill-item" href="terms.html"><i class="fa-solid fa-file-contract" style="color:#64748b;"></i> Terms & Conditions</a>
         </div>
 
-        <!-- Social Media Icons in Drawer -->
         <div class="drawer-social-section">
             <div class="drawer-social-title">Connect With Us</div>
             <div class="social-icons-flex">
@@ -1132,50 +1147,53 @@
         </section>
 
         <!-- =========================================================
-             BANNER 4: BOTTOM FEATURED CAROUSEL
+             BANNER 4: BOTTOM FEATURED CAROUSEL (DOTS OUTSIDE BELOW)
         ========================================================= -->
         <section class="banner-section" style="margin-top: 30px;">
             <div class="container">
                 <div class="banner-shell">
                     <div class="banner-carousel" id="bottomBannerCarousel">
                         <div class="banner-track" id="bottomBannerTrack"></div>
-                        <div class="banner-dots" id="bottomBannerDots"></div>
                     </div>
                 </div>
+                <!-- Indicator Dots placed cleanly below banner -->
+                <div class="banner-dots-below" id="bottomBannerDots"></div>
             </div>
         </section>
 
-        <!-- SEO Article & Features -->
+        <!-- SEO Article & Features (With Rich Working Internal Links) -->
         <section class="container">
             <article class="seo-home-article">
                 <h2>Why Choose Tveezal Tools for Everyday Digital Tasks?</h2>
-                <p>Welcome to <strong>Tveezal Tools</strong>, your centralized hub for fast, high-accuracy web utilities. Many online tool websites force users to install software, pay costly monthly subscriptions, or upload private files to remote servers. At Tveezal Tools, every script runs client-side inside your browser sandbox, guaranteeing complete security and privacy. Explore our popular <a href="image-compressor.html" style="color:var(--blue); font-weight:700;">Image Compressor</a>, merge documents with <a href="pdf-merge.html" style="color:var(--blue); font-weight:700;">PDF Merge</a>, or stylize bios with our <a href="font-changer.html" style="color:var(--blue); font-weight:700;">Font Changer</a>.</p>
+                <p>Welcome to <strong>Tveezal Tools</strong>, your centralized ecosystem for rapid, high-accuracy web utilities. Many online websites require software installations, charge expensive monthly subscriptions, or upload your private documents to third-party cloud servers. At Tveezal Tools, every script executes 100% client-side inside your browser sandbox, guaranteeing complete security and privacy. You can shrink photos with our <a href="image-compressor.html">Image Compressor to 50KB</a>, combine paperwork via <a href="pdf-merge.html">PDF Merge</a>, or generate cool social bios using our <a href="font-changer.html">Font Changer</a>.</p>
 
                 <div class="feature-grid">
                     <div class="feature-box">
-                        <h4>Zero Server Data Storage</h4>
-                        <p>Your photos, PDF contracts, and passwords never leave your computer or phone memory.</p>
+                        <h4>Zero Server Storage</h4>
+                        <p>Your photos, contracts, and passwords remain in your local RAM and are never transmitted to external servers.</p>
                     </div>
                     <div class="feature-box">
-                        <h4>Target KB Photo Compression</h4>
-                        <p>Shrink images to exact boundaries like 50KB or 20KB for government and academic portal submissions.</p>
+                        <h4>Target KB Compression</h4>
+                        <p>Compress files to exact boundaries like 50KB or 20KB with our <a href="image-compressor.html">Image Compressor</a>.</p>
                     </div>
                     <div class="feature-box">
                         <h4>Universal Free Access</h4>
-                        <p>No account registrations, no watermarks, and zero hidden limitations across all 34+ utilities.</p>
+                        <p>No registration forms, no watermarks, and zero paywalls across all 34+ utilities.</p>
                     </div>
                     <div class="feature-box">
-                        <h4>Mobile-First Design</h4>
-                        <p>Features touch gestures, dynamic view-more controls, and native social sharing for instant convenience.</p>
+                        <h4>Real-Time Diagnostics</h4>
+                        <p>Evaluate your broadband throughput, jitter, and public IP using the <a href="internet-speed-test.html">Internet Speed Tester</a>.</p>
                     </div>
                 </div>
 
-                <h3>Featured Hubs on Tveezal Tools</h3>
+                <h3>Featured Category Hubs on Tveezal Tools</h3>
                 <ul>
-                    <li><strong><a href="pdf-tools.html">PDF Tools</a>:</strong> Split, lock, unlock, merge, rearrange, and stamp documents easily.</li>
-                    <li><strong><a href="image-tools.html">Image Tools</a>:</strong> Compress to exact KB, convert PNG/WebP formats, and remove backgrounds.</li>
-                    <li><strong><a href="text-string-tools.html">Text Tools</a>:</strong> Generate 1000+ fancy fonts with the <a href="font-changer.html">Font Changer</a> and count words accurately.</li>
-                    <li><strong><a href="web-security-tools.html">Security Tools</a>:</strong> Check your real public IP with the <a href="internet-speed-test.html">Speed Tester</a> and audit password entropy.</li>
+                    <li><strong><a href="pdf-tools.html">PDF Tools Hub</a>:</strong> Split, lock, unlock, merge, rearrange, and stamp documents with tools like <a href="pdf-merge.html">PDF Merge</a> and <a href="pdf-lock.html">PDF Lock</a>.</li>
+                    <li><strong><a href="image-tools.html">Image Tools Hub</a>:</strong> Compress to exact KB, convert PNG/WebP formats with <a href="format-converter.html">Format Converter</a>, and remove photo backdrops via <a href="background-remover.html">Background Remover</a>.</li>
+                    <li><strong><a href="text-string-tools.html">Text & String Hub</a>:</strong> Generate 1000+ fancy aesthetic fonts with the <a href="font-changer.html">Font Changer</a>, count words with <a href="word-counter.html">Word Counter</a>, and generate realistic speech with <a href="text-to-speech.html">Text to Speech</a>.</li>
+                    <li><strong><a href="web-security-tools.html">Security Tools Hub</a>:</strong> Audit your real public IP with the <a href="internet-speed-test.html">Speed Tester</a> and test password entropy using the <a href="password-strength-tester.html">Password Strength Tester</a>.</li>
+                    <li><strong><a href="calculators.html">Calculators Hub</a>:</strong> Calculate birthdates with <a href="age-calculator.html">Age Calculator</a> or check monthly loan EMIs with <a href="loan-interest-calculator.html">Loan Calculator</a>.</li>
+                    <li><strong><a href="converters.html">Converters Hub</a>:</strong> Switch between measurements using the <a href="length-converter.html">Length Converter</a>, <a href="weight-converter.html">Weight Converter</a>, and <a href="area-converter.html">Area Converter</a>.</li>
                 </ul>
             </article>
         </section>
@@ -1187,11 +1205,11 @@
             </div>
         </div>
 
-        <!-- 10 Detailed Home FAQs -->
+        <!-- 10 Detailed Home FAQs (With Rich Links Inside Answers) -->
         <section class="faq-section" id="faq">
             <div class="container">
                 <div style="text-align: center; margin-bottom: 22px;">
-                    <h2 style="font-size: 26px; letter-spacing: -0.6px;">Frequently Asked Questions</h2>
+                    <h2 style="font-size: 26px; letter-spacing: -0.6px; color:#0f172a;">Frequently Asked Questions</h2>
                     <p style="color: var(--muted); font-size: 13.5px;">Common questions regarding Tveezal Tools features, privacy, and usage.</p>
                 </div>
                 <div class="faq-list" id="faqList"></div>
@@ -1279,11 +1297,9 @@
         window.addEventListener("scroll", () => {
             if (window.scrollY > 35) {
                 dynamicHeader.classList.add("scrolled");
-                // When top bar turns White, status bar switches to Mast Blue (#153e90)
                 if (metaThemeColor) metaThemeColor.setAttribute("content", "#153e90");
             } else {
                 dynamicHeader.classList.remove("scrolled");
-                // When at very top (header is blue), status bar is White (#ffffff)
                 if (metaThemeColor) metaThemeColor.setAttribute("content", "#ffffff");
             }
         });
@@ -1320,7 +1336,6 @@
             { image: "assets/banner-10.webp", link: "format-converter.html", title: "Image Format Converter" }
         ];
 
-        // Slim 10-Banner Ribbon 1 (After PDF Category)
         const SLIM_BANNERS_1 = [
             { image: "assets/slim-banner-1.webp", link: "image-compressor.html", title: "Special Hostinger Offer / Tool Offer" },
             { image: "assets/slim-banner-2.webp", link: "pdf-lock.html", title: "Fast Secure PDF Encryption" },
@@ -1334,7 +1349,6 @@
             { image: "assets/slim-banner-10.webp", link: "format-converter.html", title: "Convert WebP to JPG Cleanly" }
         ];
 
-        // Slim 10-Banner Ribbon 2 (After Web & Security Category)
         const SLIM_BANNERS_2 = [
             { image: "assets/slim-banner-4.webp", link: "internet-speed-test.html", title: "High Speed Fiber & CDN Ping Test" },
             { image: "assets/slim-banner-1.webp", link: "image-compressor.html", title: "Target Exact 20KB for SSC Exam" },
@@ -1359,7 +1373,7 @@
             { key: "convert", title: "Converters", hub: "converters.html", icon: "fa-arrows-left-right", desc: "Convert length, mass, and land measurement units.", className: "cat-convert" }
         ];
 
-        // 5. MASTER TOOLS LIST
+        // 5. MASTER TOOLS LIST (PDF Page Rearrange icon fixed with fa-arrows-up-down-left-right)
         const TOOLS_LIST = [
             // PDF Tools (10)
             { cat: "pdf", name: "PDF Protector", file: "pdf-protector.html", icon: "fa-shield-halved", desc: "Protect your PDF with security settings" },
@@ -1371,7 +1385,7 @@
             { cat: "pdf", name: "PDF Watermark", file: "pdf-watermark.html", icon: "fa-stamp", desc: "Add text or image watermark" },
             { cat: "pdf", name: "PDF Watermark Remover", file: "pdf-watermark-remover.html", icon: "fa-eraser", desc: "Remove watermarks from PDF" },
             { cat: "pdf", name: "PDF Page Editor", file: "pdf-page-editor.html", icon: "fa-pen-to-square", desc: "Edit and manage PDF pages" },
-            { cat: "pdf", name: "PDF Page Rearrange", file: "pdf-page-rearrange.html", icon: "fa-arrow-up-arrow-down", desc: "Reorder PDF pages easily" },
+            { cat: "pdf", name: "PDF Page Rearrange", file: "pdf-page-rearrange.html", icon: "fa-arrows-up-down-left-right", desc: "Reorder PDF pages easily" },
 
             // Image Tools (7)
             { cat: "image", name: "Image Compressor", file: "image-compressor.html", icon: "fa-compress", desc: "Reduce image file size to exact KB" },
@@ -1410,21 +1424,21 @@
             { cat: "convert", name: "Area Converter", file: "area-converter.html", icon: "fa-vector-square", desc: "Convert area measurement units" }
         ];
 
-        // 6. 10 REAL-WORLD HOMEPAGE FAQS
+        // 6. 10 REAL-WORLD HOMEPAGE FAQS WITH WORKING LINKS
         const HOME_FAQS = [
-            { q: "What is Tveezal Tools and what makes it unique?", a: "Tveezal Tools is an online platform featuring 34+ free utilities. Unlike other websites that upload your files to remote cloud servers, our tools execute 100% client-side directly within your browser." },
-            { q: "Do I have to register or create an account to use the tools?", a: "No. You never need to sign up, enter an email, or submit a credit card. Every tool is immediately available." },
-            { q: "How does the Image Compressor compress photos to exact sizes like 50KB?", a: "Our tool utilizes an iterative binary search engine that repeatedly analyzes quality and canvas pixel buffers until your image matches your target KB constraint without degrading colors." },
-            { q: "Can I combine multiple PDF documents into a single file?", a: "Yes. Our PDF Merge tool allows you to upload multiple PDF files, reorder pages, and merge them into one organized document." },
-            { q: "What is the Font Changer and where can I use the generated fonts?", a: "The Font Changer transforms normal alphanumeric text into 1000+ fancy Unicode glyphs (such as Gothic, Italic, and Bubble text) that can be pasted directly into Instagram, Discord, and WhatsApp bios." },
-            { q: "How accurate is the Internet Speed Tester?", a: "The speed tester evaluates real throughput by streaming chunked packets to edge delivery servers, displaying live Download Mbps, Upload Mbps, round-trip Ping latency, and your public IP." },
-            { q: "Can I convert text into audio in multiple Indian and international languages?", a: "Yes. The Text-to-Speech tool supports over 35+ languages, including Hindi, Marathi, Urdu, Tamil, English, and Spanish with realistic voice options." },
-            { q: "Are there any file limits or usage quotas on Tveezal Tools?", a: "No. You can perform as many image compressions, PDF merges, or calculations as you need without daily limits." },
-            { q: "Does Tveezal Tools work on Android and iOS mobile browsers?", a: "Yes. The entire website is responsive, touch-gesture optimized, and supports camera uploads and native sharing on all devices." },
-            { q: "How do I report bugs or suggest tools to be added?", a: "You can submit suggestions, requests, or bug reports directly through our Contact Us page or via our community channels." }
+            { q: "What is Tveezal Tools and what makes it unique?", a: "Tveezal Tools is an online ecosystem featuring 34+ free browser utilities. Unlike other sites that upload your files to remote cloud servers, our tools execute 100% client-side directly within your browser. Learn more on our <a href='about.html'>About Us</a> page." },
+            { q: "Do I have to register or create an account to use the tools?", a: "No. You never need to sign up, enter an email, or submit a credit card. Every tool is immediately available without usage limits. Check our <a href='terms.html'>Terms of Service</a> for complete details." },
+            { q: "How does the Image Compressor compress photos to exact sizes like 50KB?", a: "Our <a href='image-compressor.html'>Image Compressor</a> utilizes an adaptive binary search engine that repeatedly analyzes quality and canvas pixel buffers until your image matches your target KB constraint without color degradation." },
+            { q: "Can I combine multiple PDF documents into a single file?", a: "Yes. Our <a href='pdf-merge.html'>PDF Merge Tool</a> allows you to upload multiple PDF files, reorder pages, and merge them into one organized document with zero watermarks." },
+            { q: "What is the Font Changer and where can I use the generated fonts?", a: "The <a href='font-changer.html'>Font Changer</a> transforms normal alphanumeric text into 1000+ fancy Unicode glyphs (such as Gothic, Italic, and Bubble text) that can be pasted directly into Instagram, Discord, and WhatsApp bios." },
+            { q: "How accurate is the Internet Speed Tester?", a: "The <a href='internet-speed-test.html'>Internet Speed Tester</a> evaluates real throughput by streaming chunked packets to edge delivery servers, displaying live Download Mbps, Upload Mbps, round-trip Ping latency, and your public IP." },
+            { q: "Can I convert text into audio in multiple Indian and international languages?", a: "Yes. The <a href='text-to-speech.html'>Text to Speech Tool</a> supports over 35+ languages, including Hindi, Marathi, Urdu, Tamil, English, and Spanish with realistic voice options." },
+            { q: "Are my files uploaded or stored on your servers?", a: "Never. All photo compression, PDF editing, and calculations happen in your local device RAM. Read our <a href='privacy.html'>Privacy Policy</a> to understand our client-side architecture." },
+            { q: "Does Tveezal Tools work on Android and iOS mobile browsers?", a: "Yes. The entire website is responsive, touch-gesture optimized, and supports camera uploads and native sharing on smartphones and tablets." },
+            { q: "Where can I find more in-depth support and questions?", a: "Visit our dedicated <a href='faq.html'>50+ Detailed FAQ Page</a> or reach out through our <a href='contact.html'>Contact Us</a> page for bug reports and tool requests." }
         ];
 
-        // 7. 1:1 REAL-TIME FINGER DRAG CAROUSEL ENGINE WITH CYCLIC INFINITE LOOP
+        // 7. 1:1 REAL-TIME FINGER DRAG CAROUSEL ENGINE (DOTS BELOW & CYCLIC LOOP)
         function setupCarousel(trackId, dotsId, dataset) {
             const track = document.getElementById(trackId);
             const dotsContainer = document.getElementById(dotsId);
@@ -1503,7 +1517,6 @@
                 startTimer();
             }
 
-            // Real-time 1:1 Live Touch Tracking
             function touchStart(event) {
                 isDragging = true;
                 stopTimer();
@@ -1529,10 +1542,10 @@
                 const threshold = Math.min(50, carousel.offsetWidth * 0.14);
 
                 if (movedBy < -threshold) {
-                    // Next (Infinite: Loops from 10th to 1st)
+                    // Next (Cyclic loop: 10th se 1st par aayega)
                     current = (current + 1) % dataset.length;
                 } else if (movedBy > threshold) {
-                    // Prev (Infinite: Loops from 1st to 10th)
+                    // Prev (Cyclic loop: 1st se 10th par aayega)
                     current = (current - 1 + dataset.length) % dataset.length;
                 }
 
@@ -1603,7 +1616,6 @@
                     card.className = "tool-card";
                     card.href = tool.file;
                     
-                    // Remembers Category ID when clicked so back button returns directly to this section
                     card.addEventListener('click', () => {
                         sessionStorage.setItem('tveezal_last_category', `category-${cat.key}`);
                     });
@@ -1644,7 +1656,7 @@
 
                 categoriesContainer.appendChild(section);
 
-                // SLIM RIBBON BANNER 1: After PDF Category
+                // SLIM RIBBON BANNER 1: After PDF Category (Dots Outside Below)
                 if (cat.key === "pdf") {
                     const slimSection1 = document.createElement("div");
                     slimSection1.style.margin = "10px 0";
@@ -1655,14 +1667,14 @@
                         <div class="banner-shell">
                             <div class="banner-carousel slim-carousel" id="slimBannerCarousel1">
                                 <div class="banner-track" id="slimBannerTrack1"></div>
-                                <div class="banner-dots" id="slimBannerDots1"></div>
                             </div>
                         </div>
+                        <div class="banner-dots-below" id="slimBannerDots1"></div>
                     `;
                     categoriesContainer.appendChild(slimSection1);
                 }
 
-                // SLIM RIBBON BANNER 2: After Web & Security Category
+                // SLIM RIBBON BANNER 2: After Web & Security Category (Dots Outside Below)
                 if (cat.key === "web") {
                     const slimSection2 = document.createElement("div");
                     slimSection2.style.margin = "10px 0";
@@ -1673,9 +1685,9 @@
                         <div class="banner-shell">
                             <div class="banner-carousel slim-carousel" id="slimBannerCarousel2">
                                 <div class="banner-track" id="slimBannerTrack2"></div>
-                                <div class="banner-dots" id="slimBannerDots2"></div>
                             </div>
                         </div>
+                        <div class="banner-dots-below" id="slimBannerDots2"></div>
                     `;
                     categoriesContainer.appendChild(slimSection2);
                 }
@@ -1697,7 +1709,7 @@
             setupCarousel("slimBannerTrack1", "slimBannerDots1", SLIM_BANNERS_1);
             setupCarousel("slimBannerTrack2", "slimBannerDots2", SLIM_BANNERS_2);
 
-            // Restore Scroll Location If Coming Back From a Tool
+            // Restore Scroll Location If Returning From a Tool
             checkAndRestoreScroll();
         }
 
@@ -1727,7 +1739,7 @@
             searchInput.focus();
         });
 
-        // 9. RENDER 10 ACCORDION FAQS
+        // 9. RENDER 10 ACCORDION FAQS WITH WORKING DIRECT LINKS
         const faqList = document.getElementById("faqList");
         HOME_FAQS.forEach(item => {
             const div = document.createElement("div");
