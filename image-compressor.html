@@ -13,13 +13,13 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="theme-color" content="#0f172a">
+    <meta name="theme-color" content="#ffffff" id="metaThemeColor">
 
     <!-- Primary SEO Meta Tags -->
-    <title>Image Compressor to 50KB, 20KB Online Free – Tveezal Tools</title>
-    <meta name="title" content="Image Compressor to 50KB, 20KB Online Free – Tveezal Tools">
-    <meta name="description" content="Compress JPG, PNG, WEBP images to exact target size in KB (e.g. 50KB, 20KB, 100KB) online for free. Fast, client-side batch compression with zero data upload to server.">
-    <meta name="keywords" content="image compressor 50kb, compress image to 20kb, reduce photo size in kb, batch image compression online, photo size reducer for government form, free image resizer">
+    <title>Bulk Image Compressor to Exact KB (50KB, 20KB, 100KB) | Tveezal Tools</title>
+    <meta name="title" content="Bulk Image Compressor to Exact KB (50KB, 20KB, 100KB) | Tveezal Tools">
+    <meta name="description" content="Compress up to 10 photos to exact target sizes like 50KB, 20KB, 100KB with zero color loss. Independent individual image controls, batch processing, and direct WhatsApp sharing.">
+    <meta name="keywords" content="exact kb image compressor, compress image to 50kb, compress image to 20kb, bulk photo compressor, reduce jpg size online, passport photo size reducer, compress image whatsapp share, tveezal tools">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Tveezal Tools">
 
@@ -28,45 +28,53 @@
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tveezal.com/image-compressor.html">
-    <meta property="og:title" content="Image Compressor to Exact KB (50KB, 20KB) Online Free">
-    <meta property="og:description" content="Compress up to 10 images at once to exact file sizes. 100% private in-browser compression without quality loss.">
+    <meta property="og:title" content="Bulk Image Compressor to Exact KB (50KB, 20KB, 100KB)">
+    <meta property="og:description" content="Accurately compress up to 10 photos to exact target KB with independent controls and direct WhatsApp sharing.">
     <meta property="og:site_name" content="Tveezal Tools">
 
-    <!-- Font Awesome & Google Fonts -->
+    <!-- Fonts & Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <!-- Schema.org FAQPage Structured Data -->
+    <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
+      "@graph": [
         {
-          "@type": "Question",
-          "name": "How does Tveezal Image Compressor reduce photo size to exact 50 KB or 20 KB?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Our compressor uses an iterative binary search engine that analyzes canvas pixel matrices and adjusts quality factors automatically until your file meets your target KB constraint within ±1-2 KB."
-          }
+          "@type": "SoftwareApplication",
+          "name": "Tveezal Exact KB Batch Image Compressor",
+          "operatingSystem": "All",
+          "applicationCategory": "UtilitiesApplication",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "description": "A high-precision image compressor for processing up to 10 images to exact target sizes like 50KB or 20KB with zero color distortion."
         },
         {
-          "@type": "Question",
-          "name": "Are my uploaded photos safe and private?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. 100% of processing happens locally within your browser using HTML5 Canvas and WebAssembly. Your photos are never uploaded or stored on any server."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How many photos can I compress simultaneously?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "You can select and batch compress up to 10 photos in a single session, setting unique target sizes for each image if needed."
-          }
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Why did previous compressors swap image sizes across photos?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Asynchronous loading can cause file queue mismatches. Tveezal Tools uses an isolated unique-ID binding pipeline ensuring every image is processed strictly on its own card."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I tune each image size independently?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! Every single photo card features its own dedicated 'Target KB' input and 'Set' button alongside the global 'Apply to All' tool."
+              }
+            }
+          ]
         }
       ]
     }
@@ -125,7 +133,7 @@
         }
 
         /* =========================================================
-           1. PERMANENT STICKY WHITE TOP BAR WITH SMART BACK BUTTON
+           1. PERMANENT STICKY PURE WHITE TOP STRIP (HOMEPAGE MATCH)
         ========================================================= */
         .sticky-white-nav {
             position: sticky;
@@ -145,34 +153,6 @@
             justify-content: space-between;
         }
 
-        .nav-left-group {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-
-        /* Dynamic Smart Back Arrow Button */
-        .smart-back-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 14px;
-            border-radius: 12px;
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            color: #1e293b;
-            font-size: 13px;
-            font-weight: 700;
-            transition: all 0.2s ease;
-        }
-
-        .smart-back-btn:hover {
-            background: #eff6ff;
-            border-color: #bfdbfe;
-            color: var(--blue);
-            transform: translateX(-2px);
-        }
-
         .brand-container {
             display: inline-flex;
             align-items: center;
@@ -181,15 +161,15 @@
         }
 
         .logo-tvz {
-            width: 40px;
-            height: 40px;
+            width: 42px;
+            height: 42px;
             background: linear-gradient(135deg, #153e90 0%, #1e58c8 100%);
             color: #ffffff;
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 900;
             letter-spacing: 0.5px;
             box-shadow: 0 4px 12px rgba(30, 88, 200, 0.35);
@@ -211,17 +191,15 @@
         }
 
         .menu-trigger-btn {
-            width: 42px;
-            height: 42px;
             background: #ffffff;
             border: 1px solid #e2e8f0;
+            width: 44px;
+            height: 44px;
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            color: #0f172a;
-            font-size: 17px;
             box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
             transition: all 0.2s ease;
         }
@@ -232,22 +210,46 @@
             transform: scale(1.04);
         }
 
+        .three-dots-solid {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .dot-solid {
+            width: 6px;
+            height: 6px;
+            background-color: #0f172a;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
         /* =========================================================
-           2. VIBRANT BLUE SUB-HEADER HERO
+           2. VIBRANT BLUE SUB-HEADER HERO WITH BACK & SHARE TOOL
         ========================================================= */
         .blue-hero-header {
             background: var(--vibrant-blue);
             color: white;
-            padding: 18px 0 32px;
+            padding: 16px 0 30px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .nav-pills-row {
+        .sub-nav-row {
             max-width: 1250px;
             margin: auto;
-            padding: 0 20px 16px;
+            padding: 0 20px 14px;
             display: flex;
             flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .nav-pills-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
             gap: 8px 10px;
         }
 
@@ -262,6 +264,7 @@
             transition: all 0.2s ease;
             display: inline-flex;
             align-items: center;
+            gap: 6px;
         }
 
         .header-pill:hover {
@@ -274,6 +277,50 @@
             border-color: #60a5fa;
             color: #ffffff;
             box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+        }
+
+        /* Back Button Located Safely Under the White Bar */
+        .tool-back-btn {
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            background: rgba(255, 255, 255, 0.18);
+            color: #ffffff;
+            padding: 6px 16px;
+            border-radius: 999px;
+            font-size: 12.5px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            transition: all 0.2s ease;
+        }
+
+        .tool-back-btn:hover {
+            background: #ffffff;
+            color: var(--blue);
+            transform: translateX(-2px);
+        }
+
+        /* Specific Tool Share Button in Top Blue Strip */
+        .tool-share-btn {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #ffffff;
+            padding: 6px 16px;
+            border-radius: 999px;
+            font-size: 12.5px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .tool-share-btn:hover {
+            background: #25d366;
+            border-color: #25d366;
+            color: #ffffff;
+            transform: translateY(-1px);
         }
 
         .hero {
@@ -466,6 +513,29 @@
         .social-link-btn.ig:hover { background: #e1306c; border-color: #e1306c; }
         .social-link-btn.fb:hover { background: #1877f2; border-color: #1877f2; }
         .social-link-btn.tw:hover { background: #000000; border-color: #000000; }
+
+        .btn-share-full-site {
+            margin-top: 14px;
+            width: 100%;
+            padding: 9px 16px;
+            border-radius: 999px;
+            border: 1px solid #bbf7d0;
+            background: #dcfce7;
+            color: #15803d;
+            font-size: 13px;
+            font-weight: 800;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-share-full-site:hover {
+            background: #bbf7d0;
+            transform: translateY(-1px);
+        }
 
         /* =========================================================
            4. COMPRESSOR TOOL WORKBENCH
@@ -715,7 +785,7 @@
         }
 
         /* =========================================================
-           5. BANNER CAROUSELS (SLIM FINGER-PROFILE & BOTTOM)
+           5. BANNER CAROUSELS (DOTS OUTSIDE / BELOW BANNER)
         ========================================================= */
         .banner-section {
             padding: 24px 0 10px;
@@ -723,11 +793,7 @@
 
         .banner-shell {
             position: relative;
-            overflow: hidden;
-            border-radius: 24px;
-            background: #eef4ff;
-            box-shadow: var(--shadow);
-            touch-action: pan-y pinch-zoom;
+            background: transparent;
             user-select: none;
             -webkit-user-select: none;
         }
@@ -737,6 +803,9 @@
             width: 100%;
             height: clamp(230px, 30vw, 400px);
             overflow: hidden;
+            border-radius: 24px;
+            background: #eef4ff;
+            box-shadow: var(--shadow);
             cursor: grab;
         }
 
@@ -795,23 +864,17 @@
             margin-bottom: 3px;
         }
 
-        .banner-dots {
-            position: absolute;
-            left: 50%;
-            bottom: 8px;
-            transform: translateX(-50%);
+        /* Dots Positioned Below/Outside Banner */
+        .banner-dots-wrapper {
             display: flex;
+            justify-content: center;
             gap: 6px;
-            z-index: 20;
-            padding: 4px 8px;
-            border-radius: 30px;
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(8px);
+            margin-top: 10px;
         }
 
         .banner-dot {
-            width: 6px;
-            height: 6px;
+            width: 7px;
+            height: 7px;
             border: 0;
             border-radius: 50%;
             background: #cbd5e1;
@@ -820,7 +883,7 @@
         }
 
         .banner-dot.active {
-            width: 18px;
+            width: 20px;
             border-radius: 20px;
             background: #2563eb;
         }
@@ -958,7 +1021,7 @@
         .faq-item.open .faq-answer-inner { padding-bottom: 18px; }
 
         /* =========================================================
-           7. FOOTER WITH INTEGRATED SOCIAL MEDIA
+           7. FOOTER WITH INTEGRATED SOCIAL MEDIA & SHARE WEBSITE
         ========================================================= */
         .footer-section {
             margin-top: 60px;
@@ -1002,6 +1065,31 @@
 
         .footer-link:hover { color: #ffffff; }
 
+        .footer-share-box {
+            margin-top: 18px;
+        }
+
+        .footer-share-btn {
+            background: #2563eb;
+            color: #ffffff;
+            border: 0;
+            padding: 9px 18px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+            transition: all 0.2s ease;
+        }
+
+        .footer-share-btn:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
         .footer-bottom {
             border-top: 1px solid rgba(255, 255, 255, 0.08);
             margin-top: 45px;
@@ -1028,44 +1116,52 @@
 <body>
 
     <!-- =========================================================
-         1. PERMANENT STICKY PURE WHITE TOP STRIP WITH SMART BACK
+         1. PERMANENT STICKY PURE WHITE TOP STRIP
     ========================================================= -->
     <div class="sticky-white-nav">
         <div class="sticky-nav-inner">
-            <div class="nav-left-group">
-                <!-- Smart Back Button: Auto-detects homepage category or renders Home -->
-                <a href="index.html" class="smart-back-btn" id="smartBackBtn">
-                    <i class="fa-solid fa-arrow-left"></i>
-                    <span>Back to Tools</span>
-                </a>
+            <a class="brand-container" href="index.html">
+                <div class="logo-tvz">TVZ</div>
+                <div class="brand-text">
+                    TVEEZAL <span>Tools</span>
+                </div>
+            </a>
 
-                <a class="brand-container" href="index.html">
-                    <div class="logo-tvz">TVZ</div>
-                    <div class="brand-text">
-                        TVEEZAL <span>Tools</span>
-                    </div>
-                </a>
-            </div>
-
-            <!-- Menu Button -->
+            <!-- 3 Solid Dots Menu Button -->
             <button class="menu-trigger-btn" id="menuButton" aria-label="Open Navigation">
-                <i class="fa-solid fa-bars"></i>
+                <div class="three-dots-solid">
+                    <span class="dot-solid"></span>
+                    <span class="dot-solid"></span>
+                    <span class="dot-solid"></span>
+                </div>
             </button>
         </div>
     </div>
 
     <!-- =========================================================
-         2. VIBRANT BLUE SUB-HEADER HERO
+         2. VIBRANT BLUE SUB-HEADER WITH BACK & SHARE BUTTONS
     ========================================================= -->
     <header class="blue-hero-header">
-        <nav class="nav-pills-row">
-            <a class="header-pill" href="index.html">Home</a>
-            <a class="header-pill" href="index.html#categoriesContainer">All Tools</a>
-            <a class="header-pill active" href="image-tools.html">Image Tools</a>
-            <a class="header-pill" href="blog.html">Blog</a>
-            <a class="header-pill" href="faq.html">FAQ</a>
-            <a class="header-pill" href="privacy.html">Privacy</a>
-        </nav>
+        <div class="sub-nav-row">
+            <!-- Back Button Positioned Safely Below Top White Strip -->
+            <a href="index.html" class="tool-back-btn" id="smartBackBtn">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Back to Tools</span>
+            </a>
+
+            <nav class="nav-pills-row">
+                <a class="header-pill" href="index.html">Home</a>
+                <a class="header-pill" href="index.html#categoriesContainer">All Tools</a>
+                <a class="header-pill active" href="image-tools.html">Image Tools</a>
+                <a class="header-pill" href="faq.html">FAQ</a>
+            </nav>
+
+            <!-- Share Specific Tool Button -->
+            <button class="tool-share-btn" id="shareToolBtn" aria-label="Share This Tool">
+                <i class="fa-solid fa-share-nodes"></i>
+                <span>Share Tool</span>
+            </button>
+        </div>
 
         <div class="hero">
             <div class="eyebrow">Zero Server Upload · 100% Client-Side</div>
@@ -1074,7 +1170,7 @@
         </div>
     </header>
 
-    <!-- Full White Side Navigation Drawer with Social Strip -->
+    <!-- Full White Side Navigation Drawer with Social Media Strip & Share Website -->
     <div class="drawer-overlay" id="menuOverlay"></div>
     <aside class="side-drawer" id="navDrawer">
         <div class="drawer-header">
@@ -1103,19 +1199,23 @@
         <div class="drawer-social-section">
             <div class="drawer-social-title">Connect With Us</div>
             <div class="social-icons-flex">
-                <a class="social-link-btn wa" href="https://whatsapp.com/channel/YOUR_LINK" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-                <a class="social-link-btn tg" href="https://t.me/YOUR_LINK" target="_blank" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
-                <a class="social-link-btn yt" href="https://youtube.com/@YOUR_LINK" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-                <a class="social-link-btn ig" href="https://instagram.com/YOUR_LINK" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                <a class="social-link-btn fb" href="https://facebook.com/YOUR_LINK" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                <a class="social-link-btn tw" href="https://x.com/YOUR_LINK" target="_blank" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                <a class="social-link-btn wa" href="https://whatsapp.com/channel/YOUR_LINK" target="_blank" aria-label="WhatsApp Channel"><i class="fa-brands fa-whatsapp"></i></a>
+                <a class="social-link-btn tg" href="https://t.me/YOUR_LINK" target="_blank" aria-label="Telegram Channel"><i class="fa-brands fa-telegram"></i></a>
+                <a class="social-link-btn yt" href="https://youtube.com/@YOUR_LINK" target="_blank" aria-label="YouTube Channel"><i class="fa-brands fa-youtube"></i></a>
+                <a class="social-link-btn ig" href="https://instagram.com/YOUR_LINK" target="_blank" aria-label="Instagram Profile"><i class="fa-brands fa-instagram"></i></a>
+                <a class="social-link-btn fb" href="https://facebook.com/YOUR_LINK" target="_blank" aria-label="Facebook Page"><i class="fa-brands fa-facebook-f"></i></a>
+                <a class="social-link-btn tw" href="https://x.com/YOUR_LINK" target="_blank" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
             </div>
+            <!-- Share Website from Drawer -->
+            <button class="btn-share-full-site" id="drawerShareWebsiteBtn">
+                <i class="fa-solid fa-share-nodes"></i> Share Tveezal Website
+            </button>
         </div>
     </aside>
 
     <main class="container">
         <!-- =========================================================
-             3. COMPRESSOR WORKBENCH
+             4. COMPRESSOR WORKBENCH
         ========================================================= -->
         <section class="tool-workbench">
             <input type="file" id="fileInput" multiple accept="image/jpeg,image/png,image/webp,image/bmp" style="display: none;">
@@ -1158,19 +1258,20 @@
         </div>
 
         <!-- =========================================================
-             4. SLIM FINGER-PROFILE 10-BANNER RIBBON
+             5. SLIM FINGER-PROFILE 10-BANNER RIBBON (DOTS OUTSIDE)
         ========================================================= -->
         <section class="banner-section" style="padding-top: 0;">
             <div class="banner-shell">
                 <div class="banner-carousel slim-carousel" id="slimRibbonCarousel">
                     <div class="banner-track" id="slimRibbonTrack"></div>
-                    <div class="banner-dots" id="slimRibbonDots"></div>
                 </div>
+                <!-- Dots cleanly below banner -->
+                <div class="banner-dots-wrapper" id="slimRibbonDots"></div>
             </div>
         </section>
 
         <!-- =========================================================
-             5. SEO IN-DEPTH ARTICLE & 10 FAQS
+             6. SEO IN-DEPTH ARTICLE & 10 FAQS
         ========================================================= -->
         <article class="seo-content-box">
             <h2>How to Compress Images to Exact KB Without Quality Loss</h2>
@@ -1212,14 +1313,15 @@
         </article>
 
         <!-- =========================================================
-             6. BOTTOM FEATURED 10-BANNER CAROUSEL
+             7. BOTTOM FEATURED 10-BANNER CAROUSEL (DOTS OUTSIDE)
         ========================================================= -->
         <section class="banner-section" style="margin-top: 20px;">
             <div class="banner-shell">
                 <div class="banner-carousel" id="bottomBannerCarousel">
                     <div class="banner-track" id="bottomBannerTrack"></div>
-                    <div class="banner-dots" id="bottomBannerDots"></div>
                 </div>
+                <!-- Dots cleanly below banner -->
+                <div class="banner-dots-wrapper" id="bottomBannerDots"></div>
             </div>
         </section>
 
@@ -1230,7 +1332,7 @@
     </main>
 
     <!-- =========================================================
-         7. FOOTER WITH INTEGRATED SOCIAL MEDIA
+         8. FOOTER WITH INTEGRATED SOCIAL MEDIA & SHARE WEBSITE
     ========================================================= -->
     <footer class="footer-section">
         <div class="container">
@@ -1248,6 +1350,12 @@
                         <a class="social-link-btn ig" href="https://instagram.com/YOUR_LINK" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
                         <a class="social-link-btn fb" href="https://facebook.com/YOUR_LINK" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
                         <a class="social-link-btn tw" href="https://x.com/YOUR_LINK" target="_blank" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                    </div>
+                    <!-- Share Full Website from Footer -->
+                    <div class="footer-share-box">
+                        <button class="footer-share-btn" id="footerShareWebsiteBtn">
+                            <i class="fa-solid fa-share-nodes"></i> Share Website
+                        </button>
                     </div>
                 </div>
                 <div>
@@ -1298,32 +1406,57 @@
          JAVASCRIPT CONTROLLERS
     ========================================================= -->
     <script>
-        // 1. SMART DYNAMIC BACK BUTTON ENGINE
+        // 1. SMART DYNAMIC BACK BUTTON (LOCATED BELOW WHITE STRIP)
         const smartBackBtn = document.getElementById("smartBackBtn");
-        
-        // Checks if user arrived from homepage (or category session)
         const referrer = document.referrer;
-        const isFromSameSite = referrer && (referrer.includes("index.html") || referrer.includes(window.location.hostname));
+        const isFromHome = referrer && (referrer.includes("index.html") || referrer.includes(window.location.hostname));
 
-        if (isFromSameSite) {
-            smartBackBtn.href = "index.html";
-            smartBackBtn.innerHTML = `<i class="fa-solid fa-arrow-left"></i> <span>Back to Tools</span>`;
-            smartBackBtn.addEventListener("click", (e) => {
-                e.preventDefault();
-                // If browser has history, use history back to restore exact scroll position
-                if (window.history.length > 1) {
-                    window.history.back();
-                } else {
-                    window.location.href = "index.html#category-image";
-                }
-            });
-        } else {
-            // Direct / Google Search visitor: show clean Home link
-            smartBackBtn.href = "index.html";
-            smartBackBtn.innerHTML = `<i class="fa-solid fa-house"></i> <span>Home</span>`;
+        smartBackBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            if (isFromHome && window.history.length > 1) {
+                window.history.back();
+            } else {
+                window.location.href = "index.html#category-image";
+            }
+        });
+
+        // 2. DEDICATED SHARE ENGINES (TOOL SHARE vs FULL WEBSITE SHARE)
+        const shareToolBtn = document.getElementById("shareToolBtn");
+        const footerShareWebsiteBtn = document.getElementById("footerShareWebsiteBtn");
+        const drawerShareWebsiteBtn = document.getElementById("drawerShareWebsiteBtn");
+
+        // Top button: Shares this specific tool URL
+        shareToolBtn.addEventListener("click", () => {
+            if (navigator.share) {
+                navigator.share({
+                    title: "Exact KB Image Compressor – Tveezal Tools",
+                    text: "Compress photos to exact 50KB or 20KB online for free without quality loss!",
+                    url: window.location.href
+                }).catch(() => {});
+            } else {
+                navigator.clipboard.writeText(window.location.href);
+                alert("Tool link copied to clipboard: " + window.location.href);
+            }
+        });
+
+        // Footer & Drawer buttons: Shares full website homepage URL
+        function shareFullWebsite() {
+            const homeUrl = window.location.origin + "/index.html";
+            if (navigator.share) {
+                navigator.share({
+                    title: "Tveezal Tools – Free Online Utilities",
+                    text: "Check out 34+ free browser utilities for PDF, image optimization, text tools, and converters!",
+                    url: homeUrl
+                }).catch(() => {});
+            } else {
+                navigator.clipboard.writeText(homeUrl);
+                alert("Website link copied to clipboard: " + homeUrl);
+            }
         }
+        footerShareWebsiteBtn.addEventListener("click", shareFullWebsite);
+        drawerShareWebsiteBtn.addEventListener("click", shareFullWebsite);
 
-        // 2. DRAWER CONTROLS
+        // 3. DRAWER CONTROLS
         const menuBtn = document.getElementById("menuButton");
         const drawer = document.getElementById("navDrawer");
         const overlay = document.getElementById("menuOverlay");
@@ -1341,7 +1474,7 @@
         drawerClose.addEventListener("click", closeDrawer);
         overlay.addEventListener("click", closeDrawer);
 
-        // 3. MASTER BANNER DATASETS (Easily edit images and affiliate links)
+        // 4. MASTER BANNER DATASETS
         const SLIM_BANNERS = [
             { image: "assets/slim-banner-1.webp", link: "image-compressor.html", title: "Special Hostinger Offer / Domain Deal" },
             { image: "assets/slim-banner-2.webp", link: "pdf-lock.html", title: "Fast Secure PDF Encryption" },
@@ -1368,7 +1501,7 @@
             { image: "assets/banner-10.webp", link: "format-converter.html", title: "Image Format Converter" }
         ];
 
-        // 4. REAL-TIME 1:1 FINGER DRAG CAROUSEL ENGINE WITH CYCLIC INFINITE LOOP
+        // 5. REAL-TIME 1:1 FINGER DRAG CAROUSEL ENGINE WITH CYCLIC INFINITE LOOP
         function setupCarousel(trackId, dotsId, dataset) {
             const track = document.getElementById(trackId);
             const dotsContainer = document.getElementById(dotsId);
@@ -1447,6 +1580,7 @@
                 startTimer();
             }
 
+            // Real-time 1:1 Live Touch Tracking
             function touchStart(event) {
                 isDragging = true;
                 stopTimer();
@@ -1502,7 +1636,7 @@
             startTimer();
         }
 
-        // 5. IMAGE COMPRESSION ENGINE
+        // 6. IMAGE COMPRESSION ENGINE
         const dropzone = document.getElementById("dropzone");
         const fileInput = document.getElementById("fileInput");
         const queueList = document.getElementById("queueList");
@@ -1563,7 +1697,7 @@
                 return;
             }
 
-            filesQueue.forEach((item, idx) => {
+            filesQueue.forEach((item) => {
                 const card = document.createElement("div");
                 card.className = "image-card-item";
 
@@ -1632,7 +1766,6 @@
                     let width = img.width;
                     let height = img.height;
 
-                    // If image is gigantic, scale it reasonably to avoid memory blowup
                     const maxDim = 2400;
                     if (width > maxDim || height > maxDim) {
                         if (width > height) {
@@ -1745,7 +1878,7 @@
             link.click();
         });
 
-        // 6. 10 REAL-WORLD FAQS
+        // 7. 10 REAL-WORLD FAQS
         const FAQS = [
             { q: "How does Tveezal Image Compressor shrink photos to exact 50 KB or 20 KB?", a: "Our tool executes a binary search algorithm in browser memory that fine-tunes compression matrices repeatedly until the output matches your exact target constraint within ±1-2 KB." },
             { q: "Are my sensitive photos and government documents uploaded to your servers?", a: "Never. All compression calculations occur entirely in your local browser sandbox via modern HTML5 Canvas APIs. Zero bits are transferred over any network." },
@@ -1780,7 +1913,7 @@
             faqList.appendChild(div);
         });
 
-        // Initialize Carousels
+        // Initialize Carousels with dots below
         setupCarousel("slimRibbonTrack", "slimRibbonDots", SLIM_BANNERS);
         setupCarousel("bottomBannerTrack", "bottomBannerDots", BOTTOM_BANNERS);
     </script>
