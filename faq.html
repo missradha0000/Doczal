@@ -264,7 +264,7 @@
         }
 
         /* =========================================================
-           SIDE DRAWER (DEEP MIDNIGHT NAVY THEME - MATCHED)
+           SIDE DRAWER (DEEP MIDNIGHT NAVY + ELEVATED WHITE BUTTONS)
         ========================================================= */
         .drawer-overlay {
             position: fixed;
@@ -288,7 +288,6 @@
             right: -340px;
             width: 320px;
             height: 100%;
-            /* Deep Midnight Navy Gradient */
             background: linear-gradient(160deg, #0f172a 0%, #172554 60%, #1e3a8a 100%);
             box-shadow: -10px 0 35px rgba(15, 23, 42, 0.5);
             z-index: 2001;
@@ -309,7 +308,7 @@
             align-items: center;
             justify-content: space-between;
             padding-bottom: 16px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            border-bottom: 1.5px solid rgba(255, 255, 255, 0.15);
             margin-bottom: 18px;
         }
 
@@ -326,7 +325,7 @@
             width: 34px;
             height: 34px;
             border-radius: 10px;
-            font-size: 16px;
+            font-size: 15px;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -336,8 +335,9 @@
         }
 
         .drawer-close-btn:hover {
-            background: rgba(239, 68, 68, 0.6);
-            border-color: #ef4444;
+            background: #fee2e2;
+            color: #ef4444;
+            border-color: #fca5a5;
         }
 
         .drawer-links {
@@ -347,16 +347,17 @@
         }
 
         .drawer-pill-item {
-            padding: 10px 18px;
+            padding: 11px 18px;
             border-radius: 999px;
             background: #ffffff;
+            border: 1px solid #e2e8f0;
             color: #0f172a;
             font-size: 14px;
             font-weight: 700;
             display: flex;
             align-items: center;
             gap: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.14);
             transition: all 0.2s ease;
             text-decoration: none;
         }
@@ -364,6 +365,7 @@
         .drawer-pill-item:hover {
             transform: translateX(4px);
             background: #eff6ff;
+            border-color: #bfdbfe;
             color: #2563eb;
             box-shadow: 0 6px 20px rgba(37, 99, 235, 0.25);
             text-decoration: none;
@@ -806,7 +808,7 @@
         </div>
     </header>
 
-    <!-- Side Navigation Drawer (Updated to Deep Midnight Navy) -->
+    <!-- Side Navigation Drawer -->
     <div class="drawer-overlay" id="menuOverlay"></div>
     <aside class="side-drawer" id="navDrawer">
         <div class="drawer-header">
@@ -1326,7 +1328,7 @@
                     <span>QR & Barcode</span>
                 </a>
                 <a class="cat-tag-btn" href="text-string-tools.html">
-                    <svg class="cat-icon-svg icon-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                    <svg class="cat-icon-svg icon-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M11 4H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
                     <span>Text & String</span>
                 </a>
                 <a class="cat-tag-btn" href="web-security-tools.html">
@@ -1430,7 +1432,7 @@
         drawerClose.addEventListener("click", closeDrawer);
         overlay.addEventListener("click", closeDrawer);
 
-        // 5-Banner Rotator Datasets (You can easily customize image & link to your Hostinger/Affiliate links)
+        // 5-Banner Rotator Datasets
         const CAROUSEL_SETS = {
             1: [
                 { image: "assets/banner-1.webp", link: "image-compressor.html", title: "Exact 50KB Image Compressor" },
@@ -1469,7 +1471,6 @@
             ]
         };
 
-        // Initialize All 5 Banner Carousels
         function initCarousel(id, banners) {
             const track = document.getElementById(`carouselTrack${id}`);
             const dotsContainer = document.getElementById(`carouselDots${id}`);
@@ -1547,7 +1548,7 @@
             startTimer();
         }
 
-        // Initialize All 5 Carousels
+        // Initialize All 5 Banners
         for (let i = 1; i <= 5; i++) {
             initCarousel(i, CAROUSEL_SETS[i]);
         }
