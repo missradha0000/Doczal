@@ -12,26 +12,28 @@
     </script>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#0f172a" id="metaThemeColor">
 
-    <!-- Primary Meta Tags -->
+    <!-- Primary SEO Meta Tags -->
     <title>Online Line Counter - Count Lines, Words & Characters | Tveezal Tools</title>
     <meta name="title" content="Online Line Counter - Count Lines, Words & Characters | Tveezal Tools">
     <meta name="description" content="Free online line counter tool. Accurately count total lines, non-empty lines, empty rows, words, and characters in real time. Fast, secure, and mobile-friendly.">
     <meta name="keywords" content="line counter, count lines online, text line counter, count code lines, word counter, character counter, count blank lines, tveezal tools">
     <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#2563eb">
+    <meta name="author" content="Tveezal Tools">
 
     <link rel="canonical" href="https://tveezal.com/line-counter.html">
 
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tveezal.com/line-counter.html">
     <meta property="og:title" content="Online Line Counter - Count Lines, Words & Characters | Tveezal Tools">
     <meta property="og:description" content="Count lines, empty lines, characters, and words instantly in your browser with real-time analytics.">
     <meta property="og:site_name" content="Tveezal Tools">
 
-    <!-- Fonts -->
+    <!-- Font Awesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -88,21 +90,24 @@
 
     <style>
         :root {
-            --blue: #2563eb;
-            --blue-hover: #1d4ed8;
+            --bg: #f5f7fb;
+            --white: #ffffff;
             --dark: #0f172a;
             --text: #334155;
             --muted: #64748b;
             --line: #e2e8f0;
-            --bg: #f5f7fb;
-            --card: #ffffff;
+            --blue: #2563eb;
+            --blue-hover: #1d4ed8;
+            --vibrant-blue: linear-gradient(145deg, #0b1e4f 0%, #153e90 45%, #1e58c8 100%);
+            --shadow: 0 10px 30px rgba(15, 23, 42, 0.055);
+            --transition: 0.25s ease;
             --success: #16a34a;
         }
 
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         html {
@@ -113,7 +118,17 @@
             font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
             background: var(--bg);
             color: var(--dark);
+            min-height: 100vh;
+            overflow-x: hidden;
             line-height: 1.75;
+        }
+
+        button, input, select {
+            font-family: inherit;
+        }
+
+        button {
+            cursor: pointer;
         }
 
         a {
@@ -125,68 +140,208 @@
             text-decoration: underline;
         }
 
-        /* HEADER STYLES */
-        .header {
-            background: linear-gradient(135deg, #0f172a 0%, #172554 55%, #1d4ed8 100%);
-            color: white;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        .container {
+            width: min(calc(100% - 32px), 1150px);
+            margin-inline: auto;
         }
 
-        .nav {
-            max-width: 1200px;
+        /* =========================================================
+           1. PERMANENT STICKY PURE WHITE TOP STRIP
+        ========================================================= */
+        .sticky-white-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #ffffff;
+            border-bottom: 1px solid #e2e8f0;
+            box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+        }
+
+        .sticky-nav-inner {
+            max-width: 1250px;
             margin: auto;
-            padding: 16px 22px;
+            padding: 12px 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 16px;
-            flex-wrap: wrap;
         }
 
-        .brand {
-            font-size: 24px;
-            font-weight: 850;
-            letter-spacing: -0.7px;
+        .brand-container {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-tvz {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, #153e90 0%, #1e58c8 100%);
             color: #ffffff;
+            border-radius: 12px;
             display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px rgba(30, 88, 200, 0.35);
+            flex-shrink: 0;
+        }
+
+        .brand-text {
+            font-size: 22px;
+            font-weight: 850;
+            letter-spacing: -0.6px;
+            color: #0f172a;
+            display: inline-flex;
             align-items: center;
             gap: 6px;
         }
 
-        .brand span {
-            color: #60a5fa;
-            text-shadow: 0 0 15px rgba(96, 165, 250, 0.45);
+        .brand-text span {
+            color: #2563eb;
         }
 
-        .nav-links {
+        .menu-trigger-btn {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .nav-btn {
-            border: 1px solid rgba(255, 255, 255, 0.22);
-            background: rgba(255, 255, 255, 0.09);
-            color: white;
-            padding: 7px 15px;
-            border-radius: 999px;
-            font-size: 13px;
-            font-weight: 600;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
             transition: all 0.2s ease;
         }
 
-        .nav-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
+        .menu-trigger-btn:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+            transform: scale(1.04);
+        }
+
+        .three-dots-solid {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .dot-solid {
+            width: 6px;
+            height: 6px;
+            background-color: #0f172a;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        /* =========================================================
+           2. VIBRANT BLUE SUB-HEADER WITH BACK & SHARE BUTTONS
+        ========================================================= */
+        .blue-hero-header {
+            background: var(--vibrant-blue);
+            color: white;
+            padding: 16px 0 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .sub-nav-row {
+            max-width: 1250px;
+            margin: auto;
+            padding: 0 20px 14px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .nav-pills-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px 10px;
+        }
+
+        .header-pill {
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            background: rgba(255, 255, 255, 0.08);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 999px;
+            font-size: 12.5px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
             text-decoration: none;
+        }
+
+        .header-pill:hover {
+            background: rgba(255, 255, 255, 0.22);
+            transform: translateY(-1px);
+            text-decoration: none;
+        }
+
+        .header-pill.active {
+            background: #2563eb;
+            border-color: #60a5fa;
+            color: #ffffff;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+        }
+
+        .tool-back-btn {
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            background: rgba(255, 255, 255, 0.18);
+            color: #ffffff;
+            padding: 6px 16px;
+            border-radius: 999px;
+            font-size: 12.5px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .tool-back-btn:hover {
+            background: #ffffff;
+            color: var(--blue);
+            transform: translateX(-2px);
+            text-decoration: none;
+        }
+
+        .tool-share-btn {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #ffffff;
+            padding: 6px 16px;
+            border-radius: 999px;
+            font-size: 12.5px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .tool-share-btn:hover {
+            background: #25d366;
+            border-color: #25d366;
+            color: #ffffff;
             transform: translateY(-1px);
         }
 
-        /* HERO */
         .hero {
             max-width: 1200px;
             margin: auto;
-            padding: 48px 22px 52px;
+            padding: 8px 20px 6px;
             text-align: center;
         }
 
@@ -194,63 +349,251 @@
             text-transform: uppercase;
             letter-spacing: 1.7px;
             color: #93c5fd;
-            font-size: 12px;
+            font-size: 11.5px;
             font-weight: 800;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
 
         h1 {
-            font-size: clamp(34px, 5vw, 54px);
+            font-size: clamp(24px, 4.2vw, 42px);
             line-height: 1.15;
-            letter-spacing: -1.5px;
-            margin-bottom: 14px;
+            letter-spacing: -1.2px;
+            margin-bottom: 10px;
             color: #ffffff;
         }
 
         .hero p {
-            max-width: 720px;
+            max-width: 740px;
             margin: 0 auto;
             color: #dbeafe;
-            font-size: 16px;
+            font-size: 15px;
         }
 
-        /* ADVERTISEMENT PLACEHOLDER */
-        .ad-banner-slot {
-            max-width: 1100px;
-            margin: 24px auto;
-            padding: 16px;
-            text-align: center;
-            background: #e2e8f0;
-            border: 2px dashed #cbd5e1;
-            border-radius: 12px;
-            color: #64748b;
-            font-size: 13px;
-            font-weight: 600;
-            min-height: 90px;
+        /* =========================================================
+           3. FULL WHITE SIDE DRAWER
+        ========================================================= */
+        .drawer-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .drawer-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .side-drawer {
+            position: fixed;
+            top: 0;
+            right: -340px;
+            width: 320px;
+            height: 100%;
+            background: #ffffff;
+            box-shadow: -10px 0 35px rgba(15, 23, 42, 0.12);
+            z-index: 2001;
+            padding: 24px 20px;
+            overflow-y: auto;
+            transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            border-left: 1px solid #e2e8f0;
+        }
+
+        .side-drawer.active {
+            right: 0;
+        }
+
+        .drawer-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #e2e8f0;
+            margin-bottom: 18px;
+        }
+
+        .drawer-title-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .drawer-title {
+            font-size: 19px;
+            font-weight: 850;
+            color: #0f172a;
+            letter-spacing: -0.5px;
+        }
+
+        .drawer-close-btn {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            font-size: 15px;
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            color: #475569;
+            transition: 0.2s ease;
         }
 
-        /* APP CONTAINER */
+        .drawer-close-btn:hover {
+            background: #fee2e2;
+            color: #ef4444;
+            border-color: #fca5a5;
+        }
+
+        .drawer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+        }
+
+        .drawer-pill-item {
+            padding: 10px 18px;
+            border-radius: 999px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            color: #1e293b;
+            font-size: 14px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .drawer-pill-item:hover {
+            transform: translateX(4px);
+            background: #eff6ff;
+            border-color: #bfdbfe;
+            color: #2563eb;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.12);
+            text-decoration: none;
+        }
+
+        .drawer-social-section {
+            margin-top: auto;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+            text-align: center;
+        }
+
+        .drawer-social-title {
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--muted);
+            margin-bottom: 12px;
+        }
+
+        .social-icons-flex {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .social-link-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            color: #475569;
+            font-size: 15px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .social-link-btn:hover {
+            transform: translateY(-2px);
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .social-link-btn.wa:hover { background: #25d366; border-color: #25d366; }
+        .social-link-btn.tg:hover { background: #0088cc; border-color: #0088cc; }
+        .social-link-btn.yt:hover { background: #ff0000; border-color: #ff0000; }
+        .social-link-btn.ig:hover { background: #e1306c; border-color: #e1306c; }
+        .social-link-btn.fb:hover { background: #1877f2; border-color: #1877f2; }
+        .social-link-btn.tw:hover { background: #000000; border-color: #000000; }
+
+        .btn-share-full-site {
+            margin-top: 14px;
+            width: 100%;
+            padding: 9px 16px;
+            border-radius: 999px;
+            border: 1px solid #bbf7d0;
+            background: #dcfce7;
+            color: #15803d;
+            font-size: 13px;
+            font-weight: 800;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-share-full-site:hover {
+            background: #bbf7d0;
+            transform: translateY(-1px);
+        }
+
+        /* =========================================================
+           4. ADVERTISEMENT & APP CONTAINER
+        ========================================================= */
+        .ad-banner-slot {
+            width: 100%;
+            min-height: 65px;
+            margin: 20px 0;
+            padding: 16px;
+            text-align: center;
+            background: #f1f5f9;
+            border: 1.5px dashed #cbd5e1;
+            border-radius: 16px;
+            color: #64748b;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         .app-container {
-            max-width: 1100px;
+            max-width: 1150px;
             margin: auto;
-            padding: 0 20px;
+            padding: 0 16px;
         }
 
         .tool-card {
             background: var(--card);
             border: 1px solid var(--line);
-            border-radius: 24px;
+            border-radius: 28px;
             padding: clamp(20px, 4vw, 36px);
-            box-shadow: 0 10px 35px rgba(15, 23, 42, 0.06);
-            margin-bottom: 40px;
+            box-shadow: var(--shadow);
+            margin-top: 24px;
         }
 
-        /* STATS DISPLAY GRID */
+        /* METRICS */
         .metrics-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -384,46 +727,194 @@
             align-self: center;
         }
 
-        /* SEO ARTICLE */
+        /* 7 CATEGORIES BAR */
+        .categories-bar-wrapper {
+            margin: 32px 0 24px;
+            text-align: center;
+        }
+
+        .categories-title {
+            font-size: 14px;
+            font-weight: 800;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 14px;
+        }
+
+        .category-buttons-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .cat-tag-btn {
+            background: #ffffff;
+            border: 1px solid var(--line);
+            padding: 8px 16px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--dark);
+            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .cat-tag-btn:hover {
+            border-color: var(--blue);
+            color: var(--blue);
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+
+        /* =========================================================
+           5. BANNER CAROUSELS (DOTS OUTSIDE / BELOW BANNER)
+        ========================================================= */
+        .banner-section {
+            padding: 24px 0 10px;
+        }
+
+        .banner-shell {
+            position: relative;
+            background: transparent;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .banner-carousel {
+            position: relative;
+            width: 100%;
+            height: clamp(230px, 30vw, 400px);
+            overflow: hidden;
+            border-radius: 24px;
+            background: #eef4ff;
+            box-shadow: var(--shadow);
+            cursor: grab;
+        }
+
+        .banner-carousel:active {
+            cursor: grabbing;
+        }
+
+        .banner-carousel.slim-carousel {
+            height: clamp(75px, 11vw, 100px);
+            border-radius: 16px;
+        }
+
+        .banner-track {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            will-change: transform;
+            transition: transform 0.45s cubic-bezier(.22, .61, .36, 1);
+        }
+
+        .banner-slide {
+            min-width: 100%;
+            height: 100%;
+            position: relative;
+            flex-shrink: 0;
+            display: block;
+            text-decoration: none;
+        }
+
+        .banner-slide img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            user-select: none;
+            -webkit-user-drag: none;
+            pointer-events: none;
+        }
+
+        .banner-fallback {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 12px;
+            background: linear-gradient(135deg, #dbeafe, #ede9fe, #fae8ff);
+        }
+
+        .banner-fallback h3 {
+            font-size: clamp(15px, 2.5vw, 24px);
+            color: var(--dark);
+            margin-bottom: 3px;
+        }
+
+        .banner-dots-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 10px;
+        }
+
+        .banner-dot {
+            width: 7px;
+            height: 7px;
+            border: 0;
+            border-radius: 50%;
+            background: #cbd5e1;
+            transition: width 0.25s ease, background 0.25s ease;
+            cursor: pointer;
+        }
+
+        .banner-dot.active {
+            width: 20px;
+            border-radius: 20px;
+            background: #2563eb;
+        }
+
+        /* =========================================================
+           6. TRANSPARENT GREEN FLOW & DETAILED SEO CONTENT
+        ========================================================= */
         .seo-content {
             background: var(--card);
             border: 1px solid var(--line);
-            border-radius: 24px;
-            padding: clamp(24px, 5vw, 48px);
-            margin-bottom: 60px;
-            box-shadow: 0 5px 25px rgba(15, 23, 42, 0.03);
+            border-radius: 28px;
+            padding: clamp(24px, 4vw, 44px);
+            margin-top: 32px;
+            box-shadow: var(--shadow);
+            text-align: left;
         }
 
         .seo-content h2 {
-            font-size: 26px;
-            letter-spacing: -0.6px;
+            font-size: clamp(22px, 3.5vw, 32px);
+            letter-spacing: -0.8px;
             margin-bottom: 12px;
             color: var(--dark);
         }
 
         .seo-content h3 {
             font-size: 19px;
-            margin: 24px 0 8px;
+            margin: 26px 0 10px;
             color: var(--dark);
         }
 
         .seo-content p {
-            font-size: 15px;
-            color: var(--text);
+            color: #334155;
+            font-size: 14.5px;
             margin-bottom: 14px;
         }
 
         .seo-content ul {
             padding-left: 24px;
             margin-bottom: 20px;
-            color: var(--text);
+            color: #334155;
+            font-size: 14px;
         }
 
-        .seo-content li {
-            margin: 6px 0;
-        }
+        .seo-content li { margin: 6px 0; }
 
-        /* FEATURE BOXES */
         .feature-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -451,7 +942,6 @@
             margin: 0;
         }
 
-        /* FAQ ACCORDION */
         .faq-accordion {
             margin-top: 24px;
         }
@@ -495,93 +985,198 @@
             color: var(--text);
         }
 
-        /* FOOTER */
-        .footer {
-            background: #0f172a;
-            color: #cbd5e1;
-            padding: 44px 22px 30px;
+        /* =========================================================
+           7. FOOTER WITH INTEGRATED SOCIAL MEDIA & SHARE WEBSITE
+        ========================================================= */
+        .footer-section {
+            margin-top: 60px;
+            background: #0a0f1d;
+            color: #ffffff;
+            border-radius: 32px 32px 0 0;
+            padding: 55px 0 30px;
         }
 
-        .footer-inner {
-            max-width: 1100px;
-            margin: auto;
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr repeat(3, 1fr);
+            gap: 40px;
         }
 
-        .footer-brand {
-            font-size: 22px;
-            font-weight: 850;
-            color: white;
-            margin-bottom: 6px;
-        }
-
-        .footer p {
+        .footer-brand p {
             color: #94a3b8;
-            font-size: 14px;
+            font-size: 13px;
+            margin: 12px 0 18px;
+        }
+
+        .footer-column h3 {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #64748b;
+            margin-bottom: 14px;
         }
 
         .footer-links {
             display: flex;
-            flex-wrap: wrap;
-            gap: 12px 24px;
-            margin: 22px 0;
+            flex-direction: column;
+            gap: 10px;
         }
 
-        .footer-links a {
+        .footer-link {
             color: #cbd5e1;
             font-size: 13px;
+            transition: var(--transition);
         }
 
-        .footer-links a:hover {
+        .footer-link:hover { color: #ffffff; text-decoration: none; }
+
+        .footer-share-box {
+            margin-top: 18px;
+        }
+
+        .footer-share-btn {
+            background: #2563eb;
             color: #ffffff;
+            border: 0;
+            padding: 9px 18px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+            transition: all 0.2s ease;
         }
 
-        .copy {
-            font-size: 12px;
-            color: #64748b;
+        .footer-share-btn:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
             border-top: 1px solid rgba(255, 255, 255, 0.08);
+            margin-top: 45px;
             padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            color: #64748b;
+            font-size: 12px;
+        }
+
+        @media (max-width: 850px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .footer-brand { grid-column: 1 / -1; }
         }
     </style>
 </head>
 <body>
 
     <!-- =========================================================
-         HEADER
+         1. PERMANENT STICKY PURE WHITE TOP STRIP
     ========================================================= -->
-    <header class="header">
-        <nav class="nav">
-            <a class="brand" href="index.html">
-                Tveezal <span>Tools</span>
+    <div class="sticky-white-nav">
+        <div class="sticky-nav-inner">
+            <a class="brand-container" href="index.html">
+                <div class="logo-tvz">TVZ</div>
+                <div class="brand-text">
+                    TVEEZAL <span>Tools</span>
+                </div>
             </a>
-            <div class="nav-links">
-                <a class="nav-btn" href="index.html">Home</a>
-                <a class="nav-btn" href="index.html#all-tools">All Tools</a>
-                <a class="nav-btn" href="blog.html">Blog</a>
-                <a class="nav-btn" href="faq.html">FAQ</a>
-                <a class="nav-btn" href="privacy.html">Privacy</a>
-                <a class="nav-btn" href="terms.html">Terms</a>
-            </div>
-        </nav>
+
+            <!-- 3 Solid Dots Menu Button -->
+            <button class="menu-trigger-btn" id="menuButton" aria-label="Open Navigation">
+                <div class="three-dots-solid">
+                    <span class="dot-solid"></span>
+                    <span class="dot-solid"></span>
+                    <span class="dot-solid"></span>
+                </div>
+            </button>
+        </div>
+    </div>
+
+    <!-- =========================================================
+         2. VIBRANT BLUE SUB-HEADER WITH BACK & SHARE BUTTONS
+    ========================================================= -->
+    <header class="blue-hero-header">
+        <div class="sub-nav-row">
+            <a href="index.html" class="tool-back-btn" id="smartBackBtn">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Back to Tools</span>
+            </a>
+
+            <nav class="nav-pills-row">
+                <a class="header-pill" href="index.html">Home</a>
+                <a class="header-pill" href="index.html#categoriesContainer">All Tools</a>
+                <a class="header-pill active" href="text-string-tools.html">Text & String</a>
+                <a class="header-pill" href="faq.html">FAQ</a>
+            </nav>
+
+            <button class="tool-share-btn" id="shareToolBtn" aria-label="Share This Tool">
+                <i class="fa-solid fa-share-nodes"></i>
+                <span>Share Tool</span>
+            </button>
+        </div>
 
         <div class="hero">
-            <div class="eyebrow">Text & Code Analysis Utility</div>
+            <div class="eyebrow">Text & String Category Tool</div>
             <h1>Online Line Counter</h1>
             <p>Count lines, empty rows, words, and characters with instant real-time calculation. Perfect for writers, developers, and data editors.</p>
         </div>
     </header>
 
-    <!-- Top Advertisement Slot -->
-    <div class="app-container">
-        <div class="ad-banner-slot">
-            <!-- [YOUR ADSENSE OR DISPLAY AD CODE HERE] -->
-            <span>Advertisement (Top Leaderboard)</span>
+    <!-- Full White Side Navigation Drawer with Social Media Strip & Share Website -->
+    <div class="drawer-overlay" id="menuOverlay"></div>
+    <aside class="side-drawer" id="navDrawer">
+        <div class="drawer-header">
+            <div class="drawer-title-group">
+                <div class="logo-tvz" style="width: 32px; height: 32px; font-size: 12px; border-radius: 8px;">TVZ</div>
+                <div class="drawer-title">Tveezal Tools</div>
+            </div>
+            <button class="drawer-close-btn" id="drawerClose">✕</button>
         </div>
-    </div>
+        <div class="drawer-links">
+            <a class="drawer-pill-item" href="index.html"><i class="fa-solid fa-house" style="color:#2563eb;"></i> Home</a>
+            <a class="drawer-pill-item" href="pdf-tools.html"><i class="fa-solid fa-file-pdf" style="color:#dc2626;"></i> PDF Tools</a>
+            <a class="drawer-pill-item" href="image-tools.html"><i class="fa-solid fa-image" style="color:#7c3aed;"></i> Image Tools</a>
+            <a class="drawer-pill-item" href="qr-barcode-tools.html"><i class="fa-solid fa-qrcode" style="color:#059669;"></i> QR & Barcode</a>
+            <a class="drawer-pill-item" href="text-string-tools.html"><i class="fa-solid fa-font" style="color:#d97706;"></i> Text & String</a>
+            <a class="drawer-pill-item" href="web-security-tools.html"><i class="fa-solid fa-shield-halved" style="color:#0891b2;"></i> Web & Security</a>
+            <a class="drawer-pill-item" href="calculators.html"><i class="fa-solid fa-calculator" style="color:#4f46e5;"></i> Calculators</a>
+            <a class="drawer-pill-item" href="converters.html"><i class="fa-solid fa-arrows-left-right" style="color:#e11d48;"></i> Converters</a>
+            <a class="drawer-pill-item" href="blog.html"><i class="fa-solid fa-newspaper" style="color:#64748b;"></i> Blog</a>
+            <a class="drawer-pill-item" href="about.html"><i class="fa-solid fa-circle-info" style="color:#64748b;"></i> About Us</a>
+            <a class="drawer-pill-item" href="contact.html"><i class="fa-solid fa-envelope" style="color:#64748b;"></i> Contact Us</a>
+            <a class="drawer-pill-item" href="privacy.html"><i class="fa-solid fa-lock" style="color:#64748b;"></i> Privacy Policy</a>
+            <a class="drawer-pill-item" href="terms.html"><i class="fa-solid fa-file-contract" style="color:#64748b;"></i> Terms & Conditions</a>
+        </div>
 
-    <!-- =========================================================
-         MAIN APPLICATION INTERFACE
-    ========================================================= -->
-    <main class="app-container">
+        <div class="drawer-social-section">
+            <div class="drawer-social-title">Connect With Us</div>
+            <div class="social-icons-flex">
+                <a class="social-link-btn wa" href="https://whatsapp.com/channel/YOUR_LINK" target="_blank" aria-label="WhatsApp Channel"><i class="fa-brands fa-whatsapp"></i></a>
+                <a class="social-link-btn tg" href="https://t.me/YOUR_LINK" target="_blank" aria-label="Telegram Channel"><i class="fa-brands fa-telegram"></i></a>
+                <a class="social-link-btn yt" href="https://youtube.com/@YOUR_LINK" target="_blank" aria-label="YouTube Channel"><i class="fa-brands fa-youtube"></i></a>
+                <a class="social-link-btn ig" href="https://instagram.com/YOUR_LINK" target="_blank" aria-label="Instagram Profile"><i class="fa-brands fa-instagram"></i></a>
+                <a class="social-link-btn fb" href="https://facebook.com/YOUR_LINK" target="_blank" aria-label="Facebook Page"><i class="fa-brands fa-facebook-f"></i></a>
+                <a class="social-link-btn tw" href="https://x.com/YOUR_LINK" target="_blank" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+            <button class="btn-share-full-site" id="drawerShareWebsiteBtn">
+                <i class="fa-solid fa-share-nodes"></i> Share Tveezal Website
+            </button>
+        </div>
+    </aside>
+
+    <main class="container">
+        <!-- Top Advertisement -->
+        <div class="ad-block" style="margin-top: 24px;">
+            <span><i class="fas fa-rectangle-ad"></i> Advertisement (Top Leaderboard)</span>
+        </div>
+
+        <!-- =========================================================
+             4. LINE COUNTER TOOL WORKBENCH
+        ========================================================= -->
         <section class="tool-card">
             <!-- Real-time Metrics Grid -->
             <div class="metrics-grid">
@@ -623,29 +1218,56 @@
             <!-- Action Controls -->
             <div class="btn-group">
                 <button class="btn btn-primary" id="copyBtn">
-                    Copy Text
+                    <i class="fa-solid fa-copy"></i> Copy Text
                 </button>
                 <button class="btn btn-secondary" id="sampleBtn">
-                    Load Sample Text
+                    <i class="fa-solid fa-file-lines"></i> Load Sample Text
                 </button>
                 <button class="btn btn-secondary" id="removeBlankBtn">
-                    Remove Empty Lines
+                    <i class="fa-solid fa-eraser"></i> Remove Empty Lines
                 </button>
                 <button class="btn btn-danger" id="clearBtn">
-                    Clear Text
+                    <i class="fa-solid fa-trash-can"></i> Clear Text
                 </button>
                 <span class="status-msg" id="statusMessage"></span>
             </div>
         </section>
 
-        <!-- Result Advertisement Slot -->
-        <div class="ad-banner-slot">
-            <!-- [YOUR ADSENSE OR DISPLAY AD CODE HERE] -->
-            <span>Advertisement (Below Tool Results)</span>
+        <!-- Result Advertisement -->
+        <div class="ad-block" style="margin-top: 30px;">
+            <span><i class="fas fa-rectangle-ad"></i> Advertisement (Below Tool Results)</span>
         </div>
 
         <!-- =========================================================
-             SEO CONTENT SECTION
+             5. SLIM FINGER-PROFILE 10-BANNER RIBBON (DOTS OUTSIDE)
+        ========================================================= -->
+        <section class="banner-section" style="padding-top: 0;">
+            <div class="banner-shell">
+                <div class="banner-carousel slim-carousel" id="slimRibbonCarousel">
+                    <div class="banner-track" id="slimRibbonTrack"></div>
+                </div>
+                <div class="banner-dots-wrapper" id="slimRibbonDots"></div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             6. EXPLORE ALL TOOL CATEGORIES BAR
+        ========================================================= -->
+        <section class="categories-bar-wrapper">
+            <div class="categories-title">Explore All Tool Categories</div>
+            <div class="category-buttons-list">
+                <a class="cat-tag-btn" href="pdf-tools.html"><i class="fa-solid fa-file-pdf" style="color:#dc2626;"></i> PDF Tools</a>
+                <a class="cat-tag-btn" href="image-tools.html"><i class="fa-solid fa-image" style="color:#7c3aed;"></i> Image Tools</a>
+                <a class="cat-tag-btn" href="qr-barcode-tools.html"><i class="fa-solid fa-qrcode" style="color:#059669;"></i> QR & Barcode</a>
+                <a class="cat-tag-btn" href="text-string-tools.html"><i class="fa-solid fa-font" style="color:#d97706;"></i> Text & String</a>
+                <a class="cat-tag-btn" href="web-security-tools.html"><i class="fa-solid fa-shield-halved" style="color:#0891b2;"></i> Web & Security</a>
+                <a class="cat-tag-btn" href="calculators.html"><i class="fa-solid fa-calculator" style="color:#4f46e5;"></i> Calculators</a>
+                <a class="cat-tag-btn" href="converters.html"><i class="fa-solid fa-arrows-left-right" style="color:#e11d48;"></i> Converters</a>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             7. TRANSPARENT GREEN FLOW & DETAILED SEO CONTENT
         ========================================================= -->
         <article class="seo-content">
             <h2>What is Tveezal Online Line Counter?</h2>
@@ -714,39 +1336,93 @@
             </div>
         </article>
 
-        <!-- Bottom Content Advertisement Slot -->
-        <div class="ad-banner-slot">
-            <!-- [YOUR ADSENSE OR DISPLAY AD CODE HERE] -->
-            <span>Advertisement (Bottom Banner)</span>
+        <!-- =========================================================
+             8. BOTTOM FEATURED 10-BANNER CAROUSEL (DOTS OUTSIDE)
+        ========================================================= -->
+        <section class="banner-section" style="margin-top: 20px;">
+            <div class="banner-shell">
+                <div class="banner-carousel" id="bottomBannerCarousel">
+                    <div class="banner-track" id="bottomBannerTrack"></div>
+                </div>
+                <div class="banner-dots-wrapper" id="bottomBannerDots"></div>
+            </div>
+        </section>
+
+        <!-- Bottom Advertisement -->
+        <div class="ad-block">
+            <span><i class="fas fa-rectangle-ad"></i> Advertisement (Bottom Leaderboard)</span>
         </div>
     </main>
 
     <!-- =========================================================
-         FOOTER
+         9. FOOTER WITH INTEGRATED SOCIAL MEDIA & SHARE WEBSITE
     ========================================================= -->
-    <footer class="footer">
-        <div class="footer-inner">
-            <div class="footer-brand">Tveezal Tools</div>
-            <p>Simple, ultra-fast browser-based online tools for productivity and web tasks.</p>
-            <div class="footer-links">
-                <a href="index.html">Home</a>
-                <a href="index.html#all-tools">All Tools</a>
-                <a href="blog.html">Blog</a>
-                <a href="seo.html">SEO</a>
-                <a href="about.html">About</a>
-                <a href="contact.html">Contact</a>
-                <a href="faq.html">FAQ</a>
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="terms.html">Terms of Service</a>
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="brand-container" style="margin-bottom: 4px;">
+                        <div class="logo-tvz" style="background: #2563eb; color:#fff; width:36px; height:36px; font-size:13px;">TVZ</div>
+                        <div class="brand-text" style="color:#fff; font-size:22px;">TVEEZAL <span style="color:#60a5fa;">Tools</span></div>
+                    </div>
+                    <p>High-speed, browser-based online utilities designed for productivity, data privacy, and daily convenience.</p>
+                    <div class="social-icons-flex" style="justify-content: flex-start; gap: 8px;">
+                        <a class="social-link-btn wa" href="https://whatsapp.com/channel/YOUR_LINK" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a class="social-link-btn tg" href="https://t.me/YOUR_LINK" target="_blank" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+                        <a class="social-link-btn yt" href="https://youtube.com/@YOUR_LINK" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                        <a class="social-link-btn ig" href="https://instagram.com/YOUR_LINK" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a class="social-link-btn fb" href="https://facebook.com/YOUR_LINK" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a class="social-link-btn tw" href="https://x.com/YOUR_LINK" target="_blank" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+                    </div>
+                    <div class="footer-share-box">
+                        <button class="footer-share-btn" id="footerShareWebsiteBtn">
+                            <i class="fa-solid fa-share-nodes"></i> Share Website
+                        </button>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="footer-column" style="color:#64748b; font-size:12px; margin-bottom:12px;">Tool Hubs</h3>
+                    <div class="footer-links">
+                        <a class="footer-link" href="pdf-tools.html">PDF Tools</a>
+                        <a class="footer-link" href="image-tools.html">Image Tools</a>
+                        <a class="footer-link" href="text-string-tools.html">Text & String</a>
+                        <a class="footer-link" href="web-security-tools.html">Web & Security</a>
+                        <a class="footer-link" href="calculators.html">Calculators</a>
+                        <a class="footer-link" href="converters.html">Converters</a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="footer-column" style="color:#64748b; font-size:12px; margin-bottom:12px;">Social Channels</h3>
+                    <div class="footer-links">
+                        <a class="footer-link" href="https://whatsapp.com/channel/YOUR_LINK" target="_blank"><i class="fa-brands fa-whatsapp" style="color:#25d366; width:16px;"></i> WhatsApp Channel</a>
+                        <a class="footer-link" href="https://t.me/YOUR_LINK" target="_blank"><i class="fa-brands fa-telegram" style="color:#0088cc; width:16px;"></i> Telegram Channel</a>
+                        <a class="footer-link" href="https://youtube.com/@YOUR_LINK" target="_blank"><i class="fa-brands fa-youtube" style="color:#ff0000; width:16px;"></i> YouTube Channel</a>
+                        <a class="footer-link" href="https://instagram.com/YOUR_LINK" target="_blank"><i class="fa-brands fa-instagram" style="color:#e1306c; width:16px;"></i> Instagram Page</a>
+                        <a class="footer-link" href="https://facebook.com/YOUR_LINK" target="_blank"><i class="fa-brands fa-facebook" style="color:#1877f2; width:16px;"></i> Facebook Page</a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="footer-column" style="color:#64748b; font-size:12px; margin-bottom:12px;">Legal & Info</h3>
+                    <div class="footer-links">
+                        <a class="footer-link" href="index.html">Home</a>
+                        <a class="footer-link" href="blog.html">Blog Articles</a>
+                        <a class="footer-link" href="about.html">About Us</a>
+                        <a class="footer-link" href="contact.html">Contact Us</a>
+                        <a class="footer-link" href="privacy.html">Privacy Policy</a>
+                        <a class="footer-link" href="terms.html">Terms of Service</a>
+                        <a class="footer-link" href="faq.html">Detailed FAQ</a>
+                    </div>
+                </div>
             </div>
-            <div class="copy">
-                © 2026 Tveezal Tools. All rights reserved.
+            <div class="footer-bottom">
+                <div>© 2026 Tveezal Tools. All rights reserved.</div>
+                <div>Free browser utilities for everyone.</div>
             </div>
         </div>
     </footer>
 
     <!-- =========================================================
-         CLIENT JAVASCRIPT LOGIC
+         JAVASCRIPT CONTROLLERS
     ========================================================= -->
     <script>
         const editor = document.getElementById('editor');
@@ -776,7 +1452,6 @@
                 return;
             }
 
-            // Lines splitting
             const lines = text.split(/\r\n|\r|\n/);
             const totalLines = lines.length;
 
@@ -791,14 +1466,10 @@
                 }
             }
 
-            // Words calculation
             const words = text.trim() ? text.trim().split(/\s+/).length : 0;
-
-            // Characters calculation
             const chars = text.length;
             const charsNoSpaces = text.replace(/\s/g, '').length;
 
-            // Update UI
             statTotalLines.textContent = totalLines.toLocaleString();
             statNonEmptyLines.textContent = nonEmptyLines.toLocaleString();
             statEmptyLines.textContent = emptyLines.toLocaleString();
@@ -809,7 +1480,6 @@
 
         editor.addEventListener('input', calculateMetrics);
 
-        // Copy button
         copyBtn.addEventListener('click', () => {
             if (!editor.value) {
                 showStatus('No text to copy.');
@@ -824,7 +1494,6 @@
             });
         });
 
-        // Load sample text
         sampleBtn.addEventListener('click', () => {
             editor.value = 
 `// Sample Code & Text
@@ -845,7 +1514,6 @@ Fast, private, and secure browser tools!`;
             showStatus('Sample text loaded.');
         });
 
-        // Remove blank lines
         removeBlankBtn.addEventListener('click', () => {
             if (!editor.value) return;
             const lines = editor.value.split(/\r\n|\r|\n/);
@@ -855,7 +1523,6 @@ Fast, private, and secure browser tools!`;
             showStatus('Empty lines removed.');
         });
 
-        // Clear button
         clearBtn.addEventListener('click', () => {
             editor.value = '';
             calculateMetrics();
@@ -868,6 +1535,232 @@ Fast, private, and secure browser tools!`;
                 statusMessage.textContent = '';
             }, 3000);
         }
+
+        // SMART BACK BUTTON & SHARE ENGINES
+        const smartBackBtn = document.getElementById("smartBackBtn");
+        const shareToolBtn = document.getElementById("shareToolBtn");
+        const footerShareWebsiteBtn = document.getElementById("footerShareWebsiteBtn");
+        const drawerShareWebsiteBtn = document.getElementById("drawerShareWebsiteBtn");
+
+        const referrer = document.referrer;
+        const isFromHome = referrer && (referrer.includes("index.html") || referrer.includes(window.location.hostname));
+
+        if (smartBackBtn) {
+            smartBackBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                if (isFromHome && window.history.length > 1) {
+                    window.history.back();
+                } else {
+                    window.location.href = "index.html#category-text";
+                }
+            });
+        }
+
+        if (shareToolBtn) {
+            shareToolBtn.addEventListener("click", () => {
+                if (navigator.share) {
+                    navigator.share({
+                        title: "Online Line Counter – Tveezal Tools",
+                        text: "Count lines, empty rows, words, and characters instantly for free!",
+                        url: window.location.href
+                    }).catch(() => {});
+                } else {
+                    navigator.clipboard.writeText(window.location.href);
+                    alert("Tool link copied to clipboard!");
+                }
+            });
+        }
+
+        function shareFullWebsite() {
+            const homeUrl = window.location.origin + "/index.html";
+            if (navigator.share) {
+                navigator.share({
+                    title: "Tveezal Tools – Free Online Utilities",
+                    text: "Explore 34+ free browser tools for PDF, image compression, fancy fonts, and calculations!",
+                    url: homeUrl
+                }).catch(() => {});
+            } else {
+                navigator.clipboard.writeText(homeUrl);
+                alert("Website link copied to clipboard!");
+            }
+        }
+        if (footerShareWebsiteBtn) footerShareWebsiteBtn.addEventListener("click", shareFullWebsite);
+        if (drawerShareWebsiteBtn) drawerShareWebsiteBtn.addEventListener("click", shareFullWebsite);
+
+        // DRAWER CONTROLS
+        const menuBtn = document.getElementById("menuButton");
+        const drawer = document.getElementById("navDrawer");
+        const overlay = document.getElementById("menuOverlay");
+        const drawerClose = document.getElementById("drawerClose");
+
+        function openDrawer() {
+            if (drawer) drawer.classList.add("active");
+            if (overlay) overlay.classList.add("active");
+        }
+        function closeDrawer() {
+            if (drawer) drawer.classList.remove("active");
+            if (overlay) overlay.classList.remove("active");
+        }
+        if (menuBtn) menuBtn.addEventListener("click", openDrawer);
+        if (drawerClose) drawerClose.addEventListener("click", closeDrawer);
+        if (overlay) overlay.addEventListener("click", closeDrawer);
+
+        // MASTER BANNER DATASETS
+        const SLIM_BANNERS = [
+            { image: "assets/slim-banner-5.webp", link: "line-counter.html", title: "Accurate Word Reading Meter" },
+            { image: "assets/slim-banner-1.webp", link: "image-compressor.html", title: "Compress Photo to 50KB for Govt Forms" },
+            { image: "assets/slim-banner-2.webp", link: "pdf-merge.html", title: "Merge Multiple PDF Files Online" },
+            { image: "assets/slim-banner-3.webp", link: "font-changer.html", title: "Create 1000+ Aesthetic Fonts" },
+            { image: "assets/slim-banner-4.webp", link: "internet-speed-test.html", title: "Check 5G & Fiber Latency" }
+        ];
+
+        const BOTTOM_BANNERS = [
+            { image: "assets/banner-5.webp", link: "word-counter.html", title: "Word & Character Counter" },
+            { image: "assets/banner-1.webp", link: "image-compressor.html", title: "Image Compressor to 50KB" },
+            { image: "assets/banner-2.webp", link: "pdf-merge.html", title: "Merge Multiple PDF Files Online" },
+            { image: "assets/banner-3.webp", link: "text-to-speech.html", title: "Text to Speech Synthesis" },
+            { image: "assets/banner-4.webp", link: "internet-speed-test.html", title: "Live Internet Speed & Public IP" }
+        ];
+
+        // CAROUSEL ENGINE WITH 1:1 TOUCH & CYCLIC INFINITE LOOP
+        function setupCarousel(trackId, dotsId, dataset) {
+            const track = document.getElementById(trackId);
+            const dotsContainer = document.getElementById(dotsId);
+            if (!track || !dotsContainer) return;
+
+            const carousel = track.closest('.banner-carousel');
+            let current = 0;
+            let timer = null;
+
+            let isDragging = false;
+            let startX = 0;
+            let currentTranslate = 0;
+            let prevTranslate = 0;
+            let animationID = 0;
+
+            track.innerHTML = "";
+            dotsContainer.innerHTML = "";
+
+            dataset.forEach((b, idx) => {
+                const slide = document.createElement("a");
+                slide.className = "banner-slide";
+                slide.href = b.link;
+                slide.innerHTML = `
+                    <img src="${b.image}" alt="${b.title}" loading="${idx === 0 ? 'eager' : 'lazy'}" onerror="this.parentElement.innerHTML='<div class=\\'banner-fallback\\'><h3>${b.title}</h3><p>Fast Online Utility on Tveezal Tools</p></div>'">
+                `;
+                track.appendChild(slide);
+
+                const dot = document.createElement("button");
+                dot.className = `banner-dot ${idx === 0 ? 'active' : ''}`;
+                dot.setAttribute("aria-label", `Slide ${idx + 1}`);
+                dot.addEventListener("click", () => {
+                    current = idx;
+                    setPositionByIndex();
+                    restartTimer();
+                });
+                dotsContainer.appendChild(dot);
+            });
+
+            function setSliderPosition() {
+                track.style.transform = `translateX(${currentTranslate}px)`;
+            }
+
+            function animation() {
+                setSliderPosition();
+                if (isDragging) requestAnimationFrame(animation);
+            }
+
+            function setPositionByIndex(smooth = true) {
+                currentTranslate = -current * carousel.offsetWidth;
+                prevTranslate = currentTranslate;
+                track.style.transition = smooth ? 'transform 0.45s cubic-bezier(.22, .61, .36, 1)' : 'none';
+                setSliderPosition();
+                updateDots();
+            }
+
+            function updateDots() {
+                dotsContainer.querySelectorAll(".banner-dot").forEach((d, i) => {
+                    d.classList.toggle("active", i === current);
+                });
+            }
+
+            function startTimer() {
+                stopTimer();
+                timer = setInterval(() => {
+                    current = (current + 1) % dataset.length;
+                    setPositionByIndex();
+                }, 4000);
+            }
+
+            function stopTimer() {
+                if (timer) clearInterval(timer);
+            }
+
+            function restartTimer() {
+                stopTimer();
+                startTimer();
+            }
+
+            function touchStart(event) {
+                isDragging = true;
+                stopTimer();
+                startX = getPositionX(event);
+                track.style.transition = 'none';
+                animationID = requestAnimationFrame(animation);
+            }
+
+            function touchMove(event) {
+                if (isDragging) {
+                    const currentX = getPositionX(event);
+                    const diff = currentX - startX;
+                    currentTranslate = prevTranslate + diff;
+                }
+            }
+
+            function touchEnd() {
+                if (!isDragging) return;
+                isDragging = false;
+                cancelAnimationFrame(animationID);
+
+                const movedBy = currentTranslate - prevTranslate;
+                const threshold = Math.min(50, carousel.offsetWidth * 0.14);
+
+                if (movedBy < -threshold) {
+                    current = (current + 1) % dataset.length;
+                } else if (movedBy > threshold) {
+                    current = (current - 1 + dataset.length) % dataset.length;
+                }
+
+                setPositionByIndex();
+                startTimer();
+            }
+
+            function getPositionX(event) {
+                return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
+            }
+
+            carousel.addEventListener('touchstart', touchStart, { passive: true });
+            carousel.addEventListener('touchmove', touchMove, { passive: true });
+            carousel.addEventListener('touchend', touchEnd);
+
+            carousel.addEventListener('mousedown', touchStart);
+            carousel.addEventListener('mousemove', touchMove);
+            carousel.addEventListener('mouseup', touchEnd);
+            carousel.addEventListener('mouseleave', () => { if (isDragging) touchEnd(); });
+
+            window.addEventListener('resize', () => {
+                setPositionByIndex(false);
+            });
+
+            setPositionByIndex(false);
+            startTimer();
+        }
+
+        // Initialize Carousels
+        document.addEventListener("DOMContentLoaded", () => {
+            setupCarousel("slimRibbonTrack", "slimRibbonDots", SLIM_BANNERS);
+            setupCarousel("bottomBannerTrack", "bottomBannerDots", BOTTOM_BANNERS);
+        });
     </script>
 </body>
 </html>
