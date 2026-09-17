@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,10 +16,10 @@
     <meta name="theme-color" content="#0f172a" id="metaThemeColor">
 
     <!-- Primary SEO Meta Tags -->
-    <title>Loan & EMI Calculator Online - Calculate Monthly Payments & Total Interest | Tveezal Tools</title>
-    <meta name="title" content="Loan & EMI Calculator Online - Calculate Monthly Payments & Total Interest | Tveezal Tools">
-    <meta name="description" content="Free online loan EMI calculator. Instantly calculate monthly payments, total interest payable, and total payment breakdown for home loans, car loans, and personal loans.">
-    <meta name="keywords" content="loan calculator, emi calculator, interest calculator, monthly payment calculator, mortgage calculator, tveezal tools">
+    <title>Loan & EMI Calculator Online - Currency & Interest Type Selector | Tveezal Tools</title>
+    <meta name="title" content="Loan & EMI Calculator Online - Currency & Interest Type Selector | Tveezal Tools">
+    <meta name="description" content="Free online loan EMI calculator with currency selection (INR, USD, EUR, etc.) and interest type options (Reducing / Compound vs Simple Interest).">
+    <meta name="keywords" content="loan calculator with currency, emi calculator in rupees, simple vs compound interest loan calculator, tveezal tools">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Tveezal Tools">
 
@@ -29,8 +28,8 @@
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tveezal.com/loan-interest-calculator.html">
-    <meta property="og:title" content="Loan & EMI Calculator Online - Calculate Monthly Payments">
-    <meta property="og:description" content="Accurately compute loan EMIs, interest breakdown, and total repayment schedules instantly in your browser.">
+    <meta property="og:title" content="Loan & EMI Calculator Online - Currency & Interest Selector">
+    <meta property="og:description" content="Calculate loan EMIs with custom currency support and interest type breakdowns.">
     <meta property="og:site_name" content="Tveezal Tools">
 
     <!-- Fonts & Font Awesome -->
@@ -54,17 +53,17 @@
             "price": "0",
             "priceCurrency": "USD"
           },
-          "description": "Calculate loan EMIs, total interest, and total payment amounts instantly."
+          "description": "Calculate loan EMIs, total interest, and total payment amounts with custom currency and interest type support."
         },
         {
           "@type": "FAQPage",
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "How is loan EMI calculated?",
+              "name": "How does interest type affect loan calculation?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "EMI is calculated using the formula: [P x R x (1+R)^N]/[(1+R)^N-1], where P is loan principal, R is monthly interest rate, and N is loan tenure in months."
+                "text": "Reducing balance (compound) interest recalculates interest on the remaining principal each month, whereas flat or simple interest calculates interest on the original principal throughout the tenure."
               }
             }
           ]
@@ -592,7 +591,7 @@
             font-size: 15px;
         }
 
-        .input-group-box input {
+        .input-group-box input, .input-group-box select {
             width: 100%;
             padding: 10px 14px;
             border: 1.5px solid #cbd5e1;
@@ -604,7 +603,7 @@
             outline: none;
         }
 
-        .input-group-box input:focus {
+        .input-group-box input:focus, .input-group-box select:focus {
             border-color: var(--blue);
         }
 
@@ -1149,7 +1148,7 @@
         <div class="hero">
             <div class="eyebrow">Calculators Category Tool</div>
             <h1>Online Loan & EMI Calculator</h1>
-            <p>Compute monthly loan payments, total interest payable, and repayment schedules instantly for home loans, car loans, and personal financing.</p>
+            <p>Compute monthly loan payments, total interest payable, and repayment schedules instantly for home loans, car loans, and personal financing with custom currency and interest types.</p>
         </div>
     </header>
 
@@ -1210,7 +1209,31 @@
                 <div class="loan-inputs-col">
                     <div class="input-group-box">
                         <div class="input-label-row">
-                            <label for="loanAmount">Loan Amount ($)</label>
+                            <label for="currencySelect">Select Currency</label>
+                        </div>
+                        <select id="currencySelect" aria-label="Currency Selection">
+                            <option value="₹" selected>Indian Rupee (₹ INR)</option>
+                            <option value="$">US Dollar ($ USD)</option>
+                            <option value="€">Euro (€ EUR)</option>
+                            <option value="£">British Pound (£ GBP)</option>
+                            <option value="A$">Australian Dollar (A$ AUD)</option>
+                            <option value="C$">Canadian Dollar (C$ CAD)</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group-box">
+                        <div class="input-label-row">
+                            <label for="interestType">Interest Type</label>
+                        </div>
+                        <select id="interestType" aria-label="Interest Type Selection">
+                            <option value="reducing" selected>Reducing Balance (Compound Interest / Standard EMI)</option>
+                            <option value="simple">Simple Interest (Flat Rate)</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group-box">
+                        <div class="input-label-row">
+                            <label for="loanAmount">Loan Amount</label>
                             <span id="loanAmountVal">100,000</span>
                         </div>
                         <input type="number" id="loanAmount" value="100000" min="1000" step="1000">
@@ -1236,16 +1259,16 @@
                 <!-- Results Display Column -->
                 <div class="loan-results-col">
                     <div class="result-item-card">
-                        <div class="result-item-label">Monthly EMI Payment</div>
-                        <div class="result-item-value highlight" id="resEMI">$984.74</div>
+                        <div class="result-item-label" id="emiLabelTitle">Monthly EMI Payment</div>
+                        <div class="result-item-value highlight" id="resEMI">₹984.74</div>
                     </div>
                     <div class="result-item-card">
                         <div class="result-item-label">Total Interest Payable</div>
-                        <div class="result-item-value" id="resTotalInterest">$77,253.20</div>
+                        <div class="result-item-value" id="resTotalInterest">₹77,253.20</div>
                     </div>
                     <div class="result-item-card">
                         <div class="result-item-label">Total Payment (Principal + Interest)</div>
-                        <div class="result-item-value" id="resTotalPayment">$177,253.20</div>
+                        <div class="result-item-value" id="resTotalPayment">₹177,253.20</div>
                     </div>
                 </div>
             </div>
@@ -1289,28 +1312,28 @@
         ========================================================= -->
         <article class="seo-content-box">
             <h2>Why Tveezal Online Loan & EMI Calculator is the Best Financial Tool?</h2>
-            <p>The <strong>Tveezal Loan & EMI Calculator</strong> provides precise calculations for home mortgages, auto loans, student financing, and personal credit. By inputting your loan principal, annual interest rate, and repayment tenure, our client-side engine calculates your exact monthly EMI, total interest accumulation, and gross payable amount in real time. Need other calculators or converters? Try our <a href="age-calculator.html">Age Calculator</a>, check dimensions with the <a href="area-converter.html">Area Converter</a>, or count words with our <a href="word-counter.html">Word Counter</a>.</p>
+            <p>The <strong>Tveezal Loan & EMI Calculator</strong> provides precise calculations for home mortgages, auto loans, student financing, and personal credit. With support for multiple global currencies (INR, USD, EUR, GBP) and flexible interest calculation types (Reducing Balance vs Simple Interest), our client-side engine calculates your exact monthly payments, total interest accumulation, and gross payable amount in real time. Need other calculators or converters? Try our <a href="age-calculator.html">Age Calculator</a>, check dimensions with the <a href="area-converter.html">Area Converter</a>, or count words with our <a href="word-counter.html">Word Counter</a>.</p>
 
             <!-- Transparent Green Visual Flowchart Box -->
             <div class="visual-diagram-card">
                 <div class="diagram-step">
                     <svg class="diagram-icon-svg" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-                    <span>1. Enter Principal</span>
+                    <span>1. Choose Currency & Type</span>
                 </div>
                 <div class="diagram-arrow">➔</div>
                 <div class="diagram-step">
                     <svg class="diagram-icon-svg" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
-                    <span>2. Set Interest %</span>
+                    <span>2. Enter Principal & Rate</span>
                 </div>
                 <div class="diagram-arrow">➔</div>
                 <div class="diagram-step">
                     <svg class="diagram-icon-svg" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                    <span>3. Choose Tenure</span>
+                    <span>3. Set Tenure</span>
                 </div>
                 <div class="diagram-arrow">➔</div>
                 <div class="diagram-step">
                     <svg class="diagram-icon-svg" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                    <span>4. Instant EMI Breakdown</span>
+                    <span>4. Instant Breakdown</span>
                 </div>
             </div>
 
@@ -1319,18 +1342,18 @@
             <div class="steps-container">
                 <div class="step-card">
                     <div class="step-badge">1</div>
-                    <h4>Enter Loan Amount</h4>
-                    <p>Type in your desired borrowing principal in the first input box.</p>
+                    <h4>Select Currency & Interest Type</h4>
+                    <p>Choose your local currency symbol and pick whether the interest is calculated on a Reducing Balance or Simple Interest basis.</p>
                 </div>
                 <div class="step-card">
                     <div class="step-badge">2</div>
-                    <h4>Input Annual Interest</h4>
-                    <p>Provide the annual percentage rate (APR) charged by your financial institution.</p>
+                    <h4>Enter Loan Principal & Rate</h4>
+                    <p>Provide your total loan amount and annual percentage rate (APR).</p>
                 </div>
                 <div class="step-card">
                     <div class="step-badge">3</div>
                     <h4>Specify Tenure</h4>
-                    <p>Select the repayment duration in years to instantly view your monthly EMI schedule.</p>
+                    <p>Set your repayment period in years to instantly view your installment breakdown.</p>
                 </div>
             </div>
 
@@ -1338,16 +1361,16 @@
             <h3>Key Features Built for Financial Clarity</h3>
             <div class="feature-grid">
                 <div class="feature-box">
-                    <h4>Instant EMI Computation</h4>
-                    <p>Calculates monthly installments instantly using standard reducing balance formulas.</p>
+                    <h4>Multi-Currency Support</h4>
+                    <p>Switch instantly between Indian Rupees (₹), US Dollars ($), Euros (€), and Pounds (£).</p>
                 </div>
                 <div class="feature-box">
-                    <h4>Interest vs Principal Split</h4>
-                    <p>Clearly segregates total interest payable from the original loan amount borrowed.</p>
+                    <h4>Reducing vs Simple Interest</h4>
+                    <p>Accurately switch between compound reducing balance EMIs and flat simple interest calculations.</p>
                 </div>
                 <div class="feature-box">
                     <h4>Real-Time Adjustments</h4>
-                    <p>Modify numbers on the fly to test different budgeting scenarios immediately.</p>
+                    <p>Modify numbers on the fly to test different budgeting and loan repayment scenarios.</p>
                 </div>
                 <div class="feature-box">
                     <h4>100% Client-Side Privacy</h4>
@@ -1393,7 +1416,7 @@
     </main>
 
     <!-- =========================================================
-         8. FOOTER WITH INTEGRATED SOCIAL MEDIA & SHARE WEBSITE
+             8. FOOTER WITH INTEGRATED SOCIAL MEDIA & SHARE WEBSITE
     ========================================================= -->
     <footer class="footer-section">
         <div class="container">
@@ -1410,7 +1433,7 @@
                         <a class="social-link-btn yt" href="https://youtube.com/@YOUR_LINK" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
                         <a class="social-link-btn ig" href="https://instagram.com/YOUR_LINK" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
                         <a class="social-link-btn fb" href="https://facebook.com/YOUR_LINK" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a class="social-link-btn tw" href="https://x.com/YOUR_LINK" target="_blank" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a class="social-link-btn tw" href="https://x.com/YOUR_LINK" target="_blank" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
                     </div>
                     <div class="footer-share-box">
                         <button class="footer-share-btn" id="footerShareWebsiteBtn">
@@ -1460,10 +1483,12 @@
     </footer>
 
     <!-- =========================================================
-         JAVASCRIPT CONTROLLERS & EMI ENGINE
+         JAVASCRIPT CONTROLLERS & LOAN/INTEREST ENGINE
     ========================================================= -->
     <script>
-        // 1. LOAN EMI CALCULATION ENGINE
+        // 1. LOAN & INTEREST CALCULATION ENGINE (Reducing vs Simple)
+        const currencySelect = document.getElementById('currencySelect');
+        const interestType = document.getElementById('interestType');
         const loanAmountInput = document.getElementById('loanAmount');
         const interestRateInput = document.getElementById('interestRate');
         const loanTenureInput = document.getElementById('loanTenure');
@@ -1472,11 +1497,14 @@
         const interestRateVal = document.getElementById('interestRateVal');
         const loanTenureVal = document.getElementById('loanTenureVal');
 
+        const emiLabelTitle = document.getElementById('emiLabelTitle');
         const resEMI = document.getElementById('resEMI');
         const resTotalInterest = document.getElementById('resTotalInterest');
         const resTotalPayment = document.getElementById('resTotalPayment');
 
         function calculateLoan() {
+            const currency = currencySelect.value;
+            const type = interestType.value;
             const principal = parseFloat(loanAmountInput.value);
             const annualRate = parseFloat(interestRateInput.value);
             const tenureYears = parseFloat(loanTenureInput.value);
@@ -1487,27 +1515,44 @@
             loanTenureVal.textContent = (isNaN(tenureYears) ? "0" : tenureYears) + (tenureYears === 1 ? " Year" : " Years");
 
             if (isNaN(principal) || isNaN(annualRate) || isNaN(tenureYears) || principal <= 0 || annualRate <= 0 || tenureYears <= 0) {
-                resEMI.textContent = "$0.00";
-                resTotalInterest.textContent = "$0.00";
-                resTotalPayment.textContent = "$0.00";
+                resEMI.textContent = currency + "0.00";
+                resTotalInterest.textContent = currency + "0.00";
+                resTotalPayment.textContent = currency + "0.00";
                 return;
             }
 
-            const monthlyRate = annualRate / (12 * 100);
+            let installmentLabel = "Monthly EMI Payment";
+            let periodicPayment = 0;
+            let totalInterest = 0;
+            let totalPayment = 0;
+
             const tenureMonths = tenureYears * 12;
 
-            // EMI Formula: [P x R x (1+R)^N]/[(1+R)^N-1]
-            const emi = (principal * monthlyRate * Math.pow(1 + monthlyRate, tenureMonths)) / (Math.pow(1 + monthlyRate, tenureMonths) - 1);
-            const totalPayment = emi * tenureMonths;
-            const totalInterest = totalPayment - principal;
+            if (type === "reducing") {
+                // Reducing Balance (Compound Interest / Standard EMI)
+                installmentLabel = "Monthly EMI Payment";
+                const monthlyRate = annualRate / (12 * 100);
+                periodicPayment = (principal * monthlyRate * Math.pow(1 + monthlyRate, tenureMonths)) / (Math.pow(1 + monthlyRate, tenureMonths) - 1);
+                totalPayment = periodicPayment * tenureMonths;
+                totalInterest = totalPayment - principal;
+            } else {
+                // Simple Interest (Flat Rate)
+                installmentLabel = "Monthly Payment (Simple Interest)";
+                totalInterest = (principal * annualRate * tenureYears) / 100;
+                totalPayment = principal + totalInterest;
+                periodicPayment = totalPayment / tenureMonths;
+            }
 
-            const formatCurrency = (amount) => "$" + amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            emiLabelTitle.textContent = installmentLabel;
+            const formatCurrency = (amount) => currency + amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
-            resEMI.textContent = formatCurrency(emi);
+            resEMI.textContent = formatCurrency(periodicPayment);
             resTotalInterest.textContent = formatCurrency(totalInterest);
             resTotalPayment.textContent = formatCurrency(totalPayment);
         }
 
+        currencySelect.addEventListener('change', calculateLoan);
+        interestType.addEventListener('change', calculateLoan);
         loanAmountInput.addEventListener('input', calculateLoan);
         interestRateInput.addEventListener('input', calculateLoan);
         loanTenureInput.addEventListener('input', calculateLoan);
@@ -1537,7 +1582,7 @@
             if (navigator.share) {
                 navigator.share({
                     title: "Loan & EMI Calculator Online – Tveezal Tools",
-                    text: "Calculate monthly loan EMIs and total interest payments instantly for free!",
+                    text: "Calculate monthly loan EMIs and total interest payments with currency and interest type options!",
                     url: window.location.href
                 }).catch(() => {});
             } else {
@@ -1725,7 +1770,7 @@
             }
 
             carousel.addEventListener('touchstart', touchStart, { passive: true });
-            carousel.encryption.addEventListener('touchmove', touchMove, { passive: true }); // fixed safe reference
+            carousel.addEventListener('touchmove', touchMove, { passive: true });
             carousel.addEventListener('touchend', touchEnd);
 
             carousel.addEventListener('mousedown', touchStart);
@@ -1744,8 +1789,12 @@
         // 6. 10 REAL-WORLD FAQS WITH CLICKABLE LINKS
         const FAQS = [
             {
-                q: "How is loan EMI calculated?",
-                a: "EMI is calculated using the formula: [P x R x (1+R)^N]/[(1+R)^N-1], where P is principal, R is monthly interest rate, and N is tenure in months. For age computations, visit our <a href='age-calculator.html'>Age Calculator</a>."
+                q: "What is the difference between Reducing Balance and Simple Interest?",
+                a: "Reducing balance (compound) interest calculates interest on the remaining loan principal each month, whereas simple (flat) interest calculates interest on the original starting principal throughout the entire tenure. For age computations, visit our <a href='age-calculator.html'>Age Calculator</a>."
+            },
+            {
+                q: "How can I change the currency symbol in the calculator?",
+                a: "You can easily select your local currency (such as Indian Rupee ₹, US Dollar $, Euro €, or Pound £) from the currency dropdown at the top of the calculator."
             },
             {
                 q: "What does total interest payable mean?",
@@ -1761,7 +1810,7 @@
             },
             {
                 q: "How does changing loan tenure affect my monthly EMI?",
-                a: "Increasing your loan tenure lowers your monthly EMI payments but increases the total interest paid over time, while shortening tenure raises monthly EMI but saves on total interest."
+                a: "Increasing your loan tenure lowers your monthly payments but increases the total interest paid over time, while shortening tenure raises monthly installments but saves on total interest."
             },
             {
                 q: "Do I need to pay or create an account to use this calculator?",
@@ -1778,10 +1827,6 @@
             {
                 q: "How can I combine multiple loan sanction letters into a single file?",
                 a: "Use our client-side <a href='pdf-merge.html'>PDF Merge Tool</a> to combine your documents securely."
-            },
-            {
-                q: "How do I contact the Tveezal Tools team for feedback?",
-                a: "Feel free to reach out with any questions or tool suggestions via our <a href='contact.html'>Contact Us</a> page."
             }
         ];
 
