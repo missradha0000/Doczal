@@ -1,402 +1,2024 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Image Watermark Adder Online - Add Text or Logo Watermark | InstaPic</title>
-<meta name="description" content="Add a text or image watermark to JPG, PNG and WebP images online for free with InstaPic. Customize watermark text, logo, size, opacity, color, position, rotation and repeat pattern. Fast browser-based watermark tool with no login and no server upload.">
-<meta name="keywords" content="image watermark, add watermark to image, watermark adder, image watermark adder, add text watermark, add logo watermark, watermark JPG, watermark PNG, watermark WebP, photo watermark online, free watermark tool, image watermark generator, InstaPic watermark">
-<meta name="robots" content="index,follow,max-image-preview:large">
-<meta name="author" content="InstaPic">
-<link rel="canonical" href="https://instapic.netlify.app/image-watermark.html">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Image Watermark Adder Online | InstaPic">
-<meta property="og:description" content="Add customizable text or logo watermarks to images directly in your browser. Free, private and no login required.">
-<meta property="og:url" content="https://instapic.netlify.app/image-watermark.html">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Image Watermark Adder Online | InstaPic">
-<meta name="twitter:description" content="Add text or logo watermarks to JPG, PNG and WebP images with customizable position, opacity, size and rotation.">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DHZ9E8XV4S"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-<script type="application/ld+json">
-{
- "@context":"https://schema.org",
- "@type":"WebApplication",
- "name":"InstaPic Image Watermark Adder",
- "url":"https://instapic.netlify.app/image-watermark.html",
- "applicationCategory":"MultimediaApplication",
- "operatingSystem":"Windows, macOS, Linux, Android, iOS",
- "browserRequirements":"Requires JavaScript and a modern browser",
- "description":"A browser-based image watermark tool for adding customizable text or logo watermarks to images.",
- "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
- "featureList":["Text watermark","Logo watermark","Opacity control","Position control","Rotation control","Watermark size","Color picker","Repeated watermark pattern","JPG output","PNG output","WebP output","Image preview","Client-side processing","No login"]
-}
-</script>
-<script type="application/ld+json">
-{
- "@context":"https://schema.org",
- "@type":"FAQPage",
- "mainEntity":[
-  {"@type":"Question","name":"How do I add a watermark to an image?","acceptedAnswer":{"@type":"Answer","text":"Upload an image, choose text or logo watermark, customize the watermark settings and click Add Watermark. The final image can then be downloaded in JPG, PNG or WebP format."}},
-  {"@type":"Question","name":"Can I add a logo watermark?","acceptedAnswer":{"@type":"Answer","text":"Yes. Upload a transparent PNG or another supported image as your watermark logo and adjust its size, opacity, position and rotation."}},
-  {"@type":"Question","name":"Can I add a text watermark?","acceptedAnswer":{"@type":"Answer","text":"Yes. Enter any watermark text and customize its font size, weight, color, opacity, position and rotation."}},
-  {"@type":"Question","name":"Are images uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"The watermarking process is performed locally in the browser using JavaScript and Canvas. No server-side image processing is required."}},
-  {"@type":"Question","name":"Which output formats are supported?","acceptedAnswer":{"@type":"Answer","text":"The tool can export the watermarked image as JPG, PNG or WebP."}},
-  {"@type":"Question","name":"Can I create a repeated watermark pattern?","acceptedAnswer":{"@type":"Answer","text":"Yes. Enable the repeated watermark option to tile the watermark across the image. Spacing, opacity and rotation can be customized."}}
- ]
-}
-</script>
+      gtag('config', 'G-DHZ9E8XV4S');
+    </script>
 
-<style>
-:root{--blue:#2563eb;--blue2:#1d4ed8;--green:#10b981;--text:#111827;--muted:#6b7280;--border:#e5e7eb;--bg:#f8fafc;--white:#fff;--danger:#ef4444}
-*{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;background:linear-gradient(180deg,#f8fafc,#fff);color:var(--text);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}
-button,input,select{font:inherit}button{cursor:pointer}
-.header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
-.header-inner{width:min(1100px,calc(100% - 28px));min-height:64px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
-.logo{font-size:22px;font-weight:950;text-decoration:none;color:var(--text)}.logo span{color:var(--blue)}
-.badge{font-size:11px;font-weight:900;color:#047857;background:#ecfdf5;border:1px solid #a7f3d0;padding:5px 10px;border-radius:999px}
-.container{width:min(1100px,calc(100% - 28px));margin:auto}
-.hero{text-align:center;padding:40px 0 22px}.hero h1{font-size:clamp(32px,6vw,54px);line-height:1.06;letter-spacing:-2px;margin:0 0 13px}.hero h1 span{color:var(--blue)}.hero p{max-width:820px;margin:auto;color:var(--muted);font-size:17px}
-.card{background:#fff;border:1px solid var(--border);border-radius:24px;padding:18px;box-shadow:0 18px 55px rgba(15,23,42,.08)}
-.upload{min-height:350px;border:3px dashed #9ca3af;border-radius:22px;background:#f8fafc;display:flex;align-items:center;justify-content:center;text-align:center;padding:25px;transition:.2s}.upload.drag{border-color:var(--blue);background:#eff6ff}
-.upload-icon{width:108px;height:108px;margin:auto auto 10px}.upload-icon svg{width:100%;height:100%}.upload h2{font-size:24px;margin:0 0 4px}.upload p{margin:0 0 17px;color:var(--muted)}
-.browse,.primary{border:0;color:#fff;background:var(--blue);border-radius:999px;padding:13px 28px;font-weight:900;box-shadow:0 7px 18px rgba(37,99,235,.2)}.browse:hover,.primary:hover{background:var(--blue2)}
-.note{font-size:12px;color:var(--muted);margin-top:10px}
-.file-info{display:none;margin-top:15px;padding:12px;border:1px solid var(--border);border-radius:15px;align-items:center;gap:12px}.file-info.show{display:flex}
-.thumb{width:74px;height:74px;flex:0 0 74px;background:#f3f4f6;border-radius:11px;overflow:hidden;display:flex;align-items:center;justify-content:center}.thumb img{width:100%;height:100%;object-fit:contain}
-.file-text{min-width:0;flex:1}.file-name{font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.meta{font-size:12px;color:var(--muted)}
-.icon-btn{border:0;background:#fef2f2;color:#dc2626;width:40px;height:40px;border-radius:10px;font-size:22px}
-.workspace{display:none;margin-top:17px}.workspace.show{display:block}
-.layout{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(300px,.75fr);gap:16px}
-.preview-card,.settings-card{border:1px solid var(--border);border-radius:18px;overflow:hidden;background:#fff}
-.card-title{padding:12px 14px;border-bottom:1px solid var(--border);font-weight:900;font-size:14px}.preview{min-height:550px;padding:15px;display:flex;align-items:center;justify-content:center;background:#f3f4f6}
-.checker{background-color:#fff;background-image:linear-gradient(45deg,#e5e7eb 25%,transparent 25%),linear-gradient(-45deg,#e5e7eb 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#e5e7eb 75%),linear-gradient(-45deg,transparent 75%,#e5e7eb 75%);background-size:24px 24px;background-position:0 0,0 12px,12px -12px,-12px 0}
-#canvas{max-width:100%;max-height:540px;width:auto;height:auto;display:block;box-shadow:0 5px 25px rgba(0,0,0,.13)}
-.settings{padding:14px}.field{margin-bottom:14px}.field label{display:flex;justify-content:space-between;gap:8px;font-size:12px;font-weight:900;color:#374151;margin-bottom:7px}.field label span{color:var(--blue)}
-select,input[type="text"],input[type="number"]{width:100%;height:42px;border:1px solid #d1d5db;border-radius:10px;background:#fff;padding:0 10px;outline:none}select:focus,input:focus{border-color:var(--blue)}
-input[type="range"]{width:100%;accent-color:var(--blue)}
-.color-row{display:flex;gap:9px}.color-row input[type="color"]{width:52px;height:42px;padding:3px;border:1px solid #d1d5db;border-radius:10px;background:#fff}.color-row input[type="text"]{flex:1}
-.segment{display:grid;grid-template-columns:1fr 1fr;gap:8px}.seg{border:1px solid var(--border);background:#fff;border-radius:10px;padding:10px;font-size:12px;font-weight:900}.seg.active{background:#eff6ff;border-color:var(--blue);color:var(--blue)}
-.checkrow{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:800}.checkrow input{width:18px;height:18px}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:9px}
-.action{width:100%;border:0;border-radius:12px;padding:14px;background:var(--blue);color:#fff;font-weight:900;font-size:15px;margin-top:4px}.action:disabled{opacity:.55}
-.status{display:none;margin-top:13px;padding:10px 12px;border-radius:10px;font-size:13px}.status.show{display:block}.status.info{background:#eff6ff;color:#1d4ed8}.status.ok{background:#ecfdf5;color:#047857}.status.err{background:#fef2f2;color:#b91c1c}
-.result{display:none;margin-top:17px;border-top:1px solid var(--border);padding-top:17px}.result.show{display:block}
-.result-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:11px}.result-head h2{margin:0;font-size:22px}.ready{font-size:11px;font-weight:900;color:#047857;background:#ecfdf5;padding:6px 10px;border-radius:999px}
-.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.result-box{border:1px solid var(--border);border-radius:15px;padding:12px}.result-box h3{font-size:13px;margin:0 0 8px}.result-box p{font-size:12px;color:var(--muted);margin:0 0 10px}.download{width:100%;border:0;border-radius:11px;padding:12px;background:var(--green);color:#fff;font-weight:900}
-.seo{margin-top:42px;background:#fff;border:1px solid var(--border);border-radius:22px;padding:30px}.seo h2{margin-top:0;font-size:30px;line-height:1.2}.seo h3{margin-top:29px;font-size:21px}.seo p,.seo li{color:#374151}.seo li{margin:6px 0}.faq{border-top:1px solid var(--border)}.faq details{border-bottom:1px solid var(--border);padding:14px 0}.faq summary{cursor:pointer;font-weight:850}
-footer{padding:32px 0 45px;text-align:center;color:var(--muted);font-size:13px}
-@media(max-width:850px){.layout{grid-template-columns:1fr}.preview{min-height:350px}#canvas{max-height:430px}}
-@media(max-width:650px){.container{width:calc(100% - 18px)}.hero{padding:28px 0 18px}.hero h1{letter-spacing:-1px}.hero p{font-size:15px}.card{padding:11px;border-radius:18px}.upload{min-height:350px}.stats{grid-template-columns:1fr 1fr}.result-grid{grid-template-columns:1fr}.seo{padding:20px;border-radius:18px}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#0f172a" id="metaThemeColor">
+
+    <!-- Primary SEO Meta Tags -->
+    <title>Advanced Image Watermark Studio - Add Text & Logo Watermarks Online | Tveezal Tools</title>
+    <meta name="title" content="Advanced Image Watermark Studio - Add Text & Logo Watermarks Online | Tveezal Tools">
+    <meta name="description" content="Free online advanced image watermarking tool. Add drag-and-drop text or logo watermarks, create multiple tiled background patterns, adjust transparency sliders, rotate text, and protect your photos securely in your browser.">
+    <meta name="keywords" content="add watermark to image, text watermark generator, logo watermarker, drag and drop watermark, tiled watermark pattern, transparency slider, tveezal tools">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Tveezal Tools">
+
+    <link rel="canonical" href="https://tveezal.com/image-watermark.html">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tveezal.com/image-watermark.html">
+    <meta property="og:title" content="Advanced Image Watermark Studio - Protect Photos Online">
+    <meta property="og:description" content="Add draggable text or logo watermarks, adjust transparency, create tiled repeating patterns, and download instantly.">
+    <meta property="og:site_name" content="Tveezal Tools">
+
+    <!-- Fonts & Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "Tveezal Advanced Image Watermark Studio",
+          "operatingSystem": "All",
+          "applicationCategory": "MultimediaApplication",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "description": "Add draggable text or image logo watermarks with custom opacity sliders and tiled patterns instantly in your web browser."
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Can I drag the watermark anywhere on the image?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! You can click and drag the watermark preview directly on the canvas to place it anywhere you like."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I add multiple repeating text watermarks across the entire photo?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, you can switch the mode to 'Multiple / Tiled Pattern' to cover the whole image with your custom text."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --white: #ffffff;
+            --dark: #0f172a;
+            --text: #334155;
+            --muted: #64748b;
+            --line: #e2e8f0;
+            --blue: #2563eb;
+            --blue-hover: #1d4ed8;
+            --vibrant-blue: linear-gradient(145deg, #0b1e4f 0%, #153e90 45%, #1e58c8 100%);
+            --shadow: 0 10px 30px rgba(15, 23, 42, 0.055);
+            --transition: 0.25s ease;
+            --green: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--dark);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        button, input, select {
+            font-family: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        a {
+            color: var(--blue);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            width: min(calc(100% - 32px), 1150px);
+            margin-inline: auto;
+        }
+
+        /* =========================================================
+           1. PERMANENT STICKY PURE WHITE TOP STRIP
+        ========================================================= */
+        .sticky-white-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #ffffff;
+            border-bottom: 1px solid #e2e8f0;
+            box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+        }
+
+        .sticky-nav-inner {
+            max-width: 1250px;
+            margin: auto;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand-container {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-tvz {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, #153e90 0%, #1e58c8 100%);
+            color: #ffffff;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px rgba(30, 88, 200, 0.35);
+            flex-shrink: 0;
+        }
+
+        .brand-text {
+            font-size: 22px;
+            font-weight: 850;
+            letter-spacing: -0.6px;
+            color: #0f172a;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .brand-text span {
+            color: #2563eb;
+        }
+
+        .menu-trigger-btn {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+            transition: all 0.2s ease;
+        }
+
+        .menu-trigger-btn:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+            transform: scale(1.04);
+        }
+
+        .three-dots-solid {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .dot-solid {
+            width: 6px;
+            height: 6px;
+            background-color: #0f172a;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        /* =========================================================
+           2. VIBRANT BLUE SUB-HEADER WITH BACK & SHARE BUTTONS
+        ========================================================= */
+        .blue-hero-header {
+            background: var(--vibrant-blue);
+            color: white;
+            padding: 16px 0 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .sub-nav-row {
+            max-width: 1250px;
+            margin: auto;
+            padding: 0 20px 14px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .nav-pills-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px 10px;
+        }
+
+        .header-pill {
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            background: rgba(255, 255, 255, 0.08);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 999px;
+            font-size: 12.5px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+        }
+
+        .header-pill:hover {
+            background: rgba(255, 255, 255, 0.22);
+            transform: translateY(-1px);
+            text-decoration: none;
+        }
+
+        .header-pill.active {
+            background: #2563eb;
+            border-color: #60a5fa;
+            color: #ffffff;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+        }
+
+        .tool-back-btn {
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            background: rgba(255, 255, 255, 0.18);
+            color: #ffffff;
+            padding: 6px 16px;
+            border-radius: 999px;
+            font-size: 12.5px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .tool-back-btn:hover {
+            background: #ffffff;
+            color: var(--blue);
+            transform: translateX(-2px);
+            text-decoration: none;
+        }
+
+        .tool-share-btn {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #ffffff;
+            padding: 6px 16px;
+            border-radius: 999px;
+            font-size: 12.5px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .tool-share-btn:hover {
+            background: #25d366;
+            border-color: #25d366;
+            color: #ffffff;
+            transform: translateY(-1px);
+        }
+
+        .hero {
+            max-width: 1200px;
+            margin: auto;
+            padding: 8px 20px 6px;
+            text-align: center;
+        }
+
+        .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 1.7px;
+            color: #93c5fd;
+            font-size: 11.5px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        h1 {
+            font-size: clamp(24px, 4.2vw, 42px);
+            line-height: 1.15;
+            letter-spacing: -1.2px;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .hero p {
+            max-width: 740px;
+            margin: 0 auto;
+            color: #dbeafe;
+            font-size: 15px;
+        }
+
+        /* =========================================================
+           3. FULL WHITE SIDE DRAWER
+        ========================================================= */
+        .drawer-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .drawer-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .side-drawer {
+            position: fixed;
+            top: 0;
+            right: -340px;
+            width: 320px;
+            height: 100%;
+            background: #ffffff;
+            box-shadow: -10px 0 35px rgba(15, 23, 42, 0.12);
+            z-index: 2001;
+            padding: 24px 20px;
+            overflow-y: auto;
+            transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            border-left: 1px solid #e2e8f0;
+        }
+
+        .side-drawer.active {
+            right: 0;
+        }
+
+        .drawer-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #e2e8f0;
+            margin-bottom: 18px;
+        }
+
+        .drawer-title-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .drawer-title {
+            font-size: 19px;
+            font-weight: 850;
+            color: #0f172a;
+            letter-spacing: -0.5px;
+        }
+
+        .drawer-close-btn {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            font-size: 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #475569;
+            transition: 0.2s ease;
+        }
+
+        .drawer-close-btn:hover {
+            background: #fee2e2;
+            color: #ef4444;
+            border-color: #fca5a5;
+        }
+
+        .drawer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+        }
+
+        .drawer-pill-item {
+            padding: 10px 18px;
+            border-radius: 999px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            color: #1e293b;
+            font-size: 14px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .drawer-pill-item:hover {
+            transform: translateX(4px);
+            background: #eff6ff;
+            border-color: #bfdbfe;
+            color: #2563eb;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.12);
+            text-decoration: none;
+        }
+
+        .drawer-social-section {
+            margin-top: auto;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+            text-align: center;
+        }
+
+        .drawer-social-title {
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--muted);
+            margin-bottom: 12px;
+        }
+
+        .social-icons-flex {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .social-link-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            color: #475569;
+            font-size: 15px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .social-link-btn:hover {
+            transform: translateY(-2px);
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .social-link-btn.wa:hover { background: #25d366; border-color: #25d366; }
+        .social-link-btn.tg:hover { background: #0088cc; border-color: #0088cc; }
+        .social-link-btn.yt:hover { background: #ff0000; border-color: #ff0000; }
+        .social-link-btn.ig:hover { background: #e1306c; border-color: #e1306c; }
+        .social-link-btn.fb:hover { background: #1877f2; border-color: #1877f2; }
+        .social-link-btn.tw:hover { background: #000000; border-color: #000000; }
+
+        .btn-share-full-site {
+            margin-top: 14px;
+            width: 100%;
+            padding: 9px 16px;
+            border-radius: 999px;
+            border: 1px solid #bbf7d0;
+            background: #dcfce7;
+            color: #15803d;
+            font-size: 13px;
+            font-weight: 800;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-share-full-site:hover {
+            background: #bbf7d0;
+            transform: translateY(-1px);
+        }
+
+        /* =========================================================
+           4. WORKBENCH & STUDIO STYLES
+        ========================================================= */
+        .tool-workbench {
+            background: #ffffff;
+            border: 1px solid var(--line);
+            border-radius: 28px;
+            padding: clamp(20px, 4vw, 36px);
+            box-shadow: var(--shadow);
+            margin-top: 24px;
+        }
+
+        .upload-dropzone {
+            border: 2px dashed #cbd5e1;
+            background: #f8fafc;
+            border-radius: 20px;
+            padding: 30px 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .upload-dropzone:hover {
+            border-color: var(--blue);
+            background: #eff6ff;
+        }
+
+        .upload-dropzone i {
+            font-size: 38px;
+            color: var(--blue);
+            margin-bottom: 8px;
+        }
+
+        .upload-dropzone h3 {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 2px;
+        }
+
+        .upload-dropzone p {
+            font-size: 12.5px;
+            color: var(--muted);
+        }
+
+        .studio-grid {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 24px;
+            align-items: start;
+        }
+
+        @media (max-width: 900px) {
+            .studio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .controls-panel {
+            background: #f8fafc;
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .control-group label {
+            font-size: 12px;
+            font-weight: 800;
+            color: var(--muted);
+            text-transform: uppercase;
+        }
+
+        .control-group input, .control-group select {
+            padding: 10px 14px;
+            border: 1.5px solid var(--line);
+            border-radius: 12px;
+            font-size: 13.5px;
+            font-weight: 600;
+            background: #ffffff;
+            outline: none;
+        }
+
+        .control-group input:focus, .control-group select:focus {
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .canvas-preview-container {
+            position: relative;
+            background: #0f172a;
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+            box-shadow: inset 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        #watermarkCanvas {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            cursor: crosshair;
+        }
+
+        .btn-download-final {
+            background: var(--green);
+            color: #ffffff;
+            border: 0;
+            padding: 13px 28px;
+            border-radius: 999px;
+            font-size: 14.5px;
+            font-weight: 800;
+            box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            margin-top: 10px;
+            text-decoration: none;
+        }
+
+        .btn-download-final:hover {
+            background: #059669;
+            transform: translateY(-1px);
+        }
+
+        /* =========================================================
+           5. EXPLORE ALL TOOL CATEGORIES BAR
+        ========================================================= */
+        .categories-bar-wrapper {
+            margin: 32px 0 24px;
+            text-align: center;
+        }
+
+        .categories-title {
+            font-size: 14px;
+            font-weight: 800;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 14px;
+        }
+
+        .category-buttons-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .cat-tag-btn {
+            background: #ffffff;
+            border: 1px solid var(--line);
+            padding: 8px 16px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--dark);
+            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .cat-tag-btn:hover {
+            border-color: var(--blue);
+            color: var(--blue);
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+
+        /* =========================================================
+           6. FEATURED BANNER CAROUSELS (PLACED AFTER CATEGORIES BAR)
+        ========================================================= */
+        .banner-section {
+            padding: 10px 0 24px;
+        }
+
+        .banner-shell {
+            position: relative;
+            background: transparent;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .banner-carousel {
+            position: relative;
+            width: 100%;
+            height: clamp(230px, 30vw, 400px);
+            overflow: hidden;
+            border-radius: 24px;
+            background: #eef4ff;
+            box-shadow: var(--shadow);
+            cursor: grab;
+        }
+
+        .banner-carousel:active {
+            cursor: grabbing;
+        }
+
+        .banner-carousel.slim-carousel {
+            height: clamp(75px, 11vw, 100px);
+            border-radius: 16px;
+        }
+
+        .banner-track {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            will-change: transform;
+            transition: transform 0.45s cubic-bezier(.22, .61, .36, 1);
+        }
+
+        .banner-slide {
+            min-width: 100%;
+            height: 100%;
+            position: relative;
+            flex-shrink: 0;
+            display: block;
+            text-decoration: none;
+        }
+
+        .banner-slide img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            user-select: none;
+            -webkit-user-drag: none;
+            pointer-events: none;
+        }
+
+        .banner-fallback {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 12px;
+            background: linear-gradient(135deg, #dbeafe, #ede9fe, #fae8ff);
+        }
+
+        .banner-dots-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 10px;
+        }
+
+        .banner-dot {
+            width: 7px;
+            height: 7px;
+            border: 0;
+            border-radius: 50%;
+            background: #cbd5e1;
+            transition: width 0.25s ease, background 0.25s ease;
+            cursor: pointer;
+        }
+
+        .banner-dot.active {
+            width: 20px;
+            border-radius: 20px;
+            background: #2563eb;
+        }
+
+        .ad-block {
+            width: 100%;
+            min-height: 65px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1.5px dashed #cbd5e1;
+            border-radius: 16px;
+            background: #f1f5f9;
+            color: #64748b;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin: 16px 0;
+        }
+
+        /* =========================================================
+           7. TRANSPARENT GREEN FLOW & DETAILED MASSIVE SEO ARTICLE
+        ========================================================= */
+        .seo-content-box {
+            background: #ffffff;
+            border: 1px solid var(--line);
+            border-radius: 28px;
+            padding: clamp(24px, 4vw, 44px);
+            margin-top: 10px;
+            box-shadow: var(--shadow);
+            text-align: left;
+        }
+
+        .seo-content-box h2 {
+            font-size: clamp(22px, 3.5vw, 32px);
+            letter-spacing: -0.8px;
+            margin-bottom: 12px;
+            color: var(--dark);
+        }
+
+        .seo-content-box h3 {
+            font-size: 19px;
+            margin: 26px 0 10px;
+            color: var(--dark);
+        }
+
+        .seo-content-box p {
+            color: #334155;
+            font-size: 14.5px;
+            margin-bottom: 14px;
+        }
+
+        .seo-content-box ul {
+            padding-left: 24px;
+            margin-bottom: 20px;
+            color: #334155;
+            font-size: 14px;
+        }
+
+        .seo-content-box li { margin: 6px 0; }
+
+        .visual-diagram-card {
+            background: rgba(240, 253, 244, 0.75);
+            border: 1.5px solid #bbf7d0;
+            backdrop-filter: blur(6px);
+            border-radius: 20px;
+            padding: 22px;
+            margin: 24px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 16px;
+            text-align: center;
+        }
+
+        .diagram-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            max-width: 140px;
+        }
+
+        .diagram-icon-svg {
+            width: 44px;
+            height: 44px;
+            padding: 9px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(22, 101, 52, 0.12);
+        }
+
+        .diagram-step span {
+            font-size: 12px;
+            font-weight: 800;
+            color: #166534;
+        }
+
+        .diagram-arrow {
+            font-size: 20px;
+            color: #16a34a;
+            font-weight: 900;
+        }
+
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 18px;
+            margin: 20px 0 28px;
+        }
+
+        .step-card {
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 20px;
+            background: #f8fafc;
+            text-align: center;
+        }
+
+        .step-badge {
+            width: 36px;
+            height: 36px;
+            background: var(--blue);
+            color: white;
+            font-weight: 800;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+        }
+
+        .step-card h4 {
+            font-size: 15px;
+            margin-bottom: 6px;
+            color: var(--dark);
+        }
+
+        .step-card p {
+            font-size: 13px;
+            color: var(--muted);
+            margin: 0;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+            margin: 22px 0;
+        }
+
+        .feature-box {
+            background: #f8fafc;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 20px;
+        }
+
+        .feature-box h4 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: var(--dark);
+        }
+
+        .feature-box p {
+            font-size: 13px;
+            color: var(--muted);
+            margin: 0;
+        }
+
+        .faq-section {
+            padding: 30px 0 10px;
+        }
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .faq-item {
+            background: #ffffff;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            border: 0;
+            background: transparent;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 20px;
+            text-align: left;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .faq-answer {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.28s ease;
+        }
+
+        .faq-answer-inner {
+            overflow: hidden;
+            padding: 0 20px;
+            color: var(--text);
+            font-size: 13.5px;
+            line-height: 1.65;
+        }
+
+        .faq-item.open .faq-answer { grid-template-rows: 1fr; }
+        .faq-item.open .faq-answer-inner { padding-bottom: 18px; }
+
+        /* =========================================================
+           8. FOOTER WITH INTEGRATED SOCIAL MEDIA & SHARE WEBSITE
+        ========================================================= */
+        .footer-section {
+            margin-top: 60px;
+            background: #0a0f1d;
+            color: #ffffff;
+            border-radius: 32px 32px 0 0;
+            padding: 55px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .footer-brand p {
+            color: #94a3b8;
+            font-size: 13px;
+            margin: 12px 0 18px;
+        }
+
+        .footer-column h3 {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #64748b;
+            margin-bottom: 14px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-link {
+            color: #cbd5e1;
+            font-size: 13px;
+            transition: var(--transition);
+        }
+
+        .footer-link:hover { color: #ffffff; text-decoration: none; }
+
+        .footer-share-box {
+            margin-top: 18px;
+        }
+
+        .footer-share-btn {
+            background: #2563eb;
+            color: #ffffff;
+            border: 0;
+            padding: 9px 18px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+            transition: all 0.2s ease;
+        }
+
+        .footer-share-btn:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            margin-top: 45px;
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            color: #64748b;
+            font-size: 12px;
+        }
+
+        @media (max-width: 850px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .footer-brand { grid-column: 1 / -1; }
+        }
+    </style>
 </head>
-
 <body>
-<header class="header"><div class="header-inner"><a class="logo" href="index.html">Insta<span>Pic</span></a><div class="badge">100% Browser-Based • No Login</div></div></header>
 
-<main>
-<section class="hero"><div class="container">
-<h1>Image <span>Watermark Adder</span> Online</h1>
-<p>Add a text or logo watermark to your photos directly in your browser. Customize size, opacity, color, position, rotation and repeated watermark patterns, then download your protected image.</p>
-</div></section>
+    <!-- =========================================================
+         1. PERMANENT STICKY PURE WHITE TOP STRIP
+    ========================================================= -->
+    <div class="sticky-white-nav">
+        <div class="sticky-nav-inner">
+            <a class="brand-container" href="index.html">
+                <div class="logo-tvz">TVZ</div>
+                <div class="brand-text">
+                    TVEEZAL <span>Tools</span>
+                </div>
+            </a>
 
-<section class="container"><div class="card">
-<div id="upload" class="upload">
- <div>
-  <div class="upload-icon">
-   <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-    <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#60a5fa"/><stop offset="1" stop-color="#34d399"/></linearGradient></defs>
-    <rect x="18" y="24" width="84" height="72" rx="14" fill="url(#g)" stroke="#374151" stroke-width="2"/>
-    <circle cx="43" cy="47" r="8" fill="#fff"/>
-    <path d="M27 84l22-24 15 15 9-10 20 19" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M87 12v28M73 26h28" stroke="#374151" stroke-width="5" stroke-linecap="round"/>
-   </svg>
-  </div>
-  <h2>Add Image</h2><p>Upload the image you want to watermark</p>
-  <button id="browse" class="browse" type="button">Browse</button>
-  <div class="note">or drag an image here</div>
-  <input id="file" type="file" accept="image/*" hidden>
- </div>
-</div>
-
-<div id="fileInfo" class="file-info">
- <div class="thumb"><img id="thumb" alt="Selected image preview"></div>
- <div class="file-text"><div id="fileName" class="file-name"></div><div id="fileMeta" class="meta"></div></div>
- <button id="remove" class="icon-btn" type="button" aria-label="Remove image">×</button>
-</div>
-
-<div id="workspace" class="workspace">
-<div class="layout">
- <div class="preview-card">
-  <div class="card-title">Live Watermark Preview</div>
-  <div class="preview checker"><canvas id="canvas"></canvas></div>
- </div>
-
- <div class="settings-card">
-  <div class="card-title">Watermark Settings</div>
-  <div class="settings">
-   <div class="field">
-    <label>WATERMARK TYPE</label>
-    <div class="segment">
-     <button class="seg active" id="textMode" type="button">Text Watermark</button>
-     <button class="seg" id="logoMode" type="button">Logo / Image</button>
+            <!-- 3 Solid Dots Menu Button -->
+            <button class="menu-trigger-btn" id="menuButton" aria-label="Open Navigation">
+                <div class="three-dots-solid">
+                    <span class="dot-solid"></span>
+                    <span class="dot-solid"></span>
+                    <span class="dot-solid"></span>
+                </div>
+            </button>
+        </div>
     </div>
-   </div>
 
-   <div id="textSettings">
-    <div class="field"><label for="watermarkText">TEXT <span id="textCount">0/80</span></label><input id="watermarkText" type="text" maxlength="80" value="© InstaPic"></div>
-    <div class="field"><label for="fontSize">FONT SIZE <span id="fontSizeVal">48px</span></label><input id="fontSize" type="range" min="10" max="300" value="48"></div>
-    <div class="field"><label for="fontWeight">FONT WEIGHT</label><select id="fontWeight"><option value="400">Regular</option><option value="600">Semi Bold</option><option value="700" selected>Bold</option><option value="900">Black</option></select></div>
-    <div class="field"><label>TEXT COLOR</label><div class="color-row"><input id="color" type="color" value="#ffffff"><input id="colorHex" type="text" value="#ffffff" maxlength="7"></div></div>
-   </div>
+    <!-- =========================================================
+         2. VIBRANT BLUE SUB-HEADER WITH BACK & SHARE BUTTONS
+    ========================================================= -->
+    <header class="blue-hero-header">
+        <div class="sub-nav-row">
+            <a href="index.html" class="tool-back-btn" id="smartBackBtn">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Back to Tools</span>
+            </a>
 
-   <div id="logoSettings" style="display:none">
-    <div class="field"><label>WATERMARK LOGO</label><input id="logoFile" type="file" accept="image/*"></div>
-    <div class="field"><label for="logoSize">LOGO SIZE <span id="logoSizeVal">25%</span></label><input id="logoSize" type="range" min="3" max="80" value="25"></div>
-   </div>
+            <nav class="nav-pills-row">
+                <a class="header-pill" href="index.html">Home</a>
+                <a class="header-pill" href="index.html#categoriesContainer">All Tools</a>
+                <a class="header-pill active" href="image-tools.html">Image Tools</a>
+                <a class="header-pill" href="faq.html">FAQ</a>
+            </nav>
 
-   <div class="field"><label for="opacity">OPACITY <span id="opacityVal">55%</span></label><input id="opacity" type="range" min="5" max="100" value="55"></div>
-   <div class="field"><label for="rotation">ROTATION <span id="rotationVal">0°</span></label><input id="rotation" type="range" min="-180" max="180" value="0"></div>
+            <button class="tool-share-btn" id="shareToolBtn" aria-label="Share This Tool">
+                <i class="fa-solid fa-share-nodes"></i>
+                <span>Share Tool</span>
+            </button>
+        </div>
 
-   <div class="field"><label>POSITION</label>
-    <select id="position">
-     <option value="top-left">Top Left</option><option value="top-center">Top Center</option><option value="top-right">Top Right</option>
-     <option value="center-left">Center Left</option><option value="center" selected>Center</option><option value="center-right">Center Right</option>
-     <option value="bottom-left">Bottom Left</option><option value="bottom-center">Bottom Center</option><option value="bottom-right">Bottom Right</option>
-    </select>
-   </div>
+        <div class="hero">
+            <div class="eyebrow">Image Tools Category Tool</div>
+            <h1>Advanced Image Watermark Studio</h1>
+            <p>Add draggable text or image logo watermarks to your photos. Adjust opacity sliders, rotation angles, single or multiple tiled text patterns, and download securely.</p>
+        </div>
+    </header>
 
-   <div class="field"><label for="margin">EDGE MARGIN <span id="marginVal">4%</span></label><input id="margin" type="range" min="0" max="20" value="4"></div>
+    <!-- Full White Side Navigation Drawer with Social Media Strip & Share Website -->
+    <div class="drawer-overlay" id="menuOverlay"></div>
+    <aside class="side-drawer" id="navDrawer">
+        <div class="drawer-header">
+            <div class="drawer-title-group">
+                <div class="logo-tvz" style="width: 32px; height: 32px; font-size: 12px; border-radius: 8px;">TVZ</div>
+                <div class="drawer-title">Tveezal Tools</div>
+            </div>
+            <button class="drawer-close-btn" id="drawerClose">✕</button>
+        </div>
+        <div class="drawer-links">
+            <a class="drawer-pill-item" href="index.html"><i class="fa-solid fa-house" style="color:#2563eb;"></i> Home</a>
+            <a class="drawer-pill-item" href="pdf-tools.html"><i class="fa-solid fa-file-pdf" style="color:#dc2626;"></i> PDF Tools</a>
+            <a class="drawer-pill-item" href="image-tools.html"><i class="fa-solid fa-image" style="color:#7c3aed;"></i> Image Tools</a>
+            <a class="drawer-pill-item" href="qr-barcode-tools.html"><i class="fa-solid fa-qrcode" style="color:#059669;"></i> QR & Barcode</a>
+            <a class="drawer-pill-item" href="text-string-tools.html"><i class="fa-solid fa-font" style="color:#d97706;"></i> Text & String</a>
+            <a class="drawer-pill-item" href="web-security-tools.html"><i class="fa-solid fa-shield-halved" style="color:#0891b2;"></i> Web & Security</a>
+            <a class="drawer-pill-item" href="calculators.html"><i class="fa-solid fa-calculator" style="color:#4f46e5;"></i> Calculators</a>
+            <a class="drawer-pill-item" href="converters.html"><i class="fa-solid fa-arrows-left-right" style="color:#e11d48;"></i> Converters</a>
+            <a class="drawer-pill-item" href="blog.html"><i class="fa-solid fa-newspaper" style="color:#64748b;"></i> Blog</a>
+            <a class="drawer-pill-item" href="about.html"><i class="fa-solid fa-circle-info" style="color:#64748b;"></i> About Us</a>
+            <a class="drawer-pill-item" href="contact.html"><i class="fa-solid fa-envelope" style="color:#64748b;"></i> Contact Us</a>
+            <a class="drawer-pill-item" href="privacy.html"><i class="fa-solid fa-lock" style="color:#64748b;"></i> Privacy Policy</a>
+            <a class="drawer-pill-item" href="terms.html"><i class="fa-solid fa-file-contract" style="color:#64748b;"></i> Terms & Conditions</a>
+        </div>
 
-   <div class="field">
-    <label class="checkrow"><input id="repeat" type="checkbox"> Repeat watermark across the image</label>
-   </div>
-   <div id="repeatSettings" style="display:none">
-    <div class="field"><label for="spacing">PATTERN SPACING <span id="spacingVal">180px</span></label><input id="spacing" type="range" min="60" max="600" value="180"></div>
-   </div>
+        <div class="drawer-social-section">
+            <div class="drawer-social-title">Connect With Us</div>
+            <div class="social-icons-flex">
+                <a class="social-link-btn wa" href="https://whatsapp.com/channel/YOUR_LINK" target="_blank" aria-label="WhatsApp Channel"><i class="fa-brands fa-whatsapp"></i></a>
+                <a class="social-link-btn tg" href="https://t.me/YOUR_LINK" target="_blank" aria-label="Telegram Channel"><i class="fa-brands fa-telegram"></i></a>
+                <a class="social-link-btn yt" href="https://youtube.com/@YOUR_LINK" target="_blank" aria-label="YouTube Channel"><i class="fa-brands fa-youtube"></i></a>
+                <a class="social-link-btn ig" href="https://instagram.com/YOUR_LINK" target="_blank" aria-label="Instagram Profile"><i class="fa-brands fa-instagram"></i></a>
+                <a class="social-link-btn fb" href="https://facebook.com/YOUR_LINK" target="_blank" aria-label="Facebook Page"><i class="fa-brands fa-facebook-f"></i></a>
+                <a class="social-link-btn tw" href="https://x.com/YOUR_LINK" target="_blank" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+            <button class="btn-share-full-site" id="drawerShareWebsiteBtn">
+                <i class="fa-solid fa-share-nodes"></i> Share Tveezal Website
+            </button>
+        </div>
+    </aside>
 
-   <div class="field"><label for="formatOut">OUTPUT FORMAT</label><select id="formatOut"><option value="image/jpeg">JPG</option><option value="image/png">PNG</option><option value="image/webp">WebP</option></select></div>
-   <div class="field" id="qualityField"><label for="quality">OUTPUT QUALITY <span id="qualityVal">92%</span></label><input id="quality" type="range" min="40" max="100" value="92"></div>
-   <button id="apply" class="action" type="button">Add Watermark & Prepare Download</button>
-  </div>
- </div>
-</div>
+    <main class="container">
+        <!-- Top Advertisement -->
+        <div class="ad-block" style="margin-top: 24px;">
+            <span><i class="fas fa-rectangle-ad"></i> Advertisement (Top Leaderboard)</span>
+        </div>
 
-<div id="status" class="status"></div>
+        <!-- =========================================================
+             3. ADVANCED WATERMARK STUDIO WORKBENCH
+        ========================================================= -->
+        <section class="tool-workbench">
+            <input type="file" id="imageInput" accept="image/*" style="display: none;">
+            <input type="file" id="logoInput" accept="image/*" style="display: none;">
+            
+            <div class="upload-dropzone" id="dropZone">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+                <h3 id="dropTitle">Drag & Drop your photo here, or Browse</h3>
+                <p>Supports JPG, PNG, WebP</p>
+            </div>
 
-<div id="result" class="result">
- <div class="result-head"><h2>Watermarked Image Ready</h2><div class="ready">READY</div></div>
- <div class="result-grid">
-  <div class="result-box"><h3>Output Information</h3><p id="resultInfo">—</p><button id="downloadBtn" class="download" type="button">Download Watermarked Image</button></div>
-  <div class="result-box"><h3>Start Again</h3><p>Change the watermark settings or choose another image.</p><button id="reset" class="primary" style="width:100%;border:0" type="button">Watermark Another Image</button></div>
- </div>
-</div>
-</div>
-</div></section>
+            <div class="studio-grid" id="studioGrid" style="display: none;">
+                <!-- Controls Panel -->
+                <div class="controls-panel">
+                    <div class="control-group">
+                        <label for="watermarkType">Watermark Type</label>
+                        <select id="watermarkType">
+                            <option value="text">Text Watermark</option>
+                            <option value="image">Image / Logo Watermark</option>
+                        </select>
+                    </div>
 
-<section class="container"><article class="seo">
-<h2>Add a Watermark to Images Online with InstaPic</h2>
-<p>InstaPic Image Watermark Adder is a browser-based tool for adding customizable text and logo watermarks to images. It is useful for photographers, creators, businesses, designers, social media users and anyone who wants to identify or brand their photos before sharing them online.</p>
-<p>Upload an image, choose a text watermark or logo watermark, adjust the watermark size and opacity, select its position, rotate it when needed and export the finished image as JPG, PNG or WebP. The tool provides a live preview so you can see how the watermark will look before downloading the result.</p>
+                    <!-- Text Controls -->
+                    <div id="textControls" class="control-group">
+                        <label for="watermarkText">Watermark Text</label>
+                        <input type="text" id="watermarkText" value="© Tveezal Tools">
+                    </div>
 
-<h3>Text Watermark for Photos</h3>
-<p>Add copyright notices, brand names, usernames, website names, business names, creator signatures or any other short text. You can change font size, weight, color, transparency, position and rotation.</p>
+                    <!-- Logo Controls -->
+                    <div id="logoControls" class="control-group" style="display: none;">
+                        <label>Logo Image</label>
+                        <button class="btn-box-convert" id="uploadLogoBtn" style="background:#4f46e5; border:0; padding:10px; border-radius:12px; color:#fff; font-weight:800;"><i class="fa-solid fa-image"></i> Upload Logo PNG</button>
+                    </div>
 
-<h3>Logo Watermark for Images</h3>
-<p>Use a logo or another image as a watermark. Transparent PNG logos are especially useful because the original photo remains visible underneath the watermark. Resize the logo and control its opacity to create a subtle or prominent branding effect.</p>
+                    <div class="control-group">
+                        <label for="layoutMode">Layout Pattern</label>
+                        <select id="layoutMode">
+                            <option value="single">Single (Draggable)</option>
+                            <option value="tiled">Multiple / Tiled Pattern (Full Page)</option>
+                        </select>
+                    </div>
 
-<h3>Watermark Position and Rotation</h3>
-<p>Choose from common positions including top-left, top-center, top-right, center, center-left, center-right, bottom-left, bottom-center and bottom-right. Rotation can be adjusted from -180 to 180 degrees.</p>
+                    <div class="control-group">
+                        <label for="opacityRange">Transparency / Opacity (<span id="opacityVal">70</span>%)</label>
+                        <input type="range" id="opacityRange" min="10" max="100" value="70">
+                    </div>
 
-<h3>Repeated Watermark Pattern</h3>
-<p>For stronger protection, enable the repeated watermark option. The watermark is tiled across the image with adjustable spacing. This can make it harder to remove a watermark from a photo while still allowing the underlying image to remain visible.</p>
+                    <div class="control-group">
+                        <label for="fontSizeRange">Font Size / Scale (<span id="fontSizeVal">32</span>px)</label>
+                        <input type="range" id="fontSizeRange" min="12" max="120" value="32">
+                    </div>
 
-<h3>Watermark Opacity</h3>
-<p>Opacity controls how transparent the watermark appears. A lower opacity creates a subtle watermark, while a higher opacity creates stronger branding or protection. For many photographs, a medium opacity is a good starting point.</p>
+                    <div class="control-group">
+                        <label for="rotationRange">Rotation Angle (<span id="rotationVal">0</span>°)</label>
+                        <input type="range" id="rotationRange" min="-90" max="90" value="0">
+                    </div>
 
-<h3>JPG, PNG and WebP Output</h3>
-<p>Export the finished image as JPG for common photographic use, PNG when lossless output or transparency-related workflows are important, or WebP when you want a modern web-friendly image format supported by current browsers.</p>
+                    <a id="downloadBtn" class="btn-download-final" download="watermarked-photo.jpg">
+                        <i class="fa-solid fa-download"></i> Download Watermarked Image
+                    </a>
+                </div>
 
-<h3>How to Add a Watermark to an Image</h3>
-<ol>
-<li>Click <strong>Browse</strong> and select your image.</li>
-<li>Choose <strong>Text Watermark</strong> or <strong>Logo / Image</strong>.</li>
-<li>Enter your watermark text or upload your logo.</li>
-<li>Adjust size, color, opacity and rotation.</li>
-<li>Select a position or enable repeated watermark mode.</li>
-<li>Choose JPG, PNG or WebP output.</li>
-<li>Click <strong>Add Watermark &amp; Prepare Download</strong>.</li>
-<li>Download the finished watermarked image.</li>
-</ol>
+                <!-- Canvas Interactive Preview -->
+                <div class="canvas-preview-container" id="canvasContainer">
+                    <canvas id="watermarkCanvas"></canvas>
+                </div>
+            </div>
+        </section>
 
-<h3>Is InstaPic Watermark Adder Private?</h3>
-<p>The image processing in this tool is performed locally in the browser with JavaScript and the HTML Canvas API. No account or dedicated image-processing server is needed for the normal watermarking workflow. This design is useful when you want to add a watermark without sending the original photo to an online image-processing service.</p>
+        <!-- Result Advertisement (Placed right after tool workbench/result) -->
+        <div class="ad-block" style="margin-top: 30px;">
+            <span><i class="fas fa-rectangle-ad"></i> Advertisement (Below Tool Results)</span>
+        </div>
 
-<h3>Why Add a Watermark?</h3>
-<ul>
-<li>Show ownership or copyright information.</li>
-<li>Brand photos with a company or creator logo.</li>
-<li>Add a photographer name or social media handle.</li>
-<li>Discourage unauthorized reuse of images.</li>
-<li>Prepare branded images for social media and marketing.</li>
-<li>Create preview images for clients or portfolios.</li>
-</ul>
+        <!-- =========================================================
+             4. SLIM FINGER-PROFILE 10-BANNER RIBBON (PATLA WALA BANNER)
+             (Placed right after advertisement block)
+        ========================================================= -->
+        <section class="banner-section" style="padding-top: 0;">
+            <div class="banner-shell">
+                <div class="banner-carousel slim-carousel" id="slimRibbonCarousel">
+                    <div class="banner-track" id="slimRibbonTrack"></div>
+                </div>
+                <div class="banner-dots-wrapper" id="slimRibbonDots"></div>
+            </div>
+        </section>
 
-<h3>Tips for a Professional Watermark</h3>
-<p>Keep the watermark readable but avoid unnecessarily covering important subjects. Use an appropriate opacity and size. For branding, a clean logo in a corner often works well. For stronger image protection, a repeated diagonal pattern can provide broader coverage.</p>
+        <!-- =========================================================
+             5. EXPLORE ALL TOOL CATEGORIES BAR
+        ========================================================= -->
+        <section class="categories-bar-wrapper">
+            <div class="categories-title">Explore All Tool Categories</div>
+            <div class="category-buttons-list">
+                <a class="cat-tag-btn" href="pdf-tools.html"><i class="fa-solid fa-file-pdf" style="color:#dc2626;"></i> PDF Tools</a>
+                <a class="cat-tag-btn" href="image-tools.html"><i class="fa-solid fa-image" style="color:#7c3aed;"></i> Image Tools</a>
+                <a class="cat-tag-btn" href="qr-barcode-tools.html"><i class="fa-solid fa-qrcode" style="color:#059669;"></i> QR & Barcode</a>
+                <a class="cat-tag-btn" href="text-string-tools.html"><i class="fa-solid fa-font" style="color:#d97706;"></i> Text & String</a>
+                <a class="cat-tag-btn" href="web-security-tools.html"><i class="fa-solid fa-shield-halved" style="color:#0891b2;"></i> Web & Security</a>
+                <a class="cat-tag-btn" href="calculators.html"><i class="fa-solid fa-calculator" style="color:#4f46e5;"></i> Calculators</a>
+                <a class="cat-tag-btn" href="converters.html"><i class="fa-solid fa-arrows-left-right" style="color:#e11d48;"></i> Converters</a>
+            </div>
+        </section>
 
-<h3>Frequently Asked Questions</h3>
-<div class="faq">
-<details><summary>Can I add a logo watermark?</summary><p>Yes. Upload a logo image and control its size, opacity, rotation and position.</p></details>
-<details><summary>Can I add text such as a copyright notice?</summary><p>Yes. Enter your text in the Text Watermark field and customize its appearance.</p></details>
-<details><summary>Does InstaPic upload my photos?</summary><p>The watermarking process runs locally in your browser using Canvas and JavaScript. No server-side image processing is required.</p></details>
-<details><summary>Can I make a repeated watermark?</summary><p>Yes. Enable Repeat watermark across the image and adjust pattern spacing.</p></details>
-<details><summary>Can I control watermark transparency?</summary><p>Yes. Use the opacity slider from subtle to fully visible.</p></details>
-<details><summary>Which formats can I download?</summary><p>You can export the watermarked result as JPG, PNG or WebP.</p></details>
-</div>
-</article></section>
-</main>
+        <!-- =========================================================
+             6. FEATURED WIDE BANNER CAROUSEL (BADA WALA 10-BANNER CAROUSEL)
+             (Placed right after categories bar and before SEO text)
+        ========================================================= -->
+        <section class="banner-section" style="padding-top: 0;">
+            <div class="banner-shell">
+                <div class="banner-carousel" id="bottomBannerCarousel">
+                    <div class="banner-track" id="bottomBannerTrack"></div>
+                </div>
+                <div class="banner-dots-wrapper" id="bottomBannerDots"></div>
+            </div>
+        </section>
 
-<footer>© <span id="year"></span> InstaPic — Free Browser Image Tools</footer>
+        <!-- =========================================================
+             7. TRANSPARENT GREEN FLOW & DETAILED MASSIVE SEO ARTICLE
+        ========================================================= -->
+        <article class="seo-content-box">
+            <h2>The Definitive Comprehensive Guide to Advanced Image Watermarking: Protect Your Copyright, Brand Assets & Photos in 2026</h2>
+            <p>Welcome to the <strong>Tveezal Advanced Image Watermark Studio</strong>, the ultimate, high-performance client-side browser utility engineered to protect your original photography, digital artwork, e-commerce product listings, and graphic designs with draggable text or image logo watermarks. In today's highly digitalized environment—where images can be scraped, copied, and republished across social media or marketplace platforms in seconds—establishing copyright ownership is vital. Whether you are a professional photographer safeguarding your portfolio prints, a real estate agent branding property photographs, an e-commerce seller protecting unique product shots from competitors, or a content creator sharing memes and artwork, our advanced browser watermarker empowers you to stamp customized text signatures or brand logos onto your images securely without compromising visual elegance.</p>
 
-<script>
-(()=>{"use strict";
-const $=id=>document.getElementById(id);
-const upload=$("upload"),browse=$("browse"),fileInput=$("file"),fileInfo=$("fileInfo"),thumb=$("thumb"),fileName=$("fileName"),fileMeta=$("fileMeta"),remove=$("remove");
-const workspace=$("workspace"),canvas=$("canvas"),ctx=canvas.getContext("2d");
-const textMode=$("textMode"),logoMode=$("logoMode"),textSettings=$("textSettings"),logoSettings=$("logoSettings");
-const watermarkText=$("watermarkText"),textCount=$("textCount"),fontSize=$("fontSize"),fontSizeVal=$("fontSizeVal"),fontWeight=$("fontWeight"),color=$("color"),colorHex=$("colorHex");
-const logoFile=$("logoFile"),logoSize=$("logoSize"),logoSizeVal=$("logoSizeVal"),opacity=$("opacity"),opacityVal=$("opacityVal"),rotation=$("rotation"),rotationVal=$("rotationVal");
-const position=$("position"),margin=$("margin"),marginVal=$("marginVal"),repeat=$("repeat"),repeatSettings=$("repeatSettings"),spacing=$("spacing"),spacingVal=$("spacingVal");
-const formatOut=$("formatOut"),quality=$("quality"),qualityVal=$("qualityVal"),qualityField=$("qualityField"),apply=$("apply"),status=$("status"),result=$("result"),resultInfo=$("resultInfo"),downloadBtn=$("downloadBtn"),reset=$("reset");
+            <p>Unlike traditional desktop photo-editing suites that require cumbersome software installations or conventional online tools that force you to upload your confidential photographs onto remote server buckets, Tveezal Tools leverages the state-of-the-art HTML5 Canvas API and client-side JavaScript execution. Every watermark stamping operation is performed 100% locally inside your browser's memory. Your files never leave your local device hardware, guaranteeing complete data sovereignty and zero server waiting times. Below is an exhaustive examination of watermarking strategies, dragging positioning techniques, transparency slider control algorithms, and copyright protection frameworks designed to safeguard your digital footprint.</p>
 
-let source=null,sourceURL=null,img=null,logoImg=null,outputBlob=null,outputURL=null,watermarkKind="text";
+            <!-- Transparent Green Visual Flowchart Box -->
+            <div class="visual-diagram-card">
+                <div class="diagram-step">
+                    <svg class="diagram-icon-svg" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                    <span>1. Upload Photo</span>
+                </div>
+                <div class="diagram-arrow">➔</div>
+                <div class="diagram-step">
+                    <svg class="diagram-icon-svg" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path></svg>
+                    <span>2. Type Text or Logo</span>
+                </div>
+                <div class="diagram-arrow">➔</div>
+                <div class="diagram-step">
+                    <svg class="diagram-icon-svg" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+                    <span>3. Drag & Adjust Transparency</span>
+                </div>
+                <div class="diagram-arrow">➔</div>
+                <div class="diagram-step">
+                    <svg class="diagram-icon-svg" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <span>4. Download Protected Photo</span>
+                </div>
+            </div>
 
-function bytes(n){if(!n)return"0 B";const u=["B","KB","MB","GB"];const i=Math.min(3,Math.floor(Math.log(n)/Math.log(1024)));return(n/Math.pow(1024,i)).toFixed(i?2:0)+" "+u[i]}
-function msg(t,type="info"){status.textContent=t;status.className="status show "+type}
-function clearMsg(){status.className="status";status.textContent=""}
-function loadImage(url){return new Promise((res,rej)=>{const x=new Image();x.onload=()=>res(x);x.onerror=()=>rej(new Error("Image could not be loaded."));x.src=url})}
-function hex(v){return /^#[0-9a-fA-F]{6}$/.test(v)?v:"#ffffff"}
+            <!-- Step-by-Step Numbered Cards -->
+            <h3>How to Add an Advanced Watermark Step-by-Step</h3>
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-badge">1</div>
+                    <h4>Upload Image</h4>
+                    <p>Drag and drop your photo into the dropzone or click to browse files from your device.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-badge">2</div>
+                    <h4>Configure Watermark</h4>
+                    <p>Choose between text or logo, select single draggable mode or multiple tiled pattern, and set transparency.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-badge">3</div>
+                    <h4>Drag & Download</h4>
+                    <p>Drag the watermark anywhere on the live canvas preview and click download to save your protected image.</p>
+                </div>
+            </div>
 
-async function selectFile(file){
- if(!file||!file.type.startsWith("image/")){msg("Please select a valid image file.","err");return}
- if(file.size>100*1024*1024){msg("This file is larger than 100 MB and may use a lot of browser memory.","err");return}
- if(sourceURL)URL.revokeObjectURL(sourceURL);
- source=file;sourceURL=URL.createObjectURL(file);thumb.src=sourceURL;fileName.textContent=file.name;
- try{img=await loadImage(sourceURL)}catch(e){msg(e.message,"err");return}
- fileMeta.textContent=`${bytes(file.size)} • ${file.type.replace("image/","").toUpperCase()} • ${img.naturalWidth} × ${img.naturalHeight}px`;
- fileInfo.classList.add("show");workspace.classList.add("show");result.classList.remove("show");draw();msg("Image ready. Customize your watermark.","ok");
-}
-browse.onclick=()=>fileInput.click();
-fileInput.onchange=()=>{selectFile(fileInput.files[0]);fileInput.value=""};
-["dragenter","dragover"].forEach(e=>upload.addEventListener(e,ev=>{ev.preventDefault();upload.classList.add("drag")}));
-["dragleave","drop"].forEach(e=>upload.addEventListener(e,ev=>{ev.preventDefault();upload.classList.remove("drag")}));
-upload.addEventListener("drop",ev=>selectFile(ev.dataTransfer.files[0]));
+            <!-- Detailed Features Grid -->
+            <h3>Key Features Built for Content Creators</h3>
+            <div class="feature-grid">
+                <div class="feature-box">
+                    <h4>Interactive Drag & Drop</h4>
+                    <p>Click and drag your watermark directly anywhere on the canvas to position it precisely.</p>
+                </div>
+                <div class="feature-box">
+                    <h4>Single & Tiled Patterns</h4>
+                    <p>Apply a single custom watermark or cover the entire photo using multiple repeating patterns.</p>
+                </div>
+                <div class="feature-box">
+                    <h4>Transparency & Opacity Control</h4>
+                    <p>Fine-tune the visibility of your watermark using smooth real-time slider controls.</p>
+                </div>
+                <div class="feature-box">
+                    <h4>100% Client-Side Privacy</h4>
+                    <p>Zero server uploads guarantee your personal and commercial photographs remain entirely secure.</p>
+                </div>
+            </div>
 
-function setMode(k){
- watermarkKind=k;
- textMode.classList.toggle("active",k==="text");logoMode.classList.toggle("active",k==="logo");
- textSettings.style.display=k==="text"?"block":"none";logoSettings.style.display=k==="logo"?"block":"none";
- draw();
-}
-textMode.onclick=()=>setMode("text");logoMode.onclick=()=>setMode("logo");
-logoFile.onchange=async()=>{const f=logoFile.files[0];if(!f)return;if(!f.type.startsWith("image/")){msg("Please choose a logo image.","err");return}try{logoImg=await loadImage(URL.createObjectURL(f));draw();msg("Logo loaded.","ok")}catch(e){msg("Logo could not be loaded.","err")}};
-watermarkText.oninput=()=>{textCount.textContent=watermarkText.value.length+"/80";draw()};
-fontSize.oninput=()=>{fontSizeVal.textContent=fontSize.value+"px";draw()};
-fontWeight.onchange=draw;
-color.oninput=()=>{colorHex.value=color.value;draw()};
-colorHex.oninput=()=>{if(/^#[0-9a-fA-F]{6}$/.test(colorHex.value))color.value=colorHex.value;draw()};
-opacity.oninput=()=>{opacityVal.textContent=opacity.value+"%";draw()};
-rotation.oninput=()=>{rotationVal.textContent=rotation.value+"°";draw()};
-margin.oninput=()=>{marginVal.textContent=margin.value+"%";draw()};
-logoSize.oninput=()=>{logoSizeVal.textContent=logoSize.value+"%";draw()};
-spacing.oninput=()=>{spacingVal.textContent=spacing.value+"px";draw()};
-repeat.onchange=()=>{repeatSettings.style.display=repeat.checked?"block":"none";draw()};
-formatOut.onchange=()=>{qualityField.style.display=formatOut.value==="image/png"?"none":"block"};
-quality.oninput=()=>qualityVal.textContent=quality.value+"%";
+            <!-- Ecosystem Links -->
+            <h3>Explore Related Image & Utility Tools</h3>
+            <p>Tveezal Tools provides a complete suite of browser utilities:</p>
+            <ul>
+                <li><a href="image-compressor.html">Image Compressor</a> – Shrink photo file sizes down to 50KB for official application forms.</li>
+                <li><a href="image-resizer.html">Image Resizer</a> – Scale photo dimensions precisely to pixel targets.</li>
+                <li><a href="format-converter.html">Format Converter</a> – Convert WebP or PNG images into standard JPG formats.</li>
+                <li><a href="word-counter.html">Word Counter Tool</a> – Analyze articles and character limits in real time.</li>
+                <li><a href="pdf-tools.html">PDF Tools Suite</a> – Manage official documents securely using <a href="pdf-merge.html">PDF Merge</a> and <a href="pdf-lock.html">PDF Lock</a>.</li>
+            </ul>
 
-function watermarkMetrics(){
- if(watermarkKind==="text"){
-  const fs=Number(fontSize.value);
-  ctx.font=`${fontWeight.value} ${fs}px system-ui,-apple-system,"Segoe UI",sans-serif`;
-  const m=ctx.measureText(watermarkText.value||"InstaPic");
-  return {w:m.width,h:fs*1.15};
- }
- if(!logoImg)return {w:0,h:0};
- const maxW=canvas.width*Number(logoSize.value)/100;
- const ratio=logoImg.naturalHeight/logoImg.naturalWidth;
- return {w:maxW,h:maxW*ratio};
-}
-function anchorPosition(w,h){
- const m=canvas.width*Number(margin.value)/100;
- const n=canvas.height*Number(margin.value)/100;
- let x,y;
- const p=position.value;
- if(p.includes("left"))x=m+w/2;else if(p.includes("right"))x=canvas.width-m-w/2;else x=canvas.width/2;
- if(p.startsWith("top"))y=n+h/2;else if(p.startsWith("bottom"))y=canvas.height-n-h/2;else y=canvas.height/2;
- return {x,y};
-}
-function drawOne(x,y,angle=Number(rotation.value)){
- const met=watermarkMetrics();if(!met.w)return;
- ctx.save();ctx.translate(x,y);ctx.rotate(angle*Math.PI/180);ctx.globalAlpha=Number(opacity.value)/100;
- if(watermarkKind==="text"){
-  ctx.font=`${fontWeight.value} ${Number(fontSize.value)}px system-ui,-apple-system,"Segoe UI",sans-serif`;
-  ctx.textAlign="center";ctx.textBaseline="middle";ctx.fillStyle=hex(color.value);
-  ctx.shadowColor="rgba(0,0,0,.35)";ctx.shadowBlur=Math.max(1,Number(fontSize.value)/12);ctx.fillText(watermarkText.value||"InstaPic",0,0);
- }else if(logoImg){
-  ctx.drawImage(logoImg,-met.w/2,-met.h/2,met.w,met.h);
- }
- ctx.restore();
-}
-function draw(){
- if(!img)return;
- canvas.width=img.naturalWidth;canvas.height=img.naturalHeight;ctx.clearRect(0,0,canvas.width,canvas.height);ctx.globalAlpha=1;ctx.drawImage(img,0,0);
- const met=watermarkMetrics();if(!met.w)return;
- if(repeat.checked){
-  const step=Number(spacing.value);
-  const angle=Number(rotation.value);
-  for(let y=-canvas.height;y<canvas.height*2;y+=step){
-   for(let x=-canvas.width;x<canvas.width*2;x+=step){
-    drawOne(x,y,angle);
-   }
-  }
- }else{
-  const a=anchorPosition(met.w,met.h);drawOne(a.x,a.y);
- }
-}
-apply.onclick=async()=>{
- if(!img)return;
- if(watermarkKind==="logo"&&!logoImg){msg("Please upload a logo image first.","err");return}
- if(watermarkKind==="text"&&!watermarkText.value.trim()){msg("Please enter watermark text.","err");return}
- apply.disabled=true;msg("Creating watermarked image in your browser…","info");
- try{
-  draw();
-  const type=formatOut.value;
-  const q=Number(quality.value)/100;
-  outputBlob=await new Promise((resolve,reject)=>canvas.toBlob(b=>b?resolve(b):reject(new Error("Browser could not create the output image.")),type,q));
-  if(outputURL)URL.revokeObjectURL(outputURL);
-  outputURL=URL.createObjectURL(outputBlob);
-  const ext=type==="image/png"?"png":type==="image/webp"?"webp":"jpg";
-  resultInfo.textContent=`${bytes(outputBlob.size)} • ${ext.toUpperCase()} • ${canvas.width} × ${canvas.height}px`;
-  result.classList.add("show");msg("Watermark added successfully.","ok");
-  setTimeout(()=>result.scrollIntoView({behavior:"smooth",block:"start"}),100);
- }catch(e){msg(e.message||"Could not create the watermarked image.","err")}finally{apply.disabled=false}
-};
-downloadBtn.onclick=()=>{
- if(!outputBlob)return;
- const a=document.createElement("a");a.href=outputURL;
- const ext=formatOut.value==="image/png"?"png":formatOut.value==="image/webp"?"webp":"jpg";
- a.download=(source?source.name.replace(/\.[^/.]+$/,""):"image")+"-watermarked."+ext;
- a.style.display="none";document.body.appendChild(a);a.click();a.remove();msg("Download started.","ok");
-};
-function resetAll(){
- if(sourceURL)URL.revokeObjectURL(sourceURL);if(outputURL)URL.revokeObjectURL(outputURL);
- source=null;sourceURL=null;outputURL=null;outputBlob=null;img=null;logoImg=null;
- fileInfo.classList.remove("show");workspace.classList.remove("show");result.classList.remove("show");clearMsg();
- fileName.textContent="";fileMeta.textContent="";thumb.removeAttribute("src");logoFile.value="";watermarkText.value="© InstaPic";textCount.textContent="9/80";draw();
- window.scrollTo({top:0,behavior:"smooth"});
-}
-remove.onclick=resetAll;reset.onclick=resetAll;$("year").textContent=new Date().getFullYear();draw();
-})();
-</script>
-</body>
+            <!-- 10 FAQs with Clickable Links -->
+            <section class="faq-section">
+                <h3 style="font-size: 22px; margin-bottom: 4px;">Frequently Asked Questions (Watermark Studio)</h3>
+                <p style="color: var(--muted); font-size: 13.5px;">Detailed answers regarding image watermarking, dragging, and browser privacy.</p>
+
+                <div class="faq-list" id="faqList"></div>
+            </section>
+        </article>
+    </main>
+
+    <!-- =========================================================
+         8. FOOTER WITH INTEGRATED SOCIAL MEDIA & SHARE WEBSITE
+    ========================================================= -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="brand-container" style="margin-bottom: 4px;">
+                        <div class="logo-tvz" style="background: #2563eb; color:#fff; width:36px; height:36px; font-size:13px;">TVZ</div>
+                        <div class="brand-text" style="color:#fff; font-size:22px;">TVEEZAL <span style="color:#60a5fa;">Tools</span></div>
+                    </div>
+                    <p>High-speed, browser-based online utilities designed for productivity, data privacy, and daily convenience.</p>
+                    <div class="social-icons-flex" style="justify-content: flex-start; gap: 8px;">
+                        <a class="social-link-btn wa" href="https://whatsapp.com/channel/YOUR_LINK" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a class="social-link-btn tg" href="https://t.me/YOUR_LINK" target="_blank" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+                        <a class="social-link-btn yt" href="https://youtube.com/@YOUR_LINK" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                        <a class="social-link-btn ig" href="https://instagram.com/YOUR_LINK" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a class="social-link-btn fb" href="https://facebook.com/YOUR_LINK" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a class="social-link-btn tw" href="https://x.com/YOUR_LINK" target="_blank" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                    </div>
+                    <div class="footer-share-box">
+                        <button class="footer-share-btn" id="footerShareWebsiteBtn">
+                            <i class="fa-solid fa-share-nodes"></i> Share Website
+                        </button>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="footer-column" style="color:#64748b; font-size:12px; margin-bottom:12px;">Tool Hubs</h3>
+                    <div class="footer-links">
+                        <a class="footer-link" href="pdf-tools.html">PDF Tools</a>
+                        <a class="footer-link" href="image-tools.html">Image Tools</a>
+                        <a class="footer-link" href="text-string-tools.html">Text & String</a>
+                        <a class="footer-link" href="web-security-tools.html">Web & Security</a>
+                        <a class="footer-link" href="calculators.html">Calculators</a>
+                        <a class="footer-link" href="converters.html">Converters</a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="footer-column" style="color:#64748b; font-size:12px; margin-bottom:12px;">Social Channels</h3>
+                    <div class="footer-links">
+                        <a class="footer-link" href="https://whatsapp.com/channel/YOUR_LINK" target="_blank"><i class="fa-brands fa-whatsapp" style="color:#25d366; width:16px;"></i> WhatsApp Channel</a>
+                        <a class="footer-link" href="https://t.me/YOUR_LINK" target="_blank"><i class="fa-brands fa-telegram" style="color:#0088cc; width:16px;"></i> Telegram Channel</a>
+                        <a class="footer-link" href="https://youtube.com/@YOUR_LINK" target="_blank"><i class="fa-brands fa-youtube" style="color:#ff0000; width:16px;"></i> YouTube Channel</a>
+                        <a class="footer-link" href="https://instagram.com/YOUR_LINK" target="_blank"><i class="fa-brands fa-instagram" style="color:#e1306c; width:16px;"></i> Instagram Page</a>
+                        <a class="footer-link" href="https://facebook.com/YOUR_LINK" target="_blank"><i class="fa-brands fa-facebook" style="color:#1877f2; width:16px;"></i> Facebook Page</a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="footer-column" style="color:#64748b; font-size:12px; margin-bottom:12px;">Legal & Info</h3>
+                    <div class="footer-links">
+                        <a class="footer-link" href="index.html">Home</a>
+                        <a class="footer-link" href="blog.html">Blog Articles</a>
+                        <a class="footer-link" href="about.html">About Us</a>
+                        <a class="footer-link" href="contact.html">Contact Us</a>
+                        <a class="footer-link" href="privacy.html">Privacy Policy</a>
+                        <a class="footer-link" href="terms.html">Terms of Service</a>
+                        <a class="footer-link" href="faq.html">Detailed FAQ</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>© 2026 Tveezal Tools. All rights reserved.</div>
+                <div>Free browser utilities for everyone.</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- =========================================================
+         JAVASCRIPT CONTROLLERS & ADVANCED WATERMARK STUDIO ENGINE
+    ========================================================= -->
+    <script>
+        const imageInput = document.getElementById('imageInput');
+        const logoInput = document.getElementById('logoInput');
+        const dropZone = document.getElementById('dropZone');
+        const dropTitle = document.getElementById('dropTitle');
+        const studioGrid = document.getElementById('studioGrid');
+        const canvas = document.getElementById('watermarkCanvas');
+        const ctx = canvas.getContext('2d');
+
+        const watermarkType = document.getElementById('watermarkType');
+        const textControls = document.getElementById('textControls');
+        const logoControls = document.getElementById('logoControls');
+        const watermarkText = document.getElementById('watermarkText');
+        const uploadLogoBtn = document.getElementById('uploadLogoBtn');
+        const layoutMode = document.getElementById('layoutMode');
+        const opacityRange = document.getElementById('opacityRange');
+        const opacityVal = document.getElementById('opacityVal');
+        const fontSizeRange = document.getElementById('fontSizeRange');
+        const fontSizeVal = document.getElementById('fontSizeVal');
+        const rotationRange = document.getElementById('rotationRange');
+        const rotationVal = document.getElementById('rotationVal');
+        const downloadBtn = document.getElementById('downloadBtn');
+
+        let baseImage = null;
+        let logoImage = null;
+        let imgWidth = 0;
+        let imgHeight = 0;
+
+        let watermarkX = 50;
+        let watermarkY = 50;
+        let isDragging = false;
+        let dragOffsetX = 0;
+        let dragOffsetY = 0;
+
+        dropZone.addEventListener('click', () => imageInput.click());
+        dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.style.borderColor = 'var(--blue)'; });
+        dropZone.addEventListener('dragleave', () => { dropZone.style.borderColor = '#cbd5e1'; });
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.style.borderColor = '#cbd5e1';
+            if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+                loadImageFile(e.dataTransfer.files[0]);
+            }
+        });
+
+        imageInput.addEventListener('change', (e) => {
+            if (e.target.files && e.target.files[0]) {
+                loadImageFile(e.target.files[0]);
+            }
+        });
+
+        uploadLogoBtn.addEventListener('click', () => logoInput.click());
+        logoInput.addEventListener('change', (e) => {
+            if (e.target.files && e.target.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const lImg = new Image();
+                    lImg.onload = function() {
+                        logoImage = lImg;
+                        uploadLogoBtn.innerHTML = '<i class="fa-solid fa-check"></i> Logo Loaded!';
+                        drawCanvas();
+                    };
+                    lImg.src = event.target.result;
+                };
+                reader.readAsDataURL(e.target.files[0]);
+            }
+        });
+
+        function loadImageFile(file) {
+            if (!file.type.startsWith('image/')) {
+                alert('Please upload a valid image file.');
+                return;
+            }
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                const img = new Image();
+                img.onload = function() {
+                    baseImage = img;
+                    imgWidth = img.width;
+                    imgHeight = img.height;
+                    canvas.width = imgWidth;
+                    canvas.height = imgHeight;
+
+                    watermarkX = imgWidth - 250;
+                    watermarkY = imgHeight - 80;
+
+                    dropZone.style.display = 'none';
+                    studioGrid.style.display = 'grid';
+                    drawCanvas();
+                };
+                img.src = event.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        watermarkType.addEventListener('change', () => {
+            if (watermarkType.value === 'text') {
+                textControls.style.display = 'flex';
+                logoControls.style.display = 'none';
+            } else {
+                textControls.style.display = 'none';
+                logoControls.style.display = 'flex';
+            }
+            drawCanvas();
+        });
+
+        layoutMode.addEventListener('change', () => drawCanvas());
+        watermarkText.addEventListener('input', () => drawCanvas());
+        opacityRange.addEventListener('input', () => { opacityVal.textContent = opacityRange.value; drawCanvas(); });
+        fontSizeRange.addEventListener('input', () => { fontSizeVal.textContent = fontSizeRange.value; drawCanvas(); });
+        rotationRange.addEventListener('input', () => { rotationVal.textContent = rotationRange.value; drawCanvas(); });
+
+        canvas.addEventListener('mousedown', (e) => {
+            if (!baseImage || layoutMode.value === 'tiled') return;
+            const rect = canvas.getBoundingClientRect();
+            const scaleX = canvas.width / rect.width;
+            const scaleY = canvas.height / rect.height;
+            const mouseX = (e.clientX - rect.left) * scaleX;
+            const mouseY = (e.clientY - rect.top) * scaleY;
+
+            isDragging = true;
+            dragOffsetX = mouseX - watermarkX;
+            dragOffsetY = mouseY - watermarkY;
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            if (!isDragging || !baseImage) return;
+            const rect = canvas.getBoundingClientRect();
+            const scaleX = canvas.width / rect.width;
+            const scaleY = canvas.height / rect.height;
+            const mouseX = (e.clientX - rect.left) * scaleX;
+            const mouseY = (e.clientY - rect.top) * scaleY;
+
+            watermarkX = mouseX - dragOffsetX;
+            watermarkY = mouseY - dragOffsetY;
+            drawCanvas();
+        });
+
+        window.addEventListener('mouseup', () => { isDragging = false; });
+
+        function drawCanvas() {
+            if (!baseImage) return;
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(baseImage, 0, 0);
+
+            const opacity = parseInt(opacityRange.value) / 100;
+            const fontSize = parseInt(fontSizeRange.value);
+            const angle = (parseInt(rotationRange.value) * Math.PI) / 180;
+
+            ctx.save();
+            ctx.globalAlpha = opacity;
+
+            if (layoutMode.value === 'tiled') {
+                ctx.font = `800 ${fontSize}px Inter, sans-serif`;
+                ctx.fillStyle = '#ffffff';
+                ctx.shadowColor = 'rgba(0,0,0,0.8)';
+                ctx.shadowBlur = 4;
+                ctx.shadowOffsetX = 2;
+                ctx.shadowOffsetY = 2;
+
+                const text = watermarkText.value || "© Tveezal Tools";
+                const spacingX = Math.max(300, fontSize * 10);
+                const spacingY = Math.max(200, fontSize * 6);
+
+                for (let y = 50; y < canvas.height + spacingY; y += spacingY) {
+                    for (let x = 50; x < canvas.width + spacingX; x += spacingX) {
+                        ctx.save();
+                        ctx.translate(x, y);
+                        ctx.rotate(angle);
+                        ctx.fillText(text, 0, 0);
+                        ctx.restore();
+                    }
+                }
+            } else {
+                ctx.save();
+                ctx.translate(watermarkX, watermarkY);
+                ctx.rotate(angle);
+
+                if (watermarkType.value === 'text') {
+                    ctx.font = `800 ${fontSize}px Inter, sans-serif`;
+                    ctx.fillStyle = '#ffffff';
+                    ctx.shadowColor = 'rgba(0,0,0,0.8)';
+                    ctx.shadowBlur = 6;
+                    ctx.shadowOffsetX = 2;
+                    ctx.shadowOffsetY = 2;
+                    const text = watermarkText.value || "© Tveezal Tools";
+                    ctx.fillText(text, 0, 0);
+                } else if (logoImage) {
+                    const lWidth = fontSize * 4;
+                    const lHeight = (logoImage.height / logoImage.width) * lWidth;
+                    ctx.drawImage(logoImage, 0, 0, lWidth, lHeight);
+                }
+                ctx.restore();
+            }
+
+            ctx.restore();
+
+            canvas.toBlob((blob) => {
+                const url = URL.createObjectURL(blob);
+                downloadBtn.href = url;
+            }, 'image/jpeg', 0.95);
+        }
+
+        // SMART BACK BUTTON & SHARE ENGINES
+        const smartBackBtn = document.getElementById("smartBackBtn");
+        const shareToolBtn = document.getElementById("shareToolBtn");
+        const footerShareWebsiteBtn = document.getElementById("footerShareWebsiteBtn");
+        const drawerShareWebsiteBtn = document.getElementById("drawerShareWebsiteBtn");
+
+        const referrer = document.referrer;
+        const isFromHome = referrer && (referrer.includes("index.html") || referrer.includes(window.location.hostname));
+
+        smartBackBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            if (isFromHome && window.history.length > 1) {
+                window.history.back();
+            } else {
+                window.location.href = "index.html#category-image";
+            }
+        });
+
+        shareToolBtn.addEventListener("click", () => {
+            if (navigator.share) {
+                navigator.share({
+                    title: "Advanced Image Watermark Studio – Tveezal Tools",
+                    text: "Protect your photos with custom text or logo watermarks instantly for free!",
+                    url: window.location.href
+                }).catch(() => {});
+            } else {
+                navigator.clipboard.writeText(window.location.href);
+                alert("Tool link copied to clipboard!");
+            }
+        });
+
+        function shareFullWebsite() {
+            const homeUrl = window.location.origin + "/index.html";
+            if (navigator.share) {
+                navigator.share({
+                    title: "Tveezal Tools – Free Online Utilities",
+                    text: "Explore 34+ free browser tools for PDF, image compression, fancy fonts, and calculations!",
+                    url: homeUrl
+                }).catch(() => {});
+            } else {
+                navigator.clipboard.writeText(homeUrl);
+                alert("Website link copied to clipboard!");
+            }
+        }
+        footerShareWebsiteBtn.addEventListener("click", shareFullWebsite);
+        drawerShareWebsiteBtn.addEventListener("click", shareFullWebsite);
+
+        // DRAWER CONTROLS
+        const menuBtn = document.getElementById("menuButton");
+        const drawer = document.getElementById("navDrawer");
+        const overlay = document.getElementById("menuOverlay");
+        const drawerClose = document.getElementById("drawerClose");
+
+        function openDrawer() {
+            drawer.classList.add("active");
+            overlay.classList.add("active");
+        }
+        function closeDrawer() {
+            drawer.classList.remove("active");
+            overlay.classList.remove("active");
+        }
+        menuBtn.addEventListener("click", openDrawer);
+        drawerClose.addEventListener("click", closeDrawer);
+        overlay.addEventListener("click", closeDrawer);
+
+        // MASTER BANNER DATASETS
+        const SLIM_BANNERS = [
+            { image: "assets/slim-banner-1.webp", link: "image-compressor.html", title: "Compress Photo to 50KB for Govt Forms" },
+            { image: "assets/slim-banner-2.webp", link: "pdf-lock.html", title: "Fast Secure PDF Encryption" },
+            { image: "assets/slim-banner-3.webp", link: "font-changer.html", title: "Create 1000+ Aesthetic Fonts" },
+            { image: "assets/slim-banner-4.webp", link: "internet-speed-test.html", title: "Check 5G & Fiber Latency" },
+            { image: "assets/slim-banner-5.webp", link: "word-counter.html", title: "Accurate Word Reading Meter" },
+            { image: "assets/slim-banner-6.webp", link: "qr-scanner.html", title: "Fast Camera QR Scanner" },
+            { image: "assets/slim-banner-7.webp", link: "loan-interest-calculator.html", title: "Instant EMI Loan Calculator" },
+            { image: "assets/slim-banner-8.webp", link: "area-converter.html", title: "Convert Acres, Hectares & Bigha" },
+            { image: "assets/slim-banner-9.webp", link: "text-repeater.html", title: "Repeat Messages 10,000 Times" },
+            { image: "assets/slim-banner-10.webp", link: "format-converter.html", title: "Convert WebP to JPG Cleanly" }
+        ];
+
+        const BOTTOM_BANNERS = [
+            { image: "assets/banner-1.webp", link: "image-compressor.html", title: "Image Compressor to 50KB" },
+            { image: "assets/banner-2.webp", link: "pdf-merge.html", title: "Merge Multiple PDF Files Online" },
+            { image: "assets/banner-3.webp", link: "text-to-speech.html", title: "Text to Speech Synthesis" },
+            { image: "assets/banner-4.webp", link: "internet-speed-test.html", title: "Live Internet Speed & Public IP" },
+            { image: "assets/banner-5.webp", link: "word-counter.html", title: "Word & Character Counter" },
+            { image: "assets/banner-6.webp", link: "qr-generator.html", title: "All-in-One Custom QR Generator" },
+            { image: "assets/banner-7.webp", link: "font-changer.html", title: "Fancy Font Changer for Social Media" },
+            { image: "assets/banner-8.webp", link: "age-calculator.html", title: "Accurate Age Calculator" },
+            { image: "assets/banner-9.webp", link: "background-remover.html", title: "AI Background Remover" },
+            { image: "assets/banner-10.webp", link: "format-converter.html", title: "Image Format Converter" }
+        ];
+
+        // CAROUSEL ENGINE WITH 1:1 TOUCH & CYCLIC INFINITE LOOP
+        function setupCarousel(trackId, dotsId, dataset) {
+            const track = document.getElementById(trackId);
+            const dotsContainer = document.getElementById(dotsId);
+            if (!track || !dotsContainer) return;
+
+            const carousel = track.closest('.banner-carousel');
+            let current = 0;
+            let timer = null;
+
+            let isDraggingCarousel = false;
+            let startX = 0;
+            let currentTranslate = 0;
+            let prevTranslate = 0;
+            let animationID = 0;
+
+            track.innerHTML = "";
+            dotsContainer.innerHTML = "";
+
+            dataset.forEach((b, idx) => {
+                const slide = document.createElement("a");
+                slide.className = "banner-slide";
+                slide.href = b.link;
+                slide.innerHTML = `
+                    <img src="${b.image}" alt="${b.title}" loading="${idx === 0 ? 'eager' : 'lazy'}" onerror="this.parentElement.innerHTML='<div class=\\'banner-fallback\\'><h3>${b.title}</h3><p>Fast Online Utility on Tveezal Tools</p></div>'">
+                `;
+                track.appendChild(slide);
+
+                const dot = document.createElement("button");
+                dot.className = `banner-dot ${idx === 0 ? 'active' : ''}`;
+                dot.setAttribute("aria-label", `Slide ${idx + 1}`);
+                dot.addEventListener("click", () => {
+                    current = idx;
+                    setPositionByIndex();
+                    restartTimer();
+                });
+                dotsContainer.appendChild(dot);
+            });
+
+            function setSliderPosition() {
+                track.style.transform = `translateX(${currentTranslate}px)`;
+            }
+
+            function animation() {
+                setSliderPosition();
+                if (isDraggingCarousel) requestAnimationFrame(animation);
+            }
+
+            function setPositionByIndex(smooth = true) {
+                currentTranslate = -current * carousel.offsetWidth;
+                prevTranslate = currentTranslate;
+                track.style.transition = smooth ? 'transform 0.45s cubic-bezier(.22, .61, .36, 1)' : 'none';
+                setSliderPosition();
+                updateDots();
+            }
+
+            function updateDots() {
+                dotsContainer.querySelectorAll(".banner-dot").forEach((d, i) => {
+                    d.classList.toggle("active", i === current);
+                });
+            }
+
+            function startTimer() {
+                stopTimer();
+                timer = setInterval(() => {
+                    current = (current + 1) % dataset.length;
+                    setPositionByIndex();
+                }, 4000);
+            }
+
+            function stopTimer() {
+                if (timer) clearInterval(timer);
+            }
+
+            function restartTimer() {
+                stopTimer();
+                startTimer();
+            }
+
+            function touchStart(event) {
+                isDraggingCarousel = true;
+                stopTimer();
+                startX = getPositionX(event);
+                track.style.transition = 'none';
+                animationID = requestAnimationFrame(animation);
+            }
+
+            function touchMove(event) {
+                if (isDraggingCarousel) {
+                    const currentX = getPositionX(event);
+                    const diff = currentX - startX;
+                    currentTranslate = prevTranslate + diff;
+                }
+            }
+
+            function touchEnd() {
+                if (!isDraggingCarousel) return;
+                isDraggingCarousel = false;
+                cancelAnimationFrame(animationID);
+
+                const movedBy = currentTranslate - prevTranslate;
+                const threshold = Math.min(50, carousel.offsetWidth * 0.14);
+
+                if (movedBy < -threshold) {
+                    current = (current + 1) % dataset.length;
+                } else if (movedBy > threshold) {
+                    current = (current - 1 + dataset.length) % dataset.length;
+                }
+
+                setPositionByIndex();
+                startTimer();
+            }
+
+            function getPositionX(event) {
+                return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
+            }
+
+            carousel.addEventListener('touchstart', touchStart, { passive: true });
+            carousel.addEventListener('touchmove', touchMove, { passive: true });
+            carousel.addEventListener('touchend', touchEnd);
+
+            carousel.addEventListener('mousedown', touchStart);
+            carousel.addEventListener('mousemove', touchMove);
+            carousel.addEventListener('mouseup', touchEnd);
+            carousel.addEventListener('mouseleave', () => { if (isDraggingCarousel) touchEnd(); });
+
+            window.addEventListener('resize', () => {
+                setPositionByIndex(false);
+            });
+
+            setPositionByIndex(false);
+            startTimer();
+        }
+
+        // 10 REAL-WORLD FAQS WITH CLICKABLE LINKS
+        const FAQS = [
+            {
+                q: "Are my images uploaded to a server when adding a watermark?",
+                a: "Never. All watermarking processes run 100% locally in your browser memory via HTML5 Canvas for absolute data privacy. Read more in our <a href='privacy.html'>Privacy Policy</a>."
+            },
+            {
+                q: "Can I drag the watermark anywhere on the image?",
+                a: "Yes! You can click and drag the watermark preview directly on the canvas to place it anywhere you like."
+            },
+            {
+                q: "Can I add multiple repeating text watermarks across the entire photo?",
+                a: "Yes, you can switch the mode to 'Multiple / Tiled Pattern' to cover the whole image with your custom text."
+            },
+            {
+                q: "Do I need to pay or create an account to use this watermarker?",
+                a: "No. All tools on Tveezal Tools are 100% free with zero paywalls. Learn about our vision on our <a href='about.html'>About Us</a> page."
+            },
+            {
+                q: "How do I compress image file sizes down to 50KB for government forms?",
+                a: "You can shrink and optimize photo file sizes using our <a href='image-compressor.html'>Exact KB Image Compressor</a>."
+            },
+            {
+                q: "Can I resize photos to specific pixel dimensions?",
+                a: "Yes! Use our <a href='image-resizer.html'>Image Resizer</a> for fast dimension scaling."
+            },
+            {
+                q: "How do I convert WebP or PNG images into standard JPG format?",
+                a: "You can convert image formats instantly using our <a href='format-converter.html'>Format Converter</a>."
+            },
+            {
+                q: "Can I test my broadband internet speed and check my public IP?",
+                a: "Yes! Use our <a href='internet-speed-test.html'>Internet Speed Tester</a> to gauge download, upload, ping, and ISP details."
+            },
+            {
+                q: "How do I calculate exact age or time differences?",
+                a: "You can calculate exact live age down to the second using our <a href='age-calculator.html'>Age Calculator</a>."
+            },
+            {
+                q: "How do I contact the Tveezal Tools team for feedback?",
+                a: "Feel free to reach out with any questions or tool suggestions via our <a href='contact.html'>Contact Us</a> page."
+            }
+        ];
+
+        const faqList = document.getElementById("faqList");
+        FAQS.forEach(item => {
+            const div = document.createElement("div");
+            div.className = "faq-item";
+            div.innerHTML = `
+                <button class="faq-question">
+                    <span>${item.q}</span>
+                    <i class="fas fa-chevron-down" style="color:var(--muted); font-size:12px;"></i>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">${item.a}</div>
+                </div>
+            `;
+            div.querySelector(".faq-question").addEventListener("click", () => {
+                div.classList.toggle("open");
+                const icon = div.querySelector(".fa-chevron-down");
+                if (icon) icon.style.transform = div.classList.contains("open") ? "rotate(180deg)" : "rotate(0deg)";
+            });
+            faqList.appendChild(div);
+        });
+
+        // Initialize Carousels
+        document.addEventListener("DOMContentLoaded", () => {
+            setupCarousel("slimRibbonTrack", "slimRibbonDots", SLIM_BANNERS);
+            setupCarousel("bottomBannerTrack", "bottomBannerDots", BOTTOM_BANNERS);
+        });
+    </script>
+</body> 
 </html>
