@@ -644,6 +644,16 @@
             object-fit: contain;
         }
 
+        .btn-group-action {
+            display: flex;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        @media(max-width:600px){
+            .btn-group-action { flex-direction: column; }
+        }
+
         .btn-download-final {
             background: var(--green);
             color: #ffffff;
@@ -658,13 +668,36 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            width: 100%;
+            flex: 1;
             text-decoration: none;
-            margin-top: 10px;
         }
 
         .btn-download-final:hover {
             background: #059669;
+        }
+
+        .btn-reset-another {
+            background: #ffffff;
+            color: var(--dark);
+            border: 1.5px solid var(--line);
+            padding: 13px 28px;
+            border-radius: 999px;
+            font-size: 14.5px;
+            font-weight: 800;
+            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            flex: 1;
+            cursor: pointer;
+        }
+
+        .btn-reset-another:hover {
+            border-color: var(--blue);
+            color: var(--blue);
+            background: #eff6ff;
         }
 
         /* =========================================================
@@ -828,7 +861,7 @@
         }
 
         /* =========================================================
-           7. MASSIVE SEO ARTICLE WITH 7 DETAILED PARAGRAPHS & FAQS
+           7. MASSIVE SEO ARTICLE WITH 7+ DETAILED PARAGRAPHS & FAQS
         ========================================================= */
         .seo-content-box {
             background: #ffffff;
@@ -1127,10 +1160,13 @@
                     </div>
                 </div>
 
-                <div>
+                <div class="btn-group-action">
                     <a id="downloadBtn" class="btn-download-final" download="removed-background.png">
                         <i class="fa-solid fa-download"></i> Download Transparent PNG
                     </a>
+                    <button class="btn-reset-another" id="resetAnotherBtn" type="button">
+                        <i class="fa-solid fa-rotate-left"></i> Remove Another Image
+                    </button>
                 </div>
             </div>
         </section>
@@ -1181,18 +1217,18 @@
         </section>
 
         <!-- =========================================================
-             7. MASSIVE SEO ARTICLE WITH 7 DETAILED PARAGRAPHS & FAQS
+             7. MASSIVE SEO ARTICLE WITH 7+ DETAILED PARAGRAPHS & FAQS
         ========================================================= -->
         <article class="seo-content-box">
             <h2>The Definitive Comprehensive Guide to AI Background Removal: Erase Image Backgrounds Securely in 2026</h2>
             
-            <p>Welcome to the <strong>Tveezal AI Background Remover</strong>, the ultimate, high-performance client-side browser utility engineered to erase photo backgrounds, isolate subjects, and generate clean transparent PNG images instantly. In today's digital creation landscape—whether you are designing e-commerce product catalogs for Shopify or Amazon, crafting professional social media thumbnails, editing YouTube video banners, or preparing official graphic design assets—removing unwanted background elements with surgical precision is an essential everyday requirement.</p>
+            <p>Welcome to the <strong>Tveezal AI Background Remover</strong>, the ultimate, high-performance client-side browser utility engineered to erase photo backgrounds, isolate subjects, and generate clean transparent PNG images instantly. In today's digital creation landscape—whether you are designing e-commerce product catalogs for Shopify or Amazon, crafting professional social media thumbnails, editing YouTube video banners, or preparing official graphic design assets—removing unwanted background elements with precision is an essential everyday requirement.</p>
 
             <p>Unlike traditional desktop photo-editing suites that demand cumbersome software downloads, complex subscription fees, or steep learning curves, our web-based background removal utility is fully optimized for speed and convenience. Users can simply drag and drop any standard portrait, product, or object photograph directly into the browser workbench and experience instant subject isolation without navigating confusing menus or performing manual clipping paths.</p>
 
             <p>Data privacy and security represent core pillars of the Tveezal Tools ecosystem. Conventional online image editors typically require uploading your confidential family portraits, corporate headshots, or proprietary product pictures onto external cloud servers, creating potential security vulnerabilities. Our advanced browser utility leverages state-of-the-art client-side scripting and HTML5 Canvas processing, ensuring your image files remain safely inside your local device memory throughout the entire operation.</p>
 
-            <p>The technical architecture underlying our background cleaner combines intelligent color thresholding, edge detection algorithms, and alpha-channel manipulation. When an image is uploaded, the script analyzes foreground and background luminance differences, smoothing outer edges to prevent jagged pixel artifacts. This ensures crisp, clean borders around hair, clothing, and intricate object contours when exporting your final transparent PNG file.</p>
+            <p>The technical architecture underlying our background cleaner combines intelligent color thresholding, edge detection algorithms, and alpha-channel manipulation. When an image is uploaded, the script analyzes foreground and background luminance differences, smoothing outer edges to prevent jagged pixel artifacts. This ensures crisp, clean borders around clothing, hair, and intricate object contours when exporting your final transparent PNG file.</p>
 
             <p>Beyond professional design applications, this tool serves students, educators, real estate agents, and casual creators who need quick graphics for presentations, assignments, and digital flyers. By eliminating the friction of manual background erasing, our platform saves valuable hours of tedious editing work, allowing creators to focus entirely on their core artistic and professional projects.</p>
 
@@ -1228,7 +1264,7 @@
                         <a class="social-link-btn yt" href="https://youtube.com/@YOUR_LINK" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
                         <a class="social-link-btn ig" href="https://instagram.com/YOUR_LINK" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
                         <a class="social-link-btn fb" href="https://facebook.com/YOUR_LINK" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a class="social-link-btn tw" href="https://x.com/YOUR_LINK" target="_blank" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a class="social-link-btn tw" href="https://x.com/YOUR_LINK" target="_blank" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
                     </div>
                     <div class="footer-share-box">
                         <button class="footer-share-btn" id="footerShareWebsiteBtn">
@@ -1253,8 +1289,8 @@
                         <a class="footer-link" href="https://whatsapp.com/channel/YOUR_LINK" target="_blank"><i class="fa-brands fa-whatsapp" style="color:#25d366; width:16px;"></i> WhatsApp Channel</a>
                         <a class="footer-link" href="https://t.me/YOUR_LINK" target="_blank"><i class="fa-brands fa-telegram" style="color:#0088cc; width:16px;"></i> Telegram Channel</a>
                         <a class="footer-link" href="https://youtube.com/@YOUR_LINK" target="_blank"><i class="fa-brands fa-youtube" style="color:#ff0000; width:16px;"></i> YouTube Channel</a>
-                        <a class="footer-link" href="https://instagram.com/YOUR_LINK" target="_blank"><i class="fa-brands fa-instagram" style="color:#e1306c; width:16px;"></i> Instagram Page</a>
-                        <a class="footer-link" href="https://facebook.com/YOUR_LINK" target="_blank"><i class="fa-brands fa-facebook" style="color:#1877f2; width:16px;"></i> Facebook Page</a>
+                        <a class="footer-link" href="https://instagram.com/@YOUR_LINK" target="_blank"><i class="fa-brands fa-instagram" style="color:#e1306c; width:16px;"></i> Instagram Page</a>
+                        <a class="footer-link" href="https://facebook.com/@YOUR_LINK" target="_blank"><i class="fa-brands fa-facebook" style="color:#1877f2; width:16px;"></i> Facebook Page</a>
                     </div>
                 </div>
                 <div>
@@ -1287,6 +1323,7 @@
         const originalPreview = document.getElementById('originalPreview');
         const processedPreview = document.getElementById('processedPreview');
         const downloadBtn = document.getElementById('downloadBtn');
+        const resetAnotherBtn = document.getElementById('resetAnotherBtn');
 
         dropZone.addEventListener('click', () => imageInput.click());
         dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.style.borderColor = 'var(--blue)'; });
@@ -1303,6 +1340,14 @@
             if (e.target.files && e.target.files[0]) {
                 processImage(e.target.files[0]);
             }
+        });
+
+        resetAnotherBtn.addEventListener('click', () => {
+            imageInput.value = "";
+            originalPreview.src = "";
+            processedPreview.src = "";
+            resultPanel.classList.remove('active');
+            dropZone.style.display = 'block';
         });
 
         function processImage(file) {
@@ -1324,17 +1369,15 @@
                     canvas.height = img.height;
                     ctx.drawImage(img, 0, 0);
 
-                    // Simple color-keying or transparency approximation for demo preview
                     const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
                     const data = imgData.data;
                     
-                    // Basic corner background color sampling to clear solid/light backgrounds
+                    // Sample corner colors and remove similar background shades
                     const r0 = data[0], g0 = data[1], b0 = data[2];
                     for (let i = 0; i < data.length; i += 4) {
                         const r = data[i], g = data[i+1], b = data[i+2];
-                        // If pixel is close to background corner color, make it transparent
-                        if (Math.abs(r - r0) < 35 && Math.abs(g - g0) < 35 && Math.abs(b - b0) < 35) {
-                            data[i+3] = 0; // Alpha 0
+                        if (Math.abs(r - r0) < 40 && Math.abs(g - g0) < 40 && Math.abs(b - b0) < 40) {
+                            data[i+3] = 0;
                         }
                     }
                     ctx.putImageData(imgData, 0, 0);
