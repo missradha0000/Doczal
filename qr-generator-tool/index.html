@@ -1,1 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DHZ9E8XV4S"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-DHZ9E8XV4S');
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#0f172a" id="metaThemeColor">
+
+    <!-- Primary SEO Meta Tags -->
+    <title>Advanced QR Code Generator Online - Custom Logo & Colors | Tveezal Tools</title>
+    <meta name="title" content="Advanced QR Code Generator Online - Custom Logo & Colors | Tveezal Tools">
+    <meta name="description" content="Free online offline-capable QR code generator. Create custom QR codes with personalized dot colors, background colors, and center logo images instantly in your browser with zero server uploads.">
+    <meta name="keywords" content="qr code generator online, custom qr code creator, qr code with logo, free qr code maker, tveezal tools">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="author" content="Tveezal Tools">
+
+    <link rel="canonical" href="https://tveezal.com/qr-generator.html">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tveezal.com/qr-generator.html">
+    <meta property="og:title" content="Advanced QR Code Generator Online - Custom Logo & Colors">
+    <meta property="og:description" content="Create custom QR codes with logo and colors instantly in your browser. 100% private and offline capable.">
+    <meta property="og:site_name" content="Tveezal Tools">
+
+    <!-- Fonts & Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Custom Tveezal UI Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+     "@context":"https://schema.org",
+     "@type":"WebApplication",
+     "name":"Tveezal Advanced QR Code Generator",
+     "url":"https://tveezal.com/qr-generator.html",
+     "applicationCategory":"UtilitiesApplication",
+     "operatingSystem":"Windows, macOS, Linux, Android, iOS",
+     "browserRequirements":"Requires JavaScript and a modern browser",
+     "description":"Generate custom QR codes with colors and center logo images directly in your web browser with absolute privacy.",
+     "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+     "featureList":[
+      "Real-time live QR code preview",
+      "Custom dot and background colors",
+      "Center logo image upload via FileReader",
+      "High-resolution PNG download",
+      "100% client-side offline privacy"
+     ]
+    }
+    </script>
+</head>
+<body>
+
+    <!-- 1. PERMANENT STICKY PURE WHITE TOP STRIP -->
+    <header class="sticky-white-nav" id="dynamicHeader">
+        <div class="sticky-nav-inner">
+            <a class="brand-container" href="index.html">
+                <div class="logo-tvz">TVZ</div>
+                <div class="brand-text">
+                    TVEEZAL <span>Tools</span>
+                </div>
+            </a>
+
+            <!-- 3 Solid Dots Menu Button -->
+            <button class="menu-trigger-btn" id="menuButton" aria-label="Open Navigation">
+                <div class="three-dots-solid">
+                    <span class="dot-solid"></span>
+                    <span class="dot-solid"></span>
+                    <span class="dot-solid"></span>
+                </div>
+            </button>
+        </div>
+    </header>
+
+    <!-- 2. VIBRANT BLUE SUB-HEADER WITH BACK & SHARE BUTTONS -->
+    <div class="blue-hero-header">
+        <div class="sub-nav-row">
+            <a href="index.html" class="tool-back-btn" id="smartBackBtn">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Back to Tools</span>
+            </a>
+
+            <nav class="nav-pills-row">
+                <a class="header-pill" href="index.html">Home</a>
+                <a class="header-pill" href="index.html#categoriesContainer">All Tools</a>
+                <a class="header-pill active" href="qr-barcode-tools.html">QR & Barcode</a>
+                <a class="header-pill" href="faq.html">FAQ</a>
+            </nav>
+
+            <button class="tool-share-btn" id="shareToolBtn" aria-label="Share This Tool">
+                <i class="fa-solid fa-share-nodes"></i>
+                <span>Share Tool</span>
+            </button>
+        </div>
+
+        <div class="hero">
+            <div class="eyebrow">QR & Barcode Category Tool</div>
+            <h1>Advanced QR Code Generator Online</h1>
+            <p>Create fully customized QR codes with personalized colors, custom branding logos, and instant PNG downloads directly in your browser.</p>
+        </div>
+    </div>
+
+    <!-- Full White Side Navigation Drawer -->
+    <div class="drawer-overlay" id="menuOverlay"></div>
+    <aside class="side-drawer" id="navDrawer">
+        <div class="drawer-header">
+            <div class="drawer-title-group">
+                <div class="logo-tvz" style="width: 32px; height: 32px; font-size: 12px; border-radius: 8px;">TVZ</div>
+                <div class="drawer-title">Tveezal Tools</div>
+            </div>
+            <button class="drawer-close-btn" id="drawerClose">✕</button>
+        </div>
+        <div class="drawer-links">
+            <a class="drawer-pill-item" href="index.html"><i class="fa-solid fa-house" style="color:#2563eb;"></i> Home</a>
+            <a class="drawer-pill-item" href="pdf-tools.html"><i class="fa-solid fa-file-pdf" style="color:#dc2626;"></i> PDF Tools</a>
+            <a class="drawer-pill-item" href="image-tools.html"><i class="fa-solid fa-image" style="color:#7c3aed;"></i> Image Tools</a>
+            <a class="drawer-pill-item" href="qr-barcode-tools.html"><i class="fa-solid fa-qrcode" style="color:#059669;"></i> QR & Barcode</a>
+            <a class="drawer-pill-item" href="text-string-tools.html"><i class="fa-solid fa-font" style="color:#d97706;"></i> Text & String</a>
+            <a class="drawer-pill-item" href="web-security-tools.html"><i class="fa-solid fa-shield-halved" style="color:#0891b2;"></i> Web & Security</a>
+            <a class="drawer-pill-item" href="calculators.html"><i class="fa-solid fa-calculator" style="color:#4f46e5;"></i> Calculators</a>
+            <a class="drawer-pill-item" href="converters.html"><i class="fa-solid fa-arrows-left-right" style="color:#e11d48;"></i> Converters</a>
+            <a class="drawer-pill-item" href="blog.html"><i class="fa-solid fa-newspaper" style="color:#64748b;"></i> Blog</a>
+            <a class="drawer-pill-item" href="about.html"><i class="fa-solid fa-circle-info" style="color:#64748b;"></i> About Us</a>
+            <a class="drawer-pill-item" href="contact.html"><i class="fa-solid fa-envelope" style="color:#64748b;"></i> Contact Us</a>
+            <a class="drawer-pill-item" href="privacy.html"><i class="fa-solid fa-lock" style="color:#64748b;"></i> Privacy Policy</a>
+            <a class="drawer-pill-item" href="terms.html"><i class="fa-solid fa-file-contract" style="color:#64748b;"></i> Terms & Conditions</a>
+        </div>
+
+        <div class="drawer-social-section">
+            <div class="drawer-social-title">Connect With Us</div>
+            <div class="social-icons-flex">
+                <a class="social-link-btn wa" href="https://whatsapp.com/channel/YOUR_LINK" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                <a class="social-link-btn tg" href="https://t.me/YOUR_LINK" target="_blank" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+                <a class="social-link-btn yt" href="https://youtube.com/@YOUR_LINK" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                <a class="social-link-btn ig" href="https://instagram.com/YOUR_LINK" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a class="social-link-btn fb" href="https://facebook.com/YOUR_LINK" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a class="social-link-btn tw" href="https://x.com/YOUR_LINK" target="_blank" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+            <button class="btn-share-full-site" id="drawerShareWebsiteBtn">
+                <i class="fa-solid fa-share-nodes"></i> Share Tveezal Website
+            </button>
+        </div>
+    </aside>
+
+    <main class="container">
+        <!-- Top Advertisement -->
+        <div class="ad-block" style="margin-top: 24px;">
+            <span><i class="fas fa-rectangle-ad"></i> Advertisement (Top Leaderboard)</span>
+        </div>
+
+        <!-- 3. QR CODE GENERATOR WORKBENCH -->
+        <section class="tool-workbench">
+            <div class="qr-studio-grid">
+                <!-- Controls Panel -->
+                <div class="qr-controls-panel">
+                    <div class="form-group">
+                        <label for="qrText">QR Code Content (Text or URL)</label>
+                        <textarea id="qrText" rows="3" placeholder="Enter URL or text message here...">https://tveezal.com</textarea>
+                    </div>
+
+                    <div class="color-pickers-row">
+                        <div class="form-group flex-1">
+                            <label for="dotColor">Dot Color</label>
+                            <div class="color-input-wrap">
+                                <input type="color" id="dotColor" value="#0f172a">
+                                <span id="dotColorHex">#0f172a</span>
+                            </div>
+                        </div>
+                        <div class="form-group flex-1">
+                            <label for="bgColor">Background Color</label>
+                            <div class="color-input-wrap">
+                                <input type="color" id="bgColor" value="#ffffff">
+                                <span id="bgColorHex">#ffffff</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="logoInput">Center Logo / Icon (Optional)</label>
+                        <input type="file" id="logoInput" accept="image/*" class="file-input-custom">
+                        <button type="button" id="removeLogoBtn" class="btn-remove-logo" style="display: none;">Remove Logo</button>
+                    </div>
+                </div>
+
+                <!-- Preview Panel -->
+                <div class="qr-preview-panel">
+                    <div class="qr-canvas-box" id="qrCanvasContainer"></div>
+                    <button type="button" id="downloadQrBtn" class="btn-action-primary">
+                        <i class="fa-solid fa-download"></i> Download QR Code (PNG)
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Result Advertisement -->
+        <div class="ad-block" style="margin-top: 30px;">
+            <span><i class="fas fa-rectangle-ad"></i> Advertisement (Below Tool Results)</span>
+        </div>
+
+        <!-- 4. SLIM FINGER-PROFILE 10-BANNER RIBBON -->
+        <section class="banner-section" style="padding-top: 0;">
+            <div class="banner-shell">
+                <div class="banner-carousel slim-carousel" id="slimRibbonCarousel">
+                    <div class="banner-track" id="slimRibbonTrack"></div>
+                </div>
+            </div>
+            <div class="banner-dots-wrapper" id="slimRibbonDots"></div>
+        </section>
+
+        <!-- 5. EXPLORE ALL TOOL CATEGORIES BAR -->
+        <section class="categories-bar-wrapper">
+            <div class="categories-title">Explore All Tool Categories</div>
+            <div class="category-buttons-list">
+                <a class="cat-tag-btn" href="pdf-tools.html"><i class="fa-solid fa-file-pdf" style="color:#dc2626;"></i> PDF Tools</a>
+                <a class="cat-tag-btn" href="image-tools.html"><i class="fa-solid fa-image" style="color:#7c3aed;"></i> Image Tools</a>
+                <a class="cat-tag-btn" href="qr-barcode-tools.html"><i class="fa-solid fa-qrcode" style="color:#059669;"></i> QR & Barcode</a>
+                <a class="cat-tag-btn" href="text-string-tools.html"><i class="fa-solid fa-font" style="color:#d97706;"></i> Text & String</a>
+                <a class="cat-tag-btn" href="web-security-tools.html"><i class="fa-solid fa-shield-halved" style="color:#0891b2;"></i> Web & Security</a>
+                <a class="cat-tag-btn" href="calculators.html"><i class="fa-solid fa-calculator" style="color:#4f46e5;"></i> Calculators</a>
+                <a class="cat-tag-btn" href="converters.html"><i class="fa-solid fa-arrows-left-right" style="color:#e11d48;"></i> Converters</a>
+            </div>
+        </section>
+
+        <!-- 6. WIDE BANNER CAROUSEL -->
+        <section class="banner-section" style="padding-top: 0;">
+            <div class="banner-shell">
+                <div class="banner-carousel" id="bottomBannerCarousel">
+                    <div class="banner-track" id="bottomBannerTrack"></div>
+                </div>
+            </div>
+            <div class="banner-dots-wrapper" id="bottomBannerDots"></div>
+        </section>
+
+        <!-- 7. MASSIVE SEO ARTICLE WITH 20 DETAILED PARAGRAPHS & FAQS -->
+        <article class="seo-content-box">
+            <h2>The Definitive Comprehensive Guide to Advanced QR Code Generation: Custom Branding, Colors, and Offline Security in 2026</h2>
+            
+            <p>Welcome to the <strong>Tveezal Advanced QR Code Generator</strong>, the ultimate, high-performance client-side browser utility engineered to create fully customized, high-resolution QR codes instantly. In today's hyper-connected digital landscape, Quick Response (QR) codes have become the foundational bridge between physical marketing collateral and digital destinations. Whether you are stamping URLs onto restaurant menus, embedding WiFi credentials on business cards, directing users to e-commerce product pages, or sharing contact vCards, having a reliable, professional QR code generator is an absolute everyday necessity.</p>
+
+            <p>Unlike traditional online QR code generators that rely on deceptive subscription models, expiration timers, or dynamic redirection traps, our platform provides 100% permanent, static QR codes absolutely free. Every code generated through our interface is encoded directly into standard matrix patterns that remain scannable forever without broken links or recurring fees, giving creators absolute ownership over their marketing assets.</p>
+
+            <p>Data privacy and user security represent core pillars of the Tveezal Tools ecosystem. Conventional online tools frequently require uploading your brand logos or corporate credentials onto external cloud servers, creating potential security vulnerabilities. Our advanced browser utility leverages state-of-the-art client-side scripting and the FileReader API, ensuring your logo files and text payloads remain safely inside your local device memory during processing.</p>
+
+            <p>The core technology behind our generator integrates advanced matrix rendering algorithms. When you type text or adjust color pickers, the live preview renders instantly on an HTML5 canvas element. This eliminates frustrating loading delays and allows real-time visual experimentation with dot styles, background contrasts, and branding alignment before exporting your final graphic asset.</p>
+
+            <p>Customization is what separates amateur marketing from professional brand identity. Our tool allows you to move beyond boring black-and-white squares by picking tailored color palettes that match your corporate branding. Furthermore, embedding a centered logo or brand icon establishes immediate visual recognition, boosting scan rates and building customer trust across all printed and digital mediums.</p>
+
+            <p>Beyond commercial marketing, this utility serves educators, event organizers, healthcare providers, and casual creators who need quick, secure matrix codes for presentations, invitations, and informational flyers. By eliminating the friction of complex desktop software or ad-heavy websites, our platform saves valuable time, allowing users to focus entirely on their core objectives.</p>
+
+            <p>Performance optimization is another cornerstone of our web utility. Designed with a lightweight, responsive interface, the QR Generator executes operations rapidly even on low-powered mobile devices, tablets, and older laptop computers, guaranteeing a smooth and frustration-free user experience across all modern operating systems including Windows, macOS, Linux, Android, and iOS.</p>
+
+            <p>Seamless integration with the broader Tveezal ecosystem ensures that once your QR code is downloaded as a high-resolution PNG file, you can instantly transition to companion utilities such as our <a href="image-compressor.html">Image Compressor</a> to optimize file sizes for print, or scale dimensions precisely using our <a href="image-resizer.html">Image Resizer</a>. Every tool adheres to identical design standards, ensuring visual consistency and operational familiarity.</p>
+
+            <p>The elimination of registration forms, login requirements, and paywalls ensures universal accessibility for every internet user. You never have to worry about creating accounts, verifying email addresses, or managing API tokens just to create a simple matrix graphic. Simply visit the page, type your text, customize your colors, and download your file within seconds.</p>
+
+            <p>As remote work and digital marketing continue to expand globally in 2026, browser-based utilities offer unmatched convenience and agility. Users no longer need to rely on standalone desktop executables that take up hard drive space and require constant manual updates. Everything functions seamlessly inside your browser sandbox.</p>
+
+            <p>Compliance with modern web standards guarantees full compatibility with all contemporary Chromium, Firefox, Safari, and Edge browsers. The responsive layout automatically adapts to portrait and landscape viewports, ensuring comfortable touch-gesture interaction on smartphones and precise mouse navigation on desktop workstations.</p>
+
+            <p>Furthermore, error-correction level algorithms built into the underlying rendering library ensure that even when a center logo covers a portion of the matrix, modern smartphone cameras can still scan and decode the underlying data accurately and reliably without scanning failures.</p>
+
+            <p>For retail businesses managing promotional displays or packaging lines, reliable scannability is non-negotiable. Our QR Generator acts as a dependable auxiliary tool that ensures high-contrast output and clean matrix edges, avoiding common printing pitfalls that plague low-quality generator websites.</p>
+
+            <p>Archival and offline accessibility represent another significant advantage of client-side architecture. Because all logic executes via local scripts, you can even bookmark and run this tool offline when traveling or working in low-connectivity environments, ensuring uninterrupted productivity under any condition.</p>
+
+            <p>Community feedback and user suggestions continually drive feature enhancements across Tveezal Tools. We actively monitor performance metrics and browser compatibility reports to ensure our utilities remain at the absolute forefront of free online web development and client-side utility provisioning.</p>
+
+            <p>To maximize your productivity, we recommend bookmarking our platform and exploring our specialized hubs including <a href="qr-barcode-tools.html">QR & Barcode Hub</a>, <a href="image-tools.html">Image Tools Hub</a>, and <a href="text-string-tools.html">Text Tools Hub</a> for a comprehensive suite of everyday digital utilities designed around privacy and speed.</p>
+
+            <p>Looking ahead, Tveezal Tools remains steadfast in its mission to deliver clean, ad-balanced, and lightning-fast browser tools without compromising user trust. Our commitment to zero server storage ensures your files remain your exclusive property from start to finish.</p>
+
+            <p>In conclusion, whether you are an enterprise marketer, a small business owner, or a casual internet user, the Advanced QR Code Generator provides an indispensable service for creating customized branding graphics securely and efficiently. Experience the future of browser-based utilities today with Tveezal Tools.</p>
+
+            <p>Thank you for choosing Tveezal Tools as your trusted digital companion. We invite you to share our platform with colleagues, friends, and social networks to support our mission of keeping essential web utilities 100% free and private for everyone worldwide.</p>
+
+            <p>Explore the rest of our website to discover dozens of other powerful converters, calculators, and security testers, all built with the same rigorous dedication to excellence, speed, and absolute data privacy.</p>
+
+            <!-- Frequently Asked Questions Accordion -->
+            <section class="faq-section">
+                <h3 style="font-size: 22px; margin-bottom: 4px;">Frequently Asked Questions (QR Generator)</h3>
+                <p style="color: var(--muted); font-size: 13.5px;">Detailed answers regarding customization, logo embedding, and offline privacy.</p>
+
+                <div class="faq-list" id="faqList"></div>
+            </section>
+        </article>
+    </main>
+
+    <!-- 8. FOOTER WITH INTEGRATED SOCIAL MEDIA -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="brand-container" style="margin-bottom: 4px;">
+                        <div class="logo-tvz" style="background: #2563eb; color:#fff; width:36px; height:36px; font-size:13px;">TVZ</div>
+                        <div class="brand-text" style="color:#fff; font-size:22px;">TVEEZAL <span style="color:#60a5fa;">Tools</span></div>
+                    </div>
+                    <p>High-speed, browser-based online utilities designed for productivity, data privacy, and daily convenience.</p>
+                    <div class="social-icons-flex" style="justify-content: flex-start; gap: 8px;">
+                        <a class="social-link-btn wa" href="https://whatsapp.com/channel/YOUR_LINK" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a class="social-link-btn tg" href="https://t.me/YOUR_LINK" target="_blank" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+                        <a class="social-link-btn yt" href="https://youtube.com/@YOUR_LINK" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                        <a class="social-link-btn ig" href="https://instagram.com/YOUR_LINK" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a class="social-link-btn fb" href="https://facebook.com/YOUR_LINK" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a class="social-link-btn tw" href="https://x.com/YOUR_LINK" target="_blank" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+                    </div>
+                    <div class="footer-share-box">
+                        <button class="footer-share-btn" id="footerShareWebsiteBtn">
+                            <i class="fa-solid fa-share-nodes"></i> Share Website
+                        </button>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="footer-column" style="color:#64748b; font-size:12px; margin-bottom:12px;">Tool Hubs</h3>
+                    <div class="footer-links">
+                        <a class="footer-link" href="pdf-tools.html">PDF Tools</a>
+                        <a class="footer-link" href="image-tools.html">Image Tools</a>
+                        <a class="footer-link" href="text-string-tools.html">Text & String</a>
+                        <a class="footer-link" href="web-security-tools.html">Web & Security</a>
+                        <a class="footer-link" href="calculators.html">Calculators</a>
+                        <a class="footer-link" href="converters.html">Converters</a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="footer-column" style="color:#64748b; font-size:12px; margin-bottom:12px;">Social Channels</h3>
+                    <div class="footer-links">
+                        <a class="footer-link" href="https://whatsapp.com/channel/YOUR_LINK" target="_blank"><i class="fa-brands fa-whatsapp" style="color:#25d366; width:16px;"></i> WhatsApp Channel</a>
+                        <a class="footer-link" href="https://t.me/YOUR_LINK" target="_blank"><i class="fa-brands fa-telegram" style="color:#0088cc; width:16px;"></i> Telegram Channel</a>
+                        <a class="footer-link" href="https://youtube.com/@YOUR_LINK" target="_blank"><i class="fa-brands fa-youtube" style="color:#ff0000; width:16px;"></i> YouTube Channel</a>
+                        <a class="footer-link" href="https://instagram.com/@YOUR_LINK" target="_blank"><i class="fa-brands fa-instagram" style="color:#e1306c; width:16px;"></i> Instagram Page</a>
+                        <a class="footer-link" href="https://facebook.com/@YOUR_LINK" target="_blank"><i class="fa-brands fa-facebook" style="color:#1877f2; width:16px;"></i> Facebook Page</a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="footer-column" style="color:#64748b; font-size:12px; margin-bottom:12px;">Legal & Info</h3>
+                    <div class="footer-links">
+                        <a class="footer-link" href="index.html">Home</a>
+                        <a class="footer-link" href="blog.html">Blog Articles</a>
+                        <a class="footer-link" href="about.html">About Us</a>
+                        <a class="footer-link" href="contact.html">Contact Us</a>
+                        <a class="footer-link" href="privacy.html">Privacy Policy</a>
+                        <a class="footer-link" href="terms.html">Terms of Service</a>
+                        <a class="footer-link" href="faq.html">Detailed FAQ</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>© 2026 Tveezal Tools. All rights reserved.</div>
+                <div>Free browser utilities for everyone.</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts: qr-library.js first, followed by app.js -->
+    <script src="qr-library.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
 
