@@ -52,9 +52,9 @@
      "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
      "featureList":[
       "Add password encryption to PDFs",
+      "Password visibility toggle (Eye Icon)",
       "Instant client-side protection",
       "Zero server storage or uploads",
-      "Secure document handling",
       "Free browser-based utility"
      ]
     }
@@ -622,18 +622,41 @@
             text-transform: uppercase;
         }
 
+        .password-input-wrap {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
         .form-group input {
-            padding: 12px 16px;
+            width: 100%;
+            padding: 12px 45px 12px 16px;
             border: 1.5px solid var(--line);
             border-radius: 12px;
             font-size: 14px;
             outline: none;
             transition: var(--transition);
+            background: #ffffff;
         }
 
         .form-group input:focus {
             border-color: var(--blue);
             box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 14px;
+            background: none;
+            border: none;
+            color: var(--muted);
+            font-size: 16px;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .toggle-password:hover {
+            color: var(--dark);
         }
 
         .btn-group-action {
@@ -1138,12 +1161,18 @@
 
                 <div class="form-group">
                     <label for="pdfPassword">Set Opening Password</label>
-                    <input type="password" id="pdfPassword" placeholder="Enter secure password..." autocomplete="new-password">
+                    <div class="password-input-wrap">
+                        <input type="password" id="pdfPassword" placeholder="Enter secure password..." autocomplete="new-password">
+                        <button type="button" class="toggle-password" id="togglePassword1"><i class="fa-solid fa-eye"></i></button>
+                    </div>
                 </div>
 
                 <div class="form-group">
                     <label for="pdfConfirmPassword">Confirm Password</label>
-                    <input type="password" id="pdfConfirmPassword" placeholder="Re-enter secure password..." autocomplete="new-password">
+                    <div class="password-input-wrap">
+                        <input type="password" id="pdfConfirmPassword" placeholder="Re-enter secure password..." autocomplete="new-password">
+                        <button type="button" class="toggle-password" id="togglePassword2"><i class="fa-solid fa-eye"></i></button>
+                    </div>
                 </div>
 
                 <div class="btn-group-action">
@@ -1336,10 +1365,25 @@
         const fileSizeDisplay = document.getElementById('fileSizeDisplay');
         const pdfPassword = document.getElementById('pdfPassword');
         const pdfConfirmPassword = document.getElementById('pdfConfirmPassword');
+        const togglePassword1 = document.getElementById('togglePassword1');
+        const togglePassword2 = document.getElementById('togglePassword2');
         const lockBtn = document.getElementById('lockBtn');
         const resetAnotherBtn = document.getElementById('resetAnotherBtn');
 
         let selectedFile = null;
+
+        // Password Visibility Toggle (Eye Icon)
+        togglePassword1.addEventListener('click', () => {
+            const type = pdfPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+            pdfPassword.setAttribute('type', type);
+            togglePassword1.innerHTML = type === 'password' ? '<i class="fa-solid fa-eye"></i>' : '<i class="fa-solid fa-eye-slash"></i>';
+        });
+
+        togglePassword2.addEventListener('click', () => {
+            const type = pdfConfirmPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+            pdfConfirmPassword.setAttribute('type', type);
+            togglePassword2.innerHTML = type === 'password' ? '<i class="fa-solid fa-eye"></i>' : '<i class="fa-solid fa-eye-slash"></i>';
+        });
 
         dropZone.addEventListener('click', () => pdfInput.click());
         dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.style.borderColor = 'var(--blue)'; });
@@ -1687,4 +1731,3 @@
     </script>
 </body>
 </html>
-
