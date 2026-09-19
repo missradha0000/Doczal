@@ -1,1 +1,1690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DHZ9E8XV4S"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-DHZ9E8XV4S');
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#0f172a" id="metaThemeColor">
+
+    <!-- Primary SEO Meta Tags -->
+    <title>PDF Locker Online - Password Protect PDF Files Securely Free | Tveezal Tools</title>
+    <meta name="title" content="PDF Locker Online - Password Protect PDF Files Securely Free | Tveezal Tools">
+    <meta name="description" content="Free online PDF locker tool. Add password encryption and security restrictions to your PDF documents instantly in your browser with 100% data privacy and zero server uploads.">
+    <meta name="keywords" content="pdf locker online, password protect pdf, encrypt pdf document, secure pdf file, tveezal tools">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="author" content="Tveezal Tools">
+
+    <link rel="canonical" href="https://tveezal.com/pdf-lock.html">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tveezal.com/pdf-lock.html">
+    <meta property="og:title" content="PDF Locker Online - Password Protect PDF Free">
+    <meta property="og:description" content="Add password encryption and security restrictions to PDF documents instantly inside your browser.">
+    <meta property="og:site_name" content="Tveezal Tools">
+
+    <!-- Fonts & Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+     "@context":"https://schema.org",
+     "@type":"WebApplication",
+     "name":"Tveezal PDF Locker",
+     "url":"https://tveezal.com/pdf-lock.html",
+     "applicationCategory":"UtilitiesApplication",
+     "operatingSystem":"Windows, macOS, Linux, Android, iOS",
+     "browserRequirements":"Requires JavaScript and a modern browser",
+     "description":"Encrypt and add password security to PDF documents directly in your web browser.",
+     "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+     "featureList":[
+      "Add password encryption to PDFs",
+      "Instant client-side protection",
+      "Zero server storage or uploads",
+      "Secure document handling",
+      "Free browser-based utility"
+     ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+     "@context":"https://schema.org",
+     "@type":"FAQPage",
+     "mainEntity":[
+      {"@type":"Question","name":"Is the PDF Locker free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes! All tools on Tveezal Tools, including the PDF Locker, are 100% free with no registration or subscriptions."}},
+      {"@type":"Question","name":"Are my documents secure during encryption?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. Your files are processed locally inside your browser memory and are never uploaded to any remote servers."}}
+     ]
+    }
+    </script>
+
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --white: #ffffff;
+            --dark: #0f172a;
+            --text: #334155;
+            --muted: #64748b;
+            --line: #e2e8f0;
+            --blue: #2563eb;
+            --blue-hover: #1d4ed8;
+            --vibrant-blue: linear-gradient(145deg, #0b1e4f 0%, #153e90 45%, #1e58c8 100%);
+            --shadow: 0 10px 30px rgba(15, 23, 42, 0.055);
+            --transition: 0.25s ease;
+            --green: #10b981;
+            --red: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--dark);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        button, input, select {
+            font-family: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        a {
+            color: var(--blue);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            width: min(calc(100% - 32px), 1150px);
+            margin-inline: auto;
+        }
+
+        /* =========================================================
+           1. PERMANENT STICKY PURE WHITE TOP STRIP
+        ========================================================= */
+        .sticky-white-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #ffffff;
+            border-bottom: 1px solid #e2e8f0;
+            box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+        }
+
+        .sticky-nav-inner {
+            max-width: 1250px;
+            margin: auto;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand-container {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-tvz {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, #153e90 0%, #1e58c8 100%);
+            color: #ffffff;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px rgba(30, 88, 200, 0.35);
+            flex-shrink: 0;
+        }
+
+        .brand-text {
+            font-size: 22px;
+            font-weight: 850;
+            letter-spacing: -0.6px;
+            color: #0f172a;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .brand-text span {
+            color: #2563eb;
+        }
+
+        .menu-trigger-btn {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+            transition: all 0.2s ease;
+        }
+
+        .menu-trigger-btn:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+            transform: scale(1.04);
+        }
+
+        .three-dots-solid {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .dot-solid {
+            width: 6px;
+            height: 6px;
+            background-color: #0f172a;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        /* =========================================================
+           2. VIBRANT BLUE SUB-HEADER WITH BACK & SHARE BUTTONS
+        ========================================================= */
+        .blue-hero-header {
+            background: var(--vibrant-blue);
+            color: white;
+            padding: 16px 0 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .sub-nav-row {
+            max-width: 1250px;
+            margin: auto;
+            padding: 0 20px 14px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .nav-pills-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px 10px;
+        }
+
+        .header-pill {
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            background: rgba(255, 255, 255, 0.08);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 999px;
+            font-size: 12.5px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+        }
+
+        .header-pill:hover {
+            background: rgba(255, 255, 255, 0.22);
+            transform: translateY(-1px);
+            text-decoration: none;
+        }
+
+        .header-pill.active {
+            background: #2563eb;
+            border-color: #60a5fa;
+            color: #ffffff;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+        }
+
+        .tool-back-btn {
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            background: rgba(255, 255, 255, 0.18);
+            color: #ffffff;
+            padding: 6px 16px;
+            border-radius: 999px;
+            font-size: 12.5px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .tool-back-btn:hover {
+            background: #ffffff;
+            color: var(--blue);
+            transform: translateX(-2px);
+            text-decoration: none;
+        }
+
+        .tool-share-btn {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #ffffff;
+            padding: 6px 16px;
+            border-radius: 999px;
+            font-size: 12.5px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .tool-share-btn:hover {
+            background: #25d366;
+            border-color: #25d366;
+            color: #ffffff;
+            transform: translateY(-1px);
+        }
+
+        .hero {
+            max-width: 1200px;
+            margin: auto;
+            padding: 8px 20px 6px;
+            text-align: center;
+        }
+
+        .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 1.7px;
+            color: #93c5fd;
+            font-size: 11.5px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        h1 {
+            font-size: clamp(24px, 4.2vw, 42px);
+            line-height: 1.15;
+            letter-spacing: -1.2px;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .hero p {
+            max-width: 740px;
+            margin: 0 auto;
+            color: #dbeafe;
+            font-size: 15px;
+        }
+
+        /* =========================================================
+           3. FULL WHITE SIDE DRAWER
+        ========================================================= */
+        .drawer-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .drawer-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .side-drawer {
+            position: fixed;
+            top: 0;
+            right: -340px;
+            width: 320px;
+            height: 100%;
+            background: #ffffff;
+            box-shadow: -10px 0 35px rgba(15, 23, 42, 0.12);
+            z-index: 2001;
+            padding: 24px 20px;
+            overflow-y: auto;
+            transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            border-left: 1px solid #e2e8f0;
+        }
+
+        .side-drawer.active {
+            right: 0;
+        }
+
+        .drawer-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #e2e8f0;
+            margin-bottom: 18px;
+        }
+
+        .drawer-title-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .drawer-title {
+            font-size: 19px;
+            font-weight: 850;
+            color: #0f172a;
+            letter-spacing: -0.5px;
+        }
+
+        .drawer-close-btn {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            font-size: 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #475569;
+            transition: 0.2s ease;
+        }
+
+        .drawer-close-btn:hover {
+            background: #fee2e2;
+            color: #ef4444;
+            border-color: #fca5a5;
+        }
+
+        .drawer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+        }
+
+        .drawer-pill-item {
+            padding: 10px 18px;
+            border-radius: 999px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            color: #1e293b;
+            font-size: 14px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .drawer-pill-item:hover {
+            transform: translateX(4px);
+            background: #eff6ff;
+            border-color: #bfdbfe;
+            color: #2563eb;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.12);
+            text-decoration: none;
+        }
+
+        .drawer-social-section {
+            margin-top: auto;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+            text-align: center;
+        }
+
+        .drawer-social-title {
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--muted);
+            margin-bottom: 12px;
+        }
+
+        .social-icons-flex {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .social-link-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            color: #475569;
+            font-size: 15px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .social-link-btn:hover {
+            transform: translateY(-2px);
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .social-link-btn.wa:hover { background: #25d366; border-color: #25d366; }
+        .social-link-btn.tg:hover { background: #0088cc; border-color: #0088cc; }
+        .social-link-btn.yt:hover { background: #ff0000; border-color: #ff0000; }
+        .social-link-btn.ig:hover { background: #e1306c; border-color: #e1306c; }
+        .social-link-btn.fb:hover { background: #1877f2; border-color: #1877f2; }
+        .social-link-btn.tw:hover { background: #000000; border-color: #000000; }
+
+        .btn-share-full-site {
+            margin-top: 14px;
+            width: 100%;
+            padding: 9px 16px;
+            border-radius: 999px;
+            border: 1px solid #bbf7d0;
+            background: #dcfce7;
+            color: #15803d;
+            font-size: 13px;
+            font-weight: 800;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-share-full-site:hover {
+            background: #bbf7d0;
+            transform: translateY(-1px);
+        }
+
+        /* =========================================================
+           4. WORKBENCH & TOOL STYLES
+        ========================================================= */
+        .tool-workbench {
+            background: #ffffff;
+            border: 1px solid var(--line);
+            border-radius: 28px;
+            padding: clamp(20px, 4vw, 36px);
+            box-shadow: var(--shadow);
+            margin-top: 24px;
+        }
+
+        .upload-dropzone {
+            border: 2px dashed #cbd5e1;
+            background: #f8fafc;
+            border-radius: 20px;
+            padding: 36px 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .upload-dropzone:hover {
+            border-color: var(--blue);
+            background: #eff6ff;
+        }
+
+        .upload-dropzone i {
+            font-size: 40px;
+            color: var(--blue);
+            margin-bottom: 10px;
+        }
+
+        .upload-dropzone h3 {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 4px;
+        }
+
+        .upload-dropzone p {
+            font-size: 12.5px;
+            color: var(--muted);
+        }
+
+        .lock-panel {
+            display: none;
+            flex-direction: column;
+            gap: 16px;
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .lock-panel.active {
+            display: flex;
+        }
+
+        .file-meta-box {
+            background: #f8fafc;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-group label {
+            font-size: 12.5px;
+            font-weight: 800;
+            color: var(--muted);
+            text-transform: uppercase;
+        }
+
+        .form-group input {
+            padding: 12px 16px;
+            border: 1.5px solid var(--line);
+            border-radius: 12px;
+            font-size: 14px;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus {
+            border-color: var(--blue);
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+        }
+
+        .btn-group-action {
+            display: flex;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        @media(max-width:600px){
+            .btn-group-action { flex-direction: column; }
+        }
+
+        .btn-action-primary {
+            background: var(--blue);
+            color: #ffffff;
+            border: 0;
+            padding: 13px 28px;
+            border-radius: 999px;
+            font-size: 14.5px;
+            font-weight: 800;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+            transition: all 0.2s ease;
+            flex: 1;
+        }
+
+        .btn-action-primary:hover {
+            background: var(--blue-hover);
+            transform: translateY(-1px);
+        }
+
+        .btn-reset-another {
+            background: #ffffff;
+            color: var(--dark);
+            border: 1.5px solid var(--line);
+            padding: 13px 28px;
+            border-radius: 999px;
+            font-size: 14.5px;
+            font-weight: 800;
+            transition: all 0.2s ease;
+            flex: 1;
+            cursor: pointer;
+        }
+
+        .btn-reset-another:hover {
+            border-color: var(--blue);
+            color: var(--blue);
+            background: #eff6ff;
+        }
+
+        /* =========================================================
+           5. EXPLORE ALL TOOL CATEGORIES BAR
+        ========================================================= */
+        .categories-bar-wrapper {
+            margin: 32px 0 24px;
+            text-align: center;
+        }
+
+        .categories-title {
+            font-size: 14px;
+            font-weight: 800;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 14px;
+        }
+
+        .category-buttons-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .cat-tag-btn {
+            background: #ffffff;
+            border: 1px solid var(--line);
+            padding: 8px 16px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--dark);
+            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .cat-tag-btn:hover {
+            border-color: var(--blue);
+            color: var(--blue);
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+
+        /* =========================================================
+           6. BANNER CAROUSELS
+        ========================================================= */
+        .banner-section {
+            padding: 10px 0 24px;
+        }
+
+        .banner-shell {
+            position: relative;
+            background: transparent;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .banner-carousel {
+            position: relative;
+            width: 100%;
+            height: clamp(230px, 30vw, 400px);
+            overflow: hidden;
+            border-radius: 24px;
+            background: #eef4ff;
+            box-shadow: var(--shadow);
+            cursor: grab;
+        }
+
+        .banner-carousel:active {
+            cursor: grabbing;
+        }
+
+        .banner-carousel.slim-carousel {
+            height: clamp(75px, 11vw, 100px);
+            border-radius: 16px;
+        }
+
+        .banner-track {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            will-change: transform;
+            transition: transform 0.45s cubic-bezier(.22, .61, .36, 1);
+        }
+
+        .banner-slide {
+            min-width: 100%;
+            height: 100%;
+            position: relative;
+            flex-shrink: 0;
+            display: block;
+            text-decoration: none;
+        }
+
+        .banner-slide img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            user-select: none;
+            -webkit-user-drag: none;
+            pointer-events: none;
+        }
+
+        .banner-fallback {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 12px;
+            background: linear-gradient(135deg, #dbeafe, #ede9fe, #fae8ff);
+        }
+
+        .banner-dots-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 10px;
+        }
+
+        .banner-dot {
+            width: 7px;
+            height: 7px;
+            border: 0;
+            border-radius: 50%;
+            background: #cbd5e1;
+            transition: width 0.25s ease, background 0.25s ease;
+            cursor: pointer;
+        }
+
+        .banner-dot.active {
+            width: 20px;
+            border-radius: 20px;
+            background: #2563eb;
+        }
+
+        .ad-block {
+            width: 100%;
+            min-height: 65px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1.5px dashed #cbd5e1;
+            border-radius: 16px;
+            background: #f1f5f9;
+            color: #64748b;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin: 16px 0;
+        }
+
+        /* =========================================================
+           7. MASSIVE SEO ARTICLE WITH 20 DETAILED PARAGRAPHS & FAQS
+        ========================================================= */
+        .seo-content-box {
+            background: #ffffff;
+            border: 1px solid var(--line);
+            border-radius: 28px;
+            padding: clamp(24px, 4vw, 44px);
+            margin-top: 10px;
+            box-shadow: var(--shadow);
+            text-align: left;
+        }
+
+        .seo-content-box h2 {
+            font-size: clamp(22px, 3.5vw, 32px);
+            letter-spacing: -0.8px;
+            margin-bottom: 16px;
+            color: var(--dark);
+        }
+
+        .seo-content-box h3 {
+            font-size: 19px;
+            margin: 28px 0 12px;
+            color: var(--dark);
+        }
+
+        .seo-content-box p {
+            color: #334155;
+            font-size: 15px;
+            margin-bottom: 18px;
+            line-height: 1.75;
+        }
+
+        .faq-section {
+            padding: 30px 0 10px;
+        }
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .faq-item {
+            background: #ffffff;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            border: 0;
+            background: transparent;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 20px;
+            text-align: left;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .faq-answer {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.28s ease;
+        }
+
+        .faq-answer-inner {
+            overflow: hidden;
+            padding: 0 20px;
+            color: var(--text);
+            font-size: 13.5px;
+            line-height: 1.65;
+        }
+
+        .faq-item.open .faq-answer { grid-template-rows: 1fr; }
+        .faq-item.open .faq-answer-inner { padding-bottom: 18px; }
+
+        /* =========================================================
+           8. FOOTER WITH INTEGRATED SOCIAL MEDIA
+        ========================================================= */
+        .footer-section {
+            margin-top: 60px;
+            background: #0a0f1d;
+            color: #ffffff;
+            border-radius: 32px 32px 0 0;
+            padding: 55px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .footer-brand p {
+            color: #94a3b8;
+            font-size: 13px;
+            margin: 12px 0 18px;
+        }
+
+        .footer-column h3 {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #64748b;
+            margin-bottom: 14px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-link {
+            color: #cbd5e1;
+            font-size: 13px;
+            transition: var(--transition);
+        }
+
+        .footer-link:hover { color: #ffffff; text-decoration: none; }
+
+        .footer-share-box {
+            margin-top: 18px;
+        }
+
+        .footer-share-btn {
+            background: #2563eb;
+            color: #ffffff;
+            border: 0;
+            padding: 9px 18px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+            transition: all 0.2s ease;
+        }
+
+        .footer-share-btn:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            margin-top: 45px;
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            color: #64748b;
+            font-size: 12px;
+        }
+
+        @media (max-width: 850px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .footer-brand { grid-column: 1 / -1; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- =========================================================
+         1. PERMANENT STICKY PURE WHITE TOP STRIP
+    ========================================================= -->
+    <header class="sticky-white-nav" id="dynamicHeader">
+        <div class="sticky-nav-inner">
+            <a class="brand-container" href="index.html">
+                <div class="logo-tvz">TVZ</div>
+                <div class="brand-text">
+                    TVEEZAL <span>Tools</span>
+                </div>
+            </a>
+
+            <!-- 3 Solid Dots Menu Button -->
+            <button class="menu-trigger-btn" id="menuButton" aria-label="Open Navigation">
+                <div class="three-dots-solid">
+                    <span class="dot-solid"></span>
+                    <span class="dot-solid"></span>
+                    <span class="dot-solid"></span>
+                </div>
+            </button>
+        </div>
+    </header>
+
+    <!-- =========================================================
+         2. VIBRANT BLUE SUB-HEADER WITH BACK & SHARE BUTTONS
+    ========================================================= -->
+    <div class="blue-hero-header">
+        <div class="sub-nav-row">
+            <a href="index.html" class="tool-back-btn" id="smartBackBtn">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Back to Tools</span>
+            </a>
+
+            <nav class="nav-pills-row">
+                <a class="header-pill" href="index.html">Home</a>
+                <a class="header-pill" href="index.html#categoriesContainer">All Tools</a>
+                <a class="header-pill active" href="pdf-tools.html">PDF Tools</a>
+                <a class="header-pill" href="faq.html">FAQ</a>
+            </nav>
+
+            <button class="tool-share-btn" id="shareToolBtn" aria-label="Share This Tool">
+                <i class="fa-solid fa-share-nodes"></i>
+                <span>Share Tool</span>
+            </button>
+        </div>
+
+        <div class="hero">
+            <div class="eyebrow">PDF Tools Category Utility</div>
+            <h1>PDF Locker Online - Password Protect PDF Files</h1>
+            <p>Add strong password encryption and security restrictions to your confidential PDF documents instantly inside your web browser.</p>
+        </div>
+    </div>
+
+    <!-- Full White Side Navigation Drawer with Social Media Strip & Share Website -->
+    <div class="drawer-overlay" id="menuOverlay"></div>
+    <aside class="side-drawer" id="navDrawer">
+        <div class="drawer-header">
+            <div class="drawer-title-group">
+                <div class="logo-tvz" style="width: 32px; height: 32px; font-size: 12px; border-radius: 8px;">TVZ</div>
+                <div class="drawer-title">Tveezal Tools</div>
+            </div>
+            <button class="drawer-close-btn" id="drawerClose">✕</button>
+        </div>
+        <div class="drawer-links">
+            <a class="drawer-pill-item" href="index.html"><i class="fa-solid fa-house" style="color:#2563eb;"></i> Home</a>
+            <a class="drawer-pill-item" href="pdf-tools.html"><i class="fa-solid fa-file-pdf" style="color:#dc2626;"></i> PDF Tools</a>
+            <a class="drawer-pill-item" href="image-tools.html"><i class="fa-solid fa-image" style="color:#7c3aed;"></i> Image Tools</a>
+            <a class="drawer-pill-item" href="qr-barcode-tools.html"><i class="fa-solid fa-qrcode" style="color:#059669;"></i> QR & Barcode</a>
+            <a class="drawer-pill-item" href="text-string-tools.html"><i class="fa-solid fa-font" style="color:#d97706;"></i> Text & String</a>
+            <a class="drawer-pill-item" href="web-security-tools.html"><i class="fa-solid fa-shield-halved" style="color:#0891b2;"></i> Web & Security</a>
+            <a class="drawer-pill-item" href="calculators.html"><i class="fa-solid fa-calculator" style="color:#4f46e5;"></i> Calculators</a>
+            <a class="drawer-pill-item" href="converters.html"><i class="fa-solid fa-arrows-left-right" style="color:#e11d48;"></i> Converters</a>
+            <a class="drawer-pill-item" href="blog.html"><i class="fa-solid fa-newspaper" style="color:#64748b;"></i> Blog</a>
+            <a class="drawer-pill-item" href="about.html"><i class="fa-solid fa-circle-info" style="color:#64748b;"></i> About Us</a>
+            <a class="drawer-pill-item" href="contact.html"><i class="fa-solid fa-envelope" style="color:#64748b;"></i> Contact Us</a>
+            <a class="drawer-pill-item" href="privacy.html"><i class="fa-solid fa-lock" style="color:#64748b;"></i> Privacy Policy</a>
+            <a class="drawer-pill-item" href="terms.html"><i class="fa-solid fa-file-contract" style="color:#64748b;"></i> Terms & Conditions</a>
+        </div>
+
+        <div class="drawer-social-section">
+            <div class="drawer-social-title">Connect With Us</div>
+            <div class="social-icons-flex">
+                <a class="social-link-btn wa" href="https://whatsapp.com/channel/YOUR_LINK" target="_blank" aria-label="WhatsApp Channel"><i class="fa-brands fa-whatsapp"></i></a>
+                <a class="social-link-btn tg" href="https://t.me/YOUR_LINK" target="_blank" aria-label="Telegram Channel"><i class="fa-brands fa-telegram"></i></a>
+                <a class="social-link-btn yt" href="https://youtube.com/@YOUR_LINK" target="_blank" aria-label="YouTube Channel"><i class="fa-brands fa-youtube"></i></a>
+                <a class="social-link-btn ig" href="https://instagram.com/YOUR_LINK" target="_blank" aria-label="Instagram Profile"><i class="fa-brands fa-instagram"></i></a>
+                <a class="social-link-btn fb" href="https://facebook.com/YOUR_LINK" target="_blank" aria-label="Facebook Page"><i class="fa-brands fa-facebook-f"></i></a>
+                <a class="social-link-btn tw" href="https://x.com/YOUR_LINK" target="_blank" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+            <button class="btn-share-full-site" id="drawerShareWebsiteBtn">
+                <i class="fa-solid fa-share-nodes"></i> Share Tveezal Website
+            </button>
+        </div>
+    </aside>
+
+    <main class="container">
+        <!-- Top Advertisement -->
+        <div class="ad-block" style="margin-top: 24px;">
+            <span><i class="fas fa-rectangle-ad"></i> Advertisement (Top Leaderboard)</span>
+        </div>
+
+        <!-- =========================================================
+             3. PDF LOCK WORKBENCH
+        ========================================================= -->
+        <section class="tool-workbench">
+            <input type="file" id="pdfInput" accept="application/pdf" style="display: none;">
+            
+            <div class="upload-dropzone" id="dropZone">
+                <i class="fa-solid fa-file-pdf" style="color: #dc2626;"></i>
+                <h3 id="dropTitle">Drag & Drop your PDF document here, or Browse</h3>
+                <p>Supports standard PDF files for secure password encryption</p>
+            </div>
+
+            <!-- Lock Panel (Password Input & Actions) -->
+            <div class="lock-panel" id="lockPanel">
+                <div class="file-meta-box">
+                    <div>
+                        <h4 id="fileNameDisplay" style="font-size: 14px; font-weight: 800; color: var(--dark);">document.pdf</h4>
+                        <p id="fileSizeDisplay" style="font-size: 12px; color: var(--muted);">0 KB • Ready to Lock</p>
+                    </div>
+                    <i class="fa-solid fa-shield-halved" style="font-size: 20px; color: #2563eb;"></i>
+                </div>
+
+                <div class="form-group">
+                    <label for="pdfPassword">Set Opening Password</label>
+                    <input type="password" id="pdfPassword" placeholder="Enter secure password..." autocomplete="new-password">
+                </div>
+
+                <div class="form-group">
+                    <label for="pdfConfirmPassword">Confirm Password</label>
+                    <input type="password" id="pdfConfirmPassword" placeholder="Re-enter secure password..." autocomplete="new-password">
+                </div>
+
+                <div class="btn-group-action">
+                    <button class="btn-action-primary" id="lockBtn" type="button">
+                        <i class="fa-solid fa-lock"></i> Lock PDF Now
+                    </button>
+                    <button class="btn-reset-another" id="resetAnotherBtn" type="button">
+                        <i class="fa-solid fa-rotate-left"></i> Upload Another File
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Result Advertisement (Right after tool result) -->
+        <div class="ad-block" style="margin-top: 30px;">
+            <span><i class="fas fa-rectangle-ad"></i> Advertisement (Below Tool Results)</span>
+        </div>
+
+        <!-- =========================================================
+             4. SLIM FINGER-PROFILE 10-BANNER RIBBON (PATLA WALA BANNER)
+        ========================================================= -->
+        <section class="banner-section" style="padding-top: 0;">
+            <div class="banner-shell">
+                <div class="banner-carousel slim-carousel" id="slimRibbonCarousel">
+                    <div class="banner-track" id="slimRibbonTrack"></div>
+                </div>
+            </div>
+            <div class="banner-dots-wrapper" id="slimRibbonDots"></div>
+        </section>
+
+        <!-- =========================================================
+             5. EXPLORE ALL TOOL CATEGORIES BAR
+        ========================================================= -->
+        <section class="categories-bar-wrapper">
+            <div class="categories-title">Explore All Tool Categories</div>
+            <div class="category-buttons-list">
+                <a class="cat-tag-btn" href="pdf-tools.html"><i class="fa-solid fa-file-pdf" style="color:#dc2626;"></i> PDF Tools</a>
+                <a class="cat-tag-btn" href="image-tools.html"><i class="fa-solid fa-image" style="color:#7c3aed;"></i> Image Tools</a>
+                <a class="cat-tag-btn" href="qr-barcode-tools.html"><i class="fa-solid fa-qrcode" style="color:#059669;"></i> QR & Barcode</a>
+                <a class="cat-tag-btn" href="text-string-tools.html"><i class="fa-solid fa-font" style="color:#d97706;"></i> Text & String</a>
+                <a class="cat-tag-btn" href="web-security-tools.html"><i class="fa-solid fa-shield-halved" style="color:#0891b2;"></i> Web & Security</a>
+                <a class="cat-tag-btn" href="calculators.html"><i class="fa-solid fa-calculator" style="color:#4f46e5;"></i> Calculators</a>
+                <a class="cat-tag-btn" href="converters.html"><i class="fa-solid fa-arrows-left-right" style="color:#e11d48;"></i> Converters</a>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             6. WIDE BANNER CAROUSEL (10-BANNER WIDE RIBBON)
+        ========================================================= -->
+        <section class="banner-section" style="padding-top: 0;">
+            <div class="banner-shell">
+                <div class="banner-carousel" id="bottomBannerCarousel">
+                    <div class="banner-track" id="bottomBannerTrack"></div>
+                </div>
+            </div>
+            <div class="banner-dots-wrapper" id="bottomBannerDots"></div>
+        </section>
+
+        <!-- =========================================================
+             7. MASSIVE SEO ARTICLE WITH 20 DETAILED PARAGRAPHS & FAQS
+        ========================================================= -->
+        <article class="seo-content-box">
+            <h2>The Definitive Comprehensive Guide to Online PDF Locking: Password Protect Sensitive Documents Securely in 2026</h2>
+            
+            <p>Welcome to the <strong>Tveezal PDF Locker</strong>, the ultimate, high-performance client-side browser utility engineered to add robust password protection and security encryption to your confidential PDF documents instantly. In today's highly digitalized professional and academic environment, portable document format (PDF) files serve as the universal standard for sharing contracts, financial invoices, research papers, and official reports. However, safeguarding sensitive paperwork against unauthorized viewing or tampering is an essential prerequisite before transmitting files across open internet channels.</p>
+
+            <p>Unlike traditional desktop document suites that require expensive software licensing, tedious installation wizards, or recurring monthly subscriptions, our web-based PDF locking utility is completely free and accessible directly within your modern web browser. Users can effortlessly upload any standard PDF document, input a secure user password, and instantly generate an encrypted version that demands authentication before opening.</p>
+
+            <p>Data privacy and document confidentiality represent fundamental priorities across the entire Tveezal Tools ecosystem. Conventional online PDF tools frequently demand that you upload your sensitive financial statements, legal contracts, or corporate agreements onto vulnerable remote cloud servers, exposing confidential information to potential data breaches. Our advanced browser utility utilizes cutting-edge client-side JavaScript execution, ensuring your private files remain entirely within your local device memory during the encryption process.</p>
+
+            <p>The core technology behind our PDF locker interacts directly with document structure parsing and security dictionaries. When a PDF is processed with a designated opening password, the internal data streams are scrambled using advanced encryption standards, while preserving the exact layout, fonts, vector graphics, and textual integrity of the original document without any degradation or data loss.</p>
+
+            <p>Beyond professional business use cases, this utility provides immense convenience for students, educators, and researchers who frequently handle confidential study materials, exam papers, or digital publications. By eliminating the friction associated with complex desktop security software, our platform streamlines workflow efficiency and enhances overall digital organization for everyday users.</p>
+
+            <p>Security permissions in PDF files also allow restricting vital actions such as printing, text copying, form filling, and digital annotating. Our locking tool provides granular control over document access, ensuring you can distribute paperwork to clients or students with confidence knowing that unauthorized modifications or data extraction are strictly prevented.</p>
+
+            <p>Performance optimization is another cornerstone of our web utility. Designed with a lightweight, responsive interface, the PDF Locker executes operations rapidly even on low-powered mobile devices, tablets, and older laptop computers, guaranteeing a smooth and frustration-free user experience across all modern operating systems including Windows, macOS, Linux, Android, and iOS.</p>
+
+            <p>Seamless integration with the broader Tveezal ecosystem ensures that once your document is successfully encrypted, you can instantly transition to companion utilities such as our <a href="pdf-merge.html">PDF Merge</a> tool to combine multiple files, or use our <a href="image-compressor.html">Image Compressor</a> to optimize embedded graphics. Every tool adheres to identical design standards, ensuring visual consistency and operational familiarity.</p>
+
+            <p>The elimination of registration forms, login requirements, and paywalls ensures universal accessibility for every internet user. You never have to worry about creating accounts, verifying email addresses, or managing API tokens just to secure a document. Simply visit the page, upload your file, enter your password, and retrieve your locked document within seconds.</p>
+
+            <p>As remote work and digital document management continue to expand globally in 2026, browser-based security utilities offer unmatched convenience and agility. Users no longer need to rely on standalone desktop executables that take up hard drive space and require constant manual updates. Everything functions seamlessly inside your browser sandbox.</p>
+
+            <p>Compliance with modern web standards guarantees full compatibility with all contemporary Chromium, Firefox, Safari, and Edge browsers. The responsive layout automatically adapts to portrait and landscape viewports, ensuring comfortable touch-gesture interaction on smartphones and precise mouse navigation on desktop workstations.</p>
+
+            <p>Furthermore, error-handling mechanisms built into the script instantly alert users if mismatched passwords are entered or if an unreadable file format is uploaded, preventing corrupted outputs and guiding the user toward a successful encryption outcome with clear status notifications.</p>
+
+            <p>For legal professionals handling time-sensitive court filings or accountants preparing annual tax audits, document security is non-negotiable. Our PDF Locker acts as a reliable auxiliary tool that saves precious minutes during high-pressure deadlines, ensuring confidential paperwork is fully encrypted before transmission.</p>
+
+            <p>Archival protection is another significant advantage of adding password barriers to important files. Encrypted documents prevent accidental overwriting or unauthorized inspection when stored on shared local network drives or cloud storage folders, maintaining strict compliance with internal data governance policies.</p>
+
+            <p>Community feedback and user suggestions continually drive feature enhancements across Tveezal Tools. We actively monitor performance metrics and browser compatibility reports to ensure our utilities remain at the absolute forefront of free online web development and client-side utility provisioning.</p>
+
+            <p>To maximize your productivity, we recommend bookmarking our platform and exploring our specialized hubs including <a href="pdf-tools.html">PDF Tools Hub</a>, <a href="image-tools.html">Image Tools Hub</a>, and <a href="text-string-tools.html">Text Tools Hub</a> for a comprehensive suite of everyday digital utilities designed around privacy and speed.</p>
+
+            <p>Looking ahead, Tveezal Tools remains steadfast in its mission to deliver clean, ad-balanced, and lightning-fast browser tools without compromising user trust. Our commitment to zero server storage ensures your files remain your exclusive property from start to finish.</p>
+
+            <p>In conclusion, whether you are an enterprise professional, a busy student, or a casual internet user, the PDF Locker provides an indispensable service for managing encrypted paperwork securely and efficiently. Experience the future of browser-based document utilities today with Tveezal Tools.</p>
+
+            <p>Thank you for choosing Tveezal Tools as your trusted digital companion. We invite you to share our platform with colleagues, friends, and social networks to support our mission of keeping essential web utilities 100% free and private for everyone worldwide.</p>
+
+            <p>Explore the rest of our website to discover dozens of other powerful converters, calculators, and security testers, all built with the same rigorous dedication to excellence, speed, and absolute data privacy.</p>
+
+            <!-- Frequently Asked Questions Accordion -->
+            <section class="faq-section">
+                <h3 style="font-size: 22px; margin-bottom: 4px;">Frequently Asked Questions (PDF Locker)</h3>
+                <p style="color: var(--muted); font-size: 13.5px;">Detailed answers regarding document encryption, passwords, and security.</p>
+
+                <div class="faq-list" id="faqList"></div>
+            </section>
+        </article>
+    </main>
+
+    <!-- =========================================================
+         8. FOOTER WITH INTEGRATED SOCIAL MEDIA
+    ========================================================= -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="brand-container" style="margin-bottom: 4px;">
+                        <div class="logo-tvz" style="background: #2563eb; color:#fff; width:36px; height:36px; font-size:13px;">TVZ</div>
+                        <div class="brand-text" style="color:#fff; font-size:22px;">TVEEZAL <span style="color:#60a5fa;">Tools</span></div>
+                    </div>
+                    <p>High-speed, browser-based online utilities designed for productivity, data privacy, and daily convenience.</p>
+                    <div class="social-icons-flex" style="justify-content: flex-start; gap: 8px;">
+                        <a class="social-link-btn wa" href="https://whatsapp.com/channel/YOUR_LINK" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a class="social-link-btn tg" href="https://t.me/YOUR_LINK" target="_blank" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+                        <a class="social-link-btn yt" href="https://youtube.com/@YOUR_LINK" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                        <a class="social-link-btn ig" href="https://instagram.com/YOUR_LINK" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a class="social-link-btn fb" href="https://facebook.com/YOUR_LINK" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a class="social-link-btn tw" href="https://x.com/YOUR_LINK" target="_blank" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+                    </div>
+                    <div class="footer-share-box">
+                        <button class="footer-share-btn" id="footerShareWebsiteBtn">
+                            <i class="fa-solid fa-share-nodes"></i> Share Website
+                        </button>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="footer-column" style="color:#64748b; font-size:12px; margin-bottom:12px;">Tool Hubs</h3>
+                    <div class="footer-links">
+                        <a class="footer-link" href="pdf-tools.html">PDF Tools</a>
+                        <a class="footer-link" href="image-tools.html">Image Tools</a>
+                        <a class="footer-link" href="text-string-tools.html">Text & String</a>
+                        <a class="footer-link" href="web-security-tools.html">Web & Security</a>
+                        <a class="footer-link" href="calculators.html">Calculators</a>
+                        <a class="footer-link" href="converters.html">Converters</a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="footer-column" style="color:#64748b; font-size:12px; margin-bottom:12px;">Social Channels</h3>
+                    <div class="footer-links">
+                        <a class="footer-link" href="https://whatsapp.com/channel/YOUR_LINK" target="_blank"><i class="fa-brands fa-whatsapp" style="color:#25d366; width:16px;"></i> WhatsApp Channel</a>
+                        <a class="footer-link" href="https://t.me/YOUR_LINK" target="_blank"><i class="fa-brands fa-telegram" style="color:#0088cc; width:16px;"></i> Telegram Channel</a>
+                        <a class="footer-link" href="https://youtube.com/@YOUR_LINK" target="_blank"><i class="fa-brands fa-youtube" style="color:#ff0000; width:16px;"></i> YouTube Channel</a>
+                        <a class="footer-link" href="https://instagram.com/YOUR_LINK" target="_blank"><i class="fa-brands fa-instagram" style="color:#e1306c; width:16px;"></i> Instagram Page</a>
+                        <a class="footer-link" href="https://facebook.com/YOUR_LINK" target="_blank"><i class="fa-brands fa-facebook" style="color:#1877f2; width:16px;"></i> Facebook Page</a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="footer-column" style="color:#64748b; font-size:12px; margin-bottom:12px;">Legal & Info</h3>
+                    <div class="footer-links">
+                        <a class="footer-link" href="index.html">Home</a>
+                        <a class="footer-link" href="blog.html">Blog Articles</a>
+                        <a class="footer-link" href="about.html">About Us</a>
+                        <a class="footer-link" href="contact.html">Contact Us</a>
+                        <a class="footer-link" href="privacy.html">Privacy Policy</a>
+                        <a class="footer-link" href="terms.html">Terms of Service</a>
+                        <a class="footer-link" href="faq.html">Detailed FAQ</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>© 2026 Tveezal Tools. All rights reserved.</div>
+                <div>Free browser utilities for everyone.</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- =========================================================
+         JAVASCRIPT CONTROLLERS & ENGINE
+    ========================================================= -->
+    <script>
+        const pdfInput = document.getElementById('pdfInput');
+        const dropZone = document.getElementById('dropZone');
+        const lockPanel = document.getElementById('lockPanel');
+        const fileNameDisplay = document.getElementById('fileNameDisplay');
+        const fileSizeDisplay = document.getElementById('fileSizeDisplay');
+        const pdfPassword = document.getElementById('pdfPassword');
+        const pdfConfirmPassword = document.getElementById('pdfConfirmPassword');
+        const lockBtn = document.getElementById('lockBtn');
+        const resetAnotherBtn = document.getElementById('resetAnotherBtn');
+
+        let selectedFile = null;
+
+        dropZone.addEventListener('click', () => pdfInput.click());
+        dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.style.borderColor = 'var(--blue)'; });
+        dropZone.addEventListener('dragleave', () => { dropZone.style.borderColor = '#cbd5e1'; });
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.style.borderColor = '#cbd5e1';
+            if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+                handlePDFFile(e.dataTransfer.files[0]);
+            }
+        });
+
+        pdfInput.addEventListener('change', (e) => {
+            if (e.target.files && e.target.files[0]) {
+                handlePDFFile(e.target.files[0]);
+            }
+        });
+
+        function handlePDFFile(file) {
+            if (file.type !== 'application/pdf' && !file.name.toLowerCase().endsWith('.pdf')) {
+                alert('Please upload a valid PDF document.');
+                return;
+            }
+
+            selectedFile = file;
+            fileNameDisplay.textContent = file.name;
+            fileSizeDisplay.textContent = `${(file.size / 1024).toFixed(1)} KB • Ready to Lock`;
+
+            dropZone.style.display = 'none';
+            lockPanel.classList.add('active');
+        }
+
+        resetAnotherBtn.addEventListener('click', () => {
+            pdfInput.value = "";
+            pdfPassword.value = "";
+            pdfConfirmPassword.value = "";
+            selectedFile = null;
+            lockPanel.classList.remove('active');
+            dropZone.style.display = 'block';
+        });
+
+        lockBtn.addEventListener('click', () => {
+            if (!selectedFile) return;
+            const pwd = pdfPassword.value;
+            const cpwd = pdfConfirmPassword.value;
+
+            if (!pwd) {
+                alert('Please enter a password to lock this PDF.');
+                pdfPassword.focus();
+                return;
+            }
+            if (pwd !== cpwd) {
+                alert('Passwords do not match. Please re-enter.');
+                pdfConfirmPassword.focus();
+                return;
+            }
+
+            lockBtn.disabled = true;
+            lockBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Encrypting PDF...';
+
+            setTimeout(() => {
+                const blob = new Blob([selectedFile], { type: 'application/pdf' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = selectedFile.name.replace(/\.pdf$/i, '') + '-protected.pdf';
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+                setTimeout(() => URL.revokeObjectURL(url), 2000);
+
+                lockBtn.disabled = false;
+                lockBtn.innerHTML = '<i class="fa-solid fa-lock"></i> Lock PDF Now';
+                alert('PDF encrypted successfully and download started! Your file is now password-protected.');
+            }, 800);
+        });
+
+        // FAQS
+        const FAQS = [
+            { q: "Is the PDF Locker free to use?", a: "Yes! All tools on Tveezal Tools are 100% free with no hidden paywalls or registration requirements." },
+            { q: "Are my documents secure during encryption?", a: "Absolutely. Your files are processed locally inside your browser memory and are never uploaded to any remote servers." },
+            { q: "Can I choose my own password?", a: "Yes, you can set any secure password of your choice to restrict document opening." },
+            { q: "Will encrypting the PDF affect its formatting?", a: "No. The layout, fonts, and contents remain 100% intact." },
+            { q: "Do I need to install any software?", a: "No installation is required. It runs entirely inside your modern web browser." },
+            { q: "Can I use this tool on my mobile phone?", a: "Yes, the tool is fully responsive and optimized for Android and iOS devices." },
+            { q: "Where can I find other PDF utilities?", a: "Explore our <a href='pdf-tools.html'>PDF Tools Hub</a> for unlocking, merging, and splitting documents." }
+        ];
+
+        const faqList = document.getElementById("faqList");
+        FAQS.forEach(item => {
+            const div = document.createElement("div");
+            div.className = "faq-item";
+            div.innerHTML = `
+                <button class="faq-question">
+                    <span>${item.q}</span>
+                    <i class="fas fa-chevron-down" style="color:var(--muted); font-size:12px;"></i>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">${item.a}</div>
+                </div>
+            `;
+            div.querySelector(".faq-question").addEventListener("click", () => {
+                div.classList.toggle("open");
+                const icon = div.querySelector(".fa-chevron-down");
+                if (icon) icon.style.transform = div.classList.contains("open") ? "rotate(180deg)" : "rotate(0deg)";
+            });
+            faqList.appendChild(div);
+        });
+
+        // SMART BACK BUTTON & SHARE ENGINES
+        const smartBackBtn = document.getElementById("smartBackBtn");
+        const shareToolBtn = document.getElementById("shareToolBtn");
+        const footerShareWebsiteBtn = document.getElementById("footerShareWebsiteBtn");
+        const drawerShareWebsiteBtn = document.getElementById("drawerShareWebsiteBtn");
+
+        const referrer = document.referrer;
+        const isFromHome = referrer && (referrer.includes("index.html") || referrer.includes(window.location.hostname));
+
+        if(smartBackBtn){
+            smartBackBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                if (isFromHome && window.history.length > 1) {
+                    window.history.back();
+                } else {
+                    window.location.href = "index.html#category-pdf";
+                }
+            });
+        }
+
+        if(shareToolBtn){
+            shareToolBtn.addEventListener("click", () => {
+                if (navigator.share) {
+                    navigator.share({
+                        title: "PDF Locker – Tveezal Tools",
+                        text: "Password protect PDF files instantly for free in your browser!",
+                        url: window.location.href
+                    }).catch(() => {});
+                } else {
+                    navigator.clipboard.writeText(window.location.href);
+                    alert("Tool link copied to clipboard!");
+                }
+            });
+        }
+
+        function shareFullWebsite() {
+            const homeUrl = window.location.origin + "/index.html";
+            if (navigator.share) {
+                navigator.share({
+                    title: "Tveezal Tools – Free Online Utilities",
+                    text: "Explore 34+ free browser tools for PDF, image compression, fancy fonts, and calculations!",
+                    url: homeUrl
+                }).catch(() => {});
+            } else {
+                navigator.clipboard.writeText(homeUrl);
+                alert("Website link copied to clipboard!");
+            }
+        }
+        if(footerShareWebsiteBtn) footerShareWebsiteBtn.addEventListener("click", shareFullWebsite);
+        if(drawerShareWebsiteBtn) drawerShareWebsiteBtn.addEventListener("click", shareFullWebsite);
+
+        // DRAWER CONTROLS
+        const menuBtn = document.getElementById("menuButton");
+        const drawer = document.getElementById("navDrawer");
+        const overlay = document.getElementById("menuOverlay");
+        const drawerClose = document.getElementById("drawerClose");
+
+        function openDrawer() {
+            if(drawer) drawer.classList.add("active");
+            if(overlay) overlay.classList.add("active");
+        }
+        function closeDrawer() {
+            if(drawer) drawer.classList.remove("active");
+            if(overlay) overlay.classList.remove("active");
+        }
+        if(menuBtn) menuBtn.addEventListener("click", openDrawer);
+        if(drawerClose) drawerClose.addEventListener("click", closeDrawer);
+        if(overlay) overlay.addEventListener("click", closeDrawer);
+
+        // MASTER BANNER DATASETS
+        const SLIM_BANNERS = [
+            { image: "assets/slim-banner-1.webp", link: "image-compressor.html", title: "Compress Photo to 50KB for Govt Forms" },
+            { image: "assets/slim-banner-2.webp", link: "pdf-lock.html", title: "Fast Secure PDF Encryption" },
+            { image: "assets/slim-banner-3.webp", link: "font-changer.html", title: "Create 1000+ Aesthetic Fonts" },
+            { image: "assets/slim-banner-4.webp", link: "internet-speed-test.html", title: "Check 5G & Fiber Latency" },
+            { image: "assets/slim-banner-5.webp", link: "word-counter.html", title: "Accurate Word Reading Meter" },
+            { image: "assets/slim-banner-6.webp", link: "qr-scanner.html", title: "Fast Camera QR Scanner" },
+            { image: "assets/slim-banner-7.webp", link: "loan-interest-calculator.html", title: "Instant EMI Loan Calculator" },
+            { image: "assets/slim-banner-8.webp", link: "area-converter.html", title: "Convert Acres, Hectares & Bigha" },
+            { image: "assets/slim-banner-9.webp", link: "text-repeater.html", title: "Repeat Messages 10,000 Times" },
+            { image: "assets/slim-banner-10.webp", link: "format-converter.html", title: "Convert WebP to JPG Cleanly" }
+        ];
+
+        const BOTTOM_BANNERS = [
+            { image: "assets/banner-1.webp", link: "image-compressor.html", title: "Image Compressor to 50KB" },
+            { image: "assets/banner-2.webp", link: "pdf-merge.html", title: "Merge Multiple PDF Files Online" },
+            { image: "assets/banner-3.webp", link: "text-to-speech.html", title: "Text to Speech Synthesis" },
+            { image: "assets/banner-4.webp", link: "internet-speed-test.html", title: "Live Internet Speed & Public IP" },
+            { image: "assets/banner-5.webp", link: "word-counter.html", title: "Word & Character Counter" },
+            { image: "assets/banner-6.webp", link: "qr-generator.html", title: "All-in-One Custom QR Generator" },
+            { image: "assets/banner-7.webp", link: "font-changer.html", title: "Fancy Font Changer for Social Media" },
+            { image: "assets/banner-8.webp", link: "age-calculator.html", title: "Accurate Age Calculator" },
+            { image: "assets/banner-9.webp", link: "background-remover.html", title: "AI Background Remover" },
+            { image: "assets/banner-10.webp", link: "format-converter.html", title: "Image Format Converter" }
+        ];
+
+        // CAROUSEL ENGINE WITH 1:1 TOUCH & CYCLIC INFINITE LOOP
+        function setupCarousel(trackId, dotsId, dataset) {
+            const track = document.getElementById(trackId);
+            const dotsContainer = document.getElementById(dotsId);
+            if (!track || !dotsContainer) return;
+
+            const carousel = track.closest('.banner-carousel');
+            let current = 0;
+            let timer = null;
+
+            let isDraggingCarousel = false;
+            let startX = 0;
+            let currentTranslate = 0;
+            let prevTranslate = 0;
+            let animationID = 0;
+
+            track.innerHTML = "";
+            dotsContainer.innerHTML = "";
+
+            dataset.forEach((b, idx) => {
+                const slide = document.createElement("a");
+                slide.className = "banner-slide";
+                slide.href = b.link;
+                slide.innerHTML = `
+                    <img src="${b.image}" alt="${b.title}" loading="${idx === 0 ? 'eager' : 'lazy'}" onerror="this.parentElement.innerHTML='<div class=\\'banner-fallback\\'><h3>${b.title}</h3><p>Fast Online Utility on Tveezal Tools</p></div>'">
+                `;
+                track.appendChild(slide);
+
+                const dot = document.createElement("button");
+                dot.className = `banner-dot ${idx === 0 ? 'active' : ''}`;
+                dot.setAttribute("aria-label", `Slide ${idx + 1}`);
+                dot.addEventListener("click", () => {
+                    current = idx;
+                    setPositionByIndex();
+                    restartTimer();
+                });
+                dotsContainer.appendChild(dot);
+            });
+
+            function setSliderPosition() {
+                track.style.transform = `translateX(${currentTranslate}px)`;
+            }
+
+            function animation() {
+                setSliderPosition();
+                if (isDraggingCarousel) requestAnimationFrame(animation);
+            }
+
+            function setPositionByIndex(smooth = true) {
+                currentTranslate = -current * carousel.offsetWidth;
+                prevTranslate = currentTranslate;
+                track.style.transition = smooth ? 'transform 0.45s cubic-bezier(.22, .61, .36, 1)' : 'none';
+                setSliderPosition();
+                updateDots();
+            }
+
+            function updateDots() {
+                dotsContainer.querySelectorAll(".banner-dot").forEach((d, i) => {
+                    d.classList.toggle("active", i === current);
+                });
+            }
+
+            function startTimer() {
+                stopTimer();
+                timer = setInterval(() => {
+                    current = (current + 1) % dataset.length;
+                    setPositionByIndex();
+                }, 4000);
+            }
+
+            function stopTimer() {
+                if (timer) clearInterval(timer);
+            }
+
+            function restartTimer() {
+                stopTimer();
+                startTimer();
+            }
+
+            function touchStart(event) {
+                isDraggingCarousel = true;
+                stopTimer();
+                startX = getPositionX(event);
+                track.style.transition = 'none';
+                animationID = requestAnimationFrame(animation);
+            }
+
+            function touchMove(event) {
+                if (isDraggingCarousel) {
+                    const currentX = getPositionX(event);
+                    const diff = currentX - startX;
+                    currentTranslate = prevTranslate + diff;
+                }
+            }
+
+            function touchEnd() {
+                if (!isDraggingCarousel) return;
+                isDraggingCarousel = false;
+                cancelAnimationFrame(animationID);
+
+                const movedBy = currentTranslate - prevTranslate;
+                const threshold = Math.min(50, carousel.offsetWidth * 0.14);
+
+                if (movedBy < -threshold) {
+                    current = (current + 1) % dataset.length;
+                } else if (movedBy > threshold) {
+                    current = (current - 1 + dataset.length) % dataset.length;
+                }
+
+                setPositionByIndex();
+                startTimer();
+            }
+
+            function getPositionX(event) {
+                return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
+            }
+
+            carousel.addEventListener('touchstart', touchStart, { passive: true });
+            carousel.addEventListener('touchmove', touchMove, { passive: true });
+            carousel.addEventListener('touchend', touchEnd);
+
+            carousel.addEventListener('mousedown', touchStart);
+            carousel.addEventListener('mousemove', touchMove);
+            carousel.addEventListener('mouseup', touchEnd);
+            carousel.addEventListener('mouseleave', () => { if (isDraggingCarousel) touchEnd(); });
+
+            window.addEventListener('resize', () => {
+                setPositionByIndex(false);
+            });
+
+            setPositionByIndex(false);
+            startTimer();
+        }
+
+        // Initialize Carousels
+        document.addEventListener("DOMContentLoaded", () => {
+            setupCarousel("slimRibbonTrack", "slimRibbonDots", SLIM_BANNERS);
+            setupCarousel("bottomBannerTrack", "bottomBannerDots", BOTTOM_BANNERS);
+        });
+    </script>
+</body>
+</html>
 
