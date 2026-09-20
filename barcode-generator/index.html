@@ -1,1 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Free Barcode Generator - Tveezal Tools</title>
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- JsBarcode Library -->
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="tool-header">
+        <div class="header-content">
+            <a href="../../index.html" class="back-btn">
+                <i class="fa-solid fa-arrow-left"></i> Back to Home
+            </a>
+            <div class="brand-name">TVEEZAL <span>Tools</span></div>
+        </div>
+    </header>
+
+    <!-- Main Tool Container -->
+    <main class="tool-container">
+        <div class="tool-header-text">
+            <h1><i class="fa-solid fa-barcode" style="color: #059669;"></i> Barcode Generator</h1>
+            <p>Generate high-quality product barcodes instantly. 100% free and secure.</p>
+        </div>
+
+        <div class="tool-box">
+            <div class="input-group">
+                <label for="barcodeData">Enter Text or Number</label>
+                <input type="text" id="barcodeData" placeholder="e.g. 123456789012" autocomplete="off">
+            </div>
+
+            <div class="input-group">
+                <label for="barcodeType">Barcode Format</label>
+                <select id="barcodeType">
+                    <option value="CODE128">CODE128 (Standard & Text/Numbers)</option>
+                    <option value="EAN13">EAN-13 (12 or 13 Digits)</option>
+                    <option value="UPC">UPC (11 or 12 Digits)</option>
+                    <option value="CODE39">CODE39 (Basic Alphanumeric)</option>
+                </select>
+            </div>
+
+            <button id="generateBtn" class="primary-btn">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> Generate Barcode
+            </button>
+            
+            <p id="errorMsg" class="error-text"></p>
+        </div>
+
+        <!-- Output Section (Hidden by default) -->
+        <div class="output-box" id="outputBox" style="display: none;">
+            <h3>Your Barcode is Ready</h3>
+            <div class="barcode-wrapper">
+                <svg id="barcodeCanvas"></svg>
+            </div>
+            <button id="downloadBtn" class="download-btn">
+                <i class="fa-solid fa-download"></i> Download PNG
+            </button>
+        </div>
+    </main>
+
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
 
