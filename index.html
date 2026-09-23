@@ -1,318 +1,272 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DHZ9E8XV4S"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-DHZ9E8XV4S');
     </script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <!-- Initial Status Bar: White when header is blue at top -->
     <meta name="theme-color" content="#ffffff" id="metaThemeColor">
 
-    <!-- Primary SEO Meta Tags -->
     <title>Tveezal Tools – Free Online Tools & Utilities for PDF, Image, Text & Web</title>
     <meta name="title" content="Tveezal Tools – Free Online Tools & Utilities for PDF, Image, Text & Web">
-    <meta name="description" content="Free online tools for PDF editing, 50KB image compression, QR generation, font changer, calculators, converters, and web security. Fast, secure, and 100% browser-based.">
-    <meta name="keywords" content="tveezal tools, free online tools, image compressor 50kb, pdf merge online, font changer, internet speed test, word counter, qr code generator, online converters">
-    <meta name="robots" content="index, follow">
-    <meta name="author" content="Tveezal Tools">
-
-    <link rel="canonical" href="https://tveezal.com/">
-
-    <!-- Open Graph / Social Media -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://tveezal.com/">
-    <meta property="og:title" content="Tveezal Tools – Free Online Tools & Web Utilities">
-    <meta property="og:description" content="All-in-one free browser utilities for PDF, image optimization, text analysis, and unit calculations.">
-    <meta property="og:site_name" content="Tveezal Tools">
-
-    <!-- Font Awesome & Google Fonts -->
+    <meta name="description" content="Free online tools for PDF editing, 50KB image compression, viral meme generator, QR generation, and web security. Fast, secure, and 100% browser-based.">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-    <!-- Schema.org WebApplication JSON-LD -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "Tveezal Tools",
-        "url": "https://tveezal.com/",
-        "applicationCategory": "UtilitiesApplication",
-        "operatingSystem": "All",
-        "description": "Comprehensive suite of 34+ free browser utilities for PDF manipulation, batch image compression, text tools, and conversion calculators."
-    }
-    </script>
 
     <style>
         :root {
-            --bg: #f8fafc;
-            --white: #ffffff;
-            --dark: #0f172a;
-            --text: #334155;
-            --muted: #64748b;
-            --line: #e2e8f0;
-            --blue: #2563eb;
-            --blue-hover: #1d4ed8;
+            --bg: #f8fafc; --white: #ffffff; --dark: #0f172a; --text: #334155;
+            --muted: #64748b; --line: #e2e8f0; --blue: #2563eb; --blue-hover: #1d4ed8;
             --vibrant-blue-theme: linear-gradient(145deg, #0b1e4f 0%, #153e90 45%, #1e58c8 100%);
-            --shadow: 0 10px 30px rgba(15, 23, 42, 0.055);
-            --transition: 0.25s ease;
+            --shadow: 0 10px 30px rgba(15, 23, 42, 0.055); --transition: 0.25s ease;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--dark); min-height: 100vh; overflow-x: hidden; line-height: 1.7; }
+        button, input { font-family: inherit; }
+        button { cursor: pointer; }
+        a { color: inherit; text-decoration: none; }
+        .container { width: min(calc(100% - 32px), 1250px); margin-inline: auto; }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        /* HEADER */
+        .site-header { position: sticky; top: 0; z-index: 1000; background: var(--vibrant-blue-theme); color: #ffffff; border-bottom: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease; }
+        .header-top { max-width: 1250px; margin: auto; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; }
+        .brand-container { display: inline-flex; align-items: center; gap: 12px; }
+        .logo-tvz { width: 42px; height: 42px; background: #ffffff; color: #1e58c8; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 900; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15); transition: 0.3s; }
+        .brand-text { font-size: 24px; font-weight: 850; letter-spacing: -0.8px; color: #ffffff; display: inline-flex; align-items: center; gap: 6px; }
+        .brand-text span { color: #60a5fa; text-shadow: 0 0 15px rgba(96, 165, 250, 0.45); }
+        .header-actions { display: flex; align-items: center; gap: 10px; }
+        .action-btn { background: rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.25); width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.25s; color: #ffffff; font-size: 16px; }
+        
+        .site-header.scrolled { background: #ffffff; border-bottom: 1px solid #e2e8f0; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06); }
+        .site-header.scrolled .logo-tvz { background: linear-gradient(135deg, #153e90 0%, #1e58c8 100%); color: #ffffff; }
+        .site-header.scrolled .brand-text { color: #0f172a; }
+        .site-header.scrolled .brand-text span { color: #2563eb; text-shadow: none; }
+        .site-header.scrolled .action-btn { background: #ffffff; border-color: #e2e8f0; color: #0f172a; box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04); }
 
-        body {
-            font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
-            background: var(--bg);
-            color: var(--dark);
-            min-height: 100vh;
-            overflow-x: hidden;
-            line-height: 1.7;
-        }
+        .sub-hero-section { background: var(--vibrant-blue-theme); color: #ffffff; padding: 10px 0 24px; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+        .nav-pills-row { max-width: 1250px; margin: auto; padding: 0 20px 14px; display: flex; flex-wrap: wrap; gap: 8px 10px; }
+        .header-pill { border: 1px solid rgba(255, 255, 255, 0.22); background: rgba(255, 255, 255, 0.08); color: white; padding: 6px 16px; border-radius: 999px; font-size: 13px; font-weight: 600; display: inline-flex; transition: 0.2s; }
+        .header-pill:hover { background: rgba(255, 255, 255, 0.22); }
+        .header-pill.active { background: #2563eb; border-color: #60a5fa; color: #ffffff; }
 
-        button, input {
-            font-family: inherit;
-        }
+        .intro { text-align: center; padding: 24px 16px 12px; }
+        .intro h1 { font-size: clamp(28px, 4.8vw, 44px); letter-spacing: -1.2px; margin-bottom: 10px; color: #0f172a; font-weight: 900; line-height: 1.15; }
+        .intro h1 span { color: #2563eb; }
+        .intro p { max-width: 760px; margin: auto; color: #334155; font-size: 15.5px; font-weight: 550; }
 
-        button {
-            cursor: pointer;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .container {
-            width: min(calc(100% - 32px), 1250px);
-            margin-inline: auto;
-        }
-
-        /* =========================================================
-           1. SMART DYNAMIC HEADER (BLUE AT TOP -> WHITE ON SCROLL)
-        ========================================================= */
-        .site-header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: var(--vibrant-blue-theme);
-            color: #ffffff;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .header-top {
-            max-width: 1250px;
-            margin: auto;
-            padding: 14px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .brand-container {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-        }
-
-        .logo-tvz {
-            width: 42px;
-            height: 42px;
-            background: #ffffff;
-            color: #1e58c8;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-            font-weight: 900;
-            letter-spacing: 0.5px;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
-            flex-shrink: 0;
-            transition: all 0.3s ease;
-        }
-
-        .brand-text {
-            font-size: 24px;
-            font-weight: 850;
-            letter-spacing: -0.8px;
-            color: #ffffff;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            transition: color 0.3s ease;
-        }
-
-        .brand-text span {
-            color: #60a5fa;
-            text-shadow: 0 0 15px rgba(96, 165, 250, 0.45);
-        }
-
-        .menu-trigger-btn {
-            background: rgba(255, 255, 255, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.25s ease;
-        }
-
-        .three-dots-solid {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .dot-solid {
-            width: 6px;
-            height: 6px;
-            background-color: #ffffff;
-            border-radius: 50%;
-            display: inline-block;
-            transition: background-color 0.3s ease;
-        }
-
-        .site-header.scrolled {
-            background: #ffffff;
-            border-bottom: 1px solid #e2e8f0;
-            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
-        }
-
-        .site-header.scrolled .logo-tvz {
-            background: linear-gradient(135deg, #153e90 0%, #1e58c8 100%);
-            color: #ffffff;
-            box-shadow: 0 4px 12px rgba(30, 88, 200, 0.35);
-        }
-
-        .site-header.scrolled .brand-text {
-            color: #0f172a;
-        }
-
-        .site-header.scrolled .brand-text span {
-            color: #2563eb;
-            text-shadow: none;
-        }
-
-        .site-header.scrolled .menu-trigger-btn {
-            background: #ffffff;
-            border-color: #e2e8f0;
-            box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
-        }
-
-        .site-header.scrolled .dot-solid {
-            background-color: #0f172a;
-        }
+        /* HEAVY SIDE DRAWER */
+        .drawer-overlay { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px); z-index: 2000; opacity: 0; visibility: hidden; transition: 0.3s; }
+        .drawer-overlay.active { opacity: 1; visibility: visible; }
+        .side-drawer { position: fixed; top: 0; right: -340px; width: 320px; height: 100%; background: #ffffff; box-shadow: -10px 0 35px rgba(15, 23, 42, 0.12); z-index: 2001; padding: 24px 20px; overflow-y: auto; transition: right 0.3s; display: flex; flex-direction: column; border-left: 1px solid #e2e8f0; }
+        .side-drawer.active { right: 0; }
+        .drawer-header { display: flex; align-items: center; justify-content: space-between; padding-bottom: 16px; border-bottom: 2px solid #e2e8f0; margin-bottom: 18px; }
+        .drawer-title-group { display: flex; align-items: center; gap: 10px; font-size: 19px; font-weight: 850; }
+        .drawer-close-btn { background: #f8fafc; border: 1px solid #e2e8f0; width: 34px; height: 34px; border-radius: 10px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .drawer-links { display: flex; flex-direction: column; gap: 9px; flex: 1; }
+        .drawer-pill-item { padding: 10px 18px; border-radius: 999px; background: #ffffff; border: 1px solid #e2e8f0; font-size: 14px; font-weight: 700; display: flex; align-items: center; gap: 12px; transition: 0.2s; }
+        .drawer-pill-item:hover { transform: translateX(4px); background: #eff6ff; border-color: #bfdbfe; color: #2563eb; }
+        
+        .drawer-social-section { margin-top: auto; padding-top: 20px; border-top: 1px solid #e2e8f0; }
+        .drawer-social-title { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 12px; text-align: center; }
+        .social-icons-flex { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+        .channel-btn { width: 100%; border-radius: 10px; padding: 10px; background: #f8fafc; border: 1px solid #e2e8f0; color: #0f172a; font-size: 14px; font-weight: 700; display: flex; align-items: center; gap: 10px; transition: 0.2s; margin-bottom: 8px; }
+        .channel-btn:hover { background: #fee2e2; border-color: #fca5a5; color: #dc2626; transform: translateY(-2px); }
 
         /* =========================================================
-           2. SUB-HERO VIBRANT BLUE AREA
+           BANNER CAROUSELS (PERFECT TV-STYLE NO-CROP SCALING)
         ========================================================= */
-        .sub-hero-section {
-            background: var(--vibrant-blue-theme);
-            color: #ffffff;
-            padding: 10px 0 24px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        .banner-section { padding: 18px 0 8px; }
+        .banner-shell { position: relative; overflow: hidden; border-radius: 24px; background: #eef4ff; box-shadow: var(--shadow); user-select: none; }
+        
+        /* MAGIC CSS FOR NO CROPPING: Use Aspect Ratio, No Fixed Height */
+        .banner-carousel { 
+            position: relative; 
+            width: 100%; 
+            height: auto !important; 
+            aspect-ratio: 1250 / 400 !important; 
+            overflow: hidden !important; 
+            cursor: grab; 
         }
-
-        .nav-pills-row {
-            max-width: 1250px;
-            margin: auto;
-            padding: 0 20px 14px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px 10px;
+        
+        .banner-carousel.slim-carousel { 
+            height: auto !important; 
+            aspect-ratio: 1250 / 100 !important; 
+            overflow: hidden !important; 
+            border-radius: 16px; 
         }
-
-        .header-pill {
-            border: 1px solid rgba(255, 255, 255, 0.22);
-            background: rgba(255, 255, 255, 0.08);
-            color: white;
-            padding: 6px 16px;
-            border-radius: 999px;
-            font-size: 13px;
-            font-weight: 600;
-            transition: all 0.2s ease;
-            display: inline-flex;
-            align-items: center;
+        
+        .banner-track { display: flex !important; width: 100% !important; height: 100% !important; transition: transform 0.45s; }
+        .banner-slide { flex: 0 0 100% !important; min-width: 100% !important; height: 100% !important; display: block !important; position: relative; }
+        
+        .banner-slide img { 
+            width: 100% !important; 
+            height: 100% !important; 
+            object-fit: cover !important; /* Perfect fit because container matches aspect-ratio */
+            display: block !important; 
+            user-select: none;
+            pointer-events: none;
         }
+        
+        .banner-dots-below { display: flex; gap: 7px; justify-content: center; align-items: center; margin-top: 10px; margin-bottom: 6px; }
+        .banner-dot { width: 7px; height: 7px; border: 0; border-radius: 50%; background: #cbd5e1; transition: 0.25s ease; cursor: pointer; }
+        .banner-dot.active { width: 22px; border-radius: 20px; background: #2563eb; }
 
-        .header-pill:hover {
-            background: rgba(255, 255, 255, 0.22);
-            transform: translateY(-1px);
-        }
+        /* CATEGORIES & TOOLS */
+        .search-section { padding: 14px 0 22px; }
+        .search-wrapper { position: relative; max-width: 680px; margin: auto; }
+        .search-icon { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: #94a3b8; }
+        #searchInput { width: 100%; height: 54px; border: 1.5px solid #dce4ee; border-radius: 18px; outline: none; padding: 0 48px 0 50px; font-size: 15px; box-shadow: 0 6px 20px rgba(15, 23, 42, 0.03); transition: 0.25s; }
+        #searchInput:focus { border-color: var(--blue); box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1); }
+        .search-clear { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); width: 30px; height: 30px; border: 0; border-radius: 50%; display: none; }
+        .search-clear.show { display: block; }
+        
+        .category-nav-wrapper { margin-bottom: 26px; overflow-x: auto; scrollbar-width: none; }
+        .category-nav-wrapper::-webkit-scrollbar { display: none; }
+        .category-nav { display: flex; gap: 10px; justify-content: center; min-width: max-content; padding-bottom: 6px; }
+        .category-direct-link { border: 1.5px solid #e2e8f0; background: #ffffff; padding: 8px 18px; border-radius: 999px; font-size: 13px; font-weight: 700; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04); transition: 0.2s; }
+        .category-direct-link:hover { border-color: var(--blue); color: var(--blue); transform: translateY(-2px); }
 
-        .header-pill.active {
-            background: #2563eb;
-            border-color: #60a5fa;
-            color: #ffffff;
-            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
-        }
+        .categories-container { display: flex; flex-direction: column; gap: 26px; }
+        .category-section { background: #ffffff; border: 1px solid var(--line); border-radius: 24px; padding: 26px; box-shadow: var(--shadow); scroll-margin-top: 85px; }
+        .category-header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+        .category-icon { width: 46px; height: 46px; border-radius: 14px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 18px; }
+        .cat-pdf .category-icon { background: linear-gradient(145deg, #dc2626, #991b1b); }
+        .cat-image .category-icon { background: linear-gradient(145deg, #7c3aed, #5b21b6); }
+        .cat-qr .category-icon { background: linear-gradient(145deg, #059669, #047857); }
+        .cat-text .category-icon { background: linear-gradient(145deg, #d97706, #b45309); }
+        .cat-web .category-icon { background: linear-gradient(145deg, #0891b2, #0e7490); }
+        .cat-calc .category-icon { background: linear-gradient(145deg, #4f46e5, #3730a3); }
+        .cat-convert .category-icon { background: linear-gradient(145deg, #e11d48, #be123c); }
+        
+        .category-title { font-size: 20px; font-weight: 850; letter-spacing: -0.5px; }
+        .category-description { color: var(--muted); font-size: 12px; margin-top: 2px; }
+        .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+        .tool-card { display: flex; align-items: center; gap: 12px; padding: 14px; border: 1px solid #edf1f6; background: #f8fafc; border-radius: 16px; transition: 0.2s; }
+        .tool-card:hover { transform: translateY(-2px); background: #ffffff; border-color: #bfdbfe; box-shadow: 0 10px 24px rgba(37, 99, 235, 0.08); }
+        .tool-icon { width: 32px; text-align: center; color: var(--blue); font-size: 18px; flex-shrink: 0; }
+        .tool-info { flex: 1; min-width: 0; }
+        .tool-name { display: block; font-size: 14px; font-weight: 700; line-height: 1.35; }
+        .tool-desc { display: block; margin-top: 2px; color: var(--muted); font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .tool-arrow { color: #cbd5e1; transition: 0.25s; }
+        .tool-card:hover .tool-arrow { color: var(--blue); transform: translateX(3px); }
+        
+        .more-tools-wrapper { text-align: center; margin-top: 16px; }
+        .btn-toggle-more { background: #ffffff; border: 1.5px solid var(--line); color: var(--dark); padding: 8px 24px; border-radius: 999px; font-size: 12.5px; font-weight: 700; transition: 0.2s; }
+        .btn-toggle-more:hover { background: #eff6ff; border-color: var(--blue); color: var(--blue); }
+        .ad-block { width: 100%; min-height: 65px; display: flex; align-items: center; justify-content: center; border: 1.5px dashed #cbd5e1; border-radius: 16px; background: #f1f5f9; color: #64748b; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin: 12px 0; }
 
-        /* HIGH-CONTRAST BOLD INTRO */
-        .intro {
-            text-align: center;
-            padding: 24px 16px 12px;
-        }
+        /* PREMIUM DARK FOOTER */
+        .footer-section { margin-top: 60px; background: #0a0f1d; color: #ffffff; border-radius: 32px 32px 0 0; padding: 55px 0 30px; border-top: 4px solid #2563eb; }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr repeat(3, 1fr); gap: 40px; }
+        .footer-brand p { color: #94a3b8; font-size: 13.5px; margin: 12px 0 18px; line-height: 1.8; }
+        .footer-column h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: #64748b; margin-bottom: 16px; font-weight: 800; }
+        .footer-links { display: flex; flex-direction: column; gap: 12px; }
+        .footer-link { color: #cbd5e1; font-size: 13.5px; transition: 0.2s; display: flex; align-items: center; gap: 8px; font-weight: 500; }
+        .footer-link:hover { color: #60a5fa; transform: translateX(3px); }
+        .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.08); margin-top: 45px; padding-top: 20px; display: flex; justify-content: space-between; color: #64748b; font-size: 13px; font-weight: 500; }
+        @media (max-width: 850px) { .footer-grid { grid-template-columns: 1fr 1fr; } .footer-brand { grid-column: 1 / -1; } }
+    </style>
+</head>
+<body>
 
-        .intro h1 {
-            font-size: clamp(28px, 4.8vw, 44px);
-            line-height: 1.15;
-            letter-spacing: -1.2px;
-            margin-bottom: 10px;
-            color: #0f172a;
-            font-weight: 900;
-        }
+    <header class="site-header" id="dynamicHeader">
+        <div class="header-top">
+            <a class="brand-container" href="index.html">
+                <div class="logo-tvz" id="brandLogoBadge">TVZ</div>
+                <div class="brand-text">TVEEZAL <span>Tools</span></div>
+            </a>
+            <div class="header-actions">
+                <button class="action-btn" id="shareButton" title="Share Website">
+                    <i class="fa-solid fa-share-nodes"></i>
+                </button>
+                <button class="action-btn" id="menuButton" aria-label="Open Navigation">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
 
-        .intro h1 span {
-            color: #2563eb;
-        }
+    <section class="sub-hero-section">
+        <nav class="nav-pills-row">
+            <a class="header-pill active" href="index.html">Home</a>
+            <a class="header-pill" href="#categoriesContainer">All Tools</a>
+            <a class="header-pill" href="blog.html">Blog</a>
+            <a class="header-pill" href="faq.html">FAQ</a>
+            <a class="header-pill" href="privacy.html">Privacy</a>
+        </nav>
+    </section>
 
-        .intro p {
-            max-width: 760px;
-            margin: auto;
-            color: #334155;
-            font-size: 15.5px;
-            font-weight: 550;
-            line-height: 1.65;
-        }
+    <section class="banner-section">
+        <div class="container">
+            <div class="banner-shell">
+                <div class="banner-carousel" id="topBannerCarousel"><div class="banner-track" id="topBannerTrack"></div></div>
+            </div>
+            <div class="banner-dots-below" id="topBannerDots"></div>
+        </div>
+    </section>
 
-        /* =========================================================
-           3. FULL WHITE SIDE DRAWER WITH NAME DIVIDER & SOCIAL
-        ========================================================= */
-        .drawer-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(4px);
-            z-index: 2000;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
+    <section class="container">
+        <div class="intro">
+            <h1>Fast, Free & Private <span>Online Utilities</span></h1>
+            <p>Over 40+ browser-based tools for PDF management, photo compression, meme generation, text utilities, and unit conversions without server uploads.</p>
+        </div>
+    </section>
 
-        .drawer-overlay.active {
+    <div class="drawer-overlay" id="menuOverlay"></div>
+    <aside class="side-drawer" id="navDrawer">
+        <div class="drawer-header">
+            <div class="drawer-title-group">
+                <div class="logo-tvz" style="width: 32px; height: 32px; font-size: 12px; border-radius: 8px; background: #2563eb; color:#fff;">TVZ</div>
+                <div class="drawer-title">Tveezal Tools</div>
+            </div>
+            <button class="drawer-close-btn" id="drawerClose">✕</button>
+        </div>
+        <div class="drawer-links">
+            <a class="drawer-pill-item" href="index.html"><i class="fa-solid fa-house" style="color:#2563eb;"></i> Home</a>
+            <a class="drawer-pill-item" href="pdf-tools.html"><i class="fa-solid fa-file-pdf" style="color:#dc2626;"></i> PDF Tools</a>
+            <a class="drawer-pill-item" href="image-tools.html"><i class="fa-solid fa-image" style="color:#7c3aed;"></i> Image Tools</a>
+            <a class="drawer-pill-item" href="qr-barcode-tools.html"><i class="fa-solid fa-qrcode" style="color:#059669;"></i> QR & Barcode</a>
+            <a class="drawer-pill-item" href="text-string-tools.html"><i class="fa-solid fa-font" style="color:#d97706;"></i> Text & String</a>
+            <a class="drawer-pill-item" href="web-security-tools.html"><i class="fa-solid fa-shield-halved" style="color:#0891b2;"></i> Web & Security</a>
+            <a class="drawer-pill-item" href="calculators.html"><i class="fa-solid fa-calculator" style="color:#4f46e5;"></i> Calculators</a>
+        </div>
+        
+        <div class="drawer-social-section">
+            <div class="drawer-social-title">Our Creator Channels</div>
+            <div class="social-icons-flex">
+                <a href="#" class="channel-btn"><i class="fab fa-youtube" style="color:#ff0000; font-size: 18px;"></i> AI Tech Guru</a>
+                <a href="#" class="channel-btn"><i class="fab fa-youtube" style="color:#ff0000; font-size: 18px;"></i> Hindi Horror Stories</a>
+                <a href="#" class="channel-btn"><i class="fab fa-youtube" style="color:#ff0000; font-size: 18px;"></i> Cartoon & Animation</a>
+            </div>
+        </div>
+    </aside>
+
+    <main>
+        <section class="search-section">
+            <div class="container">
+                <div class="search-wrapper">
+                    <i class="fas fa-search search-icon"></i>
+                    <input id="searchInput" type="search" placeholder="Search 40+ tools by name, action or category..." autocomplete="off">
+                    <button class="search-clear" id="searchClear" type="button"><i class="fas fa-xmark"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="category-nav-wrapper">
+                <div class="category-nav">
+                    <a class="category-direct-link" href="pdf-tools.html"><i class="fa-solid fa-file-pdf" style="color:#dc2626;"></i> PDF Tools</a>
+                    <a class="category-direct-link" href="image-tools.html"><i class="fa-solid fa-image" style="color:#7c3aed;"></i> Image Tools</a>
+                    <a class="category-direct-link" hreoverlay.active {
             opacity: 1;
             visibility: visible;
         }
