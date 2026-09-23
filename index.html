@@ -7,69 +7,31 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-DHZ9E8XV4S');
     </script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <!-- Initial Status Bar: White when header is blue at top -->
     <meta name="theme-color" content="#ffffff" id="metaThemeColor">
 
-    <!-- Primary SEO Meta Tags -->
     <title>Tveezal Tools – Free Online Tools & Utilities for PDF, Image, Text & Web</title>
     <meta name="title" content="Tveezal Tools – Free Online Tools & Utilities for PDF, Image, Text & Web">
     <meta name="description" content="Free online tools for PDF editing, 50KB image compression, QR generation, font changer, calculators, converters, and web security. Fast, secure, and 100% browser-based.">
-    <meta name="keywords" content="tveezal tools, free online tools, image compressor 50kb, pdf merge online, font changer, internet speed test, word counter, qr code generator, online converters">
-    <meta name="robots" content="index, follow">
-    <meta name="author" content="Tveezal Tools">
-
-    <link rel="canonical" href="https://tveezal.com/">
-
-    <!-- Open Graph / Social Media -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://tveezal.com/">
-    <meta property="og:title" content="Tveezal Tools – Free Online Tools & Web Utilities">
-    <meta property="og:description" content="All-in-one free browser utilities for PDF, image optimization, text analysis, and unit calculations.">
-    <meta property="og:site_name" content="Tveezal Tools">
-
-    <!-- Font Awesome & Google Fonts -->
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-    <!-- Schema.org WebApplication JSON-LD -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "Tveezal Tools",
-        "url": "https://tveezal.com/",
-        "applicationCategory": "UtilitiesApplication",
-        "operatingSystem": "All",
-        "description": "Comprehensive suite of 38+ free browser utilities for PDF manipulation, batch image compression, text tools, and conversion calculators."
-    }
-    </script>
 
     <style>
         :root {
-            --bg: #f8fafc;
-            --white: #ffffff;
-            --dark: #0f172a;
-            --text: #334155;
-            --muted: #64748b;
-            --line: #e2e8f0;
-            --blue: #2563eb;
-            --blue-hover: #1d4ed8;
+            --bg: #f8fafc; --white: #ffffff; --dark: #0f172a; --text: #334155;
+            --muted: #64748b; --line: #e2e8f0; --blue: #2563eb; --blue-hover: #1d4ed8;
             --vibrant-blue-theme: linear-gradient(145deg, #0b1e4f 0%, #153e90 45%, #1e58c8 100%);
-            --shadow: 0 10px 30px rgba(15, 23, 42, 0.055);
-            --transition: 0.25s ease;
+            --shadow: 0 10px 30px rgba(15, 23, 42, 0.055); --transition: 0.25s ease;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--dark); min-height: 100vh; overflow-x: hidden; line-height: 1.7; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--dark); min-height: 100vh; overflow-x: hidden; line-height: 1.7; }
         button, input { font-family: inherit; }
         button { cursor: pointer; }
         a { color: inherit; text-decoration: none; }
@@ -79,87 +41,80 @@
         .site-header { position: sticky; top: 0; z-index: 1000; background: var(--vibrant-blue-theme); color: #ffffff; border-bottom: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
         .header-top { max-width: 1250px; margin: auto; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; }
         .brand-container { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
-        .logo-tvz { width: 42px; height: 42px; background: #ffffff; color: #1e58c8; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 900; letter-spacing: 0.5px; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15); flex-shrink: 0; transition: all 0.3s ease; }
-        .brand-text { font-size: 24px; font-weight: 850; letter-spacing: -0.8px; color: #ffffff; display: inline-flex; align-items: center; gap: 6px; transition: color 0.3s ease; }
+        .logo-tvz { width: 42px; height: 42px; background: #ffffff; color: #1e58c8; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 900; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15); transition: all 0.3s ease; }
+        .brand-text { font-size: 24px; font-weight: 850; letter-spacing: -0.8px; color: #ffffff; display: inline-flex; align-items: center; gap: 6px; }
         .brand-text span { color: #60a5fa; text-shadow: 0 0 15px rgba(96, 165, 250, 0.45); }
-        .menu-trigger-btn { background: rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.25); width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.25s ease; }
+        .header-actions { display: flex; align-items: center; gap: 10px; }
+        .action-btn { background: rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.25); width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.25s ease; color: #ffffff; font-size: 16px; }
         .three-dots-solid { display: flex; flex-direction: row; align-items: center; gap: 5px; }
         .dot-solid { width: 6px; height: 6px; background-color: #ffffff; border-radius: 50%; display: inline-block; transition: background-color 0.3s ease; }
 
         .site-header.scrolled { background: #ffffff; border-bottom: 1px solid #e2e8f0; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06); }
-        .site-header.scrolled .logo-tvz { background: linear-gradient(135deg, #153e90 0%, #1e58c8 100%); color: #ffffff; box-shadow: 0 4px 12px rgba(30, 88, 200, 0.35); }
+        .site-header.scrolled .logo-tvz { background: linear-gradient(135deg, #153e90 0%, #1e58c8 100%); color: #ffffff; }
         .site-header.scrolled .brand-text { color: #0f172a; }
         .site-header.scrolled .brand-text span { color: #2563eb; text-shadow: none; }
-        .site-header.scrolled .menu-trigger-btn { background: #ffffff; border-color: #e2e8f0; box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04); }
+        .site-header.scrolled .action-btn { background: #ffffff; border-color: #e2e8f0; color: #0f172a; box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04); }
         .site-header.scrolled .dot-solid { background-color: #0f172a; }
 
+        /* NAV PILLS */
         .sub-hero-section { background: var(--vibrant-blue-theme); color: #ffffff; padding: 10px 0 24px; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
         .nav-pills-row { max-width: 1250px; margin: auto; padding: 0 20px 14px; display: flex; flex-wrap: wrap; gap: 8px 10px; }
-        .header-pill { border: 1px solid rgba(255, 255, 255, 0.22); background: rgba(255, 255, 255, 0.08); color: white; padding: 6px 16px; border-radius: 999px; font-size: 13px; font-weight: 600; transition: all 0.2s ease; display: inline-flex; align-items: center; }
-        .header-pill:hover { background: rgba(255, 255, 255, 0.22); transform: translateY(-1px); }
-        .header-pill.active { background: #2563eb; border-color: #60a5fa; color: #ffffff; box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4); }
+        .header-pill { border: 1px solid rgba(255, 255, 255, 0.22); background: rgba(255, 255, 255, 0.08); color: white; padding: 6px 16px; border-radius: 999px; font-size: 13px; font-weight: 600; display: inline-flex; transition: 0.2s; }
+        .header-pill:hover { background: rgba(255, 255, 255, 0.22); }
+        .header-pill.active { background: #2563eb; border-color: #60a5fa; color: #ffffff; }
 
         .intro { text-align: center; padding: 24px 16px 12px; }
-        .intro h1 { font-size: clamp(28px, 4.8vw, 44px); line-height: 1.15; letter-spacing: -1.2px; margin-bottom: 10px; color: #0f172a; font-weight: 900; }
+        .intro h1 { font-size: clamp(28px, 4.8vw, 44px); letter-spacing: -1.2px; margin-bottom: 10px; color: #0f172a; font-weight: 900; line-height: 1.15; }
         .intro h1 span { color: #2563eb; }
-        .intro p { max-width: 760px; margin: auto; color: #334155; font-size: 15.5px; font-weight: 550; line-height: 1.65; }
+        .intro p { max-width: 760px; margin: auto; color: #334155; font-size: 15.5px; font-weight: 550; }
 
-        /* DRAWER */
-        .drawer-overlay { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px); z-index: 2000; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
+        /* DRAWER & SOCIALS */
+        .drawer-overlay { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px); z-index: 2000; opacity: 0; visibility: hidden; transition: 0.3s; }
         .drawer-overlay.active { opacity: 1; visibility: visible; }
-        .side-drawer { position: fixed; top: 0; right: -340px; width: 320px; height: 100%; background: #ffffff; box-shadow: -10px 0 35px rgba(15, 23, 42, 0.12); z-index: 2001; padding: 24px 20px; overflow-y: auto; transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; border-left: 1px solid #e2e8f0; }
+        .side-drawer { position: fixed; top: 0; right: -340px; width: 320px; height: 100%; background: #ffffff; box-shadow: -10px 0 35px rgba(15, 23, 42, 0.12); z-index: 2001; padding: 24px 20px; overflow-y: auto; transition: right 0.3s; display: flex; flex-direction: column; border-left: 1px solid #e2e8f0; }
         .side-drawer.active { right: 0; }
         .drawer-header { display: flex; align-items: center; justify-content: space-between; padding-bottom: 16px; border-bottom: 2px solid #e2e8f0; margin-bottom: 18px; }
-        .drawer-title-group { display: flex; align-items: center; gap: 10px; }
-        .drawer-title { font-size: 19px; font-weight: 850; color: #0f172a; letter-spacing: -0.5px; }
-        .drawer-close-btn { background: #f8fafc; border: 1px solid #e2e8f0; width: 34px; height: 34px; border-radius: 10px; font-size: 15px; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #475569; transition: 0.2s ease; }
-        .drawer-close-btn:hover { background: #fee2e2; color: #ef4444; border-color: #fca5a5; }
-        .drawer-links { display: flex; flex-direction: column; gap: 9px; }
-        .drawer-pill-item { padding: 10px 18px; border-radius: 999px; background: #ffffff; border: 1px solid #e2e8f0; color: #1e293b; font-size: 14px; font-weight: 700; display: flex; align-items: center; gap: 12px; box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04); transition: all 0.2s ease; }
-        .drawer-pill-item:hover { transform: translateX(4px); background: #eff6ff; border-color: #bfdbfe; color: #2563eb; box-shadow: 0 4px 14px rgba(37, 99, 235, 0.12); }
-        .drawer-social-section { margin-top: auto; padding-top: 20px; border-top: 1px solid #e2e8f0; text-align: center; }
+        .drawer-title-group { display: flex; align-items: center; gap: 10px; font-size: 19px; font-weight: 850; }
+        .drawer-close-btn { background: #f8fafc; border: 1px solid #e2e8f0; width: 34px; height: 34px; border-radius: 10px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .drawer-links { display: flex; flex-direction: column; gap: 9px; flex: 1; }
+        .drawer-pill-item { padding: 10px 18px; border-radius: 999px; background: #ffffff; border: 1px solid #e2e8f0; font-size: 14px; font-weight: 700; display: flex; align-items: center; gap: 12px; transition: 0.2s; }
+        .drawer-pill-item:hover { transform: translateX(4px); background: #eff6ff; border-color: #bfdbfe; color: #2563eb; }
+        
+        .drawer-social-section { margin-top: auto; padding-top: 20px; border-top: 1px solid #e2e8f0; text-align: center; padding-bottom: 20px; }
         .drawer-social-title { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 12px; }
         .social-icons-flex { display: flex; justify-content: center; gap: 10px; }
-        .social-link-btn { width: 36px; height: 36px; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; background: #f8fafc; border: 1px solid #e2e8f0; color: #475569; font-size: 15px; transition: all 0.2s ease; }
-        .social-link-btn:hover { transform: translateY(-2px); color: #ffffff; }
+        .social-link-btn { width: 36px; height: 36px; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; background: #f8fafc; border: 1px solid #e2e8f0; color: #475569; font-size: 15px; transition: 0.2s; }
+        .social-link-btn:hover { color: #ffffff; transform: translateY(-2px); }
         .social-link-btn.wa:hover { background: #25d366; border-color: #25d366; }
         .social-link-btn.tg:hover { background: #0088cc; border-color: #0088cc; }
         .social-link-btn.yt:hover { background: #ff0000; border-color: #ff0000; }
         .social-link-btn.ig:hover { background: #e1306c; border-color: #e1306c; }
-        .social-link-btn.fb:hover { background: #1877f2; border-color: #1877f2; }
-        .social-link-btn.tw:hover { background: #000000; border-color: #000000; }
 
         /* BANNERS */
         .banner-section { padding: 18px 0 8px; }
-        .banner-shell { position: relative; overflow: hidden; border-radius: 24px; background: #eef4ff; box-shadow: var(--shadow); touch-action: pan-y pinch-zoom; user-select: none; -webkit-user-select: none; }
-        
-        /* Banner TV Scaling Fix */
+        .banner-shell { position: relative; overflow: hidden; border-radius: 24px; background: #eef4ff; box-shadow: var(--shadow); user-select: none; }
         .banner-carousel { position: relative; width: 100%; height: auto !important; aspect-ratio: 1250 / 400 !important; overflow: hidden !important; cursor: grab; }
-        .banner-carousel:active { cursor: grabbing; }
         .banner-carousel.slim-carousel { height: auto !important; aspect-ratio: 1250 / 100 !important; overflow: hidden !important; border-radius: 16px; }
-        
-        .banner-track { display: flex !important; width: 100% !important; height: 100% !important; will-change: transform; transition: transform 0.45s cubic-bezier(.22, .61, .36, 1); }
+        .banner-track { display: flex !important; width: 100% !important; height: 100% !important; transition: transform 0.45s cubic-bezier(.22, .61, .36, 1); }
         .banner-slide { flex: 0 0 100% !important; min-width: 100% !important; max-width: 100% !important; height: 100% !important; display: block !important; position: relative; text-decoration: none; }
         .banner-slide img { width: 100% !important; height: 100% !important; object-fit: contain !important; object-position: center !important; display: block !important; user-select: none; pointer-events: none; }
-        
-        .banner-fallback { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 12px; background: linear-gradient(135deg, #dbeafe, #ede9fe, #fae8ff); }
-        .banner-fallback h2 { font-size: clamp(16px, 3vw, 36px); color: var(--dark); margin-bottom: 4px; }
         .banner-dots-below { display: flex; gap: 7px; justify-content: center; align-items: center; margin-top: 10px; margin-bottom: 6px; }
-        .banner-dot { width: 7px; height: 7px; border: 0; border-radius: 50%; background: #cbd5e1; transition: width 0.25s ease, background 0.25s ease; cursor: pointer; }
+        .banner-dot { width: 7px; height: 7px; border: 0; border-radius: 50%; background: #cbd5e1; transition: 0.25s ease; cursor: pointer; }
         .banner-dot.active { width: 22px; border-radius: 20px; background: #2563eb; }
 
         /* SEARCH & CATEGORIES */
         .search-section { padding: 14px 0 22px; }
         .search-wrapper { position: relative; max-width: 680px; margin: auto; }
         .search-icon { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: #94a3b8; pointer-events: none; }
-        #searchInput { width: 100%; height: 54px; border: 1.5px solid #dce4ee; border-radius: 18px; background: #ffffff; outline: none; padding: 0 48px 0 50px; font-size: 15px; color: var(--dark); box-shadow: 0 6px 20px rgba(15, 23, 42, 0.03); transition: var(--transition); }
+        #searchInput { width: 100%; height: 54px; border: 1.5px solid #dce4ee; border-radius: 18px; outline: none; padding: 0 48px 0 50px; font-size: 15px; box-shadow: 0 6px 20px rgba(15, 23, 42, 0.03); transition: var(--transition); }
         #searchInput:focus { border-color: var(--blue); box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1); }
-        .search-clear { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); width: 30px; height: 30px; border: 0; border-radius: 50%; background: #f1f5f9; color: #64748b; display: none; }
+        .search-clear { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); width: 30px; height: 30px; border: 0; border-radius: 50%; display: none; }
         .search-clear.show { display: block; }
+        
         .category-nav-wrapper { margin-bottom: 26px; overflow-x: auto; scrollbar-width: none; }
         .category-nav-wrapper::-webkit-scrollbar { display: none; }
         .category-nav { display: flex; gap: 10px; justify-content: center; min-width: max-content; padding-bottom: 6px; }
-        .category-direct-link { border: 1.5px solid #e2e8f0; background: #ffffff; color: var(--dark); padding: 8px 18px; border-radius: 999px; font-size: 13px; font-weight: 700; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04); transition: all 0.2s ease; }
+        .category-direct-link { border: 1.5px solid #e2e8f0; background: #ffffff; padding: 8px 18px; border-radius: 999px; font-size: 13px; font-weight: 700; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04); transition: 0.2s; }
         .category-direct-link:hover { border-color: var(--blue); color: var(--blue); transform: translateY(-2px); }
 
         .categories-container { display: flex; flex-direction: column; gap: 26px; }
@@ -173,10 +128,11 @@
         .cat-web .category-icon { background: linear-gradient(145deg, #0891b2, #0e7490); }
         .cat-calc .category-icon { background: linear-gradient(145deg, #4f46e5, #3730a3); }
         .cat-convert .category-icon { background: linear-gradient(145deg, #e11d48, #be123c); }
+        
         .category-title { font-size: 20px; font-weight: 850; letter-spacing: -0.5px; }
         .category-description { color: var(--muted); font-size: 12px; margin-top: 2px; }
         .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
-        .tool-card { display: flex; align-items: center; gap: 12px; padding: 14px; border: 1px solid #edf1f6; background: #f8fafc; border-radius: 16px; transition: all 0.2s ease; }
+        .tool-card { display: flex; align-items: center; gap: 12px; padding: 14px; border: 1px solid #edf1f6; background: #f8fafc; border-radius: 16px; transition: 0.2s; }
         .tool-card:hover { transform: translateY(-2px); background: #ffffff; border-color: #bfdbfe; box-shadow: 0 10px 24px rgba(37, 99, 235, 0.08); }
         .tool-icon { width: 32px; text-align: center; color: var(--blue); font-size: 18px; flex-shrink: 0; }
         .tool-info { flex: 1; min-width: 0; }
@@ -184,35 +140,33 @@
         .tool-desc { display: block; margin-top: 2px; color: var(--muted); font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .tool-arrow { color: #cbd5e1; transition: var(--transition); }
         .tool-card:hover .tool-arrow { color: var(--blue); transform: translateX(3px); }
+        
         .more-tools-wrapper { text-align: center; margin-top: 16px; }
-        .btn-toggle-more { background: #ffffff; border: 1.5px solid var(--line); color: var(--dark); padding: 8px 24px; border-radius: 999px; font-size: 12.5px; font-weight: 700; transition: all 0.2s ease; box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03); }
+        .btn-toggle-more { background: #ffffff; border: 1.5px solid var(--line); color: var(--dark); padding: 8px 24px; border-radius: 999px; font-size: 12.5px; font-weight: 700; transition: 0.2s; }
         .btn-toggle-more:hover { background: #eff6ff; border-color: var(--blue); color: var(--blue); }
         .ad-block { width: 100%; min-height: 65px; display: flex; align-items: center; justify-content: center; border: 1.5px dashed #cbd5e1; border-radius: 16px; background: #f1f5f9; color: #64748b; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin: 12px 0; }
 
-        /* SEO & FAQS */
+        /* SEO ARTICLE */
         .seo-home-article { background: #ffffff; border: 1px solid var(--line); border-radius: 28px; padding: clamp(24px, 4vw, 44px); margin-top: 36px; box-shadow: var(--shadow); }
         .seo-home-article h2 { font-size: clamp(22px, 3.5vw, 32px); letter-spacing: -0.8px; margin-bottom: 12px; color: #0f172a; }
         .seo-home-article h3 { font-size: 19px; margin: 26px 0 10px; color: #0f172a; }
         .seo-home-article p { color: #334155; font-size: 14.5px; margin-bottom: 14px; }
-        .seo-home-article a { color: var(--blue); font-weight: 700; text-decoration: underline; }
-        .seo-home-article a:hover { color: var(--blue-hover); }
-        .seo-home-article ul { padding-left: 24px; margin-bottom: 20px; color: #334155; font-size: 14px; }
-        .seo-home-article li { margin: 6px 0; }
         .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin: 22px 0; }
         .feature-box { background: #f8fafc; border: 1px solid var(--line); border-radius: 16px; padding: 20px; }
         .feature-box h4 { font-size: 15px; font-weight: 700; margin-bottom: 6px; color: #0f172a; }
         .feature-box p { font-size: 13px; color: var(--muted); margin: 0; }
+        
+        /* FAQS */
         .faq-section { padding: 44px 0 20px; }
         .faq-list { max-width: 860px; margin: auto; display: flex; flex-direction: column; gap: 10px; }
         .faq-item { background: #ffffff; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
         .faq-question { width: 100%; border: 0; background: transparent; display: flex; justify-content: space-between; align-items: center; padding: 18px 20px; text-align: left; font-size: 14px; font-weight: 700; color: var(--dark); }
-        .faq-answer { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.28s ease; }
+        .faq-answer { display: grid; grid-template-rows: 0fr; transition: 0.28s; }
         .faq-answer-inner { overflow: hidden; padding: 0 20px; color: var(--text); font-size: 13.5px; line-height: 1.7; }
-        .faq-answer-inner a { color: var(--blue); font-weight: 700; text-decoration: underline; }
         .faq-item.open .faq-answer { grid-template-rows: 1fr; }
         .faq-item.open .faq-answer-inner { padding-bottom: 18px; }
 
-        /* FOOTER */
+        /* DARK FOOTER */
         .footer-section { margin-top: 60px; background: #0a0f1d; color: #ffffff; border-radius: 32px 32px 0 0; padding: 55px 0 30px; }
         .footer-grid { display: grid; grid-template-columns: 1.5fr repeat(3, 1fr); gap: 40px; }
         .footer-brand p { color: #94a3b8; font-size: 13px; margin: 12px 0 18px; }
@@ -232,13 +186,18 @@
                 <div class="logo-tvz" id="brandLogoBadge">TVZ</div>
                 <div class="brand-text">TVEEZAL <span>Tools</span></div>
             </a>
-            <button class="menu-trigger-btn" id="menuButton" aria-label="Open Navigation">
-                <div class="three-dots-solid">
-                    <span class="dot-solid"></span>
-                    <span class="dot-solid"></span>
-                    <span class="dot-solid"></span>
-                </div>
-            </button>
+            <div class="header-actions">
+                <button class="action-btn" id="shareButton" title="Share Website">
+                    <i class="fa-solid fa-share-nodes"></i>
+                </button>
+                <button class="action-btn" id="menuButton" aria-label="Open Navigation">
+                    <div class="three-dots-solid">
+                        <span class="dot-solid"></span>
+                        <span class="dot-solid"></span>
+                        <span class="dot-solid"></span>
+                    </div>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -265,7 +224,7 @@
     <section class="container">
         <div class="intro">
             <h1>Fast, Free & Private <span>Online Utilities</span></h1>
-            <p>Over 38+ browser-based tools for PDF management, photo compression to 50KB, font changing, and everyday unit conversions without server uploads.</p>
+            <p>Over 34+ browser-based tools for PDF management, photo compression to 50KB, font changing, and everyday unit conversions without server uploads.</p>
         </div>
     </section>
 
@@ -288,6 +247,16 @@
             <a class="drawer-pill-item" href="calculators.html"><i class="fa-solid fa-calculator" style="color:#4f46e5;"></i> Calculators</a>
             <a class="drawer-pill-item" href="converters.html"><i class="fa-solid fa-arrows-left-right" style="color:#e11d48;"></i> Converters</a>
         </div>
+        
+        <div class="drawer-social-section">
+            <div class="drawer-social-title">Connect & Share</div>
+            <div class="social-icons-flex">
+                <a href="#" class="social-link-btn wa"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" class="social-link-btn tg"><i class="fab fa-telegram-plane"></i></a>
+                <a href="#" class="social-link-btn yt"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="social-link-btn ig"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
     </aside>
 
     <main>
@@ -295,7 +264,7 @@
             <div class="container">
                 <div class="search-wrapper">
                     <i class="fas fa-search search-icon"></i>
-                    <input id="searchInput" type="search" placeholder="Search 38+ tools by name, action or category..." autocomplete="off">
+                    <input id="searchInput" type="search" placeholder="Search 34+ tools by name, action or category..." autocomplete="off">
                     <button class="search-clear" id="searchClear" type="button"><i class="fas fa-xmark"></i></button>
                 </div>
             </div>
@@ -330,11 +299,11 @@
 
         <section class="container">
             <article class="seo-home-article">
-                <h2>Why Choose Tveezal Tools for Everyday Digital Tasks?</h2>
-                <p>Welcome to <strong>Tveezal Tools</strong>, your centralized ecosystem for rapid, high-accuracy web utilities. Every script executes 100% client-side inside your browser sandbox, guaranteeing complete security and privacy.</p>
+                <h2>The Ultimate Collection of Fast, Secure Digital Tools</h2>
+                <p>Welcome to <strong>Tveezal Tools</strong>. Originally built to simplify everyday tasks, we have grown into a centralized ecosystem featuring rapid, high-accuracy web utilities. Whether you're compressing an image to exactly 50KB, converting formats, or manipulating PDF files, we have you covered.</p>
                 <div class="feature-grid">
                     <div class="feature-box"><h4>Zero Server Storage</h4><p>Your files remain in your local RAM and are never transmitted to external servers.</p></div>
-                    <div class="feature-box"><h4>Target KB Compression</h4><p>Compress files to exact boundaries like 50KB or 20KB.</p></div>
+                    <div class="feature-box"><h4>Target KB Compression</h4><p>Compress files to exact boundaries like 50KB or 20KB for seamless uploads.</p></div>
                     <div class="feature-box"><h4>Universal Free Access</h4><p>No registration forms, no watermarks, and zero paywalls.</p></div>
                     <div class="feature-box"><h4>Real-Time Diagnostics</h4><p>Evaluate your broadband throughput and public IP securely.</p></div>
                 </div>
@@ -400,11 +369,21 @@
         drawerClose.addEventListener("click", () => { drawer.classList.remove("active"); overlay.classList.remove("active"); });
         overlay.addEventListener("click", () => { drawer.classList.remove("active"); overlay.classList.remove("active"); });
 
+        const shareBtn = document.getElementById("shareButton");
+        if(shareBtn) {
+            shareBtn.addEventListener("click", async () => {
+                if (navigator.share) {
+                    try { await navigator.share({ title: 'Tveezal Tools', text: 'Check out these fast, free online tools!', url: window.location.href }); } 
+                    catch (err) { console.log('Share error:', err); }
+                } else { alert("Share feature is not supported in this browser."); }
+            });
+        }
+
         const TOP_BANNERS = [
             { image: "https://github.com/user-attachments/assets/facba8b5-d981-4358-83cb-4919c025bdde", link: "image-compressor.html", title: "OWNER" },
             { image: "assets/banner-2.webp", link: "pdf-merge.html", title: "Merge Multiple PDF Files Online" },
-            { image: "assets/banner-3.webp", link: "text-to-speech/index.html", title: "Text to Speech Synthesis" },
-            { image: "assets/banner-4.webp", link: "internet-speed-test/index.html", title: "Live Internet Speed & Public IP" },
+            { image: "assets/banner-3.webp", link: "text-to-speech.html", title: "Text to Speech Synthesis" },
+            { image: "assets/banner-4.webp", link: "internet-speed-test.html", title: "Live Internet Speed & Public IP" },
             { image: "assets/banner-5.webp", link: "word-counter.html", title: "Word & Character Counter" },
             { image: "assets/banner-6.webp", link: "qr-generator-tool/index.html", title: "All-in-One Custom QR Generator" }
         ];
@@ -415,9 +394,9 @@
         ];
 
         const SLIM_BANNERS_2 = [
-            { image: "assets/slim-banner-4.webp", link: "internet-speed-test/index.html", title: "High Speed Fiber & CDN Ping Test" },
+            { image: "assets/slim-banner-4.webp", link: "internet-speed-test.html", title: "High Speed Fiber & CDN Ping Test" },
             { image: "assets/slim-banner-1.webp", link: "image-compressor.html", title: "Target Exact 20KB for SSC Exam" },
-            { image: "assets/slim-banner-6.webp", link: "barcode-generator/index.html", title: "Free Product Barcode Maker" }
+            { image: "assets/slim-banner-6.webp", link: "barcode-generator.html", title: "Free Product Barcode Maker" }
         ];
 
         const CATEGORIES = [
@@ -431,7 +410,7 @@
         ];
 
         const TOOLS_LIST = [
-            // PDF Tools (10)
+            // PDF Tools
             { cat: "pdf", name: "PDF Protector", file: "pdf-protector.html", icon: "fa-shield-halved", desc: "Protect your PDF with security settings" },
             { cat: "pdf", name: "PDF Lock", file: "pdf-lock.html", icon: "fa-lock", desc: "Password-protect your PDF" },
             { cat: "pdf", name: "PDF Unlock", file: "pdf-unlock.html", icon: "fa-unlock", desc: "Remove PDF password protection" },
@@ -443,49 +422,45 @@
             { cat: "pdf", name: "PDF Page Editor", file: "pdf-page-editor.html", icon: "fa-pen-to-square", desc: "Edit and manage PDF pages" },
             { cat: "pdf", name: "PDF Page Rearrange", file: "pdf-page-rearrange.html", icon: "fa-arrows-up-down-left-right", desc: "Reorder PDF pages easily" },
 
-            // Image Tools (8 - Naya ICO Converter Added)
+            // Image Tools
             { cat: "image", name: "Image Compressor", file: "image-compressor.html", icon: "fa-compress", desc: "Reduce image file size to exact KB" },
             { cat: "image", name: "Format Converter", file: "format-converter.html", icon: "fa-arrows-rotate", desc: "Convert PNG, JPG, WEBP and more" },
             { cat: "image", name: "Image Resizer", file: "image-resizer.html", icon: "fa-expand", desc: "Change image width and height" },
             { cat: "image", name: "Background Remover", file: "background-remover.html", icon: "fa-eraser", desc: "Remove image backgrounds" },
             { cat: "image", name: "Image to Base64", file: "image-to-base64.html", icon: "fa-code", desc: "Convert image to Base64 data" },
             { cat: "image", name: "Add Watermark", file: "add-watermark.html", icon: "fa-stamp", desc: "Add watermark to images" },
-            { cat: "image", name: "Remove Watermark", file: "remove-watermark.html", icon: "fa-wand-magic-sparkles", desc: "Remove unwanted image watermarks" },
-            { cat: "image", name: "ICO Converter", file: "ico-converter/index.html", icon: "fa-icons", desc: "Convert images to ICO favicon format" },
+            { cat: "image", name: "Remove Watermark", file: "remove-watermark.html", icon: "fa-magic", desc: "Remove unwanted image watermarks" },
 
-            // QR & Barcode Tools (4 - Barcode Naye Folder Me Set Hai)
+            // QR & Barcode Tools (QR IN FOLDER, BARCODE SINGLE)
             { cat: "qr", name: "All-in-One QR Generator", file: "qr-generator-tool/index.html", icon: "fa-qrcode", desc: "Create QR codes for text, URLs and Wi-Fi" },
             { cat: "qr", name: "QR Code Scanner", file: "qr-scanner.html", icon: "fa-camera", desc: "Scan QR codes from images or camera" },
-            { cat: "qr", name: "Barcode Generator", file: "barcode-generator/index.html", icon: "fa-barcode", desc: "Generate common barcode formats" },
+            { cat: "qr", name: "Barcode Generator", file: "barcode-generator.html", icon: "fa-barcode", desc: "Generate common barcode formats" },
             { cat: "qr", name: "Barcode Scanner", file: "barcode-scanner.html", icon: "fa-camera", desc: "Scan barcodes quickly" },
 
-            // Text & String Tools (5 - TTS Naye Folder Me Set Hai)
+            // Text & String Tools
             { cat: "text", name: "Word Counter", file: "word-counter.html", icon: "fa-align-left", desc: "Count words, characters and spaces" },
-            { cat: "text", name: "Text to Speech", file: "text-to-speech/index.html", icon: "fa-volume-high", desc: "Convert written text into realistic speech" },
+            { cat: "text", name: "Text to Speech", file: "text-to-speech.html", icon: "fa-volume-high", desc: "Convert written text into realistic speech" },
             { cat: "text", name: "Line Counter", file: "line-counter.html", icon: "fa-list-ol", desc: "Count lines in your text" },
             { cat: "text", name: "Font Changer", file: "font-changer.html", icon: "fa-font", desc: "Change text case and generate fancy fonts" },
             { cat: "text", name: "Text Repeater", file: "text-repeater.html", icon: "fa-repeat", desc: "Repeat text multiple times" },
 
-            // Web & Security Tools (4 - Password, Speed, Color aur Hash Naye List Mein Hain)
-            { cat: "web", name: "Password Strength Tester", file: "password-strength-tester/index.html", icon: "fa-key", desc: "Check password strength and security" },
-            { cat: "web", name: "Speed Tester", file: "internet-speed-test/index.html", icon: "fa-gauge-high", desc: "Test internet speed & live IP address" },
-            { cat: "web", name: "Hash Generator", file: "hash-generator/index.html", icon: "fa-hashtag", desc: "Generate MD5, SHA-256 secure hashes" },
-            { cat: "web", name: "Color & HEX Converter", file: "color-hex-converter.html", icon: "fa-palette", desc: "Convert RGB to HEX and pick colors" },
+            // Web & Security Tools
+            { cat: "web", name: "Password Strength Tester", file: "password-strength-tester.html", icon: "fa-key", desc: "Check password strength and security" },
+            { cat: "web", name: "Speed Tester", file: "internet-speed-test.html", icon: "fa-gauge-high", desc: "Test internet speed & live IP address" },
 
-            // Calculators (4 - Naya GST Calculator Added)
+            // Calculators
             { cat: "calc", name: "Standard Calculator", file: "standard-calculator.html", icon: "fa-calculator", desc: "Basic mathematical calculations" },
             { cat: "calc", name: "Age Calculator", file: "age-calculator.html", icon: "fa-calendar-days", desc: "Calculate age from date of birth" },
             { cat: "calc", name: "Loan / Interest Calculator", file: "loan-interest-calculator.html", icon: "fa-hand-holding-dollar", desc: "Calculate EMI, interest and loans" },
-            { cat: "calc", name: "GST Calculator", file: "gst-calculator.html", icon: "fa-file-invoice-dollar", desc: "Calculate GST and tax amounts easily" },
 
-            // Converters (3)
+            // Converters
             { cat: "convert", name: "Length Converter", file: "length-converter.html", icon: "fa-ruler", desc: "Convert length and distance units" },
             { cat: "convert", name: "Weight Converter", file: "weight-converter.html", icon: "fa-weight-scale", desc: "Convert weight and mass units" },
             { cat: "convert", name: "Area Converter", file: "area-converter.html", icon: "fa-vector-square", desc: "Convert area measurement units" }
         ];
 
         const HOME_FAQS = [
-            { q: "What is Tveezal Tools and what makes it unique?", a: "Tveezal Tools is an online ecosystem featuring 38+ free browser utilities. Unlike other sites that upload your files to remote cloud servers, our tools execute 100% client-side directly within your browser." },
+            { q: "What is Tveezal Tools and what makes it unique?", a: "Tveezal Tools is an online ecosystem featuring 34+ free browser utilities. Unlike other sites that upload your files to remote cloud servers, our tools execute 100% client-side directly within your browser." },
             { q: "Do I have to register or create an account to use the tools?", a: "No. You never need to sign up, enter an email, or submit a credit card. Every tool is immediately available without usage limits." },
             { q: "How does the Image Compressor compress photos to exact sizes like 50KB?", a: "Our Image Compressor utilizes an adaptive binary search engine that repeatedly analyzes quality and canvas pixel buffers until your image matches your target KB constraint without color degradation." }
         ];
