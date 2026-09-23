@@ -270,7 +270,7 @@
             box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
         }
 
-        /* HIGH-CONTRAST BOLD INTRO (CRISP & DARK ON WHITE BG) */
+        /* HIGH-CONTRAST BOLD INTRO */
         .intro {
             text-align: center;
             padding: 24px 16px 12px;
@@ -459,7 +459,7 @@
         .social-link-btn.tw:hover { background: #000000; border-color: #000000; }
 
         /* =========================================================
-           4. BANNER CAROUSELS (UPDATED FOR PERFECT MOBILE FIT)
+           4. BANNER CAROUSELS (ADJUSTED FOR BIG MOBILE HEIGHT)
         ========================================================= */
         .banner-section {
             padding: 18px 0 8px;
@@ -476,12 +476,12 @@
             -webkit-user-select: none;
         }
 
+        /* Fixed Heights for Banners: Big enough on mobile, proper on desktop */
         .banner-carousel {
             position: relative;
             width: 100%;
-            height: auto !important;
-            aspect-ratio: 1250 / 400 !important;
-            overflow: hidden !important;
+            height: clamp(160px, 28vw, 400px);
+            overflow: hidden;
             cursor: grab;
         }
 
@@ -489,9 +489,9 @@
             cursor: grabbing;
         }
 
+        /* Big enough height for slim banners on mobile so they don't look tiny */
         .banner-carousel.slim-carousel {
-            height: auto !important;
-            aspect-ratio: 1250 / 100 !important;
+            height: clamp(80px, 12vw, 100px);
             border-radius: 16px;
         }
 
@@ -504,19 +504,22 @@
         }
 
         .banner-slide {
+            flex: 0 0 100%;
             min-width: 100%;
+            max-width: 100%;
             height: 100%;
             position: relative;
-            flex-shrink: 0;
             display: block;
             text-decoration: none;
         }
 
+        /* Object-fit Cover with Center keeps it tall on mobile but crops sides safely */
         .banner-slide img {
-            width: 100% !important;
-            height: 100% !important;
-            display: block !important;
-            object-fit: contain !important;
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            object-position: center;
             user-select: none;
             -webkit-user-drag: none;
             pointer-events: none;
@@ -540,6 +543,7 @@
             margin-bottom: 4px;
         }
 
+        /* DOTS OUTSIDE/BELOW THE BANNER */
         .banner-dots-below {
             display: flex;
             gap: 7px;
@@ -820,7 +824,7 @@
         }
 
         /* =========================================================
-           7. SEO ARTICLE, FEATURES & 10 FAQS
+           7. SEO ARTICLE, FEATURES & 10 FAQS (WITH DIRECT LINKS)
         ========================================================= */
         .seo-home-article {
             background: #ffffff;
@@ -1021,12 +1025,14 @@
     <header class="site-header" id="dynamicHeader">
         <div class="header-top">
             <a class="brand-container" href="index.html">
+                <!-- TVZ Logo Badge -->
                 <div class="logo-tvz" id="brandLogoBadge">TVZ</div>
                 <div class="brand-text">
                     TVEEZAL <span>Tools</span>
                 </div>
             </a>
 
+            <!-- 3 Solid White Dots Menu Button -->
             <button class="menu-trigger-btn" id="menuButton" aria-label="Open Navigation">
                 <div class="three-dots-solid">
                     <span class="dot-solid"></span>
@@ -1037,6 +1043,7 @@
         </div>
     </header>
 
+    <!-- Sub-Hero Section: Navigation Pills First -->
     <section class="sub-hero-section">
         <nav class="nav-pills-row">
             <a class="header-pill active" href="index.html">Home</a>
@@ -1049,7 +1056,7 @@
     </section>
 
     <!-- =========================================================
-         BANNER 1: TOP HERO CAROUSEL
+         BANNER 1: TOP HERO CAROUSEL (DOTS OUTSIDE BELOW)
     ========================================================= -->
     <section class="banner-section">
         <div class="container">
@@ -1058,10 +1065,12 @@
                     <div class="banner-track" id="topBannerTrack"></div>
                 </div>
             </div>
+            <!-- Indicator Dots placed cleanly below banner -->
             <div class="banner-dots-below" id="topBannerDots"></div>
         </div>
     </section>
 
+    <!-- High-Contrast Bold Intro Text (Crisp Black-Slate on White) -->
     <section class="container">
         <div class="intro">
             <h1>Fast, Free & Private <span>Online Utilities</span></h1>
@@ -1109,6 +1118,7 @@
     </aside>
 
     <main>
+        <!-- Search Bar -->
         <section class="search-section">
             <div class="container">
                 <div class="search-wrapper">
@@ -1119,6 +1129,7 @@
             </div>
         </section>
 
+        <!-- 7 Category Direct Navigation Links -->
         <section class="container">
             <div class="category-nav-wrapper">
                 <div class="category-nav">
@@ -1133,13 +1144,15 @@
             </div>
         </section>
 
+        <!-- Tool Categories Container (Includes 2 Slim Ribbon Banners) -->
         <section class="container">
             <div class="categories-container" id="categoriesContainer">
+                <!-- Generated dynamically with persistent category memory -->
             </div>
         </section>
 
         <!-- =========================================================
-             BANNER 4: BOTTOM FEATURED CAROUSEL
+             BANNER 4: BOTTOM FEATURED CAROUSEL (DOTS OUTSIDE BELOW)
         ========================================================= -->
         <section class="banner-section" style="margin-top: 30px;">
             <div class="container">
@@ -1148,11 +1161,12 @@
                         <div class="banner-track" id="bottomBannerTrack"></div>
                     </div>
                 </div>
+                <!-- Indicator Dots placed cleanly below banner -->
                 <div class="banner-dots-below" id="bottomBannerDots"></div>
             </div>
         </section>
 
-        <!-- SEO Article -->
+        <!-- SEO Article & Features (With Rich Working Internal Links) -->
         <section class="container">
             <article class="seo-home-article">
                 <h2>Why Choose Tveezal Tools for Everyday Digital Tasks?</h2>
@@ -1189,12 +1203,14 @@
             </article>
         </section>
 
+        <!-- Top Advertisement Before FAQs -->
         <div class="container">
             <div class="ad-block" style="margin-top: 25px;">
                 <span><i class="fas fa-rectangle-ad"></i> Advertisement (Above FAQs)</span>
             </div>
         </div>
 
+        <!-- 10 Detailed Home FAQs (With Rich Links Inside Answers) -->
         <section class="faq-section" id="faq">
             <div class="container">
                 <div style="text-align: center; margin-bottom: 22px;">
@@ -1205,6 +1221,7 @@
             </div>
         </section>
 
+        <!-- Bottom Advertisement After FAQs -->
         <div class="container">
             <div class="ad-block">
                 <span><i class="fas fa-rectangle-ad"></i> Advertisement (Below FAQs)</span>
@@ -1278,6 +1295,7 @@
          JAVASCRIPT LOGIC
     ========================================================= -->
     <script>
+        // 1. SMART DYNAMIC HEADER & DYNAMIC MOBILE STATUS BAR
         const dynamicHeader = document.getElementById("dynamicHeader");
         const metaThemeColor = document.getElementById("metaThemeColor");
 
@@ -1291,6 +1309,7 @@
             }
         });
 
+        // 2. DRAWER CONTROLS
         const menuBtn = document.getElementById("menuButton");
         const drawer = document.getElementById("navDrawer");
         const overlay = document.getElementById("menuOverlay");
@@ -1308,6 +1327,7 @@
         drawerClose.addEventListener("click", closeDrawer);
         overlay.addEventListener("click", closeDrawer);
 
+        // 3. MASTER BANNER DATASETS
         const TOP_BANNERS = [
             { image: "https://github.com/user-attachments/assets/facba8b5-d981-4358-83cb-4919c025bdde", link: "image-compressor.html", title: "OWNER" },
             { image: "assets/banner-2.webp", link: "pdf-merge.html", title: "Merge Multiple PDF Files Online" },
@@ -1347,6 +1367,7 @@
             { image: "assets/slim-banner-10.webp", link: "qr-generator-tool/index.html", title: "Make WiFi QR Codes Instantly" }
         ];
 
+        // 4. CATEGORIES CONFIGURATION
         const CATEGORIES = [
             { key: "pdf", title: "PDF Tools", hub: "pdf-tools.html", icon: "fa-file-pdf", desc: "Create, edit, protect and manage PDF files.", className: "cat-pdf" },
             { key: "image", title: "Image Tools", hub: "image-tools.html", icon: "fa-image", desc: "Compress to 50KB, resize, convert and edit images.", className: "cat-image" },
@@ -1357,7 +1378,9 @@
             { key: "convert", title: "Converters", hub: "converters.html", icon: "fa-arrows-left-right", desc: "Convert length, mass, and land measurement units.", className: "cat-convert" }
         ];
 
+        // 5. MASTER TOOLS LIST
         const TOOLS_LIST = [
+            // PDF Tools (10)
             { cat: "pdf", name: "PDF Protector", file: "pdf-protector.html", icon: "fa-shield-halved", desc: "Protect your PDF with security settings" },
             { cat: "pdf", name: "PDF Lock", file: "pdf-lock.html", icon: "fa-lock", desc: "Password-protect your PDF" },
             { cat: "pdf", name: "PDF Unlock", file: "pdf-unlock.html", icon: "fa-unlock", desc: "Remove PDF password protection" },
@@ -1369,6 +1392,7 @@
             { cat: "pdf", name: "PDF Page Editor", file: "pdf-page-editor.html", icon: "fa-pen-to-square", desc: "Edit and manage PDF pages" },
             { cat: "pdf", name: "PDF Page Rearrange", file: "pdf-page-rearrange.html", icon: "fa-arrows-up-down-left-right", desc: "Reorder PDF pages easily" },
 
+            // Image Tools (7)
             { cat: "image", name: "Image Compressor", file: "image-compressor.html", icon: "fa-compress", desc: "Reduce image file size to exact KB" },
             { cat: "image", name: "Format Converter", file: "format-converter.html", icon: "fa-arrows-rotate", desc: "Convert PNG, JPG, WEBP and more" },
             { cat: "image", name: "Image Resizer", file: "image-resizer.html", icon: "fa-expand", desc: "Change image width and height" },
@@ -1377,29 +1401,35 @@
             { cat: "image", name: "Add Watermark", file: "add-watermark.html", icon: "fa-stamp", desc: "Add watermark to images" },
             { cat: "image", name: "Remove Watermark", file: "remove-watermark.html", icon: "fa-wand-magic-sparkles", desc: "Remove unwanted image watermarks" },
 
+            // QR & Barcode Tools (4)
             { cat: "qr", name: "All-in-One QR Generator", file: "qr-generator-tool/index.html", icon: "fa-qrcode", desc: "Create QR codes for text, URLs and Wi-Fi" },
             { cat: "qr", name: "QR Code Scanner", file: "qr-scanner.html", icon: "fa-camera", desc: "Scan QR codes from images or camera" },
             { cat: "qr", name: "Barcode Generator", file: "barcode-generator.html", icon: "fa-barcode", desc: "Generate common barcode formats" },
             { cat: "qr", name: "Barcode Scanner", file: "barcode-scanner.html", icon: "fa-camera", desc: "Scan barcodes quickly" },
 
+            // Text & String Tools (5)
             { cat: "text", name: "Word Counter", file: "word-counter.html", icon: "fa-align-left", desc: "Count words, characters and spaces" },
             { cat: "text", name: "Text to Speech", file: "text-to-speech.html", icon: "fa-volume-high", desc: "Convert written text into speech" },
             { cat: "text", name: "Line Counter", file: "line-counter.html", icon: "fa-list-ol", desc: "Count lines in your text" },
             { cat: "text", name: "Font Changer", file: "font-changer.html", icon: "fa-font", desc: "Change text case and generate fancy fonts" },
             { cat: "text", name: "Text Repeater", file: "text-repeater.html", icon: "fa-repeat", desc: "Repeat text multiple times" },
 
+            // Web & Security Tools (2)
             { cat: "web", name: "Password Strength Tester", file: "password-strength-tester.html", icon: "fa-key", desc: "Check password strength and security" },
             { cat: "web", name: "Speed Tester", file: "internet-speed-test.html", icon: "fa-gauge-high", desc: "Test internet speed & live IP address" },
 
+            // Calculators (3)
             { cat: "calc", name: "Standard Calculator", file: "standard-calculator.html", icon: "fa-calculator", desc: "Basic mathematical calculations" },
             { cat: "calc", name: "Age Calculator", file: "age-calculator.html", icon: "fa-calendar-days", desc: "Calculate age from date of birth" },
             { cat: "calc", name: "Loan / Interest Calculator", file: "loan-interest-calculator.html", icon: "fa-hand-holding-dollar", desc: "Calculate EMI, interest and loans" },
 
+            // Converters (3)
             { cat: "convert", name: "Length Converter", file: "length-converter.html", icon: "fa-ruler", desc: "Convert length and distance units" },
             { cat: "convert", name: "Weight Converter", file: "weight-converter.html", icon: "fa-weight-scale", desc: "Convert weight and mass units" },
             { cat: "convert", name: "Area Converter", file: "area-converter.html", icon: "fa-vector-square", desc: "Convert area measurement units" }
         ];
 
+        // 6. 10 REAL-WORLD HOMEPAGE FAQS WITH WORKING LINKS
         const HOME_FAQS = [
             { q: "What is Tveezal Tools and what makes it unique?", a: "Tveezal Tools is an online ecosystem featuring 34+ free browser utilities. Unlike other sites that upload your files to remote cloud servers, our tools execute 100% client-side directly within your browser. Learn more on our <a href='about.html'>About Us</a> page." },
             { q: "Do I have to register or create an account to use the tools?", a: "No. You never need to sign up, enter an email, or submit a credit card. Every tool is immediately available without usage limits. Check our <a href='terms.html'>Terms of Service</a> for complete details." },
@@ -1413,6 +1443,7 @@
             { q: "Where can I find more in-depth support and questions?", a: "Visit our dedicated <a href='faq.html'>50+ Detailed FAQ Page</a> or reach out through our <a href='contact.html'>Contact Us</a> page for bug reports and tool requests." }
         ];
 
+        // 7. 1:1 REAL-TIME FINGER DRAG CAROUSEL ENGINE (DOTS BELOW & CYCLIC LOOP)
         function setupCarousel(trackId, dotsId, dataset) {
             const track = document.getElementById(trackId);
             const dotsContainer = document.getElementById(dotsId);
@@ -1516,8 +1547,10 @@
                 const threshold = Math.min(50, carousel.offsetWidth * 0.14);
 
                 if (movedBy < -threshold) {
+                    // Next (Cyclic loop: 10th se 1st par aayega)
                     current = (current + 1) % dataset.length;
                 } else if (movedBy > threshold) {
+                    // Prev (Cyclic loop: 1st se 10th par aayega)
                     current = (current - 1 + dataset.length) % dataset.length;
                 }
 
@@ -1546,6 +1579,7 @@
             startTimer();
         }
 
+        // 8. RENDER TOOLS & PERSISTENT CATEGORY MEMORY
         const categoriesContainer = document.getElementById("categoriesContainer");
         const searchInput = document.getElementById("searchInput");
         const searchClear = document.getElementById("searchClear");
@@ -1606,6 +1640,7 @@
                     grid.appendChild(card);
                 });
 
+                // Universal View More / Show Less Button
                 if (!cleanQuery) {
                     const moreWrap = document.createElement("div");
                     moreWrap.className = "more-tools-wrapper";
@@ -1626,6 +1661,7 @@
 
                 categoriesContainer.appendChild(section);
 
+                // SLIM RIBBON BANNER 1: After PDF Category
                 if (cat.key === "pdf") {
                     const slimSection1 = document.createElement("div");
                     slimSection1.style.margin = "10px 0";
@@ -1643,6 +1679,7 @@
                     categoriesContainer.appendChild(slimSection1);
                 }
 
+                // SLIM RIBBON BANNER 2: After Web & Security Category
                 if (cat.key === "web") {
                     const slimSection2 = document.createElement("div");
                     slimSection2.style.margin = "10px 0";
@@ -1660,6 +1697,7 @@
                     categoriesContainer.appendChild(slimSection2);
                 }
 
+                // Standard Advertisement Between Other Categories
                 if (catIndex < CATEGORIES.length - 1 && cat.key !== "pdf" && cat.key !== "web") {
                     const ad = document.createElement("div");
                     ad.className = "ad-block";
@@ -1672,9 +1710,11 @@
                 categoriesContainer.innerHTML = "<div style='text-align:center; padding:40px; color:var(--muted); font-weight:700;'>No matching tools found. Try another search term!</div>";
             }
 
+            // Initialize both slim ribbon carousels
             setupCarousel("slimBannerTrack1", "slimBannerDots1", SLIM_BANNERS_1);
             setupCarousel("slimBannerTrack2", "slimBannerDots2", SLIM_BANNERS_2);
 
+            // Restore Scroll Location If Returning From a Tool
             checkAndRestoreScroll();
         }
 
@@ -1691,6 +1731,7 @@
             }
         }
 
+        // Search Input Handlers
         searchInput.addEventListener("input", (e) => {
             renderTools(e.target.value);
             searchClear.classList.toggle("show", e.target.value.length > 0);
@@ -1703,6 +1744,7 @@
             searchInput.focus();
         });
 
+        // 9. RENDER 10 ACCORDION FAQS
         const faqList = document.getElementById("faqList");
         HOME_FAQS.forEach(item => {
             const div = document.createElement("div");
@@ -1724,6 +1766,7 @@
             faqList.appendChild(div);
         });
 
+        // Initialize Carousels and Layout
         setupCarousel("topBannerTrack", "topBannerDots", TOP_BANNERS);
         setupCarousel("bottomBannerTrack", "bottomBannerDots", TOP_BANNERS);
         renderTools();
