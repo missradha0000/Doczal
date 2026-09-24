@@ -1,272 +1,380 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DHZ9E8XV4S"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+
       gtag('config', 'G-DHZ9E8XV4S');
     </script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="theme-color" content="#ffffff" id="metaThemeColor">
+    <meta name="theme-color" content="#0f172a" id="metaThemeColor">
 
-    <title>Tveezal Tools – Free Online Tools & Utilities for PDF, Image, Text & Web</title>
-    <meta name="title" content="Tveezal Tools – Free Online Tools & Utilities for PDF, Image, Text & Web">
-    <meta name="description" content="Free online tools for PDF editing, 50KB image compression, viral meme generator, QR generation, and web security. Fast, secure, and 100% browser-based.">
-    
+    <!-- Primary SEO Meta Tags -->
+    <title>Length Converter Online - Convert Meters, Feet, Inches, Miles & Kilometers | Tveezal Tools</title>
+    <meta name="title" content="Length Converter Online - Convert Meters, Feet, Inches, Miles & Kilometers | Tveezal Tools">
+    <meta name="description" content="Free online length and distance unit converter. Instantly convert between meters, centimeters, millimeters, kilometers, inches, feet, yards, and miles with real-time precision.">
+    <meta name="keywords" content="length converter, feet to meters, inches to cm, distance unit converter, online length calculator, tveezal tools">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Tveezal Tools">
+
+    <link rel="canonical" href="https://tveezal.com/length-converter.html">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tveezal.com/length-converter.html">
+    <meta property="og:title" content="Length Converter Online - Convert Meters, Feet & Inches">
+    <meta property="og:description" content="Accurately convert length and distance units instantly in your browser without server uploads.">
+    <meta property="og:site_name" content="Tveezal Tools">
+
+    <!-- Fonts & Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "Tveezal Length Converter",
+          "operatingSystem": "All",
+          "applicationCategory": "UtilitiesApplication",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "description": "Convert length and distance units instantly between meters, feet, inches, kilometers, yards, and miles."
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How many feet are in 1 meter?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "1 meter is equal to approximately 3.28084 feet."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do I convert inches to centimeters?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "1 inch is equal to exactly 2.54 centimeters. You can use our online converter above for instant multi-unit calculations."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
 
     <style>
         :root {
-            --bg: #f8fafc; --white: #ffffff; --dark: #0f172a; --text: #334155;
-            --muted: #64748b; --line: #e2e8f0; --blue: #2563eb; --blue-hover: #1d4ed8;
-            --vibrant-blue-theme: linear-gradient(145deg, #0b1e4f 0%, #153e90 45%, #1e58c8 100%);
-            --shadow: 0 10px 30px rgba(15, 23, 42, 0.055); --transition: 0.25s ease;
+            --bg: #f8fafc;
+            --white: #ffffff;
+            --dark: #0f172a;
+            --text: #334155;
+            --muted: #64748b;
+            --line: #e2e8f0;
+            --blue: #2563eb;
+            --blue-hover: #1d4ed8;
+            --vibrant-blue: linear-gradient(145deg, #0b1e4f 0%, #153e90 45%, #1e58c8 100%);
+            --shadow: 0 10px 30px rgba(15, 23, 42, 0.055);
+            --transition: 0.25s ease;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--dark); min-height: 100vh; overflow-x: hidden; line-height: 1.7; }
-        button, input { font-family: inherit; }
-        button { cursor: pointer; }
-        a { color: inherit; text-decoration: none; }
-        .container { width: min(calc(100% - 32px), 1250px); margin-inline: auto; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        /* HEADER */
-        .site-header { position: sticky; top: 0; z-index: 1000; background: var(--vibrant-blue-theme); color: #ffffff; border-bottom: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease; }
-        .header-top { max-width: 1250px; margin: auto; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; }
-        .brand-container { display: inline-flex; align-items: center; gap: 12px; }
-        .logo-tvz { width: 42px; height: 42px; background: #ffffff; color: #1e58c8; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 900; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15); transition: 0.3s; }
-        .brand-text { font-size: 24px; font-weight: 850; letter-spacing: -0.8px; color: #ffffff; display: inline-flex; align-items: center; gap: 6px; }
-        .brand-text span { color: #60a5fa; text-shadow: 0 0 15px rgba(96, 165, 250, 0.45); }
-        .header-actions { display: flex; align-items: center; gap: 10px; }
-        .action-btn { background: rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.25); width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.25s; color: #ffffff; font-size: 16px; }
-        
-        .site-header.scrolled { background: #ffffff; border-bottom: 1px solid #e2e8f0; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06); }
-        .site-header.scrolled .logo-tvz { background: linear-gradient(135deg, #153e90 0%, #1e58c8 100%); color: #ffffff; }
-        .site-header.scrolled .brand-text { color: #0f172a; }
-        .site-header.scrolled .brand-text span { color: #2563eb; text-shadow: none; }
-        .site-header.scrolled .action-btn { background: #ffffff; border-color: #e2e8f0; color: #0f172a; box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04); }
+        html {
+            scroll-behavior: smooth;
+        }
 
-        .sub-hero-section { background: var(--vibrant-blue-theme); color: #ffffff; padding: 10px 0 24px; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
-        .nav-pills-row { max-width: 1250px; margin: auto; padding: 0 20px 14px; display: flex; flex-wrap: wrap; gap: 8px 10px; }
-        .header-pill { border: 1px solid rgba(255, 255, 255, 0.22); background: rgba(255, 255, 255, 0.08); color: white; padding: 6px 16px; border-radius: 999px; font-size: 13px; font-weight: 600; display: inline-flex; transition: 0.2s; }
-        .header-pill:hover { background: rgba(255, 255, 255, 0.22); }
-        .header-pill.active { background: #2563eb; border-color: #60a5fa; color: #ffffff; }
+        body {
+            font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--dark);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
 
-        .intro { text-align: center; padding: 24px 16px 12px; }
-        .intro h1 { font-size: clamp(28px, 4.8vw, 44px); letter-spacing: -1.2px; margin-bottom: 10px; color: #0f172a; font-weight: 900; line-height: 1.15; }
-        .intro h1 span { color: #2563eb; }
-        .intro p { max-width: 760px; margin: auto; color: #334155; font-size: 15.5px; font-weight: 550; }
+        button, input, select {
+            font-family: inherit;
+        }
 
-        /* HEAVY SIDE DRAWER */
-        .drawer-overlay { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px); z-index: 2000; opacity: 0; visibility: hidden; transition: 0.3s; }
-        .drawer-overlay.active { opacity: 1; visibility: visible; }
-        .side-drawer { position: fixed; top: 0; right: -340px; width: 320px; height: 100%; background: #ffffff; box-shadow: -10px 0 35px rgba(15, 23, 42, 0.12); z-index: 2001; padding: 24px 20px; overflow-y: auto; transition: right 0.3s; display: flex; flex-direction: column; border-left: 1px solid #e2e8f0; }
-        .side-drawer.active { right: 0; }
-        .drawer-header { display: flex; align-items: center; justify-content: space-between; padding-bottom: 16px; border-bottom: 2px solid #e2e8f0; margin-bottom: 18px; }
-        .drawer-title-group { display: flex; align-items: center; gap: 10px; font-size: 19px; font-weight: 850; }
-        .drawer-close-btn { background: #f8fafc; border: 1px solid #e2e8f0; width: 34px; height: 34px; border-radius: 10px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
-        .drawer-links { display: flex; flex-direction: column; gap: 9px; flex: 1; }
-        .drawer-pill-item { padding: 10px 18px; border-radius: 999px; background: #ffffff; border: 1px solid #e2e8f0; font-size: 14px; font-weight: 700; display: flex; align-items: center; gap: 12px; transition: 0.2s; }
-        .drawer-pill-item:hover { transform: translateX(4px); background: #eff6ff; border-color: #bfdbfe; color: #2563eb; }
-        
-        .drawer-social-section { margin-top: auto; padding-top: 20px; border-top: 1px solid #e2e8f0; }
-        .drawer-social-title { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 12px; text-align: center; }
-        .social-icons-flex { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
-        .channel-btn { width: 100%; border-radius: 10px; padding: 10px; background: #f8fafc; border: 1px solid #e2e8f0; color: #0f172a; font-size: 14px; font-weight: 700; display: flex; align-items: center; gap: 10px; transition: 0.2s; margin-bottom: 8px; }
-        .channel-btn:hover { background: #fee2e2; border-color: #fca5a5; color: #dc2626; transform: translateY(-2px); }
+        button {
+            cursor: pointer;
+        }
+
+        a {
+            color: var(--blue);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            width: min(calc(100% - 32px), 1150px);
+            margin-inline: auto;
+        }
 
         /* =========================================================
-           BANNER CAROUSELS (PERFECT TV-STYLE NO-CROP SCALING)
+           1. PERMANENT STICKY PURE WHITE TOP STRIP
         ========================================================= */
-        .banner-section { padding: 18px 0 8px; }
-        .banner-shell { position: relative; overflow: hidden; border-radius: 24px; background: #eef4ff; box-shadow: var(--shadow); user-select: none; }
-        
-        /* MAGIC CSS FOR NO CROPPING: Use Aspect Ratio, No Fixed Height */
-        .banner-carousel { 
-            position: relative; 
-            width: 100%; 
-            height: auto !important; 
-            aspect-ratio: 1250 / 400 !important; 
-            overflow: hidden !important; 
-            cursor: grab; 
+        .sticky-white-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #ffffff;
+            border-bottom: 1px solid #e2e8f0;
+            box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
         }
-        
-        .banner-carousel.slim-carousel { 
-            height: auto !important; 
-            aspect-ratio: 1250 / 100 !important; 
-            overflow: hidden !important; 
-            border-radius: 16px; 
+
+        .sticky-nav-inner {
+            max-width: 1250px;
+            margin: auto;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
-        
-        .banner-track { display: flex !important; width: 100% !important; height: 100% !important; transition: transform 0.45s; }
-        .banner-slide { flex: 0 0 100% !important; min-width: 100% !important; height: 100% !important; display: block !important; position: relative; }
-        
-        .banner-slide img { 
-            width: 100% !important; 
-            height: 100% !important; 
-            object-fit: cover !important; /* Perfect fit because container matches aspect-ratio */
-            display: block !important; 
-            user-select: none;
-            pointer-events: none;
+
+        .brand-container {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
         }
-        
-        .banner-dots-below { display: flex; gap: 7px; justify-content: center; align-items: center; margin-top: 10px; margin-bottom: 6px; }
-        .banner-dot { width: 7px; height: 7px; border: 0; border-radius: 50%; background: #cbd5e1; transition: 0.25s ease; cursor: pointer; }
-        .banner-dot.active { width: 22px; border-radius: 20px; background: #2563eb; }
 
-        /* CATEGORIES & TOOLS */
-        .search-section { padding: 14px 0 22px; }
-        .search-wrapper { position: relative; max-width: 680px; margin: auto; }
-        .search-icon { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: #94a3b8; }
-        #searchInput { width: 100%; height: 54px; border: 1.5px solid #dce4ee; border-radius: 18px; outline: none; padding: 0 48px 0 50px; font-size: 15px; box-shadow: 0 6px 20px rgba(15, 23, 42, 0.03); transition: 0.25s; }
-        #searchInput:focus { border-color: var(--blue); box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1); }
-        .search-clear { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); width: 30px; height: 30px; border: 0; border-radius: 50%; display: none; }
-        .search-clear.show { display: block; }
-        
-        .category-nav-wrapper { margin-bottom: 26px; overflow-x: auto; scrollbar-width: none; }
-        .category-nav-wrapper::-webkit-scrollbar { display: none; }
-        .category-nav { display: flex; gap: 10px; justify-content: center; min-width: max-content; padding-bottom: 6px; }
-        .category-direct-link { border: 1.5px solid #e2e8f0; background: #ffffff; padding: 8px 18px; border-radius: 999px; font-size: 13px; font-weight: 700; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04); transition: 0.2s; }
-        .category-direct-link:hover { border-color: var(--blue); color: var(--blue); transform: translateY(-2px); }
+        .logo-tvz {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, #153e90 0%, #1e58c8 100%);
+            color: #ffffff;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px rgba(30, 88, 200, 0.35);
+            flex-shrink: 0;
+        }
 
-        .categories-container { display: flex; flex-direction: column; gap: 26px; }
-        .category-section { background: #ffffff; border: 1px solid var(--line); border-radius: 24px; padding: 26px; box-shadow: var(--shadow); scroll-margin-top: 85px; }
-        .category-header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
-        .category-icon { width: 46px; height: 46px; border-radius: 14px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 18px; }
-        .cat-pdf .category-icon { background: linear-gradient(145deg, #dc2626, #991b1b); }
-        .cat-image .category-icon { background: linear-gradient(145deg, #7c3aed, #5b21b6); }
-        .cat-qr .category-icon { background: linear-gradient(145deg, #059669, #047857); }
-        .cat-text .category-icon { background: linear-gradient(145deg, #d97706, #b45309); }
-        .cat-web .category-icon { background: linear-gradient(145deg, #0891b2, #0e7490); }
-        .cat-calc .category-icon { background: linear-gradient(145deg, #4f46e5, #3730a3); }
-        .cat-convert .category-icon { background: linear-gradient(145deg, #e11d48, #be123c); }
-        
-        .category-title { font-size: 20px; font-weight: 850; letter-spacing: -0.5px; }
-        .category-description { color: var(--muted); font-size: 12px; margin-top: 2px; }
-        .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
-        .tool-card { display: flex; align-items: center; gap: 12px; padding: 14px; border: 1px solid #edf1f6; background: #f8fafc; border-radius: 16px; transition: 0.2s; }
-        .tool-card:hover { transform: translateY(-2px); background: #ffffff; border-color: #bfdbfe; box-shadow: 0 10px 24px rgba(37, 99, 235, 0.08); }
-        .tool-icon { width: 32px; text-align: center; color: var(--blue); font-size: 18px; flex-shrink: 0; }
-        .tool-info { flex: 1; min-width: 0; }
-        .tool-name { display: block; font-size: 14px; font-weight: 700; line-height: 1.35; }
-        .tool-desc { display: block; margin-top: 2px; color: var(--muted); font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .tool-arrow { color: #cbd5e1; transition: 0.25s; }
-        .tool-card:hover .tool-arrow { color: var(--blue); transform: translateX(3px); }
-        
-        .more-tools-wrapper { text-align: center; margin-top: 16px; }
-        .btn-toggle-more { background: #ffffff; border: 1.5px solid var(--line); color: var(--dark); padding: 8px 24px; border-radius: 999px; font-size: 12.5px; font-weight: 700; transition: 0.2s; }
-        .btn-toggle-more:hover { background: #eff6ff; border-color: var(--blue); color: var(--blue); }
-        .ad-block { width: 100%; min-height: 65px; display: flex; align-items: center; justify-content: center; border: 1.5px dashed #cbd5e1; border-radius: 16px; background: #f1f5f9; color: #64748b; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin: 12px 0; }
+        .brand-text {
+            font-size: 22px;
+            font-weight: 850;
+            letter-spacing: -0.6px;
+            color: #0f172a;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
 
-        /* PREMIUM DARK FOOTER */
-        .footer-section { margin-top: 60px; background: #0a0f1d; color: #ffffff; border-radius: 32px 32px 0 0; padding: 55px 0 30px; border-top: 4px solid #2563eb; }
-        .footer-grid { display: grid; grid-template-columns: 1.5fr repeat(3, 1fr); gap: 40px; }
-        .footer-brand p { color: #94a3b8; font-size: 13.5px; margin: 12px 0 18px; line-height: 1.8; }
-        .footer-column h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: #64748b; margin-bottom: 16px; font-weight: 800; }
-        .footer-links { display: flex; flex-direction: column; gap: 12px; }
-        .footer-link { color: #cbd5e1; font-size: 13.5px; transition: 0.2s; display: flex; align-items: center; gap: 8px; font-weight: 500; }
-        .footer-link:hover { color: #60a5fa; transform: translateX(3px); }
-        .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.08); margin-top: 45px; padding-top: 20px; display: flex; justify-content: space-between; color: #64748b; font-size: 13px; font-weight: 500; }
-        @media (max-width: 850px) { .footer-grid { grid-template-columns: 1fr 1fr; } .footer-brand { grid-column: 1 / -1; } }
-    </style>
-</head>
-<body>
+        .brand-text span {
+            color: #2563eb;
+        }
 
-    <header class="site-header" id="dynamicHeader">
-        <div class="header-top">
-            <a class="brand-container" href="index.html">
-                <div class="logo-tvz" id="brandLogoBadge">TVZ</div>
-                <div class="brand-text">TVEEZAL <span>Tools</span></div>
-            </a>
-            <div class="header-actions">
-                <button class="action-btn" id="shareButton" title="Share Website">
-                    <i class="fa-solid fa-share-nodes"></i>
-                </button>
-                <button class="action-btn" id="menuButton" aria-label="Open Navigation">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-            </div>
-        </div>
-    </header>
+        .menu-trigger-btn {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+            transition: all 0.2s ease;
+        }
 
-    <section class="sub-hero-section">
-        <nav class="nav-pills-row">
-            <a class="header-pill active" href="index.html">Home</a>
-            <a class="header-pill" href="#categoriesContainer">All Tools</a>
-            <a class="header-pill" href="blog.html">Blog</a>
-            <a class="header-pill" href="faq.html">FAQ</a>
-            <a class="header-pill" href="privacy.html">Privacy</a>
-        </nav>
-    </section>
+        .menu-trigger-btn:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+            transform: scale(1.04);
+        }
 
-    <section class="banner-section">
-        <div class="container">
-            <div class="banner-shell">
-                <div class="banner-carousel" id="topBannerCarousel"><div class="banner-track" id="topBannerTrack"></div></div>
-            </div>
-            <div class="banner-dots-below" id="topBannerDots"></div>
-        </div>
-    </section>
+        .three-dots-solid {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 5px;
+        }
 
-    <section class="container">
-        <div class="intro">
-            <h1>Fast, Free & Private <span>Online Utilities</span></h1>
-            <p>Over 40+ browser-based tools for PDF management, photo compression, meme generation, text utilities, and unit conversions without server uploads.</p>
-        </div>
-    </section>
+        .dot-solid {
+            width: 6px;
+            height: 6px;
+            background-color: #0f172a;
+            border-radius: 50%;
+            display: inline-block;
+        }
 
-    <div class="drawer-overlay" id="menuOverlay"></div>
-    <aside class="side-drawer" id="navDrawer">
-        <div class="drawer-header">
-            <div class="drawer-title-group">
-                <div class="logo-tvz" style="width: 32px; height: 32px; font-size: 12px; border-radius: 8px; background: #2563eb; color:#fff;">TVZ</div>
-                <div class="drawer-title">Tveezal Tools</div>
-            </div>
-            <button class="drawer-close-btn" id="drawerClose">✕</button>
-        </div>
-        <div class="drawer-links">
-            <a class="drawer-pill-item" href="index.html"><i class="fa-solid fa-house" style="color:#2563eb;"></i> Home</a>
-            <a class="drawer-pill-item" href="pdf-tools.html"><i class="fa-solid fa-file-pdf" style="color:#dc2626;"></i> PDF Tools</a>
-            <a class="drawer-pill-item" href="image-tools.html"><i class="fa-solid fa-image" style="color:#7c3aed;"></i> Image Tools</a>
-            <a class="drawer-pill-item" href="qr-barcode-tools.html"><i class="fa-solid fa-qrcode" style="color:#059669;"></i> QR & Barcode</a>
-            <a class="drawer-pill-item" href="text-string-tools.html"><i class="fa-solid fa-font" style="color:#d97706;"></i> Text & String</a>
-            <a class="drawer-pill-item" href="web-security-tools.html"><i class="fa-solid fa-shield-halved" style="color:#0891b2;"></i> Web & Security</a>
-            <a class="drawer-pill-item" href="calculators.html"><i class="fa-solid fa-calculator" style="color:#4f46e5;"></i> Calculators</a>
-        </div>
-        
-        <div class="drawer-social-section">
-            <div class="drawer-social-title">Our Creator Channels</div>
-            <div class="social-icons-flex">
-                <a href="#" class="channel-btn"><i class="fab fa-youtube" style="color:#ff0000; font-size: 18px;"></i> AI Tech Guru</a>
-                <a href="#" class="channel-btn"><i class="fab fa-youtube" style="color:#ff0000; font-size: 18px;"></i> Hindi Horror Stories</a>
-                <a href="#" class="channel-btn"><i class="fab fa-youtube" style="color:#ff0000; font-size: 18px;"></i> Cartoon & Animation</a>
-            </div>
-        </div>
-    </aside>
+        /* =========================================================
+           2. VIBRANT BLUE SUB-HEADER WITH BACK & SHARE BUTTONS
+        ========================================================= */
+        .blue-hero-header {
+            background: var(--vibrant-blue);
+            color: white;
+            padding: 16px 0 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
-    <main>
-        <section class="search-section">
-            <div class="container">
-                <div class="search-wrapper">
-                    <i class="fas fa-search search-icon"></i>
-                    <input id="searchInput" type="search" placeholder="Search 40+ tools by name, action or category..." autocomplete="off">
-                    <button class="search-clear" id="searchClear" type="button"><i class="fas fa-xmark"></i></button>
-                </div>
-            </div>
-        </section>
+        .sub-nav-row {
+            max-width: 1250px;
+            margin: auto;
+            padding: 0 20px 14px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
 
-        <section class="container">
-            <div class="category-nav-wrapper">
-                <div class="category-nav">
-                    <a class="category-direct-link" href="pdf-tools.html"><i class="fa-solid fa-file-pdf" style="color:#dc2626;"></i> PDF Tools</a>
-                    <a class="category-direct-link" href="image-tools.html"><i class="fa-solid fa-image" style="color:#7c3aed;"></i> Image Tools</a>
-                    <a class="category-direct-link" hreoverlay.active {
+        .nav-pills-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px 10px;
+        }
+
+        .header-pill {
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            background: rgba(255, 255, 255, 0.08);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 999px;
+            font-size: 12.5px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+        }
+
+        .header-pill:hover {
+            background: rgba(255, 255, 255, 0.22);
+            transform: translateY(-1px);
+            text-decoration: none;
+        }
+
+        .header-pill.active {
+            background: #2563eb;
+            border-color: #60a5fa;
+            color: #ffffff;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+        }
+
+        .tool-back-btn {
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            background: rgba(255, 255, 255, 0.18);
+            color: #ffffff;
+            padding: 6px 16px;
+            border-radius: 999px;
+            font-size: 12.5px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .tool-back-btn:hover {
+            background: #ffffff;
+            color: var(--blue);
+            transform: translateX(-2px);
+            text-decoration: none;
+        }
+
+        .tool-share-btn {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #ffffff;
+            padding: 6px 16px;
+            border-radius: 999px;
+            font-size: 12.5px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .tool-share-btn:hover {
+            background: #25d366;
+            border-color: #25d366;
+            color: #ffffff;
+            transform: translateY(-1px);
+        }
+
+        .hero {
+            max-width: 1200px;
+            margin: auto;
+            padding: 8px 20px 6px;
+            text-align: center;
+        }
+
+        .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 1.7px;
+            color: #93c5fd;
+            font-size: 11.5px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        h1 {
+            font-size: clamp(24px, 4.2vw, 42px);
+            line-height: 1.15;
+            letter-spacing: -1.2px;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .hero p {
+            max-width: 740px;
+            margin: 0 auto;
+            color: #dbeafe;
+            font-size: 15px;
+        }
+
+        /* =========================================================
+           3. FULL WHITE SIDE DRAWER
+        ========================================================= */
+        .drawer-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .drawer-overlay.active {
             opacity: 1;
             visibility: visible;
         }
@@ -354,6 +462,7 @@
             gap: 12px;
             box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
             transition: all 0.2s ease;
+            text-decoration: none;
         }
 
         .drawer-pill-item:hover {
@@ -362,6 +471,7 @@
             border-color: #bfdbfe;
             color: #2563eb;
             box-shadow: 0 4px 14px rgba(37, 99, 235, 0.12);
+            text-decoration: none;
         }
 
         .drawer-social-section {
@@ -398,11 +508,13 @@
             color: #475569;
             font-size: 15px;
             transition: all 0.2s ease;
+            text-decoration: none;
         }
 
         .social-link-btn:hover {
             transform: translateY(-2px);
             color: #ffffff;
+            text-decoration: none;
         }
 
         .social-link-btn.wa:hover { background: #25d366; border-color: #25d366; }
@@ -412,30 +524,141 @@
         .social-link-btn.fb:hover { background: #1877f2; border-color: #1877f2; }
         .social-link-btn.tw:hover { background: #000000; border-color: #000000; }
 
+        .btn-share-full-site {
+            margin-top: 14px;
+            width: 100%;
+            padding: 9px 16px;
+            border-radius: 999px;
+            border: 1px solid #bbf7d0;
+            background: #dcfce7;
+            color: #15803d;
+            font-size: 13px;
+            font-weight: 800;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-share-full-site:hover {
+            background: #bbf7d0;
+            transform: translateY(-1px);
+        }
+
         /* =========================================================
-           4. BANNER CAROUSELS (ADJUSTED FOR BIG MOBILE HEIGHT)
+           4. LENGTH CONVERTER TOOL WORKBENCH
+        ========================================================= */
+        .tool-workbench {
+            background: #ffffff;
+            border: 1px solid var(--line);
+            border-radius: 28px;
+            padding: clamp(20px, 4vw, 36px);
+            box-shadow: var(--shadow);
+            margin-top: 24px;
+        }
+
+        .converter-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 16px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .converter-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .convert-box {
+            background: #f8fafc;
+            border: 1.5px solid var(--line);
+            border-radius: 20px;
+            padding: 20px;
+        }
+
+        .convert-label {
+            font-size: 13px;
+            font-weight: 800;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .convert-input-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .convert-input-group input, .convert-input-group select {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 12px;
+            background: #ffffff;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--dark);
+            outline: none;
+        }
+
+        .convert-input-group input:focus, .convert-input-group select:focus {
+            border-color: var(--blue);
+        }
+
+        .swap-btn-wrap {
+            text-align: center;
+        }
+
+        .btn-swap {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: #eff6ff;
+            border: 1.5px solid #bfdbfe;
+            color: var(--blue);
+            font-size: 16px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-swap:hover {
+            background: var(--blue);
+            color: #ffffff;
+            transform: rotate(180deg);
+        }
+
+        /* =========================================================
+           5. BANNER CAROUSELS (FIXED HEIGHT FOR MOBILE - NO SQUISH)
         ========================================================= */
         .banner-section {
-            padding: 18px 0 8px;
+            padding: 24px 0 10px;
         }
 
         .banner-shell {
             position: relative;
-            overflow: hidden;
-            border-radius: 24px;
-            background: #eef4ff;
-            box-shadow: var(--shadow);
-            touch-action: pan-y pinch-zoom;
+            background: transparent;
             user-select: none;
             -webkit-user-select: none;
         }
 
-        /* Fixed Heights for Banners: Big enough on mobile, proper on desktop */
+        /* Desktop: Landscape Aspect Ratio */
         .banner-carousel {
             position: relative;
             width: 100%;
-            height: clamp(160px, 28vw, 400px);
+            height: auto;
+            aspect-ratio: 1250 / 400;
             overflow: hidden;
+            border-radius: 24px;
+            background: #eef4ff;
+            box-shadow: var(--shadow);
             cursor: grab;
         }
 
@@ -443,9 +666,8 @@
             cursor: grabbing;
         }
 
-        /* Big enough height for slim banners on mobile so they don't look tiny */
         .banner-carousel.slim-carousel {
-            height: clamp(80px, 12vw, 100px);
+            aspect-ratio: 1250 / 100;
             border-radius: 16px;
         }
 
@@ -458,16 +680,14 @@
         }
 
         .banner-slide {
-            flex: 0 0 100%;
             min-width: 100%;
-            max-width: 100%;
             height: 100%;
             position: relative;
+            flex-shrink: 0;
             display: block;
             text-decoration: none;
         }
 
-        /* Object-fit Cover with Center keeps it tall on mobile but crops sides safely */
         .banner-slide img {
             width: 100%;
             height: 100%;
@@ -491,20 +711,17 @@
             background: linear-gradient(135deg, #dbeafe, #ede9fe, #fae8ff);
         }
 
-        .banner-fallback h2 {
-            font-size: clamp(16px, 3vw, 36px);
+        .banner-fallback h3 {
+            font-size: clamp(15px, 2.5vw, 24px);
             color: var(--dark);
-            margin-bottom: 4px;
+            margin-bottom: 3px;
         }
 
-        /* DOTS OUTSIDE/BELOW THE BANNER */
-        .banner-dots-below {
+        .banner-dots-wrapper {
             display: flex;
-            gap: 7px;
             justify-content: center;
-            align-items: center;
+            gap: 6px;
             margin-top: 10px;
-            margin-bottom: 6px;
         }
 
         .banner-dot {
@@ -518,246 +735,21 @@
         }
 
         .banner-dot.active {
-            width: 22px;
+            width: 20px;
             border-radius: 20px;
             background: #2563eb;
         }
 
-        /* =========================================================
-           5. SEARCH & 7 CATEGORIES QUICK LINKS
-        ========================================================= */
-        .search-section {
-            padding: 14px 0 22px;
-        }
-
-        .search-wrapper {
-            position: relative;
-            max-width: 680px;
-            margin: auto;
-        }
-
-        .search-icon {
-            position: absolute;
-            left: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #94a3b8;
-            pointer-events: none;
-        }
-
-        #searchInput {
-            width: 100%;
-            height: 54px;
-            border: 1.5px solid #dce4ee;
-            border-radius: 18px;
-            background: #ffffff;
-            outline: none;
-            padding: 0 48px 0 50px;
-            font-size: 15px;
-            color: var(--dark);
-            box-shadow: 0 6px 20px rgba(15, 23, 42, 0.03);
-            transition: var(--transition);
-        }
-
-        #searchInput:focus {
-            border-color: var(--blue);
-            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
-        }
-
-        .search-clear {
-            position: absolute;
-            right: 14px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 30px;
-            height: 30px;
-            border: 0;
-            border-radius: 50%;
-            background: #f1f5f9;
-            color: #64748b;
-            display: none;
-        }
-
-        .search-clear.show { display: block; }
-
-        .category-nav-wrapper {
-            margin-bottom: 26px;
-            overflow-x: auto;
-            scrollbar-width: none;
-        }
-
-        .category-nav-wrapper::-webkit-scrollbar { display: none; }
-
-        .category-nav {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            min-width: max-content;
-            padding-bottom: 6px;
-        }
-
-        .category-direct-link {
-            border: 1.5px solid #e2e8f0;
-            background: #ffffff;
-            color: var(--dark);
-            padding: 8px 18px;
-            border-radius: 999px;
-            font-size: 13px;
-            font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
-            transition: all 0.2s ease;
-        }
-
-        .category-direct-link:hover {
-            border-color: var(--blue);
-            color: var(--blue);
-            transform: translateY(-2px);
-        }
-
-        /* =========================================================
-           6. CATEGORY SECTIONS (SCROLL-ANCHORED)
-        ========================================================= */
-        .categories-container {
-            display: flex;
-            flex-direction: column;
-            gap: 26px;
-        }
-
-        .category-section {
-            background: #ffffff;
-            border: 1px solid var(--line);
-            border-radius: 24px;
-            padding: 26px;
-            box-shadow: var(--shadow);
-            scroll-margin-top: 85px;
-        }
-
-        .category-header {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            margin-bottom: 20px;
-        }
-
-        .category-icon {
-            width: 46px;
-            height: 46px;
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-size: 18px;
-        }
-
-        .cat-pdf .category-icon { background: linear-gradient(145deg, #dc2626, #991b1b); }
-        .cat-image .category-icon { background: linear-gradient(145deg, #7c3aed, #5b21b6); }
-        .cat-qr .category-icon { background: linear-gradient(145deg, #059669, #047857); }
-        .cat-text .category-icon { background: linear-gradient(145deg, #d97706, #b45309); }
-        .cat-web .category-icon { background: linear-gradient(145deg, #0891b2, #0e7490); }
-        .cat-calc .category-icon { background: linear-gradient(145deg, #4f46e5, #3730a3); }
-        .cat-convert .category-icon { background: linear-gradient(145deg, #e11d48, #be123c); }
-
-        .category-title {
-            font-size: 20px;
-            font-weight: 850;
-            letter-spacing: -0.5px;
-        }
-
-        .category-description {
-            color: var(--muted);
-            font-size: 12px;
-            margin-top: 2px;
-        }
-
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 12px;
-        }
-
-        .tool-card {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 14px;
-            border: 1px solid #edf1f6;
-            background: #f8fafc;
-            border-radius: 16px;
-            transition: all 0.2s ease;
-        }
-
-        .tool-card:hover {
-            transform: translateY(-2px);
-            background: #ffffff;
-            border-color: #bfdbfe;
-            box-shadow: 0 10px 24px rgba(37, 99, 235, 0.08);
-        }
-
-        .tool-icon {
-            width: 32px;
-            text-align: center;
-            color: var(--blue);
-            font-size: 18px;
-            flex-shrink: 0;
-        }
-
-        .tool-info {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .tool-name {
-            display: block;
-            font-size: 14px;
-            font-weight: 700;
-            line-height: 1.35;
-        }
-
-        .tool-desc {
-            display: block;
-            margin-top: 2px;
-            color: var(--muted);
-            font-size: 11px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .tool-arrow {
-            color: #cbd5e1;
-            transition: var(--transition);
-        }
-
-        .tool-card:hover .tool-arrow {
-            color: var(--blue);
-            transform: translateX(3px);
-        }
-
-        .more-tools-wrapper {
-            text-align: center;
-            margin-top: 16px;
-        }
-
-        .btn-toggle-more {
-            background: #ffffff;
-            border: 1.5px solid var(--line);
-            color: var(--dark);
-            padding: 8px 24px;
-            border-radius: 999px;
-            font-size: 12.5px;
-            font-weight: 700;
-            transition: all 0.2s ease;
-            box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
-        }
-
-        .btn-toggle-more:hover {
-            background: #eff6ff;
-            border-color: var(--blue);
-            color: var(--blue);
+        /* MOBILE FIX FOR BANNERS */
+        @media (max-width: 768px) {
+            .banner-carousel {
+                aspect-ratio: auto;
+                height: 250px; /* Lock height so it doesn't squish into a thin line */
+            }
+            .banner-carousel.slim-carousel {
+                aspect-ratio: auto;
+                height: 90px; /* Thicker mobile slim banner */
+            }
         }
 
         .ad-block {
@@ -774,58 +766,178 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.8px;
-            margin: 12px 0;
+            margin: 16px 0;
+        }
+
+        /* 7 CATEGORIES EXPLORER */
+        .categories-bar-wrapper {
+            margin: 32px 0 24px;
+            text-align: center;
+        }
+
+        .categories-title {
+            font-size: 14px;
+            font-weight: 800;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 14px;
+        }
+
+        .category-buttons-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .cat-tag-btn {
+            background: #ffffff;
+            border: 1px solid var(--line);
+            padding: 8px 16px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--dark);
+            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .cat-tag-btn:hover {
+            border-color: var(--blue);
+            color: var(--blue);
+            transform: translateY(-2px);
+            text-decoration: none;
         }
 
         /* =========================================================
-           7. SEO ARTICLE, FEATURES & 10 FAQS (WITH DIRECT LINKS)
+           6. TRANSPARENT GREEN FLOW & DETAILED SEO CONTENT
         ========================================================= */
-        .seo-home-article {
+        .seo-content-box {
             background: #ffffff;
             border: 1px solid var(--line);
             border-radius: 28px;
             padding: clamp(24px, 4vw, 44px);
-            margin-top: 36px;
+            margin-top: 32px;
             box-shadow: var(--shadow);
+            text-align: left;
         }
 
-        .seo-home-article h2 {
+        .seo-content-box h2 {
             font-size: clamp(22px, 3.5vw, 32px);
             letter-spacing: -0.8px;
             margin-bottom: 12px;
-            color: #0f172a;
+            color: var(--dark);
         }
 
-        .seo-home-article h3 {
+        .seo-content-box h3 {
             font-size: 19px;
             margin: 26px 0 10px;
-            color: #0f172a;
+            color: var(--dark);
         }
 
-        .seo-home-article p {
+        .seo-content-box p {
             color: #334155;
             font-size: 14.5px;
             margin-bottom: 14px;
         }
 
-        .seo-home-article a {
-            color: var(--blue);
-            font-weight: 700;
-            text-decoration: underline;
-        }
-
-        .seo-home-article a:hover {
-            color: var(--blue-hover);
-        }
-
-        .seo-home-article ul {
+        .seo-content-box ul {
             padding-left: 24px;
             margin-bottom: 20px;
             color: #334155;
             font-size: 14px;
         }
 
-        .seo-home-article li { margin: 6px 0; }
+        .seo-content-box li { margin: 6px 0; }
+
+        .visual-diagram-card {
+            background: rgba(240, 253, 244, 0.75);
+            border: 1.5px solid #bbf7d0;
+            backdrop-filter: blur(6px);
+            border-radius: 20px;
+            padding: 22px;
+            margin: 24px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 16px;
+            text-align: center;
+        }
+
+        .diagram-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            max-width: 140px;
+        }
+
+        .diagram-icon-svg {
+            width: 44px;
+            height: 44px;
+            padding: 9px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(22, 101, 52, 0.12);
+        }
+
+        .diagram-step span {
+            font-size: 12px;
+            font-weight: 800;
+            color: #166534;
+        }
+
+        .diagram-arrow {
+            font-size: 20px;
+            color: #16a34a;
+            font-weight: 900;
+        }
+
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 18px;
+            margin: 20px 0 28px;
+        }
+
+        .step-card {
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 20px;
+            background: #f8fafc;
+            text-align: center;
+        }
+
+        .step-badge {
+            width: 36px;
+            height: 36px;
+            background: var(--blue);
+            color: white;
+            font-weight: 800;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+        }
+
+        .step-card h4 {
+            font-size: 15px;
+            margin-bottom: 6px;
+            color: var(--dark);
+        }
+
+        .step-card p {
+            font-size: 13px;
+            color: var(--muted);
+            margin: 0;
+        }
 
         .feature-grid {
             display: grid;
@@ -845,7 +957,7 @@
             font-size: 15px;
             font-weight: 700;
             margin-bottom: 6px;
-            color: #0f172a;
+            color: var(--dark);
         }
 
         .feature-box p {
@@ -855,15 +967,14 @@
         }
 
         .faq-section {
-            padding: 44px 0 20px;
+            padding: 30px 0 10px;
         }
 
         .faq-list {
-            max-width: 860px;
-            margin: auto;
             display: flex;
             flex-direction: column;
             gap: 10px;
+            margin-top: 18px;
         }
 
         .faq-item {
@@ -898,20 +1009,14 @@
             padding: 0 20px;
             color: var(--text);
             font-size: 13.5px;
-            line-height: 1.7;
-        }
-
-        .faq-answer-inner a {
-            color: var(--blue);
-            font-weight: 700;
-            text-decoration: underline;
+            line-height: 1.65;
         }
 
         .faq-item.open .faq-answer { grid-template-rows: 1fr; }
         .faq-item.open .faq-answer-inner { padding-bottom: 18px; }
 
         /* =========================================================
-           8. FOOTER WITH INTEGRATED SOCIAL MEDIA
+           7. FOOTER WITH INTEGRATED SOCIAL MEDIA & SHARE WEBSITE
         ========================================================= */
         .footer-section {
             margin-top: 60px;
@@ -953,7 +1058,32 @@
             transition: var(--transition);
         }
 
-        .footer-link:hover { color: #ffffff; }
+        .footer-link:hover { color: #ffffff; text-decoration: none; }
+
+        .footer-share-box {
+            margin-top: 18px;
+        }
+
+        .footer-share-btn {
+            background: #2563eb;
+            color: #ffffff;
+            border: 0;
+            padding: 9px 18px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+            transition: all 0.2s ease;
+        }
+
+        .footer-share-btn:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
 
         .footer-bottom {
             border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -974,19 +1104,18 @@
 <body>
 
     <!-- =========================================================
-         1. SMART DYNAMIC TOP NAVBAR
+         1. PERMANENT STICKY PURE WHITE TOP STRIP
     ========================================================= -->
-    <header class="site-header" id="dynamicHeader">
-        <div class="header-top">
+    <div class="sticky-white-nav">
+        <div class="sticky-nav-inner">
             <a class="brand-container" href="index.html">
-                <!-- TVZ Logo Badge -->
-                <div class="logo-tvz" id="brandLogoBadge">TVZ</div>
+                <div class="logo-tvz">TVZ</div>
                 <div class="brand-text">
                     TVEEZAL <span>Tools</span>
                 </div>
             </a>
 
-            <!-- 3 Solid White Dots Menu Button -->
+            <!-- 3 Solid Dots Menu Button -->
             <button class="menu-trigger-btn" id="menuButton" aria-label="Open Navigation">
                 <div class="three-dots-solid">
                     <span class="dot-solid"></span>
@@ -995,49 +1124,44 @@
                 </div>
             </button>
         </div>
-    </header>
-
-    <!-- Sub-Hero Section: Navigation Pills First -->
-    <section class="sub-hero-section">
-        <nav class="nav-pills-row">
-            <a class="header-pill active" href="index.html">Home</a>
-            <a class="header-pill" href="#categoriesContainer">All Tools</a>
-            <a class="header-pill" href="blog.html">Blog</a>
-            <a class="header-pill" href="faq.html">FAQ</a>
-            <a class="header-pill" href="privacy.html">Privacy</a>
-            <a class="header-pill" href="terms.html">Terms</a>
-        </nav>
-    </section>
+    </div>
 
     <!-- =========================================================
-         BANNER 1: TOP HERO CAROUSEL (DOTS OUTSIDE BELOW)
+         2. VIBRANT BLUE SUB-HEADER WITH BACK & SHARE BUTTONS
     ========================================================= -->
-    <section class="banner-section">
-        <div class="container">
-            <div class="banner-shell">
-                <div class="banner-carousel" id="topBannerCarousel">
-                    <div class="banner-track" id="topBannerTrack"></div>
-                </div>
-            </div>
-            <!-- Indicator Dots placed cleanly below banner -->
-            <div class="banner-dots-below" id="topBannerDots"></div>
-        </div>
-    </section>
+    <header class="blue-hero-header">
+        <div class="sub-nav-row">
+            <a href="index.html" class="tool-back-btn" id="smartBackBtn">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Back to Tools</span>
+            </a>
 
-    <!-- High-Contrast Bold Intro Text (Crisp Black-Slate on White) -->
-    <section class="container">
-        <div class="intro">
-            <h1>Fast, Free & Private <span>Online Utilities</span></h1>
-            <p>Over 34+ browser-based tools for PDF management, photo compression to 50KB, font changing, and everyday unit conversions without server uploads.</p>
-        </div>
-    </section>
+            <nav class="nav-pills-row">
+                <a class="header-pill" href="index.html">Home</a>
+                <a class="header-pill" href="index.html#categoriesContainer">All Tools</a>
+                <a class="header-pill active" href="converters.html">Converters</a>
+                <a class="header-pill" href="faq.html">FAQ</a>
+            </nav>
 
-    <!-- Full White Side Navigation Drawer with Social Media Strip -->
+            <button class="tool-share-btn" id="shareToolBtn" aria-label="Share This Tool">
+                <i class="fa-solid fa-share-nodes"></i>
+                <span>Share Tool</span>
+            </button>
+        </div>
+
+        <div class="hero">
+            <div class="eyebrow">Converters Category Tool</div>
+            <h1>Online Length Converter</h1>
+            <p>Instantly convert length and distance measurements between meters, centimeters, millimeters, kilometers, inches, feet, yards, and miles.</p>
+        </div>
+    </header>
+
+    <!-- Full White Side Navigation Drawer with Social Media Strip & Share Website -->
     <div class="drawer-overlay" id="menuOverlay"></div>
     <aside class="side-drawer" id="navDrawer">
         <div class="drawer-header">
             <div class="drawer-title-group">
-                <div class="logo-tvz" style="width: 32px; height: 32px; font-size: 12px; border-radius: 8px; background: #2563eb; color:#fff;">TVZ</div>
+                <div class="logo-tvz" style="width: 32px; height: 32px; font-size: 12px; border-radius: 8px;">TVZ</div>
                 <div class="drawer-title">Tveezal Tools</div>
             </div>
             <button class="drawer-close-btn" id="drawerClose">✕</button>
@@ -1068,123 +1192,211 @@
                 <a class="social-link-btn fb" href="https://facebook.com/YOUR_LINK" target="_blank" aria-label="Facebook Page"><i class="fa-brands fa-facebook-f"></i></a>
                 <a class="social-link-btn tw" href="https://x.com/YOUR_LINK" target="_blank" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
             </div>
+            <button class="btn-share-full-site" id="drawerShareWebsiteBtn">
+                <i class="fa-solid fa-share-nodes"></i> Share Tveezal Website
+            </button>
         </div>
     </aside>
 
-    <main>
-        <!-- Search Bar -->
-        <section class="search-section">
-            <div class="container">
-                <div class="search-wrapper">
-                    <i class="fas fa-search search-icon"></i>
-                    <input id="searchInput" type="search" placeholder="Search 34+ tools by name, action or category..." autocomplete="off">
-                    <button class="search-clear" id="searchClear" type="button"><i class="fas fa-xmark"></i></button>
+    <main class="container">
+        <!-- Top Advertisement -->
+        <div class="ad-block" style="margin-top: 24px;">
+            <span><i class="fas fa-rectangle-ad"></i> Advertisement (Top Leaderboard)</span>
+        </div>
+
+        <!-- =========================================================
+             3. LENGTH CONVERTER WORKBENCH
+        ========================================================= -->
+        <section class="tool-workbench">
+            <div class="converter-grid">
+                <!-- From Box -->
+                <div class="convert-box">
+                    <label class="convert-label">From</label>
+                    <div class="convert-input-group">
+                        <input type="number" id="inputValue" value="1" placeholder="Enter value">
+                        <select id="fromUnit" aria-label="From Unit">
+                            <option value="mm">Millimeters (mm)</option>
+                            <option value="cm">Centimeters (cm)</option>
+                            <option value="m" selected>Meters (m)</option>
+                            <option value="km">Kilometers (km)</option>
+                            <option value="in">Inches (in)</option>
+                            <option value="ft">Feet (ft)</option>
+                            <option value="yd">Yards (yd)</option>
+                            <option value="mi">Miles (mi)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Swap Button -->
+                <div class="swap-btn-wrap">
+                    <button class="btn-swap" id="swapBtn" title="Swap Units">
+                        <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                    </button>
+                </div>
+
+                <!-- To Box -->
+                <div class="convert-box">
+                    <label class="convert-label">To</label>
+                    <div class="convert-input-group">
+                        <input type="text" id="outputValue" readonly placeholder="Result">
+                        <select id="toUnit" aria-label="To Unit">
+                            <option value="mm">Millimeters (mm)</option>
+                            <option value="cm">Centimeters (cm)</option>
+                            <option value="m">Meters (m)</option>
+                            <option value="km">Kilometers (km)</option>
+                            <option value="in" selected>Inches (in)</option>
+                            <option value="ft">Feet (ft)</option>
+                            <option value="yd">Yards (yd)</option>
+                            <option value="mi">Miles (mi)</option>
+                        </select>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- 7 Category Direct Navigation Links -->
-        <section class="container">
-            <div class="category-nav-wrapper">
-                <div class="category-nav">
-                    <a class="category-direct-link" href="pdf-tools.html"><i class="fa-solid fa-file-pdf" style="color:#dc2626;"></i> PDF Tools</a>
-                    <a class="category-direct-link" href="image-tools.html"><i class="fa-solid fa-image" style="color:#7c3aed;"></i> Image Tools</a>
-                    <a class="category-direct-link" href="qr-barcode-tools.html"><i class="fa-solid fa-qrcode" style="color:#059669;"></i> QR & Barcode</a>
-                    <a class="category-direct-link" href="text-string-tools.html"><i class="fa-solid fa-font" style="color:#d97706;"></i> Text & String</a>
-                    <a class="category-direct-link" href="web-security-tools.html"><i class="fa-solid fa-shield-halved" style="color:#0891b2;"></i> Web & Security</a>
-                    <a class="category-direct-link" href="calculators.html"><i class="fa-solid fa-calculator" style="color:#4f46e5;"></i> Calculators</a>
-                    <a class="category-direct-link" href="converters.html"><i class="fa-solid fa-arrows-left-right" style="color:#e11d48;"></i> Converters</a>
-                </div>
-            </div>
-        </section>
+        <!-- Result Advertisement -->
+        <div class="ad-block" style="margin-top: 30px;">
+            <span><i class="fas fa-rectangle-ad"></i> Advertisement (Below Tool Results)</span>
+        </div>
 
-        <!-- Tool Categories Container (Includes 2 Slim Ribbon Banners) -->
-        <section class="container">
-            <div class="categories-container" id="categoriesContainer">
-                <!-- Generated dynamically with persistent category memory -->
+        <!-- =========================================================
+             4. SLIM FINGER-PROFILE 10-BANNER RIBBON (DOTS OUTSIDE)
+        ========================================================= -->
+        <section class="banner-section" style="padding-top: 0;">
+            <div class="banner-shell">
+                <div class="banner-carousel slim-carousel" id="slimRibbonCarousel">
+                    <div class="banner-track" id="slimRibbonTrack"></div>
+                </div>
+                <div class="banner-dots-wrapper" id="slimRibbonDots"></div>
             </div>
         </section>
 
         <!-- =========================================================
-             BANNER 4: BOTTOM FEATURED CAROUSEL (DOTS OUTSIDE BELOW)
+             5. EXPLORE ALL TOOL CATEGORIES BAR
         ========================================================= -->
-        <section class="banner-section" style="margin-top: 30px;">
-            <div class="container">
-                <div class="banner-shell">
-                    <div class="banner-carousel" id="bottomBannerCarousel">
-                        <div class="banner-track" id="bottomBannerTrack"></div>
-                    </div>
-                </div>
-                <!-- Indicator Dots placed cleanly below banner -->
-                <div class="banner-dots-below" id="bottomBannerDots"></div>
+        <section class="categories-bar-wrapper">
+            <div class="categories-title">Explore All Tool Categories</div>
+            <div class="category-buttons-list">
+                <a class="cat-tag-btn" href="pdf-tools.html"><i class="fa-solid fa-file-pdf" style="color:#dc2626;"></i> PDF Tools</a>
+                <a class="cat-tag-btn" href="image-tools.html"><i class="fa-solid fa-image" style="color:#7c3aed;"></i> Image Tools</a>
+                <a class="cat-tag-btn" href="qr-barcode-tools.html"><i class="fa-solid fa-qrcode" style="color:#059669;"></i> QR & Barcode</a>
+                <a class="cat-tag-btn" href="text-string-tools.html"><i class="fa-solid fa-font" style="color:#d97706;"></i> Text & String</a>
+                <a class="cat-tag-btn" href="web-security-tools.html"><i class="fa-solid fa-shield-halved" style="color:#0891b2;"></i> Web & Security</a>
+                <a class="cat-tag-btn" href="calculators.html"><i class="fa-solid fa-calculator" style="color:#4f46e5;"></i> Calculators</a>
+                <a class="cat-tag-btn" href="converters.html"><i class="fa-solid fa-arrows-left-right" style="color:#e11d48;"></i> Converters</a>
             </div>
         </section>
 
-        <!-- SEO Article & Features (With Rich Working Internal Links) -->
-        <section class="container">
-            <article class="seo-home-article">
-                <h2>Why Choose Tveezal Tools for Everyday Digital Tasks?</h2>
-                <p>Welcome to <strong>Tveezal Tools</strong>, your centralized ecosystem for rapid, high-accuracy web utilities. Many online websites require software installations, charge expensive monthly subscriptions, or upload your private documents to third-party cloud servers. At Tveezal Tools, every script executes 100% client-side inside your browser sandbox, guaranteeing complete security and privacy. You can shrink photos with our <a href="image-compressor.html">Image Compressor to 50KB</a>, combine paperwork via <a href="pdf-merge.html">PDF Merge</a>, or generate cool social bios using our <a href="font-changer.html">Font Changer</a>.</p>
+        <!-- =========================================================
+             6. TRANSPARENT GREEN FLOW & DETAILED SEO CONTENT
+        ========================================================= -->
+        <article class="seo-content-box">
+            <h2>Why Tveezal Online Length Converter is the Best Distance Measurement Tool?</h2>
+            <p>The <strong>Tveezal Length Converter</strong> provides instant and high-accuracy unit conversions for architecture, engineering, education, and daily measurements. Whether you need to convert metric units like meters, centimeters, and kilometers, or imperial units like inches, feet, yards, and miles, our client-side engine executes calculations instantaneously. Need other unit conversions? Check out our <a href="weight-converter.html">Weight Converter</a>, <a href="area-converter.html">Area Converter</a>, calculate birth milestones with our <a href="age-calculator.html">Age Calculator</a>, or verify text length using our <a href="word-counter.html">Word Counter</a>.</p>
 
-                <div class="feature-grid">
-                    <div class="feature-box">
-                        <h4>Zero Server Storage</h4>
-                        <p>Your photos, contracts, and passwords remain in your local RAM and are never transmitted to external servers.</p>
-                    </div>
-                    <div class="feature-box">
-                        <h4>Target KB Compression</h4>
-                        <p>Compress files to exact boundaries like 50KB or 20KB with our <a href="image-compressor.html">Image Compressor</a>.</p>
-                    </div>
-                    <div class="feature-box">
-                        <h4>Universal Free Access</h4>
-                        <p>No registration forms, no watermarks, and zero paywalls across all 34+ utilities.</p>
-                    </div>
-                    <div class="feature-box">
-                        <h4>Real-Time Diagnostics</h4>
-                        <p>Evaluate your broadband throughput, jitter, and public IP using the <a href="internet-speed-test.html">Internet Speed Tester</a>.</p>
-                    </div>
+            <!-- Transparent Green Visual Flowchart Box -->
+            <div class="visual-diagram-card">
+                <div class="diagram-step">
+                    <svg class="diagram-icon-svg" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                    <span>1. Enter Value</span>
                 </div>
-
-                <h3>Featured Category Hubs on Tveezal Tools</h3>
-                <ul>
-                    <li><strong><a href="pdf-tools.html">PDF Tools Hub</a>:</strong> Split, lock, unlock, merge, rearrange, and stamp documents with tools like <a href="pdf-merge.html">PDF Merge</a> and <a href="pdf-lock.html">PDF Lock</a>.</li>
-                    <li><strong><a href="image-tools.html">Image Tools Hub</a>:</strong> Compress to exact KB, convert PNG/WebP formats with <a href="format-converter.html">Format Converter</a>, and remove photo backdrops via <a href="background-remover.html">Background Remover</a>.</li>
-                    <li><strong><a href="text-string-tools.html">Text & String Hub</a>:</strong> Generate 1000+ fancy aesthetic fonts with the <a href="font-changer.html">Font Changer</a>, count words with <a href="word-counter.html">Word Counter</a>, and generate realistic speech with <a href="text-to-speech.html">Text to Speech</a>.</li>
-                    <li><strong><a href="web-security-tools.html">Security Tools Hub</a>:</strong> Audit your real public IP with the <a href="internet-speed-test.html">Speed Tester</a> and test password entropy using the <a href="password-strength-tester.html">Password Strength Tester</a>.</li>
-                    <li><strong><a href="calculators.html">Calculators Hub</a>:</strong> Calculate birthdates with <a href="age-calculator.html">Age Calculator</a> or check monthly loan EMIs with <a href="loan-interest-calculator.html">Loan Calculator</a>.</li>
-                    <li><strong><a href="converters.html">Converters Hub</a>:</strong> Switch between measurements using the <a href="length-converter.html">Length Converter</a>, <a href="weight-converter.html">Weight Converter</a>, and <a href="area-converter.html">Area Converter</a>.</li>
-                </ul>
-            </article>
-        </section>
-
-        <!-- Top Advertisement Before FAQs -->
-        <div class="container">
-            <div class="ad-block" style="margin-top: 25px;">
-                <span><i class="fas fa-rectangle-ad"></i> Advertisement (Above FAQs)</span>
+                <div class="diagram-arrow">➔</div>
+                <div class="diagram-step">
+                    <svg class="diagram-icon-svg" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><polyline points="17 1 21 5 17 9"></polyline><path d="M3 11V9a4 4 0 0 1 4-4h14"></path></svg>
+                    <span>2. Select Units</span>
+                </div>
+                <div class="diagram-arrow">➔</div>
+                <div class="diagram-step">
+                    <svg class="diagram-icon-svg" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>3. Instant Conversion</span>
+                </div>
+                <div class="diagram-arrow">➔</div>
+                <div class="diagram-step">
+                    <svg class="diagram-icon-svg" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <span>4. Copy or Use</span>
+                </div>
             </div>
-        </div>
 
-        <!-- 10 Detailed Home FAQs (With Rich Links Inside Answers) -->
-        <section class="faq-section" id="faq">
-            <div class="container">
-                <div style="text-align: center; margin-bottom: 22px;">
-                    <h2 style="font-size: 26px; letter-spacing: -0.6px; color:#0f172a;">Frequently Asked Questions</h2>
-                    <p style="color: var(--muted); font-size: 13.5px;">Common questions regarding Tveezal Tools features, privacy, and usage.</p>
+            <!-- Step-by-Step Numbered Cards -->
+            <h3>How to Use the Length Converter Step-by-Step</h3>
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-badge">1</div>
+                    <h4>Enter Length Amount</h4>
+                    <p>Type your numerical value into the input box under the "From" section.</p>
                 </div>
+                <div class="step-card">
+                    <div class="step-badge">2</div>
+                    <h4>Select Units</h4>
+                    <p>Choose your source distance unit and your target destination unit from the dropdowns.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-badge">3</div>
+                    <h4>Real-Time Results</h4>
+                    <p>The converted length updates instantly in real-time as you type.</p>
+                </div>
+            </div>
+
+            <!-- Detailed Features -->
+            <h3>Key Features Built for Precision</h3>
+            <div class="feature-grid">
+                <div class="feature-box">
+                    <h4>Comprehensive Units</h4>
+                    <p>Supports millimeters, centimeters, meters, kilometers, inches, feet, yards, and miles.</p>
+                </div>
+                <div class="feature-box">
+                    <h4>Instant Execution</h4>
+                    <p>Performs calculations locally in browser memory for blazing-fast response times.</p>
+                </div>
+                <div class="feature-box">
+                    <h4>Quick Swap Button</h4>
+                    <p>Instantly reverse source and target units with a single click.</p>
+                </div>
+                <div class="feature-box">
+                    <h4>100% Client-Side Privacy</h4>
+                    <p>Your entered figures never leave your device, ensuring complete data security.</p>
+                </div>
+            </div>
+
+            <!-- Ecosystem Links -->
+            <h3>Explore Related Converters & Calculators</h3>
+            <p>Tveezal Tools provides a complete suite of browser utilities:</p>
+            <ul>
+                <li><a href="weight-converter.html">Weight Converter</a> – Convert kilograms, pounds, ounces, and grams.</li>
+                <li><a href="area-converter.html">Area Converter</a> – Convert square feet, acres, hectares, and bigha.</li>
+                <li><a href="age-calculator.html">Age Calculator</a> – Compute exact age in years, months, days, and seconds.</li>
+                <li><a href="pdf-tools.html">PDF Tools Suite</a> – Manage your official documents securely using <a href="pdf-merge.html">PDF Merge</a> and <a href="pdf-lock.html">PDF Lock</a>.</li>
+            </ul>
+
+            <!-- 10 FAQs with Clickable Links -->
+            <section class="faq-section">
+                <h3 style="font-size: 22px; margin-bottom: 4px;">Frequently Asked Questions (Length Converter)</h3>
+                <p style="color: var(--muted); font-size: 13.5px;">Detailed answers regarding meters, feet, inches, and distance units.</p>
+
                 <div class="faq-list" id="faqList"></div>
+            </section>
+        </article>
+
+        <!-- =========================================================
+             7. BOTTOM FEATURED 10-BANNER CAROUSEL (DOTS OUTSIDE)
+        ========================================================= -->
+        <section class="banner-section" style="margin-top: 20px;">
+            <div class="banner-shell">
+                <div class="banner-carousel" id="bottomBannerCarousel">
+                    <div class="banner-track" id="bottomBannerTrack"></div>
+                </div>
+                <div class="banner-dots-wrapper" id="bottomBannerDots"></div>
             </div>
         </section>
 
-        <!-- Bottom Advertisement After FAQs -->
-        <div class="container">
-            <div class="ad-block">
-                <span><i class="fas fa-rectangle-ad"></i> Advertisement (Below FAQs)</span>
-            </div>
+        <!-- Bottom Advertisement -->
+        <div class="ad-block">
+            <span><i class="fas fa-rectangle-ad"></i> Advertisement (Bottom Leaderboard)</span>
         </div>
     </main>
 
     <!-- =========================================================
-         8. FOOTER WITH INTEGRATED SOCIAL MEDIA
+         8. FOOTER WITH INTEGRATED SOCIAL MEDIA & SHARE WEBSITE
     ========================================================= -->
     <footer class="footer-section">
         <div class="container">
@@ -1202,6 +1414,11 @@
                         <a class="social-link-btn ig" href="https://instagram.com/YOUR_LINK" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
                         <a class="social-link-btn fb" href="https://facebook.com/YOUR_LINK" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
                         <a class="social-link-btn tw" href="https://x.com/YOUR_LINK" target="_blank" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                    </div>
+                    <div class="footer-share-box">
+                        <button class="footer-share-btn" id="footerShareWebsiteBtn">
+                            <i class="fa-solid fa-share-nodes"></i> Share Website
+                        </button>
                     </div>
                 </div>
                 <div>
@@ -1246,24 +1463,117 @@
     </footer>
 
     <!-- =========================================================
-         JAVASCRIPT LOGIC
+         JAVASCRIPT CONTROLLERS & CONVERSION ENGINE
     ========================================================= -->
     <script>
-        // 1. SMART DYNAMIC HEADER & DYNAMIC MOBILE STATUS BAR
-        const dynamicHeader = document.getElementById("dynamicHeader");
-        const metaThemeColor = document.getElementById("metaThemeColor");
+        // 1. LENGTH CONVERSION ENGINE (Base unit: Meters)
+        const inputValue = document.getElementById('inputValue');
+        const outputValue = document.getElementById('outputValue');
+        const fromUnit = document.getElementById('fromUnit');
+        const toUnit = document.getElementById('toUnit');
+        const swapBtn = document.getElementById('swapBtn');
 
-        window.addEventListener("scroll", () => {
-            if (window.scrollY > 35) {
-                dynamicHeader.classList.add("scrolled");
-                if (metaThemeColor) metaThemeColor.setAttribute("content", "#153e90");
+        const conversionFactors = {
+            mm: 0.001,          // 1 mm = 0.001 meters
+            cm: 0.01,           // 1 cm = 0.01 meters
+            m: 1.0,             // 1 meter = 1.0 meters
+            km: 1000.0,         // 1 km = 1000 meters
+            in: 0.0254,         // 1 inch = 0.0254 meters
+            ft: 0.3048,         // 1 foot = 0.3048 meters
+            yd: 0.9144,         // 1 yard = 0.9144 meters
+            mi: 1609.344        // 1 mile = 1609.344 meters
+        };
+
+        function convertLength() {
+            const val = parseFloat(inputValue.value);
+            if (isNaN(val)) {
+                outputValue.value = "";
+                return;
+            }
+
+            const fromVal = fromUnit.value;
+            const toVal = toUnit.value;
+
+            // Convert input to base (meters)
+            const inMeters = val * conversionFactors[fromVal];
+            // Convert from base to target unit
+            const result = inMeters / conversionFactors[toVal];
+
+            // Format output nicely
+            if (result >= 1000000 || (result < 0.0001 && result > 0)) {
+                outputValue.value = result.toExponential(4);
             } else {
-                dynamicHeader.classList.remove("scrolled");
-                if (metaThemeColor) metaThemeColor.setAttribute("content", "#ffffff");
+                outputValue.value = parseFloat(result.toFixed(6));
+            }
+        }
+
+        inputValue.addEventListener('input', convertLength);
+        fromUnit.addEventListener('change', convertLength);
+        toUnit.addEventListener('change', convertLength);
+
+        swapBtn.addEventListener('click', () => {
+            const tempUnit = fromUnit.value;
+            fromUnit.value = toUnit.value;
+            toUnit.value = tempUnit;
+
+            const tempVal = inputValue.value;
+            inputValue.value = outputValue.value;
+            outputValue.value = tempVal;
+
+            convertLength();
+        });
+
+        // Initial trigger
+        convertLength();
+
+        // 2. SMART BACK BUTTON & SHARE ENGINES
+        const smartBackBtn = document.getElementById("smartBackBtn");
+        const shareToolBtn = document.getElementById("shareToolBtn");
+        const footerShareWebsiteBtn = document.getElementById("footerShareWebsiteBtn");
+        const drawerShareWebsiteBtn = document.getElementById("drawerShareWebsiteBtn");
+
+        const referrer = document.referrer;
+        const isFromHome = referrer && (referrer.includes("index.html") || referrer.includes(window.location.hostname));
+
+        smartBackBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            if (isFromHome && window.history.length > 1) {
+                window.history.back();
+            } else {
+                window.location.href = "index.html#category-convert";
             }
         });
 
-        // 2. DRAWER CONTROLS
+        shareToolBtn.addEventListener("click", () => {
+            if (navigator.share) {
+                navigator.share({
+                    title: "Length Converter Online – Tveezal Tools",
+                    text: "Instantly convert meters, feet, inches, and miles online for free!",
+                    url: window.location.href
+                }).catch(() => {});
+            } else {
+                navigator.clipboard.writeText(window.location.href);
+                alert("Tool link copied to clipboard!");
+            }
+        });
+
+        function shareFullWebsite() {
+            const homeUrl = window.location.origin + "/index.html";
+            if (navigator.share) {
+                navigator.share({
+                    title: "Tveezal Tools – Free Online Utilities",
+                    text: "Explore 34+ free browser tools for PDF, image compression, fancy fonts, and calculations!",
+                    url: homeUrl
+                }).catch(() => {});
+            } else {
+                navigator.clipboard.writeText(homeUrl);
+                alert("Website link copied to clipboard!");
+            }
+        }
+        footerShareWebsiteBtn.addEventListener("click", shareFullWebsite);
+        drawerShareWebsiteBtn.addEventListener("click", shareFullWebsite);
+
+        // 3. DRAWER CONTROLS
         const menuBtn = document.getElementById("menuButton");
         const drawer = document.getElementById("navDrawer");
         const overlay = document.getElementById("menuOverlay");
@@ -1281,123 +1591,34 @@
         drawerClose.addEventListener("click", closeDrawer);
         overlay.addEventListener("click", closeDrawer);
 
-        // 3. MASTER BANNER DATASETS
-        const TOP_BANNERS = [
-            { image: "https://github.com/user-attachments/assets/facba8b5-d981-4358-83cb-4919c025bdde", link: "image-compressor.html", title: "OWNER" },
-            { image: "assets/banner-2.webp", link: "pdf-merge.html", title: "Merge Multiple PDF Files Online" },
-            { image: "assets/banner-3.webp", link: "text-to-speech.html", title: "Text to Speech Synthesis" },
-            { image: "assets/banner-4.webp", link: "internet-speed-test.html", title: "Live Internet Speed & Public IP" },
-            { image: "assets/banner-5.webp", link: "word-counter.html", title: "Word & Character Counter" },
-            { image: "assets/banner-6.webp", link: "qr-generator-tool/index.html", title: "All-in-One Custom QR Generator" },
-            { image: "assets/banner-7.webp", link: "font-changer.html", title: "Fancy Font Changer for Social Media" },
-            { image: "assets/banner-8.webp", link: "age-calculator.html", title: "Accurate Age Calculator" },
-            { image: "assets/banner-9.webp", link: "background-remover.html", title: "AI Background Remover" },
-            { image: "assets/banner-10.webp", link: "format-converter.html", title: "Image Format Converter" }
-        ];
-
-        const SLIM_BANNERS_1 = [
-            { image: "assets/slim-banner-1.webp", link: "image-compressor.html", title: "Special Hostinger Offer / Tool Offer" },
+        // 4. MASTER BANNER DATASETS
+        const SLIM_BANNERS = [
+            { image: "assets/slim-banner-8.webp", link: "area-converter.html", title: "Convert Acres, Hectares & Bigha" },
+            { image: "assets/slim-banner-1.webp", link: "image-compressor.html", title: "Compress Photo to 50KB for Govt Forms" },
             { image: "assets/slim-banner-2.webp", link: "pdf-lock.html", title: "Fast Secure PDF Encryption" },
             { image: "assets/slim-banner-3.webp", link: "font-changer.html", title: "Create 1000+ Aesthetic Fonts" },
             { image: "assets/slim-banner-4.webp", link: "internet-speed-test.html", title: "Check 5G & Fiber Latency" },
             { image: "assets/slim-banner-5.webp", link: "word-counter.html", title: "Accurate Word Reading Meter" },
             { image: "assets/slim-banner-6.webp", link: "qr-scanner.html", title: "Fast Camera QR Scanner" },
             { image: "assets/slim-banner-7.webp", link: "loan-interest-calculator.html", title: "Instant EMI Loan Calculator" },
-            { image: "assets/slim-banner-8.webp", link: "area-converter.html", title: "Convert Acres, Hectares & Bigha" },
             { image: "assets/slim-banner-9.webp", link: "text-repeater.html", title: "Repeat Messages 10,000 Times" },
             { image: "assets/slim-banner-10.webp", link: "format-converter.html", title: "Convert WebP to JPG Cleanly" }
         ];
 
-        const SLIM_BANNERS_2 = [
-            { image: "assets/slim-banner-4.webp", link: "internet-speed-test.html", title: "High Speed Fiber & CDN Ping Test" },
-            { image: "assets/slim-banner-1.webp", link: "image-compressor.html", title: "Target Exact 20KB for SSC Exam" },
-            { image: "assets/slim-banner-2.webp", link: "pdf-merge.html", title: "Fast PDF Combiner for College Notes" },
-            { image: "assets/slim-banner-3.webp", link: "font-changer.html", title: "Stylish Cursive Fonts for Instagram Bio" },
-            { image: "assets/slim-banner-5.webp", link: "text-to-speech.html", title: "Generate Realistic Audio Voiceovers" },
-            { image: "assets/slim-banner-6.webp", link: "barcode-generator.html", title: "Free Product Barcode Maker" },
-            { image: "assets/slim-banner-7.webp", link: "age-calculator.html", title: "Find Out Exact Hours & Days Lived" },
-            { image: "assets/slim-banner-8.webp", link: "password-strength-tester.html", title: "Test Security Before Setting Passwords" },
-            { image: "assets/slim-banner-9.webp", link: "length-converter.html", title: "Convert Meters, Inches, and Feet" },
-            { image: "assets/slim-banner-10.webp", link: "qr-generator-tool/index.html", title: "Make WiFi QR Codes Instantly" }
+        const BOTTOM_BANNERS = [
+            { image: "assets/banner-7.webp", link: "font-changer.html", title: "Fancy Font Changer for Social Media" },
+            { image: "assets/banner-1.webp", link: "image-compressor.html", title: "Image Compressor to 50KB" },
+            { image: "assets/banner-2.webp", link: "pdf-merge.html", title: "Merge Multiple PDF Files Online" },
+            { image: "assets/banner-3.webp", link: "text-to-speech.html", title: "Text to Speech Synthesis" },
+            { image: "assets/banner-4.webp", link: "internet-speed-test.html", title: "Live Internet Speed & Public IP" },
+            { image: "assets/banner-5.webp", link: "word-counter.html", title: "Word & Character Counter" },
+            { image: "assets/banner-6.webp", link: "qr-generator.html", title: "All-in-One Custom QR Generator" },
+            { image: "assets/banner-8.webp", link: "age-calculator.html", title: "Accurate Age Calculator" },
+            { image: "assets/banner-9.webp", link: "background-remover.html", title: "AI Background Remover" },
+            { image: "assets/banner-10.webp", link: "format-converter.html", title: "Image Format Converter" }
         ];
 
-        // 4. CATEGORIES CONFIGURATION
-        const CATEGORIES = [
-            { key: "pdf", title: "PDF Tools", hub: "pdf-tools.html", icon: "fa-file-pdf", desc: "Create, edit, protect and manage PDF files.", className: "cat-pdf" },
-            { key: "image", title: "Image Tools", hub: "image-tools.html", icon: "fa-image", desc: "Compress to 50KB, resize, convert and edit images.", className: "cat-image" },
-            { key: "qr", title: "QR & Barcode", hub: "qr-barcode-tools.html", icon: "fa-qrcode", desc: "Generate and scan QR codes and barcodes.", className: "cat-qr" },
-            { key: "text", title: "Text & String", hub: "text-string-tools.html", icon: "fa-font", desc: "Font changer, text-to-speech, and character operations.", className: "cat-text" },
-            { key: "web", title: "Web & Security", hub: "web-security-tools.html", icon: "fa-shield-halved", desc: "Speed tester, live IP lookup, and password audit.", className: "cat-web" },
-            { key: "calc", title: "Calculators", hub: "calculators.html", icon: "fa-calculator", desc: "Everyday calculators for quick computations.", className: "cat-calc" },
-            { key: "convert", title: "Converters", hub: "converters.html", icon: "fa-arrows-left-right", desc: "Convert length, mass, and land measurement units.", className: "cat-convert" }
-        ];
-
-        // 5. MASTER TOOLS LIST
-        const TOOLS_LIST = [
-            // PDF Tools (10)
-            { cat: "pdf", name: "PDF Protector", file: "pdf-protector.html", icon: "fa-shield-halved", desc: "Protect your PDF with security settings" },
-            { cat: "pdf", name: "PDF Lock", file: "pdf-lock.html", icon: "fa-lock", desc: "Password-protect your PDF" },
-            { cat: "pdf", name: "PDF Unlock", file: "pdf-unlock.html", icon: "fa-unlock", desc: "Remove PDF password protection" },
-            { cat: "pdf", name: "PDF Split", file: "pdf-split.html", icon: "fa-scissors", desc: "Split PDF into separate files" },
-            { cat: "pdf", name: "PDF Merge", file: "pdf-merge.html", icon: "fa-object-group", desc: "Combine multiple PDFs into one" },
-            { cat: "pdf", name: "PDF to Image", file: "pdf-to-image.html", icon: "fa-file-image", desc: "Convert PDF pages to JPG or PNG" },
-            { cat: "pdf", name: "PDF Watermark", file: "pdf-watermark.html", icon: "fa-stamp", desc: "Add text or image watermark" },
-            { cat: "pdf", name: "PDF Watermark Remover", file: "pdf-watermark-remover.html", icon: "fa-eraser", desc: "Remove watermarks from PDF" },
-            { cat: "pdf", name: "PDF Page Editor", file: "pdf-page-editor.html", icon: "fa-pen-to-square", desc: "Edit and manage PDF pages" },
-            { cat: "pdf", name: "PDF Page Rearrange", file: "pdf-page-rearrange.html", icon: "fa-arrows-up-down-left-right", desc: "Reorder PDF pages easily" },
-
-            // Image Tools (7)
-            { cat: "image", name: "Image Compressor", file: "image-compressor.html", icon: "fa-compress", desc: "Reduce image file size to exact KB" },
-            { cat: "image", name: "Format Converter", file: "format-converter.html", icon: "fa-arrows-rotate", desc: "Convert PNG, JPG, WEBP and more" },
-            { cat: "image", name: "Image Resizer", file: "image-resizer.html", icon: "fa-expand", desc: "Change image width and height" },
-            { cat: "image", name: "Background Remover", file: "background-remover.html", icon: "fa-eraser", desc: "Remove image backgrounds" },
-            { cat: "image", name: "Image to Base64", file: "image-to-base64.html", icon: "fa-code", desc: "Convert image to Base64 data" },
-            { cat: "image", name: "Add Watermark", file: "add-watermark.html", icon: "fa-stamp", desc: "Add watermark to images" },
-            { cat: "image", name: "Remove Watermark", file: "remove-watermark.html", icon: "fa-wand-magic-sparkles", desc: "Remove unwanted image watermarks" },
-
-            // QR & Barcode Tools (4)
-            { cat: "qr", name: "All-in-One QR Generator", file: "qr-generator-tool/index.html", icon: "fa-qrcode", desc: "Create QR codes for text, URLs and Wi-Fi" },
-            { cat: "qr", name: "QR Code Scanner", file: "qr-scanner.html", icon: "fa-camera", desc: "Scan QR codes from images or camera" },
-            { cat: "qr", name: "Barcode Generator", file: "barcode-generator.html", icon: "fa-barcode", desc: "Generate common barcode formats" },
-            { cat: "qr", name: "Barcode Scanner", file: "barcode-scanner.html", icon: "fa-camera", desc: "Scan barcodes quickly" },
-
-            // Text & String Tools (5)
-            { cat: "text", name: "Word Counter", file: "word-counter.html", icon: "fa-align-left", desc: "Count words, characters and spaces" },
-            { cat: "text", name: "Text to Speech", file: "text-to-speech.html", icon: "fa-volume-high", desc: "Convert written text into speech" },
-            { cat: "text", name: "Line Counter", file: "line-counter.html", icon: "fa-list-ol", desc: "Count lines in your text" },
-            { cat: "text", name: "Font Changer", file: "font-changer.html", icon: "fa-font", desc: "Change text case and generate fancy fonts" },
-            { cat: "text", name: "Text Repeater", file: "text-repeater.html", icon: "fa-repeat", desc: "Repeat text multiple times" },
-
-            // Web & Security Tools (2)
-            { cat: "web", name: "Password Strength Tester", file: "password-strength-tester.html", icon: "fa-key", desc: "Check password strength and security" },
-            { cat: "web", name: "Speed Tester", file: "internet-speed-test.html", icon: "fa-gauge-high", desc: "Test internet speed & live IP address" },
-
-            // Calculators (3)
-            { cat: "calc", name: "Standard Calculator", file: "standard-calculator.html", icon: "fa-calculator", desc: "Basic mathematical calculations" },
-            { cat: "calc", name: "Age Calculator", file: "age-calculator.html", icon: "fa-calendar-days", desc: "Calculate age from date of birth" },
-            { cat: "calc", name: "Loan / Interest Calculator", file: "loan-interest-calculator.html", icon: "fa-hand-holding-dollar", desc: "Calculate EMI, interest and loans" },
-
-            // Converters (3)
-            { cat: "convert", name: "Length Converter", file: "length-converter.html", icon: "fa-ruler", desc: "Convert length and distance units" },
-            { cat: "convert", name: "Weight Converter", file: "weight-converter.html", icon: "fa-weight-scale", desc: "Convert weight and mass units" },
-            { cat: "convert", name: "Area Converter", file: "area-converter.html", icon: "fa-vector-square", desc: "Convert area measurement units" }
-        ];
-
-        // 6. 10 REAL-WORLD HOMEPAGE FAQS WITH WORKING LINKS
-        const HOME_FAQS = [
-            { q: "What is Tveezal Tools and what makes it unique?", a: "Tveezal Tools is an online ecosystem featuring 34+ free browser utilities. Unlike other sites that upload your files to remote cloud servers, our tools execute 100% client-side directly within your browser. Learn more on our <a href='about.html'>About Us</a> page." },
-            { q: "Do I have to register or create an account to use the tools?", a: "No. You never need to sign up, enter an email, or submit a credit card. Every tool is immediately available without usage limits. Check our <a href='terms.html'>Terms of Service</a> for complete details." },
-            { q: "How does the Image Compressor compress photos to exact sizes like 50KB?", a: "Our <a href='image-compressor.html'>Image Compressor</a> utilizes an adaptive binary search engine that repeatedly analyzes quality and canvas pixel buffers until your image matches your target KB constraint without color degradation." },
-            { q: "Can I combine multiple PDF documents into a single file?", a: "Yes. Our <a href='pdf-merge.html'>PDF Merge Tool</a> allows you to upload multiple PDF files, reorder pages, and merge them into one organized document with zero watermarks." },
-            { q: "What is the Font Changer and where can I use the generated fonts?", a: "The <a href='font-changer.html'>Font Changer</a> transforms normal alphanumeric text into 1000+ fancy Unicode glyphs (such as Gothic, Italic, and Bubble text) that can be pasted directly into Instagram, Discord, and WhatsApp bios." },
-            { q: "How accurate is the Internet Speed Tester?", a: "The <a href='internet-speed-test.html'>Internet Speed Tester</a> evaluates real throughput by streaming chunked packets to edge delivery servers, displaying live Download Mbps, Upload Mbps, round-trip Ping latency, and your public IP." },
-            { q: "Can I convert text into audio in multiple Indian and international languages?", a: "Yes. The <a href='text-to-speech.html'>Text to Speech Tool</a> supports over 35+ languages, including Hindi, Marathi, Urdu, Tamil, English, and Spanish with realistic voice options." },
-            { q: "Are my files uploaded or stored on your servers?", a: "Never. All photo compression, PDF editing, and calculations happen in your local device RAM. Read our <a href='privacy.html'>Privacy Policy</a> to understand our client-side architecture." },
-            { q: "Does Tveezal Tools work on Android and iOS mobile browsers?", a: "Yes. The entire website is responsive, touch-gesture optimized, and supports camera uploads and native sharing on smartphones and tablets." },
-            { q: "Where can I find more in-depth support and questions?", a: "Visit our dedicated <a href='faq.html'>50+ Detailed FAQ Page</a> or reach out through our <a href='contact.html'>Contact Us</a> page for bug reports and tool requests." }
-        ];
-
-        // 7. 1:1 REAL-TIME FINGER DRAG CAROUSEL ENGINE (DOTS BELOW & CYCLIC LOOP)
+        // 5. CAROUSEL ENGINE WITH 1:1 TOUCH & CYCLIC INFINITE LOOP
         function setupCarousel(trackId, dotsId, dataset) {
             const track = document.getElementById(trackId);
             const dotsContainer = document.getElementById(dotsId);
@@ -1421,7 +1642,7 @@
                 slide.className = "banner-slide";
                 slide.href = b.link;
                 slide.innerHTML = `
-                    <img src="${b.image}" alt="${b.title}" loading="${idx === 0 ? 'eager' : 'lazy'}" onerror="this.parentElement.innerHTML='<div class=\\'banner-fallback\\'><h2>${b.title}</h2><p>Free Online Utility on Tveezal Tools</p></div>'">
+                    <img src="${b.image}" alt="${b.title}" loading="${idx === 0 ? 'eager' : 'lazy'}" onerror="this.parentElement.innerHTML='<div class=\\'banner-fallback\\'><h3>${b.title}</h3><p>Fast Online Utility on Tveezal Tools</p></div>'">
                 `;
                 track.appendChild(slide);
 
@@ -1533,174 +1754,52 @@
             startTimer();
         }
 
-        // 8. RENDER TOOLS & PERSISTENT CATEGORY MEMORY
-        const categoriesContainer = document.getElementById("categoriesContainer");
-        const searchInput = document.getElementById("searchInput");
-        const searchClear = document.getElementById("searchClear");
-
-        function renderTools(query = "") {
-            categoriesContainer.innerHTML = "";
-            const cleanQuery = query.toLowerCase().trim();
-
-            CATEGORIES.forEach((cat, catIndex) => {
-                const toolsInCat = TOOLS_LIST.filter(t => t.cat === cat.key);
-                const matchedTools = toolsInCat.filter(t => 
-                    t.name.toLowerCase().includes(cleanQuery) || 
-                    t.desc.toLowerCase().includes(cleanQuery)
-                );
-
-                if (matchedTools.length === 0) return;
-
-                const section = document.createElement("section");
-                section.className = `category-section ${cat.className}`;
-                section.id = `category-${cat.key}`;
-                section.innerHTML = `
-                    <div class="category-header">
-                        <div class="category-icon">
-                            <i class="fas ${cat.icon}"></i>
-                        </div>
-                        <div>
-                            <div class="category-title">${cat.title}</div>
-                            <div class="category-description">${cat.desc}</div>
-                        </div>
-                    </div>
-                    <div class="tools-grid" id="grid_${cat.key}"></div>
-                `;
-
-                const grid = section.querySelector(`#grid_${cat.key}`);
-                const INITIAL_LIMIT = cleanQuery ? matchedTools.length : 4;
-
-                matchedTools.forEach((tool, idx) => {
-                    const card = document.createElement("a");
-                    card.className = "tool-card";
-                    card.href = tool.file;
-                    
-                    card.addEventListener('click', () => {
-                        sessionStorage.setItem('tveezal_last_category', `category-${cat.key}`);
-                    });
-
-                    if (idx >= INITIAL_LIMIT) {
-                        card.style.display = "none";
-                        card.classList.add(`extra_${cat.key}`);
-                    }
-                    card.innerHTML = `
-                        <span class="tool-icon"><i class="fas ${tool.icon}"></i></span>
-                        <span class="tool-info">
-                            <span class="tool-name">${tool.name}</span>
-                            <span class="tool-desc">${tool.desc}</span>
-                        </span>
-                        <span class="tool-arrow"><i class="fas fa-chevron-right"></i></span>
-                    `;
-                    grid.appendChild(card);
-                });
-
-                // Universal View More / Show Less Button
-                if (!cleanQuery) {
-                    const moreWrap = document.createElement("div");
-                    moreWrap.className = "more-tools-wrapper";
-                    moreWrap.innerHTML = `<button class="btn-toggle-more" id="btn_more_${cat.key}">View More Tools</button>`;
-                    
-                    const btn = moreWrap.querySelector(`#btn_more_${cat.key}`);
-                    let expanded = false;
-
-                    btn.addEventListener("click", () => {
-                        expanded = !expanded;
-                        const hiddenCards = grid.querySelectorAll(`.extra_${cat.key}`);
-                        hiddenCards.forEach(c => c.style.display = expanded ? "flex" : "none");
-                        btn.textContent = expanded ? "Show Less Tools" : "View More Tools";
-                    });
-
-                    section.appendChild(moreWrap);
-                }
-
-                categoriesContainer.appendChild(section);
-
-                // SLIM RIBBON BANNER 1: After PDF Category
-                if (cat.key === "pdf") {
-                    const slimSection1 = document.createElement("div");
-                    slimSection1.style.margin = "10px 0";
-                    slimSection1.innerHTML = `
-                        <div class="ad-block" style="margin-bottom: 12px;">
-                            <span><i class="fas fa-rectangle-ad"></i> Sponsored Partner Offer</span>
-                        </div>
-                        <div class="banner-shell">
-                            <div class="banner-carousel slim-carousel" id="slimBannerCarousel1">
-                                <div class="banner-track" id="slimBannerTrack1"></div>
-                            </div>
-                        </div>
-                        <div class="banner-dots-below" id="slimBannerDots1"></div>
-                    `;
-                    categoriesContainer.appendChild(slimSection1);
-                }
-
-                // SLIM RIBBON BANNER 2: After Web & Security Category
-                if (cat.key === "web") {
-                    const slimSection2 = document.createElement("div");
-                    slimSection2.style.margin = "10px 0";
-                    slimSection2.innerHTML = `
-                        <div class="ad-block" style="margin-bottom: 12px;">
-                            <span><i class="fas fa-rectangle-ad"></i> Exclusive Security Deals</span>
-                        </div>
-                        <div class="banner-shell">
-                            <div class="banner-carousel slim-carousel" id="slimBannerCarousel2">
-                                <div class="banner-track" id="slimBannerTrack2"></div>
-                            </div>
-                        </div>
-                        <div class="banner-dots-below" id="slimBannerDots2"></div>
-                    `;
-                    categoriesContainer.appendChild(slimSection2);
-                }
-
-                // Standard Advertisement Between Other Categories
-                if (catIndex < CATEGORIES.length - 1 && cat.key !== "pdf" && cat.key !== "web") {
-                    const ad = document.createElement("div");
-                    ad.className = "ad-block";
-                    ad.innerHTML = "<span><i class='fas fa-rectangle-ad'></i> Advertisement</span>";
-                    categoriesContainer.appendChild(ad);
-                }
-            });
-
-            if (categoriesContainer.children.length === 0) {
-                categoriesContainer.innerHTML = "<div style='text-align:center; padding:40px; color:var(--muted); font-weight:700;'>No matching tools found. Try another search term!</div>";
+        // 6. 10 REAL-WORLD FAQS WITH CLICKABLE LINKS
+        const FAQS = [
+            {
+                q: "How many feet are in 1 meter?",
+                a: "1 meter is equal to approximately 3.28084 feet. For weight conversions as well, check out our <a href='weight-converter.html'>Weight Converter</a>."
+            },
+            {
+                q: "How do I convert inches to centimeters?",
+                a: "1 inch is equal to exactly 2.54 centimeters. You can use our online converter above for instant calculations."
+            },
+            {
+                q: "What is the difference between a yard and a meter?",
+                a: "A yard is equal to 3 feet or 36 inches (0.9144 meters), whereas a meter is slightly longer at approximately 39.37 inches (1.093 yards)."
+            },
+            {
+                q: "Is my personal data stored or uploaded to any server?",
+                a: "Never. All calculations run strictly in your local browser memory for complete privacy. Read more in our <a href='privacy.html'>Privacy Policy</a>."
+            },
+            {
+                q: "Can I convert millimeters to kilometers?",
+                a: "Yes! Simply select Millimeters in the 'From' dropdown and Kilometers in the 'To' dropdown."
+            },
+            {
+                q: "Do I need to pay or create an account to use this converter?",
+                a: "No. All tools on Tveezal Tools are 100% free with zero paywalls. Learn about our vision on our <a href='about.html'>About Us</a> page."
+            },
+            {
+                q: "How do I calculate loan requirements for property purchases?",
+                a: "Once you calculate your property dimensions, you can compute monthly mortgage EMIs using our <a href='loan-interest-calculator.html'>Loan Calculator</a>."
+            },
+            {
+                q: "Can I compress blueprint images or document scans?",
+                a: "Yes. Use our <a href='image-compressor.html'>Exact KB Image Compressor</a> to shrink photo sizes down to 50KB."
+            },
+            {
+                q: "How can I combine multiple architectural blueprint PDF documents?",
+                a: "Use our client-side <a href='pdf-merge.html'>PDF Merge Tool</a> to combine your documents securely."
+            },
+            {
+                q: "How do I contact the Tveezal Tools team for feedback?",
+                a: "Feel free to reach out with any questions or tool suggestions via our <a href='contact.html'>Contact Us</a> page."
             }
+        ];
 
-            // Initialize both slim ribbon carousels
-            setupCarousel("slimBannerTrack1", "slimBannerDots1", SLIM_BANNERS_1);
-            setupCarousel("slimBannerTrack2", "slimBannerDots2", SLIM_BANNERS_2);
-
-            // Restore Scroll Location If Returning From a Tool
-            checkAndRestoreScroll();
-        }
-
-        function checkAndRestoreScroll() {
-            const savedCat = sessionStorage.getItem('tveezal_last_category');
-            if (savedCat) {
-                setTimeout(() => {
-                    const targetEl = document.getElementById(savedCat);
-                    if (targetEl) {
-                        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                    sessionStorage.removeItem('tveezal_last_category');
-                }, 150);
-            }
-        }
-
-        // Search Input Handlers
-        searchInput.addEventListener("input", (e) => {
-            renderTools(e.target.value);
-            searchClear.classList.toggle("show", e.target.value.length > 0);
-        });
-
-        searchClear.addEventListener("click", () => {
-            searchInput.value = "";
-            renderTools("");
-            searchClear.classList.remove("show");
-            searchInput.focus();
-        });
-
-        // 9. RENDER 10 ACCORDION FAQS
         const faqList = document.getElementById("faqList");
-        HOME_FAQS.forEach(item => {
+        FAQS.forEach(item => {
             const div = document.createElement("div");
             div.className = "faq-item";
             div.innerHTML = `
@@ -1720,10 +1819,9 @@
             faqList.appendChild(div);
         });
 
-        // Initialize Carousels and Layout
-        setupCarousel("topBannerTrack", "topBannerDots", TOP_BANNERS);
-        setupCarousel("bottomBannerTrack", "bottomBannerDots", TOP_BANNERS);
-        renderTools();
+        // Initialize Carousels
+        setupCarousel("slimRibbonTrack", "slimRibbonDots", SLIM_BANNERS);
+        setupCarousel("bottomBannerTrack", "bottomBannerDots", BOTTOM_BANNERS);
     </script>
 </body>
 </html>
