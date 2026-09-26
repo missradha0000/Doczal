@@ -110,7 +110,7 @@
         .intro p { max-width: 760px; margin: auto; color: #334155; font-size: 15.5px; font-weight: 550; line-height: 1.65; }
 
         /* =========================================================
-           3. FULL WHITE SIDE DRAWER (RESTORED SHARE BUTTON)
+           3. FULL WHITE SIDE DRAWER
         ========================================================= */
         .drawer-overlay { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px); z-index: 2000; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
         .drawer-overlay.active { opacity: 1; visibility: visible; }
@@ -122,13 +122,13 @@
         .drawer-close-btn:hover { background: #fee2e2; color: #ef4444; border-color: #fca5a5; }
         .drawer-links { display: flex; flex-direction: column; gap: 9px; flex: 1; }
         .drawer-pill-item { padding: 10px 18px; border-radius: 999px; background: #ffffff; border: 1px solid #e2e8f0; color: #1e293b; font-size: 14px; font-weight: 700; display: flex; align-items: center; gap: 12px; box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04); transition: all 0.2s ease; text-decoration: none; }
-        .drawer-pill-item:hover { transform: translateX(4px); background: #eff6ff; border-color: #bfdbfe; color: #2563eb; box-shadow: 0 4px 14px rgba(37, 99, 235, 0.12); }
+        .drawer-pill-item:hover { transform: translateX(4px); background: #eff6ff; border-color: #bfdbfe; color: #2563eb; box-shadow: 0 4px 14px rgba(37, 99, 235, 0.12); text-decoration: none; }
         
         .drawer-social-section { margin-top: auto; padding-top: 20px; border-top: 1px solid #e2e8f0; text-align: center; }
         .drawer-social-title { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 12px; }
         .social-icons-flex { display: flex; justify-content: center; gap: 10px; }
         .social-link-btn { width: 36px; height: 36px; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; background: #f8fafc; border: 1px solid #e2e8f0; color: #475569; font-size: 15px; transition: all 0.2s ease; text-decoration: none; }
-        .social-link-btn:hover { transform: translateY(-2px); color: #ffffff; }
+        .social-link-btn:hover { transform: translateY(-2px); color: #ffffff; text-decoration: none; }
         .social-link-btn.wa:hover { background: #25d366; border-color: #25d366; }
         .social-link-btn.tg:hover { background: #0088cc; border-color: #0088cc; }
         .social-link-btn.yt:hover { background: #ff0000; border-color: #ff0000; }
@@ -140,24 +140,62 @@
         .btn-share-full-site:hover { background: #bbf7d0; transform: translateY(-1px); }
 
         /* =========================================================
-           4. BANNER CAROUSELS (PERFECT MOBILE HEIGHT FIX)
+           4. BANNER CAROUSELS (PERFECT NO-CROP FIX)
         ========================================================= */
         .banner-section { padding: 18px 0 8px; }
         .banner-shell { position: relative; background: transparent; user-select: none; -webkit-user-select: none; }
         
-        .banner-carousel { position: relative; width: 100%; height: auto; aspect-ratio: 1250 / 400; overflow: hidden; border-radius: 24px; background: #eef4ff; box-shadow: var(--shadow); cursor: grab; }
+        .banner-carousel { 
+            position: relative; 
+            width: 100%; 
+            height: auto !important; 
+            aspect-ratio: 1250 / 400 !important; 
+            overflow: hidden; 
+            border-radius: 24px; 
+            background: #eef4ff; 
+            box-shadow: var(--shadow); 
+            cursor: grab; 
+        }
         .banner-carousel:active { cursor: grabbing; }
-        .banner-carousel.slim-carousel { aspect-ratio: 1250 / 100; border-radius: 16px; }
+
+        .banner-carousel.slim-carousel { 
+            aspect-ratio: 1250 / 100 !important; 
+            border-radius: 16px; 
+        }
+
+        /* FIX FOR SLIM BANNER ON MOBILE (Screenshot issue fix) */
+        @media (max-width: 768px) {
+            .banner-carousel.slim-carousel {
+                aspect-ratio: auto !important;
+                height: 85px !important;
+            }
+            .banner-carousel.slim-carousel .banner-slide img {
+                object-fit: cover !important;
+            }
+            .banner-carousel.slim-carousel .banner-fallback {
+                padding: 8px;
+            }
+            .banner-carousel.slim-carousel .banner-fallback h2 {
+                font-size: 14px;
+                margin-bottom: 0;
+            }
+            .banner-carousel.slim-carousel .banner-fallback p {
+                display: none;
+            }
+        }
 
         .banner-track { display: flex; width: 100%; height: 100%; will-change: transform; transition: transform 0.45s cubic-bezier(.22, .61, .36, 1); }
-        .banner-slide { flex: 0 0 100%; min-width: 100%; max-width: 100%; height: 100%; position: relative; display: block; text-decoration: none; }
+        .banner-slide { min-width: 100%; max-width: 100%; height: 100%; position: relative; flex-shrink: 0; display: block; text-decoration: none; }
         
-        /* Mobile height lock + object-fit cover so banner doesn't become a thin strip */
-        .banner-slide img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: center; user-select: none; -webkit-user-drag: none; pointer-events: none; }
-        
-        @media (max-width: 768px) {
-            .banner-carousel { aspect-ratio: auto; height: 250px; }
-            .banner-carousel.slim-carousel { aspect-ratio: auto; height: 90px; }
+        .banner-slide img { 
+            width: 100% !important; 
+            height: 100% !important; 
+            display: block; 
+            object-fit: contain !important; 
+            object-position: center; 
+            user-select: none; 
+            -webkit-user-drag: none; 
+            pointer-events: none; 
         }
 
         .banner-fallback { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 12px; background: linear-gradient(135deg, #dbeafe, #ede9fe, #fae8ff); }
@@ -244,21 +282,21 @@
         .faq-item.open .faq-answer-inner { padding-bottom: 18px; }
 
         /* =========================================================
-           8. RESTORED PREMIUM DARK FOOTER WITH SHARE BUTTON
+           8. RESTORED PREMIUM DARK FOOTER
         ========================================================= */
-        .footer-section { margin-top: 60px; background: #0a0f1d; color: #ffffff; border-radius: 32px 32px 0 0; padding: 55px 0 30px; }
+        .footer-section { margin-top: 60px; background: #0a0f1d; color: #ffffff; border-radius: 32px 32px 0 0; padding: 55px 0 30px; border-top: 4px solid #2563eb; }
         .footer-grid { display: grid; grid-template-columns: 1.5fr repeat(3, 1fr); gap: 40px; }
-        .footer-brand p { color: #94a3b8; font-size: 13px; margin: 12px 0 18px; }
-        .footer-column h3 { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #64748b; margin-bottom: 14px; }
-        .footer-links { display: flex; flex-direction: column; gap: 10px; }
-        .footer-link { color: #cbd5e1; font-size: 13px; transition: var(--transition); }
-        .footer-link:hover { color: #ffffff; text-decoration: none; }
+        .footer-brand p { color: #94a3b8; font-size: 13.5px; margin: 12px 0 18px; line-height: 1.8; }
+        .footer-column h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: #64748b; margin-bottom: 16px; font-weight: 800; }
+        .footer-links { display: flex; flex-direction: column; gap: 12px; }
+        .footer-link { color: #cbd5e1; font-size: 13.5px; transition: 0.2s; display: flex; align-items: center; gap: 8px; font-weight: 500; }
+        .footer-link:hover { color: #60a5fa; transform: translateX(3px); }
         
         .footer-share-box { margin-top: 18px; }
         .footer-share-btn { background: #2563eb; color: #ffffff; border: 0; padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 700; display: inline-flex; align-items: center; gap: 8px; cursor: pointer; box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35); transition: all 0.2s ease; }
         .footer-share-btn:hover { background: #1d4ed8; transform: translateY(-2px); }
         
-        .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.08); margin-top: 45px; padding-top: 20px; display: flex; justify-content: space-between; color: #64748b; font-size: 12px; }
+        .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.08); margin-top: 45px; padding-top: 20px; display: flex; justify-content: space-between; color: #64748b; font-size: 13px; font-weight: 500; }
         @media (max-width: 850px) { .footer-grid { grid-template-columns: 1fr 1fr; } .footer-brand { grid-column: 1 / -1; } }
     </style>
 </head>
@@ -313,7 +351,7 @@
         </div>
     </section>
 
-    <!-- Full White Side Navigation Drawer with Social Media Strip & Share Website -->
+    <!-- Full White Side Navigation Drawer -->
     <div class="drawer-overlay" id="menuOverlay"></div>
     <aside class="side-drawer" id="navDrawer">
         <div class="drawer-header">
@@ -349,7 +387,6 @@
                 <a class="social-link-btn fb" href="https://facebook.com/YOUR_LINK" target="_blank" aria-label="Facebook Page"><i class="fa-brands fa-facebook-f"></i></a>
                 <a class="social-link-btn tw" href="https://x.com/YOUR_LINK" target="_blank" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
             </div>
-            <!-- RESTORED SHARE WEBSITE BUTTON -->
             <button class="btn-share-full-site" id="drawerShareWebsiteBtn">
                 <i class="fa-solid fa-share-nodes"></i> Share Tveezal Website
             </button>
@@ -475,7 +512,6 @@
                         <a class="social-link-btn fb" href="https://facebook.com/YOUR_LINK" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
                         <a class="social-link-btn tw" href="https://x.com/YOUR_LINK" target="_blank" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
                     </div>
-                    <!-- RESTORED SHARE WEBSITE BUTTON -->
                     <div class="footer-share-box">
                         <button class="footer-share-btn" id="footerShareWebsiteBtn">
                             <i class="fa-solid fa-share-nodes"></i> Share Website
@@ -588,7 +624,7 @@
             { image: "assets/banner-10.webp", link: "format-converter.html", title: "Image Format Converter" }
         ];
 
-        // BOTTOM 10 BANNERS (Different Sequence for variety)
+        // BOTTOM 10 BANNERS
         const BOTTOM_BANNERS = [
             { image: "assets/banner-6.webp", link: "qr-generator-tool/index.html", title: "All-in-One Custom QR Generator" },
             { image: "assets/banner-7.webp", link: "font-changer.html", title: "Fancy Font Changer for Social Media" },
